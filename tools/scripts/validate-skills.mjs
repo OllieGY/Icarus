@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Validate the daedalus-kit hub.
+ * Validate the icarus hub.
  *
  *  - every skills/<name>/SKILL.md has name + description frontmatter
  *  - frontmatter name matches its folder name

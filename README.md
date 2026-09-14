@@ -1,4 +1,4 @@
-# daedalus-kit
+# Icarus
 
 Utopia Studio's Product Management hub. Skills, agents, tools, lessons.
 
@@ -10,19 +10,19 @@ ladder.
 ## Install
 
 ```
-/plugin marketplace add OllieGY/daedalus-kit
-/plugin install daedalus-kit@daedalus-kit
+/plugin marketplace add OllieGY/icarus
+/plugin install icarus@icarus
 ```
 
 That reads the repo's default branch, so merge this work to `main` first. Until then,
 point a session straight at a clone:
 
 ```bash
-git clone -b claude/confident-lamport-2tvdmt https://github.com/OllieGY/daedalus-kit
-claude --plugin-dir ./daedalus-kit
+git clone -b claude/confident-lamport-2tvdmt https://github.com/OllieGY/icarus
+claude --plugin-dir ./icarus
 ```
 
-Update later with `/plugin marketplace update daedalus-kit`.
+Update later with `/plugin marketplace update icarus`.
 
 ## What is in here
 

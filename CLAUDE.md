@@ -1,4 +1,4 @@
-# daedalus-kit — operating rules
+# icarus — operating rules
 
 This repo is Utopia Studio's Product Management hub. Any session that loads it inherits
 the Icarus method.
