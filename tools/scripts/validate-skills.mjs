@@ -140,6 +140,16 @@ try {
   err(`.claude-plugin/plugin.json does not parse — ${e.message}`);
 }
 
+try {
+  const mkt = JSON.parse(fs.readFileSync(path.join(ROOT, ".claude-plugin", "marketplace.json"), "utf8"));
+  const entry = (mkt.plugins || []).find((x) => x.name === plugin?.name);
+  if (!entry) err(`.claude-plugin/marketplace.json: no plugins entry named '${plugin?.name}'`);
+  else if (entry.version !== plugin?.version)
+    err(`marketplace.json version '${entry.version}' does not match plugin.json '${plugin?.version}'`);
+} catch (e) {
+  err(`.claude-plugin/marketplace.json does not parse — ${e.message}`);
+}
+
 const agentCount = checkMarkdownDir("agents", "description");
 const commandCount = checkMarkdownDir("commands", "description");
 

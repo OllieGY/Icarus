@@ -14,7 +14,15 @@ ladder.
 /plugin install daedalus-kit@daedalus-kit
 ```
 
-Or point a session straight at a clone: `claude --plugin-dir /path/to/daedalus-kit`.
+That reads the repo's default branch, so merge this work to `main` first. Until then,
+point a session straight at a clone:
+
+```bash
+git clone -b claude/confident-lamport-2tvdmt https://github.com/OllieGY/daedalus-kit
+claude --plugin-dir ./daedalus-kit
+```
+
+Update later with `/plugin marketplace update daedalus-kit`.
 
 ## What is in here
 
