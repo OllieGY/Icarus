@@ -33,6 +33,7 @@ Update later with `/plugin marketplace update icarus`.
 | **[Agents](./agents/)** | `icarus-critic`, an adversarial reviewer that grades work against the rules. Plus the persona-pack format for named agents with memory. |
 | **[Tools](./tools/)** | Skill-usage hook, the Icarus manifest, and a validator that catches rubric drift. |
 | **[Lessons](./lessons/LOG.md)** | Append-only. What the studio learned the hard way, and which rule it changed. |
+| **[Rebuilds](./rebuilds/)** | Candidate agent-ops skill drafts (inspired by BuilderIO/skills, MIT). Not graduated, not loaded by the plugin. |
 
 ## Commands
 
