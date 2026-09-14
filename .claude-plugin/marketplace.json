@@ -4,12 +4,12 @@
     "name": "The Utopia Studio",
     "url": "https://github.com/OllieGY/icarus"
   },
-  "description": "Utopia Studio's Product Management hub — the Icarus method as skills, agents, tools and lessons.",
+  "description": "Utopia Studio's Product Management hub — a gated method as skills, agents, tools and lessons.",
   "plugins": [
     {
       "name": "icarus",
       "source": "./",
-      "description": "Product Management hub. The 45 eval-gated Icarus skills, the golden rules they run on, an adversarial reviewer agent, and an append-only lessons log.",
+      "description": "Utopia Studio's Product Management hub: a gated Claude plugin — skills, agents, hooks, and tools — that takes a raw idea through eleven stages until it earns the right to become a company. Not a prompt pack.",
       "version": "0.1.0"
     }
   ]

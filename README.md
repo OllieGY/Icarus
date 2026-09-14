@@ -1,11 +1,30 @@
 # Icarus
 
-Utopia Studio's Product Management hub. Skills, agents, tools, lessons.
+Utopia Studio's product-building kit for Claude Code.
 
-The method is Icarus: an idea earns the right to become a company by passing gates, not by
-sounding good. Evidence is weighted the same way everywhere — money moved 1.0, behaviour
-0.7, artefact 0.5, commitment 0.3, opinion 0.1. A probe's job is to move a claim up that
-ladder.
+## What it is
+
+Icarus is a Claude plugin that loads Utopia Studio's judgment as skills, agents, hooks,
+and tools. It is the operating method for taking a raw idea through gated stages until it
+earns the right to become a company — not a prompt pack, not a generic PM curriculum.
+
+## Why it is useful
+
+Chat forgets. Pasteable playbooks drift. Icarus pins the same bar every fellow and agent
+run under: evidence weighted by what people did (money → behaviour → artefact →
+commitment → opinion), claims tagged `[Fact]` / `[Assumption]` / `[Hypothesis]`,
+challenge before help, kill criteria before build. Every skill ships an eval harness.
+Nothing new enters without clearing six graduation gates. That means faster co-builds with
+less theatre — and context cost only for skills that earn their seat.
+
+## How to use it
+
+1. Install the plugin (merge to `main` first, or clone this branch and point Claude at it).
+2. Start with `/icarus` — it routes which of the eleven stages apply and which to skip.
+3. Run the stage skills; when stuck, `/stress-test` for Pass / Redesign / Kill.
+4. Log hard lessons with `/lesson`. Keep copied Utopia skills verbatim. External finds go
+   in [`CATALOGUE.md`](./CATALOGUE.md) — fold or reject, never vendor wholesale.
+5. Before commit: `node tools/scripts/validate-skills.mjs`.
 
 ## Install
 
@@ -33,6 +52,7 @@ Update later with `/plugin marketplace update icarus`.
 | **[Agents](./agents/)** | `icarus-critic`, an adversarial reviewer that grades work against the rules. Plus the persona-pack format for named agents with memory. |
 | **[Tools](./tools/)** | Skill-usage hook, the Icarus manifest, and a validator that catches rubric drift. |
 | **[Lessons](./lessons/LOG.md)** | Append-only. What the studio learned the hard way, and which rule it changed. |
+| **[Catalogue](./CATALOGUE.md)** | Daily intake of external finds. Fold or reject (Rule 9). Not a second skills folder. |
 
 ## Commands
 
@@ -74,7 +94,8 @@ the skill it supersedes, anti-generic, and five real uses.
 
 Adding anything new means clearing the same bar. And nothing gets vendored wholesale: an
 external skill is folded into an existing one or rejected, because every skill Claude can
-load costs context on every session for every fellow.
+load costs context on every session for every fellow. Candidates live in
+[`CATALOGUE.md`](./CATALOGUE.md) until they are rebuilt in or killed.
 
 ```bash
 node tools/scripts/validate-skills.mjs
