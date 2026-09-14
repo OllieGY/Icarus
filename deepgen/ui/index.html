@@ -1,0 +1,924 @@
+<title>DeepGen Intake</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --brick-red: #CC5536;
+    --black: #3C3235;
+    --light-grey: #EEEEEE;
+    --white: #F8F8F8;
+    --black-80: #635B5E;
+    --black-60: #8F898B;
+    --black-40: #BDB7B9;
+    --black-20: #E3E1E2;
+    --red-80: #D77A59;
+    --red-60: #E3A385;
+    --red-40: #F0C6AF;
+    --red-20: #F6E2D7;
+    --font-primary: 'TWK Lausanne', 'Helvetica Neue', 'Arial', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+    --font-weight-light: 350;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --space-xl: 64px;
+    --space-2xl: 128px;
+
+    /* role tokens: light */
+    --ground: var(--white);
+    --panel: var(--light-grey);
+    --ink: var(--black);
+    --ink-muted: var(--black-80);
+    --ink-faint: var(--black-60);
+    --bar: var(--black-20);
+    --bar-strong: var(--black-40);
+    --accent: var(--brick-red);
+    --accent-ink: var(--brick-red);
+    --accent-soft: var(--red-20);
+    --accent-mid: var(--red-40);
+    --on-accent: var(--white);
+    --on-ink: var(--white);
+    --status-pass-bg: var(--black);
+    --status-pass-ink: var(--white);
+    --status-owed-bg: var(--red-40);
+    --status-owed-ink: var(--black);
+    --status-blocked-bg: var(--brick-red);
+    --status-blocked-ink: var(--white);
+    --status-empty-bg: var(--black-20);
+    --status-empty-ink: var(--black-80);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: var(--black);
+      --panel: var(--black-80);
+      --ink: var(--white);
+      --ink-muted: var(--black-20);
+      --ink-faint: var(--black-40);
+      --bar: var(--black-60);
+      --bar-strong: var(--black-40);
+      --accent: var(--brick-red);
+      --accent-ink: var(--red-60);
+      --accent-soft: var(--black-80);
+      --accent-mid: var(--red-80);
+      --on-accent: var(--white);
+      --on-ink: var(--black);
+      --status-pass-bg: var(--white);
+      --status-pass-ink: var(--black);
+      --status-owed-bg: var(--red-60);
+      --status-owed-ink: var(--black);
+      --status-blocked-bg: var(--brick-red);
+      --status-blocked-ink: var(--white);
+      --status-empty-bg: var(--black-60);
+      --status-empty-ink: var(--black-20);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: var(--black);
+    --panel: var(--black-80);
+    --ink: var(--white);
+    --ink-muted: var(--black-20);
+    --ink-faint: var(--black-40);
+    --bar: var(--black-60);
+    --bar-strong: var(--black-40);
+    --accent: var(--brick-red);
+    --accent-ink: var(--red-60);
+    --accent-soft: var(--black-80);
+    --accent-mid: var(--red-80);
+    --on-accent: var(--white);
+    --on-ink: var(--black);
+    --status-pass-bg: var(--white);
+    --status-pass-ink: var(--black);
+    --status-owed-bg: var(--red-60);
+    --status-owed-ink: var(--black);
+    --status-blocked-bg: var(--brick-red);
+    --status-blocked-ink: var(--white);
+    --status-empty-bg: var(--black-60);
+    --status-empty-ink: var(--black-20);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-light);
+    font-size: 15px;
+    line-height: 1.5;
+    padding-inline: var(--space-md);
+    padding-block: 0;
+  }
+  @media (min-width: 720px) { body { padding-inline: var(--space-lg); } }
+
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  h1 {
+    font-size: clamp(40px, 9vw, 112px);
+    line-height: 0.92;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+  }
+  h2 {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+  }
+  h3 {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    font-weight: var(--font-weight-medium);
+  }
+  p { margin: 0; max-width: 62ch; }
+  .muted { color: var(--ink-muted); }
+  .mono { font-family: var(--font-mono); font-weight: 400; font-size: 12px; letter-spacing: 0; }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .num { font-variant-numeric: tabular-nums; font-weight: var(--font-weight-medium); }
+
+  /* layout: asymmetric, rail left, content right */
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+    padding-block: var(--space-lg) var(--space-xl);
+    max-width: 1440px;
+  }
+  @media (min-width: 960px) {
+    .page { grid-template-columns: 340px minmax(0, 1fr); gap: var(--space-xl); }
+    .rail { position: sticky; top: var(--space-lg); align-self: start; }
+  }
+  .rail { display: grid; gap: var(--space-lg); }
+  .mark { display: flex; align-items: flex-end; gap: 6px; height: 28px; }
+  .mark .dot { width: 14px; height: 14px; background: var(--accent); }
+  .mark .barh { width: 44px; height: 6px; background: var(--ink); }
+  .mark .barv { width: 6px; height: 28px; background: var(--ink); }
+
+  .gates { display: grid; gap: var(--space-sm); }
+  .gate {
+    display: grid;
+    grid-template-columns: 8px 1fr auto;
+    align-items: stretch;
+    gap: var(--space-md);
+    background: var(--panel);
+    min-height: 56px;
+  }
+  .gate .stripe { background: var(--status-empty-bg); }
+  .gate[data-state="PASS"] .stripe { background: var(--status-pass-bg); }
+  .gate[data-state="OWED"] .stripe { background: var(--status-owed-bg); }
+  .gate[data-state="BLOCKED"] .stripe { background: var(--status-blocked-bg); }
+  .gate .body { padding-block: var(--space-sm); display: grid; gap: 2px; align-content: center; }
+  .gate .name { font-weight: var(--font-weight-medium); font-size: 14px; }
+  .gate .why { font-size: 12px; color: var(--ink-muted); }
+  .gate .state {
+    align-self: center;
+    margin-right: var(--space-sm);
+    padding: 4px 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    background: var(--status-empty-bg);
+    color: var(--status-empty-ink);
+  }
+  .gate[data-state="PASS"] .state { background: var(--status-pass-bg); color: var(--status-pass-ink); }
+  .gate[data-state="OWED"] .state { background: var(--status-owed-bg); color: var(--status-owed-ink); }
+  .gate[data-state="BLOCKED"] .state { background: var(--status-blocked-bg); color: var(--status-blocked-ink); }
+
+  .next {
+    background: var(--ink);
+    color: var(--on-ink);
+    padding: var(--space-md);
+    display: grid;
+    gap: var(--space-xs);
+  }
+  .next .label { color: var(--accent-mid); }
+  .next .step { font-weight: var(--font-weight-medium); font-size: 15px; }
+  .next .skill { font-family: var(--font-mono); font-size: 12px; color: var(--accent-mid); }
+
+  /* content column */
+  .content { display: grid; gap: var(--space-xl); min-width: 0; }
+  .intro { display: grid; gap: var(--space-md); }
+  .intro .kicker { display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center; }
+  .example-flag {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .example-flag[hidden] { display: none; }
+
+  section.block { display: grid; gap: var(--space-md); }
+  .block-head { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-md); align-items: start; }
+  .block-head .n { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); padding-top: 4px; }
+  .block-head .t { display: grid; gap: var(--space-xs); }
+  .block-head .t p { font-size: 13px; color: var(--ink-muted); }
+  .fields { display: grid; gap: var(--space-md); }
+  @media (min-width: 720px) { .fields { grid-template-columns: 48px 1fr; } .fields > * { grid-column: 2; } }
+  .row { display: grid; gap: var(--space-md); }
+  @media (min-width: 720px) { .row.two { grid-template-columns: 1fr 1fr; } .row.three { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .field { display: grid; gap: var(--space-xs); }
+  .field label { font-size: 13px; font-weight: var(--font-weight-medium); }
+  .field .hint { font-size: 12px; color: var(--ink-muted); }
+  input[type="text"], input[type="number"], textarea, select {
+    width: 100%;
+    font: inherit;
+    font-weight: var(--font-weight-light);
+    color: var(--ink);
+    background: var(--panel);
+    border: 0;
+    border-bottom: 4px solid var(--bar-strong);
+    padding: 10px 12px;
+    outline: none;
+    border-radius: 0;
+  }
+  textarea { min-height: 72px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { border-bottom-color: var(--accent); }
+  input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  select { appearance: none; -webkit-appearance: none; padding-right: 32px; background-image: none; }
+  .select { position: relative; }
+  .select::after { content: ""; position: absolute; right: 12px; top: 18px; width: 10px; height: 6px; background: var(--ink); pointer-events: none; }
+
+  .ladder { display: grid; gap: var(--space-xs); }
+  .rung { display: grid; grid-template-columns: 24px 56px 1fr; gap: var(--space-sm); align-items: center; padding: 8px 10px; background: var(--panel); cursor: pointer; }
+  .rung input { margin: 0; accent-color: var(--brick-red); }
+  .rung .w { font-family: var(--font-mono); font-size: 12px; font-weight: 500; }
+  .rung[data-on="1"] { background: var(--ink); color: var(--on-ink); }
+  .rung[data-on="1"] .w { color: var(--accent-mid); }
+  .rung .d { font-size: 13px; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  .tablewrap { overflow-x: auto; }
+  th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; padding: 6px 8px 6px 0; }
+  td { padding: 4px 8px 4px 0; vertical-align: top; }
+  td input, td select { padding: 8px 10px; border-bottom-width: 3px; }
+  table.sources { min-width: 720px; }
+  table.modes { min-width: 640px; }
+  .toggle { display: inline-flex; gap: 0; }
+  .toggle button { font: inherit; font-size: 13px; padding: 8px 12px; border: 0; background: var(--panel); color: var(--ink); cursor: pointer; border-radius: 0; }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+
+  .actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center; }
+  .btn { font: inherit; font-weight: var(--font-weight-medium); font-size: 14px; letter-spacing: 0.02em; padding: 12px 18px; border: 0; border-radius: 0; cursor: pointer; background: var(--panel); color: var(--ink); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); }
+  .btn.ink { background: var(--ink); color: var(--on-ink); }
+  .btn[disabled] { opacity: 0.5; cursor: default; }
+  .status { font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); }
+
+  pre.brief {
+    background: var(--panel);
+    color: var(--ink);
+    padding: var(--space-md);
+    margin: 0;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    max-height: 480px;
+  }
+  .saved { display: grid; gap: var(--space-xs); }
+  .saved .item { display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); padding: 8px 12px; background: var(--panel); font-size: 13px; }
+  .saved .item .mono { color: var(--ink-muted); }
+  .saved .item button { font: inherit; font-size: 12px; background: none; border: 0; color: var(--accent-ink); cursor: pointer; padding: 0; text-decoration: underline; }
+
+  footer { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-lg); padding-block: var(--space-xl) var(--space-lg); flex-wrap: wrap; }
+  .lockup { display: grid; gap: var(--space-sm); }
+  .lockup .word { font-weight: var(--font-weight-bold); letter-spacing: 0.04em; text-transform: uppercase; font-size: 14px; }
+  .lockup .sub { font-size: 12px; color: var(--ink-muted); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .gate .stripe, .gate .state, .rung { transition: background-color 160ms linear, color 160ms linear; }
+  }
+</style>
+
+<div class="page">
+  <aside class="rail" aria-label="Readiness">
+    <div class="mark" aria-hidden="true"><span class="dot"></span><span class="barh"></span><span class="barv"></span></div>
+    <div>
+      <h1>Deep<br>Gen</h1>
+      <p class="muted" style="margin-top: 8px; font-size: 13px;">Domain intake. Five gates, one next action, no score over nothing.</p>
+    </div>
+    <div class="gates" id="gates" role="list"></div>
+    <div class="next" id="next">
+      <span class="label">Next action</span>
+      <span class="step" id="next-step">Name the one decision.</span>
+      <span class="skill" id="next-skill">agent-design · step 1</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="intro">
+      <div class="kicker">
+        <span class="label">Utopia Studio · Icarus hub</span>
+        <span class="example-flag" id="example-flag">Example brief loaded. Not a real brief.</span>
+      </div>
+      <p>Fill only what you can point at. An empty field is a question the researcher will ask, not a zero. Every value gets a tag: <span class="mono">[Fact]</span> when you can cite the instance, <span class="mono">[Assumption]</span> when you cannot.</p>
+      <div class="actions">
+        <button class="btn" id="btn-example" type="button">Load example</button>
+        <button class="btn" id="btn-clear" type="button">Clear</button>
+      </div>
+    </div>
+
+    <section class="block" aria-labelledby="h-domain">
+      <div class="block-head"><span class="n">01</span><div class="t"><h2 id="h-domain">Domain</h2><p>Which vertical, which thesis pod, which fellow.</p></div></div>
+      <div class="fields">
+        <div class="row three">
+          <div class="field"><label for="domain-name">Domain</label><input type="text" id="domain-name" data-path="domain.name" placeholder="e.g. Permit-to-work gas hazard review"></div>
+          <div class="field"><label for="domain-pod">Pod</label><div class="select"><select id="domain-pod" data-path="domain.pod">
+            <option value="">Choose a pod</option>
+            <option>Infrastructure Intelligence</option><option>Decarbonisation</option><option>Sovereign Systems</option><option>Capital Infrastructure</option><option>National Resilience</option><option>Commerce Stack</option>
+          </select></div></div>
+          <div class="field"><label for="domain-fellow">Fellow</label><input type="text" id="domain-fellow" data-path="domain.fellow" placeholder="Who owns this"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-decision">
+      <div class="block-head"><span class="n">02</span><div class="t"><h2 id="h-decision">The one decision</h2><p>Name one recurring decision your expert gets right that a new hire gets wrong. Not a domain, not a copilot. One call.</p></div></div>
+      <div class="fields">
+        <div class="field"><label for="decision-statement">Decision</label><textarea id="decision-statement" data-path="decision.statement" placeholder="At each permit request, hold or proceed on the gas hazard."></textarea></div>
+        <div class="field"><label for="decision-instance">A real instance</label><input type="text" id="decision-instance" data-path="decision.real_instance" placeholder="When, where, who made it. Empty means [Assumption]."><span class="hint">This is what turns the decision from [Assumption] to [Fact].</span></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-job">
+      <div class="block-head"><span class="n">03</span><div class="t"><h2 id="h-job">Job line</h2><p>Who gets what single output, on what trigger, judged pass by what observable condition. The judged-by clause is the part people skip.</p></div></div>
+      <div class="fields">
+        <div class="row two">
+          <div class="field"><label for="job-who">Who</label><input type="text" id="job-who" data-path="job_line.who" placeholder="The duty safety officer"></div>
+          <div class="field"><label for="job-output">Gets what single output</label><input type="text" id="job-output" data-path="job_line.output" placeholder="A hold-or-proceed draft with the reason"></div>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="job-trigger">On what trigger</label><input type="text" id="job-trigger" data-path="job_line.trigger" placeholder="Each permit request on the rig"></div>
+          <div class="field"><label for="job-judged">Judged pass by</label><input type="text" id="job-judged" data-path="job_line.judged_by" placeholder="The officer's committed decision matched the draft, or the override was logged"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-current">
+      <div class="block-head"><span class="n">04</span><div class="t"><h2 id="h-current">Who does it today</h2><p>The current human, how often, how long. From a log if you have one, from memory if not.</p></div></div>
+      <div class="fields">
+        <div class="row three">
+          <div class="field"><label for="cs-who">Who does it</label><input type="text" id="cs-who" data-path="current_state.who_does_it"></div>
+          <div class="field"><label for="cs-freq">Times per week</label><input type="number" id="cs-freq" min="0" data-path="current_state.frequency_per_week" class="num"></div>
+          <div class="field"><label for="cs-min">Minutes per instance</label><input type="number" id="cs-min" min="0" data-path="current_state.minutes_per_instance" class="num"></div>
+        </div>
+        <div class="field"><label>Source of these numbers</label><div class="toggle" role="group" aria-label="Source of numbers"><button type="button" data-tag="current_state.tag" data-value="Fact">From a log [Fact]</button><button type="button" data-tag="current_state.tag" data-value="Assumption">From memory [Assumption]</button></div></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-demand">
+      <div class="block-head"><span class="n">05</span><div class="t"><h2 id="h-demand">Demand evidence</h2><p>Pick the best single rung. Rungs never stack: fifty verbal yeses are still 0.3. Cite the one instance.</p></div></div>
+      <div class="fields">
+        <div class="ladder" id="ladder" role="radiogroup" aria-label="Evidence rung">
+          <label class="rung" data-rung="1"><input type="radio" name="rung" value="1"><span class="w">1.0</span><span class="d">Money moved. Cash or budget actually changed hands.</span></label>
+          <label class="rung" data-rung="0.7"><input type="radio" name="rung" value="0.7"><span class="w">0.7</span><span class="d">Behaviour observed. You saw them do it, or hold the logs.</span></label>
+          <label class="rung" data-rung="0.5"><input type="radio" name="rung" value="0.5"><span class="w">0.5</span><span class="d">Artefact shown. A thing they made or use.</span></label>
+          <label class="rung" data-rung="0.3"><input type="radio" name="rung" value="0.3"><span class="w">0.3</span><span class="d">Verbal commitment. A specific promise about the future.</span></label>
+          <label class="rung" data-rung="0.1"><input type="radio" name="rung" value="0.1"><span class="w">0.1</span><span class="d">Opinion. A view, a feeling, a prediction.</span></label>
+        </div>
+        <div class="field"><label for="demand-instance">The one cited instance</label><input type="text" id="demand-instance" data-path="demand.instance" placeholder="Who, when, what they did or paid"></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-sources">
+      <div class="block-head"><span class="n">06</span><div class="t"><h2 id="h-sources">Data sources you hold</h2><p>Up to six. Your guess at the band: R means a model can already reach it, G means gated, P means created by the work and held privately. The researcher decides; your guess is [Assumption].</p></div></div>
+      <div class="fields">
+        <div class="tablewrap"><table class="sources" id="sources">
+          <thead><tr><th>Source</th><th>What it holds</th><th>Band</th><th>Access path</th><th>Artefacts held</th><th>Compounds</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <div class="row two">
+          <div class="field"><label for="artefacts-week">Real artefacts you can hand over this week</label><input type="number" id="artefacts-week" min="0" data-path="artefacts_this_week" class="num"><span class="hint">Independently checkable items. One document sliced ten ways is one.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-expert">
+      <div class="block-head"><span class="n">07</span><div class="t"><h2 id="h-expert">Expert access</h2><p>Can a real expert be shadowed doing the real task, live or recorded? A talk-through over a call gives the explicit half and nothing else.</p></div></div>
+      <div class="fields">
+        <div class="row three">
+          <div class="field"><label>Watchable</label><div class="toggle" role="group" aria-label="Expert watchable"><button type="button" data-bool="expert.watchable" data-value="true">Yes</button><button type="button" data-bool="expert.watchable" data-value="false">No</button></div></div>
+          <div class="field"><label for="expert-hours">Hours per week for shadowing and labelling</label><input type="number" id="expert-hours" min="0" step="0.5" data-path="expert.hours_per_week" class="num"></div>
+          <div class="field"><label for="expert-adj">Named adjudicator for contested labels</label><input type="text" id="expert-adj" data-path="expert.adjudicator"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-modes">
+      <div class="block-head"><span class="n">08</span><div class="t"><h2 id="h-modes">Cost of one failure</h2><p>Per mode. The evidence column is the one that matters: an incident, a regulation, or an invoice sizes a guardrail. Opinion does not.</p></div></div>
+      <div class="fields">
+        <div class="tablewrap"><table class="modes" id="modes">
+          <thead><tr><th>Mode</th><th>Cost of one failure</th><th>Band</th><th>Evidence</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-deploy">
+      <div class="block-head"><span class="n">09</span><div class="t"><h2 id="h-deploy">Deployment</h2><p>Qatar first and global both have to hold. Either missing is a redesign, not a rank.</p></div></div>
+      <div class="fields">
+        <div class="row two">
+          <div class="field"><label for="q-reg">Qatar regulator</label><input type="text" id="q-reg" data-path="deployment.qatar.regulator"></div>
+          <div class="field"><label for="q-res">Data residency</label><input type="text" id="q-res" data-path="deployment.qatar.data_residency" placeholder="Where the data must sit"></div>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="q-lang">Languages</label><input type="text" id="q-lang" data-path="deployment.qatar.languages_text" placeholder="Arabic, English"></div>
+          <div class="field"><label for="q-stake">QDB or client stakeholder who cares</label><input type="text" id="q-stake" data-path="deployment.qatar.stakeholder"></div>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="g-reg">Global equivalent regulation</label><input type="text" id="g-reg" data-path="deployment.global.equivalent_regulation"></div>
+          <div class="field"><label for="g-mkt">First market outside Qatar</label><input type="text" id="g-mkt" data-path="deployment.global.first_market"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-tasks">
+      <div class="block-head"><span class="n">10</span><div class="t"><h2 id="h-tasks">First three tasks</h2><p>What the agent would run first, and what done looks like for each. These seed the golden set's coverage.</p></div></div>
+      <div class="fields" id="tasks"></div>
+    </section>
+
+    <section class="block" aria-labelledby="h-econ">
+      <div class="block-head"><span class="n">11</span><div class="t"><h2 id="h-econ">Economics</h2><p>Value of one outcome and the ceiling for cost per outcome. Name where each number comes from.</p></div></div>
+      <div class="fields">
+        <div class="row three">
+          <div class="field"><label for="econ-value">Value per outcome</label><input type="number" id="econ-value" min="0" data-path="economics.value_per_outcome" class="num"></div>
+          <div class="field"><label for="econ-ceiling">Cost ceiling per outcome</label><input type="number" id="econ-ceiling" min="0" data-path="economics.cost_ceiling_per_outcome" class="num"></div>
+          <div class="field"><label for="econ-cur">Currency</label><input type="text" id="econ-cur" data-path="economics.currency" placeholder="QAR"></div>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="econ-src">Source of the value number</label><input type="text" id="econ-src" data-path="economics.value_source" placeholder="Quote, invoice, incident cost, or estimate"></div>
+          <div class="field"><label>Tag</label><div class="toggle" role="group" aria-label="Economics tag"><button type="button" data-tag="economics.tag" data-value="Fact">Quote or invoice [Fact]</button><button type="button" data-tag="economics.tag" data-value="Assumption">Estimate [Assumption]</button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-kill">
+      <div class="block-head"><span class="n">12</span><div class="t"><h2 id="h-kill">Kill criteria</h2><p>What would make you stop. One line.</p></div></div>
+      <div class="fields">
+        <div class="field"><label for="kill">Kill criteria</label><input type="text" id="kill" data-path="kill_criteria"></div>
+        <div class="field"><label for="author">Your name</label><input type="text" id="author" data-path="author"></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-brief">
+      <div class="block-head"><span class="n">&nbsp;</span><div class="t"><h2 id="h-brief">Domain brief</h2><p>What the intake emits. Saved briefs become Domain Ledger candidates once the researcher has banded the sources.</p></div></div>
+      <div class="fields">
+        <div class="actions">
+          <button class="btn primary" id="btn-save" type="button">Save brief</button>
+          <button class="btn ink" id="btn-copy" type="button">Copy JSON</button>
+          <button class="btn" id="btn-download" type="button" hidden>Download JSON</button>
+          <span class="status" id="save-status"></span>
+        </div>
+        <pre class="brief" id="brief-json"></pre>
+        <div id="saved-wrap" hidden>
+          <h3 style="margin-bottom: 8px;">Saved briefs</h3>
+          <div class="saved" id="saved"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="lockup">
+        <div class="mark" aria-hidden="true"><span class="dot"></span><span class="barh"></span></div>
+        <span class="word">Utopia Studio</span>
+        <span class="sub">DeepGen intake · composes the Icarus skills · design, not graduated</span>
+      </div>
+      <span class="mono muted">deepgen/INTAKE.md</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var MODES = ['Miss', 'False alarm', 'Confidently wrong', 'Wrong format', 'Too slow', 'Silent failure'];
+  var GATE_DEFS = [
+    { id: 'decision', name: 'Decision named', skill: 'agent-design · step 1' },
+    { id: 'seed', name: 'Seed exists', skill: 'yoda-data-sourcing · step 5' },
+    { id: 'expert', name: 'Expert watchable', skill: 'tacit-knowledge-interview · step 0' },
+    { id: 'cost', name: 'Cost of failure stated', skill: 'guardrail-design · step 2' },
+    { id: 'demand', name: 'Demand rung ≥ 0.3', skill: 'evidence-ladder' }
+  ];
+
+  function blank() {
+    return {
+      id: '', created_at: '', author: '',
+      domain: { name: '', pod: '', fellow: '' },
+      decision: { statement: '', real_instance: '', tag: 'Assumption' },
+      job_line: { who: '', output: '', trigger: '', judged_by: '' },
+      current_state: { who_does_it: '', frequency_per_week: null, minutes_per_instance: null, tag: 'Assumption' },
+      demand: { rung: null, instance: '' },
+      sources: [],
+      artefacts_this_week: null,
+      expert: { watchable: null, hours_per_week: null, adjudicator: '', tag: 'Assumption' },
+      failure_modes: MODES.map(function (m) { return { mode: m, cost_of_one: '', cost_band: 'Unknown', evidence: 'none' }; }),
+      deployment: { qatar: { regulator: '', data_residency: '', languages_text: '', stakeholder: '' }, global: { equivalent_regulation: '', first_market: '' } },
+      first_tasks: [ { task: '', done_looks_like: '' }, { task: '', done_looks_like: '' }, { task: '', done_looks_like: '' } ],
+      economics: { value_per_outcome: null, value_source: '', cost_ceiling_per_outcome: null, currency: '', tag: 'Assumption' },
+      kill_criteria: ''
+    };
+  }
+
+  // Example: the Barrier Intelligence shape already worked in the Icarus skill examples.
+  // Marked as an example on screen. Numbers are illustrative, not measured.
+  function example() {
+    var b = blank();
+    b.author = 'Example';
+    b.domain = { name: 'Permit-to-work gas hazard review', pod: 'National Resilience', fellow: 'Satheesh / Barrier Intelligence' };
+    b.decision = { statement: 'At each permit request on the rig, hold or proceed on the gas hazard, and draft the reason for the duty safety officer.', real_instance: 'Duty officer overrode a soft LEL alarm on a night shift and held the permit; logged in the shift field log.', tag: 'Fact' };
+    b.job_line = { who: 'The duty safety officer', output: 'A hold-or-proceed draft with the reason', trigger: 'Each permit request on the rig', judged_by: 'The committed decision matched the draft, or the override was logged with a cue' };
+    b.current_state = { who_does_it: 'Duty safety officer, per shift', frequency_per_week: null, minutes_per_instance: null, tag: 'Assumption' };
+    b.demand = { rung: 0.5, instance: 'The operator showed their own permit log and the alarm-override cheat sheet the officers keep.' };
+    b.sources = [
+      { name: 'Shift field logs', holds: 'Permit decisions, overrides, outcomes', band_guess: 'P', access_path: 'Operator hands over exports each week', artefacts_held: 40, compounds_with_use: true },
+      { name: 'Shadow operator threads', holds: 'Prompts and corrections officers already run', band_guess: 'P', access_path: 'Officers share threads', artefacts_held: 0, compounds_with_use: true },
+      { name: 'Rig permits', holds: 'Issued permits, conditions, sign-offs', band_guess: 'G', access_path: 'Records request', artefacts_held: 0, compounds_with_use: false },
+      { name: 'Detector telemetry', holds: 'Gas readings by zone', band_guess: 'P', access_path: 'Vendor-owned; needs a data-rights clause', artefacts_held: 0, compounds_with_use: true },
+      { name: 'Public gas-safety standards', holds: 'Thresholds, procedures', band_guess: 'R', access_path: 'Public', artefacts_held: 0, compounds_with_use: false }
+    ];
+    b.artefacts_this_week = 40;
+    b.expert = { watchable: true, hours_per_week: null, adjudicator: '', tag: 'Assumption' };
+    b.failure_modes = [
+      { mode: 'Miss', cost_of_one: 'A gas hazard proceeds. Injury or fatality.', cost_band: 'Catastrophic', evidence: 'regulation' },
+      { mode: 'False alarm', cost_of_one: 'A permit held on sensor noise; delay to the job.', cost_band: 'High', evidence: 'opinion' },
+      { mode: 'Confidently wrong', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Wrong format', cost_of_one: 'Draft unusable; officer rewrites.', cost_band: 'Low', evidence: 'opinion' },
+      { mode: 'Too slow', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Silent failure', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' }
+    ];
+    b.deployment = { qatar: { regulator: '', data_residency: 'In-country', languages_text: 'English, Arabic', stakeholder: '' }, global: { equivalent_regulation: '', first_market: '' } };
+    b.first_tasks = [
+      { task: 'Draft hold-or-proceed for one permit request', done_looks_like: 'Officer commits with zero edits, or edits are logged' },
+      { task: 'Flag a permit whose conditions conflict with the zone reading', done_looks_like: 'Flag matches the officer\'s call on record' },
+      { task: 'Refuse when the reading is missing', done_looks_like: 'Output says not enough signal, no draft' }
+    ];
+    b.economics = { value_per_outcome: null, value_source: '', cost_ceiling_per_outcome: null, currency: 'QAR', tag: 'Assumption' };
+    b.kill_criteria = 'If the operator will not share field logs under a signed clause within one quarter.';
+    return b;
+  }
+
+  var brief = blank();
+  var isExample = false;
+
+  // ---------- helpers ----------
+  function getPath(obj, path) { return path.split('.').reduce(function (o, k) { return (o == null) ? undefined : o[k]; }, obj); }
+  function setPath(obj, path, v) { var ks = path.split('.'); var o = obj; for (var i = 0; i < ks.length - 1; i++) { if (o[ks[i]] == null) o[ks[i]] = {}; o = o[ks[i]]; } o[ks[ks.length - 1]] = v; }
+  function $(id) { return document.getElementById(id); }
+  function el(tag, attrs, children) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'text') e.textContent = attrs[k]; else if (k === 'html') e.innerHTML = attrs[k]; else e.setAttribute(k, attrs[k]); });
+    (children || []).forEach(function (c) { e.appendChild(c); });
+    return e;
+  }
+  function filled(s) { return typeof s === 'string' && s.trim().length > 0; }
+  function num(v) { return (v === '' || v == null || isNaN(Number(v))) ? null : Number(v); }
+  function uid() { return 'b_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7); }
+
+  // ---------- gates ----------
+  function computeGates(b) {
+    var g = {};
+    var hasDec = filled(b.decision.statement);
+    var hasJob = filled(b.job_line.who) && filled(b.job_line.output) && filled(b.job_line.trigger);
+    var hasJudged = filled(b.job_line.judged_by);
+    if (hasDec && hasJob && hasJudged) g.decision = 'PASS';
+    else if (hasDec || hasJob || hasJudged) g.decision = 'OWED';
+    else g.decision = 'BLOCKED';
+
+    var p = b.sources.filter(function (s) { return s.band_guess === 'P'; });
+    var pOK = p.some(function (s) { return filled(s.access_path) && Number(s.artefacts_held) > 0; });
+    var gOnly = b.sources.some(function (s) { return s.band_guess === 'G'; });
+    if (pOK) g.seed = 'PASS';
+    else if (p.length || gOnly) g.seed = 'OWED';
+    else g.seed = 'BLOCKED';
+
+    if (b.expert.watchable === true && Number(b.expert.hours_per_week) >= 2) g.expert = 'PASS';
+    else if (b.expert.watchable === true) g.expert = 'OWED';
+    else g.expert = 'BLOCKED';
+
+    var costed = b.failure_modes.filter(function (m) { return filled(m.cost_of_one) && m.evidence !== 'none' && m.evidence !== 'opinion'; });
+    var anyCost = b.failure_modes.some(function (m) { return filled(m.cost_of_one); });
+    if (costed.length === b.failure_modes.length) g.cost = 'PASS';
+    else if (costed.length > 0 || anyCost) g.cost = 'OWED';
+    else g.cost = 'BLOCKED';
+
+    if (b.demand.rung != null && b.demand.rung >= 0.3 && filled(b.demand.instance)) g.demand = 'PASS';
+    else if (b.demand.rung != null && b.demand.rung >= 0.3) g.demand = 'OWED';
+    else g.demand = 'BLOCKED';
+    return g;
+  }
+
+  function gateWhy(id, state, b) {
+    if (id === 'decision') {
+      if (state === 'PASS') return 'Decision and job line with a judged-by clause.';
+      if (!filled(b.decision.statement)) return 'No decision named yet.';
+      if (!filled(b.job_line.judged_by)) return 'Job line has no judged-by clause.';
+      return 'Job line incomplete.';
+    }
+    if (id === 'seed') {
+      if (state === 'PASS') return 'A P-band source with an access path and artefacts held.';
+      if (state === 'OWED') return 'P or G rows exist, but no P row has both an access path and artefacts.';
+      return 'Only model-reachable sources, or none. Not a moat seed.';
+    }
+    if (id === 'expert') {
+      if (state === 'PASS') return 'Watchable, with ' + b.expert.hours_per_week + ' h/week.';
+      if (state === 'OWED') return 'Watchable, but fewer than 2 h/week, or hours not stated.';
+      return 'No watchable expert. Talk-throughs give the explicit half only.';
+    }
+    if (id === 'cost') {
+      var n = b.failure_modes.filter(function (m) { return filled(m.cost_of_one) && m.evidence !== 'none' && m.evidence !== 'opinion'; }).length;
+      if (state === 'PASS') return 'All six modes costed with evidence.';
+      if (state === 'OWED') return n + ' of 6 modes costed on evidence better than opinion.';
+      return 'No mode costed, or opinion only. A guardrail cannot be sized.';
+    }
+    if (id === 'demand') {
+      if (state === 'PASS') return 'Rung ' + b.demand.rung + ' with a cited instance.';
+      if (state === 'OWED') return 'Rung ' + b.demand.rung + ', no instance cited.';
+      return b.demand.rung == null ? 'No rung chosen.' : 'Opinion only. Floor is 0.3.';
+    }
+    return '';
+  }
+
+  function nextAction(g) {
+    var order = ['decision', 'seed', 'expert', 'cost', 'demand'];
+    for (var i = 0; i < order.length; i++) {
+      var id = order[i];
+      if (g[id] !== 'PASS') {
+        var def = GATE_DEFS.filter(function (d) { return d.id === id; })[0];
+        var step = {
+          decision: g.decision === 'BLOCKED' ? 'Name the one decision an expert gets right and a new hire gets wrong.' : 'Finish the job line: who, output, trigger, judged pass by what.',
+          seed: g.seed === 'BLOCKED' ? 'Find the workflow exhaust: what does doing the task leave behind?' : 'Give the P-band source an access path and count the artefacts held.',
+          expert: g.expert === 'BLOCKED' ? 'Secure a shadowing session with a real expert on the real task.' : 'Commit at least 2 expert hours a week for shadowing and labelling.',
+          cost: 'Cost each failure mode from an incident, a regulation, or an invoice.',
+          demand: g.demand === 'BLOCKED' ? 'Get one signal above opinion: a commitment, an artefact, a behaviour.' : 'Cite the one instance behind the rung.'
+        }[id];
+        return { step: step, skill: def.skill, moves_gate: id };
+      }
+    }
+    return { step: 'Ready for the researcher. Not validated.', skill: 'yoda-data-sourcing · full run', moves_gate: 'none' };
+  }
+
+  function renderGates() {
+    var g = computeGates(brief);
+    var wrap = $('gates');
+    wrap.innerHTML = '';
+    GATE_DEFS.forEach(function (d) {
+      var state = g[d.id];
+      var node = el('div', { 'class': 'gate', 'data-state': state, role: 'listitem' }, [
+        el('span', { 'class': 'stripe', 'aria-hidden': 'true' }),
+        el('div', { 'class': 'body' }, [ el('span', { 'class': 'name', text: d.name }), el('span', { 'class': 'why', text: gateWhy(d.id, state, brief) }) ]),
+        el('span', { 'class': 'state', text: state })
+      ]);
+      wrap.appendChild(node);
+    });
+    var n = nextAction(g);
+    $('next-step').textContent = n.step;
+    $('next-skill').textContent = n.skill;
+    return { gates: g, next: n };
+  }
+
+  // ---------- emit ----------
+  function emit() {
+    var r = renderGates();
+    var out = JSON.parse(JSON.stringify(brief));
+    out.id = out.id || uid();
+    out.created_at = out.created_at || new Date().toISOString();
+    out.decision.tag = filled(out.decision.real_instance) ? 'Fact' : 'Assumption';
+    out.expert.tag = (out.expert.watchable === true && filled(out.expert.adjudicator)) ? 'Fact' : 'Assumption';
+    out.deployment.qatar.languages = filled(out.deployment.qatar.languages_text) ? out.deployment.qatar.languages_text.split(',').map(function (s) { return s.trim(); }).filter(Boolean) : [];
+    delete out.deployment.qatar.languages_text;
+    out.sources = out.sources.filter(function (s) { return filled(s.name); });
+    out.first_tasks = out.first_tasks.filter(function (t) { return filled(t.task); });
+    out.gates = r.gates;
+    out.next_action = r.next;
+    out.example = isExample;
+    brief.id = out.id; brief.created_at = out.created_at;
+    $('brief-json').textContent = JSON.stringify(out, null, 2);
+    try { localStorage.setItem('deepgen.draft', JSON.stringify({ brief: brief, isExample: isExample })); } catch (e) {}
+    return out;
+  }
+
+  // ---------- bind form ----------
+  function bindInputs() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-path]'), function (input) {
+      input.addEventListener('input', function () {
+        var v = input.type === 'number' ? num(input.value) : input.value;
+        setPath(brief, input.getAttribute('data-path'), v);
+        emit();
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tag]'), function (btn) {
+      btn.addEventListener('click', function () { setPath(brief, btn.getAttribute('data-tag'), btn.getAttribute('data-value')); syncToggles(); emit(); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-bool]'), function (btn) {
+      btn.addEventListener('click', function () { setPath(brief, btn.getAttribute('data-bool'), btn.getAttribute('data-value') === 'true'); syncToggles(); emit(); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('input[name="rung"]'), function (r) {
+      r.addEventListener('change', function () { brief.demand.rung = Number(r.value); syncLadder(); emit(); });
+    });
+  }
+
+  function syncToggles() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tag],[data-bool]'), function (btn) {
+      var path = btn.getAttribute('data-tag') || btn.getAttribute('data-bool');
+      var cur = getPath(brief, path);
+      var want = btn.getAttribute('data-value');
+      var on = (typeof cur === 'boolean') ? String(cur) === want : cur === want;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  function syncLadder() {
+    Array.prototype.forEach.call(document.querySelectorAll('.rung'), function (l) {
+      var on = Number(l.getAttribute('data-rung')) === brief.demand.rung;
+      l.setAttribute('data-on', on ? '1' : '0');
+      l.querySelector('input').checked = on;
+    });
+  }
+
+  function renderSources() {
+    var tb = $('sources').querySelector('tbody');
+    tb.innerHTML = '';
+    while (brief.sources.length < 6) brief.sources.push({ name: '', holds: '', band_guess: '', access_path: '', artefacts_held: null, compounds_with_use: false });
+    brief.sources.forEach(function (s, i) {
+      var tr = el('tr');
+      function cell(input) { var td = el('td'); td.appendChild(input); tr.appendChild(td); }
+      var name = el('input', { type: 'text', id: 'src-name-' + i, 'aria-label': 'Source ' + (i + 1) + ' name' }); name.value = s.name || '';
+      name.addEventListener('input', function () { s.name = name.value; emit(); }); cell(name);
+      var holds = el('input', { type: 'text', id: 'src-holds-' + i, 'aria-label': 'Source ' + (i + 1) + ' holds' }); holds.value = s.holds || '';
+      holds.addEventListener('input', function () { s.holds = holds.value; emit(); }); cell(holds);
+      var band = el('select', { id: 'src-band-' + i, 'aria-label': 'Source ' + (i + 1) + ' band' });
+      [['', '–'], ['R', 'R reachable'], ['G', 'G gated'], ['P', 'P proprietary']].forEach(function (o) { var op = el('option', { value: o[0], text: o[1] }); band.appendChild(op); });
+      band.value = s.band_guess || ''; band.addEventListener('change', function () { s.band_guess = band.value; emit(); });
+      var sel = el('div', { 'class': 'select' }, [band]); var td = el('td'); td.appendChild(sel); tr.appendChild(td);
+      var acc = el('input', { type: 'text', id: 'src-access-' + i, 'aria-label': 'Source ' + (i + 1) + ' access path' }); acc.value = s.access_path || '';
+      acc.addEventListener('input', function () { s.access_path = acc.value; emit(); }); cell(acc);
+      var n = el('input', { type: 'number', min: '0', id: 'src-count-' + i, 'class': 'num', 'aria-label': 'Source ' + (i + 1) + ' artefacts held' }); n.value = s.artefacts_held == null ? '' : s.artefacts_held;
+      n.addEventListener('input', function () { s.artefacts_held = num(n.value); emit(); }); cell(n);
+      var c = el('input', { type: 'checkbox', id: 'src-comp-' + i, 'aria-label': 'Source ' + (i + 1) + ' compounds with use' }); c.checked = !!s.compounds_with_use; c.style.accentColor = '#CC5536';
+      c.addEventListener('change', function () { s.compounds_with_use = c.checked; emit(); }); cell(c);
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderModes() {
+    var tb = $('modes').querySelector('tbody');
+    tb.innerHTML = '';
+    brief.failure_modes.forEach(function (m, i) {
+      var tr = el('tr');
+      tr.appendChild(el('td', { text: m.mode, 'class': 'num' }));
+      var cost = el('input', { type: 'text', id: 'mode-cost-' + i, 'aria-label': m.mode + ' cost of one failure' }); cost.value = m.cost_of_one || '';
+      cost.addEventListener('input', function () { m.cost_of_one = cost.value; emit(); });
+      var td1 = el('td'); td1.appendChild(cost); tr.appendChild(td1);
+      var band = el('select', { id: 'mode-band-' + i, 'aria-label': m.mode + ' cost band' });
+      ['Unknown', 'Catastrophic', 'High', 'Low'].forEach(function (o) { band.appendChild(el('option', { value: o, text: o })); });
+      band.value = m.cost_band; band.addEventListener('change', function () { m.cost_band = band.value; emit(); });
+      var td2 = el('td'); td2.appendChild(el('div', { 'class': 'select' }, [band])); tr.appendChild(td2);
+      var ev = el('select', { id: 'mode-ev-' + i, 'aria-label': m.mode + ' evidence' });
+      [['none', 'None yet'], ['incident', 'Incident'], ['regulation', 'Regulation'], ['invoice', 'Invoice or remediation cost'], ['opinion', 'Opinion']].forEach(function (o) { ev.appendChild(el('option', { value: o[0], text: o[1] })); });
+      ev.value = m.evidence; ev.addEventListener('change', function () { m.evidence = ev.value; emit(); });
+      var td3 = el('td'); td3.appendChild(el('div', { 'class': 'select' }, [ev])); tr.appendChild(td3);
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderTasks() {
+    var wrap = $('tasks');
+    wrap.innerHTML = '';
+    brief.first_tasks.forEach(function (t, i) {
+      var row = el('div', { 'class': 'row two' });
+      var f1 = el('div', { 'class': 'field' }); var l1 = el('label', { 'for': 'task-' + i, text: 'Task ' + (i + 1) }); var i1 = el('input', { type: 'text', id: 'task-' + i }); i1.value = t.task || '';
+      i1.addEventListener('input', function () { t.task = i1.value; emit(); }); f1.appendChild(l1); f1.appendChild(i1);
+      var f2 = el('div', { 'class': 'field' }); var l2 = el('label', { 'for': 'done-' + i, text: 'Done looks like' }); var i2 = el('input', { type: 'text', id: 'done-' + i }); i2.value = t.done_looks_like || '';
+      i2.addEventListener('input', function () { t.done_looks_like = i2.value; emit(); }); f2.appendChild(l2); f2.appendChild(i2);
+      row.appendChild(f1); row.appendChild(f2); wrap.appendChild(row);
+    });
+  }
+
+  function fillStatic() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-path]'), function (input) {
+      var v = getPath(brief, input.getAttribute('data-path'));
+      input.value = (v == null) ? '' : v;
+    });
+    syncToggles(); syncLadder();
+  }
+
+  function renderAll() {
+    fillStatic(); renderSources(); renderModes(); renderTasks();
+    $('example-flag').hidden = !isExample;
+    emit();
+  }
+
+  function load(b, ex) { brief = b; isExample = !!ex; renderAll(); }
+
+  // ---------- capabilities: db + downloads ----------
+  var db = null, downloads = null;
+
+  function setStatus(msg) { $('save-status').textContent = msg; }
+
+  function renderSaved(docs) {
+    var wrap = $('saved'); wrap.innerHTML = '';
+    docs.forEach(function (d) {
+      var data = d.data() || {};
+      var g = data.gates || {};
+      var passes = ['decision', 'seed', 'expert', 'cost', 'demand'].filter(function (k) { return g[k] === 'PASS'; }).length;
+      var item = el('div', { 'class': 'item' }, [
+        el('div', {}, [
+          el('div', { text: (data.domain && data.domain.name) ? data.domain.name : '(no domain)' }),
+          el('div', { 'class': 'mono', text: (data.created_at || '').slice(0, 10) + ' · ' + passes + '/5 gates pass · ' + (data.author || '') + (data.example ? ' · example' : '') })
+        ]),
+        (function () { var b = el('button', { type: 'button', text: 'Open' }); b.addEventListener('click', function () { openSaved(data); }); return b; })()
+      ]);
+      wrap.appendChild(item);
+    });
+    $('saved-wrap').hidden = docs.length === 0;
+  }
+
+  function openSaved(data) {
+    var b = blank();
+    Object.keys(b).forEach(function (k) { if (data[k] !== undefined) b[k] = JSON.parse(JSON.stringify(data[k])); });
+    if (data.deployment && data.deployment.qatar && Array.isArray(data.deployment.qatar.languages)) b.deployment.qatar.languages_text = data.deployment.qatar.languages.join(', ');
+    while (b.first_tasks.length < 3) b.first_tasks.push({ task: '', done_looks_like: '' });
+    var seen = {}; b.failure_modes.forEach(function (m) { seen[m.mode] = m; });
+    b.failure_modes = MODES.map(function (m) { return seen[m] || { mode: m, cost_of_one: '', cost_band: 'Unknown', evidence: 'none' }; });
+    load(b, !!data.example);
+    window.scrollTo({ top: 0 });
+  }
+
+  function wireDb() {
+    if (!window.claude || typeof window.claude.use !== 'function') return;
+    window.claude.use('db').then(function (ns) {
+      if (!ns) return;
+      db = ns;
+      try {
+        db.collection('briefs').orderBy('created_at', 'desc').limit(50).onSnapshot(function (snap) { renderSaved(snap.docs); }, function () {});
+      } catch (e) {}
+    });
+    window.claude.use('downloads').then(function (ns) {
+      if (!ns) return;
+      downloads = ns;
+      $('btn-download').hidden = false;
+    });
+  }
+
+  $('btn-save').addEventListener('click', function () {
+    var out = emit();
+    if (!db) { setStatus('Saved locally only. Open the published page to save to the shared store.'); return; }
+    if (!filled(out.domain.name)) { setStatus('Name the domain before saving.'); return; }
+    $('btn-save').disabled = true; setStatus('Saving…');
+    db.doc('briefs/' + out.id).set(out).then(function () {
+      setStatus('Saved as briefs/' + out.id);
+      $('btn-save').disabled = false;
+    }).catch(function (e) {
+      setStatus('Not saved: ' + (e && e.code ? e.code : 'unavailable') + '. Copy the JSON instead.');
+      $('btn-save').disabled = false;
+    });
+  });
+
+  $('btn-copy').addEventListener('click', function () {
+    var txt = $('brief-json').textContent;
+    var done = function () { setStatus('Copied.'); };
+    var fail = function () { setStatus('Copy blocked. Select the JSON and copy by hand.'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, fail); else fail();
+  });
+
+  $('btn-download').addEventListener('click', function () {
+    if (!downloads) return;
+    var out = emit();
+    var name = 'deepgen-brief-' + (out.domain.name || 'draft').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.json';
+    downloads.save({ filename: name, data: JSON.stringify(out, null, 2) }).then(function () { setStatus('Download offered.'); }, function (e) { setStatus(e && e.code === 'declined' ? 'Download declined.' : 'Download unavailable.'); });
+  });
+
+  $('btn-example').addEventListener('click', function () { load(example(), true); setStatus(''); });
+  $('btn-clear').addEventListener('click', function () { load(blank(), false); setStatus(''); try { localStorage.removeItem('deepgen.draft'); } catch (e) {} });
+
+  // ---------- boot ----------
+  function start(hot) {
+    bindInputs();
+    var restored = null;
+    if (hot && hot.brief) restored = hot;
+    else { try { var raw = localStorage.getItem('deepgen.draft'); if (raw) restored = JSON.parse(raw); } catch (e) {} }
+    if (restored && restored.brief) { var b = blank(); Object.keys(b).forEach(function (k) { if (restored.brief[k] !== undefined) b[k] = restored.brief[k]; }); load(b, restored.isExample); }
+    else load(example(), true);
+    wireDb();
+    if (window.claude && window.claude.hot && typeof window.claude.hot.snapshot === 'function') {
+      window.claude.hot.snapshot(function () { return { brief: brief, isExample: isExample }; });
+    }
+  }
+  if (window.claude && window.claude.hot && typeof window.claude.hot.ready === 'function') window.claude.hot.ready(start);
+  else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
+})();
+</script>

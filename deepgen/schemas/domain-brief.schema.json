@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OllieGY/icarus/deepgen/schemas/domain-brief.schema.json",
+  "title": "DeepGen Domain Brief",
+  "description": "What the DeepGen intake emits. One brief per candidate domain. A brief becomes a Domain Ledger row only after the researcher has banded its sources.",
+  "type": "object",
+  "required": ["id", "created_at", "domain", "decision", "job_line", "demand", "sources", "expert", "failure_modes", "deployment", "gates", "next_action"],
+  "properties": {
+    "id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "author": { "type": "string", "description": "Fellow or studio member who filled the brief." },
+    "domain": {
+      "type": "object",
+      "required": ["name", "pod"],
+      "properties": {
+        "name": { "type": "string" },
+        "pod": { "type": "string", "enum": ["Infrastructure Intelligence", "Decarbonisation", "Sovereign Systems", "Capital Infrastructure", "National Resilience", "Commerce Stack"] },
+        "fellow": { "type": "string" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "required": ["statement", "tag"],
+      "properties": {
+        "statement": { "type": "string", "description": "One recurring decision an expert gets right and a new hire gets wrong." },
+        "real_instance": { "type": "string", "description": "A specific time it was made. Empty means the tag is Assumption." },
+        "tag": { "$ref": "#/$defs/tag" }
+      }
+    },
+    "job_line": {
+      "type": "object",
+      "required": ["who", "output", "trigger", "judged_by"],
+      "properties": {
+        "who": { "type": "string" },
+        "output": { "type": "string" },
+        "trigger": { "type": "string" },
+        "judged_by": { "type": "string", "description": "The observable pass condition for one instance." }
+      }
+    },
+    "current_state": {
+      "type": "object",
+      "properties": {
+        "who_does_it": { "type": "string" },
+        "frequency_per_week": { "type": "number" },
+        "minutes_per_instance": { "type": "number" },
+        "tag": { "$ref": "#/$defs/tag" }
+      }
+    },
+    "demand": {
+      "type": "object",
+      "required": ["rung"],
+      "properties": {
+        "rung": { "type": "number", "enum": [1.0, 0.7, 0.5, 0.3, 0.1] },
+        "instance": { "type": "string", "description": "The one cited instance. Rungs never stack." }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["name", "band_guess"],
+        "properties": {
+          "name": { "type": "string" },
+          "holds": { "type": "string" },
+          "band_guess": { "type": "string", "enum": ["R", "G", "P"], "description": "Fellow's guess. The researcher decides." },
+          "access_path": { "type": "string" },
+          "artefacts_held": { "type": "integer", "minimum": 0 },
+          "compounds_with_use": { "type": "boolean" }
+        }
+      }
+    },
+    "artefacts_this_week": { "type": "integer", "minimum": 0, "description": "Independently checkable items the fellow can hand over now." },
+    "expert": {
+      "type": "object",
+      "required": ["watchable"],
+      "properties": {
+        "watchable": { "type": "boolean", "description": "Can a real expert be shadowed doing the real task, live or recorded." },
+        "hours_per_week": { "type": "number", "minimum": 0 },
+        "adjudicator": { "type": "string", "description": "Who settles a contested label." },
+        "tag": { "$ref": "#/$defs/tag" }
+      }
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["mode", "cost_band", "evidence"],
+        "properties": {
+          "mode": { "type": "string", "enum": ["Miss", "False alarm", "Confidently wrong", "Wrong format", "Too slow", "Silent failure"] },
+          "cost_of_one": { "type": "string" },
+          "cost_band": { "type": "string", "enum": ["Catastrophic", "High", "Low", "Unknown"] },
+          "evidence": { "type": "string", "enum": ["incident", "regulation", "invoice", "opinion", "none"] }
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "required": ["qatar", "global"],
+      "properties": {
+        "qatar": {
+          "type": "object",
+          "properties": {
+            "regulator": { "type": "string" },
+            "data_residency": { "type": "string" },
+            "languages": { "type": "array", "items": { "type": "string" } },
+            "stakeholder": { "type": "string" }
+          }
+        },
+        "global": {
+          "type": "object",
+          "properties": {
+            "equivalent_regulation": { "type": "string" },
+            "first_market": { "type": "string" }
+          }
+        }
+      }
+    },
+    "first_tasks": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["task", "done_looks_like"],
+        "properties": { "task": { "type": "string" }, "done_looks_like": { "type": "string" } }
+      }
+    },
+    "economics": {
+      "type": "object",
+      "properties": {
+        "value_per_outcome": { "type": "number" },
+        "value_source": { "type": "string" },
+        "cost_ceiling_per_outcome": { "type": "number" },
+        "currency": { "type": "string" },
+        "tag": { "$ref": "#/$defs/tag" }
+      }
+    },
+    "kill_criteria": { "type": "string" },
+    "gates": {
+      "type": "object",
+      "required": ["decision", "seed", "expert", "cost", "demand"],
+      "properties": {
+        "decision": { "$ref": "#/$defs/gate" },
+        "seed": { "$ref": "#/$defs/gate" },
+        "expert": { "$ref": "#/$defs/gate" },
+        "cost": { "$ref": "#/$defs/gate" },
+        "demand": { "$ref": "#/$defs/gate" }
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "required": ["step", "skill", "moves_gate"],
+      "properties": {
+        "step": { "type": "string" },
+        "skill": { "type": "string" },
+        "moves_gate": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "tag": { "type": "string", "enum": ["Fact", "Assumption", "Hypothesis"] },
+    "gate": { "type": "string", "enum": ["PASS", "OWED", "BLOCKED"] }
+  }
+}

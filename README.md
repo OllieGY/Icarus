@@ -34,6 +34,7 @@ Update later with `/plugin marketplace update icarus`.
 | **[Tools](./tools/)** | Skill-usage hook, the Icarus manifest, and a validator that catches rubric drift. |
 | **[Lessons](./lessons/LOG.md)** | Append-only. What the studio learned the hard way, and which rule it changed. |
 | **[Rebuilds](./rebuilds/)** | Candidate agent-ops skill drafts (inspired by BuilderIO/skills, MIT). Not graduated, not loaded by the plugin. |
+| **[DeepGen](./deepgen/)** | Framework design for deep-domain agents: a prioritising Domain Ledger, a domain compiler that composes the Icarus skills, real and synthetic data pipelines, three eval tiers, four loops. Design only; the intake UI is in `deepgen/ui/`. |
 
 ## Commands
 
@@ -42,6 +43,7 @@ Update later with `/plugin marketplace update icarus`.
 | `/icarus <situation>` | Routes you through the stages. Which apply, which to skip, in what order. Start here. |
 | `/stress-test <idea>` | The five business questions. Returns Pass, Redesign, or Kill. |
 | `/lesson <what happened>` | Logs a lesson, if it is specific, costly, and actionable. |
+| `/deepgen <domain>` | Runs the DeepGen intake. Five gates, one next action, a Domain Brief. Never a score over nothing. |
 
 ## The flow
 
