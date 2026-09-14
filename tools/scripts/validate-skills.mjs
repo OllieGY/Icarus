@@ -34,6 +34,23 @@ const DIMENSIONS = [
 ];
 const AUTO_FAILS = 4;
 
+/**
+ * A plain (unquoted, non-block) scalar containing ": " is invalid YAML —
+ * strict parsers reject the whole frontmatter and the skill fails to load.
+ * 11 of the 45 source skills shipped this way; see skills/SOURCES.md.
+ */
+function checkPlainScalars(file, label) {
+  const raw = fs.readFileSync(file, "utf8");
+  if (!raw.startsWith("---")) return;
+  const end = raw.indexOf("\n---", 3);
+  if (end === -1) return;
+  for (const line of raw.slice(4, end).split("\n")) {
+    const m = /^([A-Za-z][\w-]*):[ \t]+([^>|"'\s].*)$/.exec(line);
+    if (m && /:\s/.test(m[2]))
+      err(`${label}: '${m[1]}' is a plain scalar containing ": " — invalid YAML. Use a >- block.`);
+  }
+}
+
 /** Minimal YAML-ish frontmatter reader: top-level `key:` pairs only. */
 function frontmatter(file) {
   const raw = fs.readFileSync(file, "utf8");
@@ -62,6 +79,7 @@ function checkSkill(name) {
     err(`skills/${name}: no SKILL.md`);
     return;
   }
+  checkPlainScalars(skillFile, `skills/${name}/SKILL.md`);
   const fm = frontmatter(skillFile);
   if (!fm) {
     err(`skills/${name}/SKILL.md: no frontmatter block`);
@@ -107,6 +125,7 @@ function checkMarkdownDir(dirName, field) {
   if (!fs.existsSync(dir)) return 0;
   const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md") && f !== "README.md");
   for (const f of files) {
+    checkPlainScalars(path.join(dir, f), `${dirName}/${f}`);
     const fm = frontmatter(path.join(dir, f));
     if (!fm) err(`${dirName}/${f}: no frontmatter block`);
     else if (!fm[field]) err(`${dirName}/${f}: frontmatter missing '${field}'`);

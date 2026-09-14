@@ -1,6 +1,15 @@
 ---
 name: physics-floor-gap
-description: Sizes the per-unit prize of a piece of work from first principles by comparing what it is priced at today against its theoretical floor once AI does the automatable part. Fires on "is this a big enough problem", "how big is the prize", "size the opportunity from first principles", "what's the physics floor", "is the gap big enough", or when a fellow has a unit of work and its current per-unit cost and wants a build/walk verdict. Outputs a filled floor/gap calc sheet: token-cost line + judgment-minutes line + current priced number + gap ratio + band verdict, every number tagged [Fact]/[Assumption]/[Hypothesis]. NOT for total market size (use bottoms-up-quantification), NOT for the 8-dimension problem gate (use problem-quality-scorecard), NOT for scoring the whole idea (use so-what-stress-test).
+description: >-
+  Sizes the per-unit prize of a piece of work from first principles by comparing what it is priced
+  at today against its theoretical floor once AI does the automatable part. Fires on "is this a
+  big enough problem", "how big is the prize", "size the opportunity from first principles",
+  "what's the physics floor", "is the gap big enough", or when a fellow has a unit of work and its
+  current per-unit cost and wants a build/walk verdict. Outputs a filled floor/gap calc sheet:
+  token-cost line + judgment-minutes line + current priced number + gap ratio + band verdict,
+  every number tagged [Fact]/[Assumption]/[Hypothesis]. NOT for total market size (use
+  bottoms-up-quantification), NOT for the 8-dimension problem gate (use
+  problem-quality-scorecard), NOT for scoring the whole idea (use so-what-stress-test).
 type: generator
 supersedes: none
 ---

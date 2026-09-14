@@ -5,6 +5,29 @@ Append-only. Newest first. Format in [`TEMPLATE.md`](./TEMPLATE.md); the bar for
 
 ---
 
+### 2026-09-14 — Eleven graduated skills shipped with frontmatter that will not parse
+
+**What happened.** Copying the 45 Icarus skills into this hub, a strict YAML check found 11
+whose `description` is an unquoted scalar containing `": "` — `Output: a concierge log ...`
+and similar. Strict parsers reject the whole block, so the skill does not load. All 11 had
+passed six graduation gates, including trigger precision, which is scored by reading the
+description rather than by loading the skill.
+
+**Evidence.** Eleven parse failures, reproduced, each fixed and round-trip verified. `[Fact]`
+
+**Cost.** Unknown but non-zero: any fellow session where one of these silently failed to
+load got generic answers instead of the studio method, with no error to notice.
+
+**Lesson.** A human-graded gate cannot catch a machine-parse failure. Trigger precision was
+scored on the words in the description, never on whether the file loads.
+
+**Changes.** `tools/scripts/validate-skills.mjs` fails on any plain scalar containing
+`": "`, and runs before every commit. Gate 1 should mean "loads, then fires" — proposed
+addition to Rule 7 in `GOLDEN_RULES.md`, for Ollie to accept or reject. Fix is worth
+porting upstream to `The-Utopia-Studio/skills`.
+
+---
+
 ### 2026-09-14 — Icarus skills were unreachable from a Claude session because of repo ownership
 
 **What happened.** Setting this hub up, the session could not read `The-Utopia-Studio/Icarus`

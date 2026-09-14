@@ -1,6 +1,17 @@
 ---
 name: unserved-needs-finder
-description: Ranks what a customer actually needs by onioning each stated need to a tech-invariant core, sorting the survivors with Kano (must / performance / delighter), and returning the one durable, under-served need that will still be a need after the technology turns over. Fires on "what do they really need", "find the unmet need", "which need should we prioritise", "what's the real need under this feature request", or when a fellow hands you a list of "needs" that are mostly features and wants the durable one ranked out. Outputs a filled prioritised need map: candidate needs → solution-strip → onion-to-core → tech-invariance gate → Kano bands → one ranked wedge need with its unserved evidence. NOT for naming WHO holds the need or their budget (use user-buyer-decider-map), NOT for reducing the whole job to its currencies (use job-in-primitives), NOT for scoring whether the whole idea is worth building (use so-what-stress-test).
+description: >-
+  Ranks what a customer actually needs by onioning each stated need to a tech-invariant core,
+  sorting the survivors with Kano (must / performance / delighter), and returning the one durable,
+  under-served need that will still be a need after the technology turns over. Fires on "what do
+  they really need", "find the unmet need", "which need should we prioritise", "what's the real
+  need under this feature request", or when a fellow hands you a list of "needs" that are mostly
+  features and wants the durable one ranked out. Outputs a filled prioritised need map: candidate
+  needs → solution-strip → onion-to-core → tech-invariance gate → Kano bands → one ranked wedge
+  need with its unserved evidence. NOT for naming WHO holds the need or their budget (use
+  user-buyer-decider-map), NOT for reducing the whole job to its currencies (use
+  job-in-primitives), NOT for scoring whether the whole idea is worth building (use
+  so-what-stress-test).
 type: generator
 supersedes: none
 ---

@@ -1,6 +1,15 @@
 ---
 name: agent-concierge-probe
-description: Runbook for having an AGENT run a real task end to end, to measure the automation frontier (which steps it does unaided vs which need a human) and the cost-per-outcome to the cent (input+output tokens + tool calls + human-fix minutes, all priced). Fires on "agent does the task", "measure cost per outcome", "agent concierge", "automation frontier", "price it to the cent", "what can the agent not do unaided". Output: a cost-per-outcome read with the full breakdown, plus a frontier map. Not probe-matrix (that picks the probe); not concierge-probe (the founder, not an agent, runs it, and it tests willingness to pay); not wizard-of-oz-probe; not paper-sketch-probe (that tests whether a workflow reads on paper). It is honest about cost and frontier and says nothing about self-serve UX or trust/adoption — it lies about those.
+description: >-
+  Runbook for having an AGENT run a real task end to end, to measure the automation frontier
+  (which steps it does unaided vs which need a human) and the cost-per-outcome to the cent
+  (input+output tokens + tool calls + human-fix minutes, all priced). Fires on "agent does the
+  task", "measure cost per outcome", "agent concierge", "automation frontier", "price it to the
+  cent", "what can the agent not do unaided". Output: a cost-per-outcome read with the full
+  breakdown, plus a frontier map. Not probe-matrix (that picks the probe); not concierge-probe
+  (the founder, not an agent, runs it, and it tests willingness to pay); not wizard-of-oz-probe;
+  not paper-sketch-probe (that tests whether a workflow reads on paper). It is honest about cost
+  and frontier and says nothing about self-serve UX or trust/adoption — it lies about those.
 type: generator
 supersedes: none
 ---

@@ -1,6 +1,14 @@
 ---
 name: concierge-probe
-description: Runbook for delivering a product outcome by hand, as the founder, to ONE real customer — to test willingness to pay and the real workflow including the exceptions that break automation. Fires on "do it by hand first", "concierge test", "concierge MVP", "deliver it manually", "founder-delivered version before we automate". Output: a concierge log plus a willingness-to-pay signal scored on the evidence ladder (money charged 1.0 beats a verbal yes 0.3). Not probe-matrix (that picks which probe); not agent-concierge-probe (an agent, not the founder, runs the task, and it measures cost not WTP); not wizard-of-oz-probe (fakes the interface to test would-they-use-it, not whether they pay).
+description: >-
+  Runbook for delivering a product outcome by hand, as the founder, to ONE real customer — to test
+  willingness to pay and the real workflow including the exceptions that break automation. Fires
+  on "do it by hand first", "concierge test", "concierge MVP", "deliver it manually",
+  "founder-delivered version before we automate". Output: a concierge log plus a
+  willingness-to-pay signal scored on the evidence ladder (money charged 1.0 beats a verbal yes
+  0.3). Not probe-matrix (that picks which probe); not agent-concierge-probe (an agent, not the
+  founder, runs the task, and it measures cost not WTP); not wizard-of-oz-probe (fakes the
+  interface to test would-they-use-it, not whether they pay).
 type: generator
 supersedes: none
 ---

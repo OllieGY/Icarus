@@ -1,6 +1,16 @@
 ---
 name: job-in-primitives
-description: Reduces a job to its three irreducible currencies — information moved, decisions made, liability transferred — after deleting every tool, vendor, product, and org-chart role name from the description. Fires on "what job is really being done here", "strip this down to the primitive", "what's the primitive job", "take the tool names out and tell me the underlying job", or when a fellow describes a workflow thick with product and team names and wants the tool-independent job beneath it. Outputs a filled primitive job spec: the customer's-words version + a kill-list of deleted proper nouns + the three primitive lines + an invariance test + an AI-eats-vs-stays split. NOT for naming the single decision and its before→after time compression (use product-as-decision), NOT for mapping and pricing each workflow step (use current-state-map), NOT for the problem-framing-canvas workshop (this absorbs its instinct, not its scaffolding).
+description: >-
+  Reduces a job to its three irreducible currencies — information moved, decisions made, liability
+  transferred — after deleting every tool, vendor, product, and org-chart role name from the
+  description. Fires on "what job is really being done here", "strip this down to the primitive",
+  "what's the primitive job", "take the tool names out and tell me the underlying job", or when a
+  fellow describes a workflow thick with product and team names and wants the tool-independent job
+  beneath it. Outputs a filled primitive job spec: the customer's-words version + a kill-list of
+  deleted proper nouns + the three primitive lines + an invariance test + an AI-eats-vs-stays
+  split. NOT for naming the single decision and its before→after time compression (use
+  product-as-decision), NOT for mapping and pricing each workflow step (use current-state-map),
+  NOT for the problem-framing-canvas workshop (this absorbs its instinct, not its scaffolding).
 type: generator
 supersedes: none
 ---

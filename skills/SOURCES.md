@@ -12,6 +12,24 @@ cp -R <clone>/skills/product/<name> skills/<name>
 node tools/scripts/validate-skills.mjs
 ```
 
+## One deviation from verbatim
+
+Eleven skills shipped a `description:` written as a plain unquoted scalar containing `": "`
+— for example `Output: a concierge log ...`. That is invalid YAML: a strict parser rejects
+the whole frontmatter block, and the skill does not load.
+
+Each was re-emitted as a `>-` folded block, the same style the other 34 already use. **The
+description text is unchanged byte-for-byte after folding** — verified by round-trip parse
+— so trigger precision (gate 1) is unaffected. No other content in any skill was touched.
+
+Affected: `agent-concierge-probe`, `bottoms-up-quantification`, `concierge-probe`,
+`current-state-map`, `explicit-vs-tacit-capture`, `job-in-primitives`, `physics-floor-gap`,
+`synthetic-users`, `tacit-knowledge-interview`, `trace-to-interview`,
+`unserved-needs-finder`.
+
+`tools/scripts/validate-skills.mjs` now fails the build on any plain scalar containing
+`": "`, so this cannot come back. Worth fixing upstream in `The-Utopia-Studio/skills` too.
+
 Written for this hub, not copied: `icarus-golden-rules`, `lessons`.
 
 | Skill | Type | Golden | Adversarial |
