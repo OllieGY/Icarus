@@ -1,25 +1,27 @@
 ---
 name: job-in-primitives
 description: >-
-  Reduces a job to its three irreducible currencies — information moved, decisions made, liability
-  transferred — after deleting every tool, vendor, product, and org-chart role name from the
-  description. Fires on "what job is really being done here", "strip this down to the primitive",
-  "what's the primitive job", "take the tool names out and tell me the underlying job", or when a
-  fellow describes a workflow thick with product and team names and wants the tool-independent job
-  beneath it. Outputs a filled primitive job spec: the customer's-words version + a kill-list of
-  deleted proper nouns + the three primitive lines + an invariance test + an AI-eats-vs-stays
-  split. NOT for naming the single decision and its before→after time compression (use
-  product-as-decision), NOT for mapping and pricing each workflow step (use current-state-map),
-  NOT for the problem-framing-canvas workshop (this absorbs its instinct, not its scaffolding).
-type: generator
-supersedes: none
+ Reduces a job to its three irreducible currencies — information moved, decisions made, liability
+ transferred — after deleting every tool, vendor, product, and org-chart role name from the
+ description. Fires on "what job is really being done here", "strip this down to the primitive",
+ "what's the primitive job", "take the tool names out and tell me the underlying job", or when a
+ builder describes a workflow thick with product and team names and wants the tool-independent job
+ beneath it. Outputs a filled primitive job spec: the customer's-words version + a kill-list of
+ deleted proper nouns + the three primitive lines + an invariance test + an AI-eats-vs-stays
+ split. NOT for naming the single decision and its before→after time compression (use
+ product-as-decision), NOT for mapping and pricing each workflow step (use current-state-map),
+ NOT for the problem-framing-canvas workshop (this absorbs its instinct, not its scaffolding).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Job in Primitives
 
 ## What it does
 Takes a job described in the customer's own language — full of product names, team names, and steps — and reduces it to the three things every job actually is underneath: information moved, decisions made, liability transferred. It first strips every proper noun, then fills those three lines in tool-free language, then checks with an invariance test (would the line still be true if every named tool vanished?). The output is a filled primitive job spec ([template.md](template.md)) that names, separately, what AI can eat, where the wedge is, and which primitive can never move to a machine. It finds the job that survives when the tools change.
 
-## The Icarus reframe
+## The reframe
 The customer's words encode the customer's current solution. "We need the risk report faster" hides that the report is one implementation of "move a risk judgment to an insurer who will pay on it." Keep the vendor words and you rebuild their tool; delete them and you can rebuild the job. Underneath, every job is some mix of three currencies — information moved, decisions made, liability transferred — and AI meets them very differently: it eats information movement, it eats the routine half of decisions, and it structurally cannot take liability, because a model has no name to stake, no licence to lose, no way to be prosecuted. So the reduction is not tidy framing. It is a map of what the machine eats and what stays yours. If a tool, vendor, or role name survives the reduction, you have not found the primitive yet — you have restated the workflow.
 
 ## When to use / When NOT
@@ -41,7 +43,7 @@ This skill isolates the job beneath the tools. It does not pick the one decision
 Fill the sheet in [template.md](template.md). Do not narrate; work the lines. Tag any empirical claim `[Fact]` (from an observed instance or a shown artefact), `[Assumption]` (a stated, defensible estimate), or `[Hypothesis]` (a guess needing evidence).
 
 **Step 1 — Capture the job in the customer's own words (§0).**
-Write it exactly as the fellow or customer says it, vendor names and all. You need the tool-laden version to strip. Record where the description came from (observed instance / artefact / interview / opinion) and its ladder weight. If the only source is the fellow's imagination, stop — see Evidence standard.
+Write it exactly as the builder or customer says it, vendor names and all. You need the tool-laden version to strip. Record where the description came from (observed instance / artefact / interview / opinion) and its ladder weight. If the only source is the builder's imagination, stop — see Evidence standard.
 
 **Step 2 — Build the kill-list (§1).** For every proper noun, product, tool, vendor, team, role, and place in §0, name its type and replace it with its function, not its category. "Salesforce" becomes "a record of the customer relationship", not "a CRM" (a CRM is still a tool). If a word cannot be generified without losing the job, flag it — it is usually pointing at the liability primitive (an accreditation, a statutory duty), not a tool to delete.
 
@@ -68,7 +70,7 @@ Write it exactly as the fellow or customer says it, vendor names and all. You ne
 **Step 7 — Evidence the liability line (§6).** State who is on the hook and the proof it is load-bearing (a clause, a signature that gates money, a statutory duty), with its ladder weight. If the liability primitive rests only on opinion, mark it UNVERIFIED — it is the moat, and a guessed moat is not one.
 
 ## Evidence standard
-Icarus weights behaviour and money over opinion. The primitives must come from a real instance of the job — one observed run, one shown artefact — not from how the fellow imagines it works. The liability line is where fellows guess hardest, so it carries the strictest bar.
+Icarus weights behaviour and money over opinion. The primitives must come from a real instance of the job — one observed run, one shown artefact — not from how the builder imagines it works. The liability line is where builders guess hardest, so it carries the strictest bar.
 
 | Source for the job description | Ladder weight |
 |---|---|
@@ -76,7 +78,7 @@ Icarus weights behaviour and money over opinion. The primitives must come from a
 | One real instance of the job observed end to end | 0.7 |
 | A completed artefact of the job shown (a signed permit, a filed report) | 0.5 |
 | Someone described the job in an interview | 0.3 |
-| The fellow's memory / opinion of how it works | 0.1 |
+| The builder's memory / opinion of how it works | 0.1 |
 
 If the whole spec sits on opinion (0.1), the skill declares the input **not ready** and names the cheapest fix: observe one real instance, or pull one completed artefact. It does not reduce an imagined job and present the primitives as found. The three lines may hold `[Assumption]` tags, but the liability line must cite the mechanism (the signature, the clause, the duty) so a reader can challenge who is really on the hook.
 
@@ -85,10 +87,10 @@ If the whole spec sits on opinion (0.1), the skill declares the input **not read
 - **The decider and the liable party are often different people.** The person who makes the call is not always the one who pays if it is wrong — that is frequently a more senior, contractual, or accredited party. Keep the decisions line and the liability line separate; collapsing them hides the moat.
 - **Do not manufacture an automatable primitive.** Some jobs are almost pure liability-transfer — a sign-off, an accreditation lent. The honest read is "little to automate, strong moat", and the skill must say so rather than invent an information-movement line to make the job look buildable.
 - **Pronoun-swapping is not reduction.** Replacing every tool name with "the system" leaves the workflow intact. The test is whether the primitive is still exactly true with the tool gone, not whether the sentence reads generically.
-- **The comfortable primitive is usually information movement.** Fellows reduce to "we move data faster" because it is the part AI clearly eats — which is exactly why it is table stakes. If the reduction lands only on the information line, push until the decision and liability lines are filled too.
+- **The comfortable primitive is usually information movement.** Builders reduce to "we move data faster" because it is the part AI clearly eats — which is exactly why it is table stakes. If the reduction lands only on the information line, push until the decision and liability lines are filled too.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Barrier Intelligence's gas permit-to-work, reduced end to end: information moved (hazard state → a safe-to-start assertion), decisions made (go/no-go on opening the line), liability transferred (an accredited signer stakes their licence), with the honest read that the signature is a moat AI cannot take.
+- [examples/sample.md](examples/sample.md) — Halcyon Safety's gas permit-to-work, reduced end to end: information moved (hazard state → a safe-to-start assertion), decisions made (go/no-go on opening the line), liability transferred (an accredited signer stakes their licence), with the honest read that the signature is a moat AI cannot take.
 
 ## Related skills
 - Absorbs `discovery/problem-framing-canvas`: it keeps that canvas's one good instinct — look past the stated symptom to the job underneath — and drops the workshop scaffolding and the prose "How Might We" output. Where the canvas ends in a reframed sentence, this ends in a tool-independent spec with an automatable/liability split you can act on. It beats the canvas by being testable (the invariance test and kill-line gate either pass or they do not).

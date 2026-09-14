@@ -22,11 +22,11 @@ Then in `~/.claude/settings.json`:
 
 ```json
 {
-  "hooks": {
-    "PreToolUse": [
-      { "matcher": "Skill", "hooks": [{ "type": "command", "command": "~/.claude/hooks/log-skill-usage.sh" }] }
-    ]
-  }
+ "hooks": {
+ "PreToolUse": [
+ { "matcher": "Skill", "hooks": [{ "type": "command", "command": "~/.claude/hooks/log-skill-usage.sh" }] }
+ ]
+ }
 }
 ```
 
@@ -46,12 +46,12 @@ Not vendored here; attached per session.
 | Connector | Used for |
 |---|---|
 | Linear | Turning a stage output into tasks. Every Icarus artifact should land as issues, not a document nobody opens. |
-| Notion | Fellow workspaces, the Co-Build asset registry, stage pages. |
+| Notion | Builder workspaces, a shared asset registry, stage pages. |
 | Granola | Interview transcripts feeding `tacit-knowledge-interview`, `trace-to-interview`, `summarize-interview`. |
 | Figma | `first-mocks`, `usability-test-protocol`. |
-| Google Drive | Fellow decks, QDB material. |
+| Google Drive | Builder decks, an investor material. |
 
-## The rest of the studio set
+## The rest of your team set
 
 This hub carries Icarus only. The generic product skills it routes to — `create-prd`,
 `jobs-to-be-done`, `impeccable`, `railway-deploy`, `deploy-to-vercel` — live in the

@@ -1,31 +1,41 @@
 ---
 name: yoda-data-sourcing
-description: Assemble a sourced proprietary-data corpus map — sort every candidate data source by one test (can a foundation model already reach it?) and keep only the workflow-trapped, permission-gated signal (shadow AI threads, operational logs, permits, vendor-locked sensor feeds, workflow exhaust) as the moat seed. Fires on "get our own data", "what data do we own", "where's our proprietary data", "build the moat's seed", "what data can't a competitor get". Not for drafting the contract that unlocks a gated source (use data-rights-clause, section 06), not for scoring whether one signal counts as real evidence (use evidence-ladder), not for running the interview that captures tacit judgment (use tacit-knowledge-interview).
-type: interactive
-supersedes: none
+description: >-
+  Assemble a sourced proprietary-data corpus map — sort every candidate data source by one test
+  (can a foundation model already reach it?) and keep only the workflow-trapped, permission-gated
+  signal (shadow AI threads, operational logs, permits, vendor-locked sensor feeds, workflow
+  exhaust) as the moat seed. Fires on "get our own data", "what data do we own", "where's our
+  proprietary data", "build the moat's seed", "what data can't a competitor get". Not for drafting
+  the contract that unlocks a gated source (use data-rights-clause), not for scoring whether one
+  signal counts as real evidence (use evidence-ladder), not for running the interview that
+  captures tacit judgment (use tacit-knowledge-interview).
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
-Takes a fellow's list of candidate data sources and returns a sourced proprietary corpus map: every source scored on one axis first — can a foundation model already reach it? — then on access, compounding, and whether the source is even real. Reachable data is thrown out of the moat column, because a model that can reach it can hand the same corpus to a competitor for free. What survives the test is the workflow-trapped, permission-gated signal: the shadow ChatGPT threads, the operational logs, the permits behind a records request, the vendor-locked sensor feed, the exhaust of the real work. Only those rows are the moat seed. The map is also the honest eval set: the data a model cannot narrate from training is the only data that can tell you whether your product actually works.
+Takes a builder's list of candidate data sources and returns a sourced proprietary corpus map: every source scored on one axis first — can a foundation model already reach it? — then on access, compounding, and whether the source is even real. Reachable data is thrown out of the moat column, because a model that can reach it can hand the same corpus to a competitor for free. What survives the test is the workflow-trapped, permission-gated signal: the shadow ChatGPT threads, the operational logs, the permits behind a records request, the vendor-locked sensor feed, the exhaust of the real work. Only those rows are the moat seed. The map is also the honest eval set: the data a model cannot narrate from training is the only data that can tell you whether your product actually works.
 
-## The Icarus reframe
+## The reframe
 
 An idea built on data a foundation model can already reach is an idea the model can hand your competitor for free. YODA sorts every candidate source by one test — can a model already reach it? — and discards everything that passes, because reachable data is not a moat, it is a commodity the model narrates on demand. What is left is the workflow-trapped signal: shadow AI threads, operational logs, permits behind a records request, the vendor-locked sensor feed, the exhaust of the actual workflow — data a model cannot get, which is exactly why it seeds both the moat and the only honest eval set.
 
 ## When to use / When NOT
 
-Use when a fellow has candidate data sources (or a workflow that produces data) and needs to know which of them a competitor's model cannot already replicate. Trigger phrases: "get our own data", "what data do we own", "where's our proprietary data", "build the moat's seed", "what data can't a competitor get".
+Use when a builder has candidate data sources (or a workflow that produces data) and needs to know which of them a competitor's model cannot already replicate. Trigger phrases: "get our own data", "what data do we own", "where's our proprietary data", "build the moat's seed", "what data can't a competitor get".
 
 Do not use when:
 
 | Request | Belongs to |
 |---|---|
-| "Draft the clause / contract that gives us rights to the operator's telemetry" | `data-rights-clause` (section 06, forthcoming). This skill *flags* that a gated source needs a signed clause and points there; it does not write legal language. |
+| "Draft the clause / contract that gives us rights to the operator's telemetry" | `data-rights-clause`. This skill *flags* that a gated source needs a signed clause and points there; it does not write legal language. |
 | "Is 'they said they'd buy it' strong enough evidence? Score this signal." | `evidence-ladder`. That skill owns the rungs. This skill *uses* the ladder to weigh whether a source is real, but scoring a lone signal is not its job. |
 | "Run the interview that pulls the supervisor's tacit judgment out of their head" | `tacit-knowledge-interview`. This skill can *list* tacit judgment as a proprietary seam; capturing it is a different runbook. |
 
-Also do not use it to invent data a fellow does not have. If the input is a vague domain with no workflow and no real sources, it is not ready. Say so and ask the one unblocking question (see Method step 1).
+Also do not use it to invent data a builder does not have. If the input is a vague domain with no workflow and no real sources, it is not ready. Say so and ask the one unblocking question (see Method step 1).
 
 ## Method
 
@@ -33,11 +43,11 @@ Fill in `template.md`. Five steps.
 
 ### Step 1 — Anchor on the workflow, not the domain
 
-Proprietary data is a byproduct of work. Before listing sources, name the recurring task the fellow (or their user) actually does, and what byproduct it leaves. If the fellow can only name a domain ("logistics", "safety") with no workflow and no real source, stop. Ask the one question: *what recurring task do you or your users do by hand today, and what does doing it leave behind?* Do not invent sources to fill the gap.
+Proprietary data is a byproduct of work. Before listing sources, name the recurring task the builder (or their user) actually does, and what byproduct it leaves. If the builder can only name a domain ("logistics", "safety") with no workflow and no real source, stop. Ask the one question: *what recurring task do you or your users do by hand today, and what does doing it leave behind?* Do not invent sources to fill the gap.
 
 ### Step 2 — List candidates, seeded from the six seams
 
-Proprietary signal hides in six seams. Use them to prompt the fellow past the obvious public datasets.
+Proprietary signal hides in six seams. Use them to prompt the builder past the obvious public datasets.
 
 | # | Seam | What it holds | Default reachability |
 |---|---|---|---|
@@ -64,9 +74,9 @@ If a source could plausibly sit in two bands, place it in the *lower* one (R ove
 
 ### Step 4 — Separate "model can't reach it" from "you can reach it"
 
-P means a model cannot get the source. It does not mean *you* can. Vendor-locked sensor logs are proprietary to the vendor, not to you. For every G and P row, record the access path and a data-rights note. A P source with no credible access path is a moat seed you do not hold yet — mark it, and flag that it needs a signed clause (point to `data-rights-clause`, section 06; do not draft it here).
+P means a model cannot get the source. It does not mean *you* can. Vendor-locked sensor logs are proprietary to the vendor, not to you. For every G and P row, record the access path and a data-rights note. A P source with no credible access path is a moat seed you do not hold yet — mark it, and flag that it needs a signed clause (point to `data-rights-clause`; do not draft it here).
 
-**Clause-gated access is its own case — do not bury it in the access cell.** A source you can reach *only* through a signed data-rights arrangement (a vendor's telemetry you may read once a clause exists, data shared under a partnership term) gets its own explicit line: mark the row **P, access = clause-gated**, name the counterparty and the clause it hangs on, and flag it for `data-rights-clause` (section 06). Until that clause is signed you do not hold the seed — a clause-gated row is a seed-in-waiting, not a seed you own.
+**Clause-gated access is its own case — do not bury it in the access cell.** A source you can reach *only* through a signed data-rights arrangement (a vendor's telemetry you may read once a clause exists, data shared under a partnership term) gets its own explicit line: mark the row **P, access = clause-gated**, name the counterparty and the clause it hangs on, and flag it for `data-rights-clause`. Until that clause is signed you do not hold the seed — a clause-gated row is a seed-in-waiting, not a seed you own.
 
 ### Step 5 — Score reality, compounding, and assemble the map
 
@@ -107,16 +117,16 @@ Reachable today, unreachable tomorrow — and the reverse. Reachability is a mov
 
 ## Examples
 
-`examples/sample.md` — a full corpus map for Barrier Intelligence's field-log data: rejects public gas-safety standards and industry news as model-reachable, surfaces rig permits (gated), shadow operator threads (proprietary, compounds), the field logs themselves (proprietary, compounds), and vendor-locked detector telemetry (proprietary but vendor-owned → data-rights clause needed), then names the moat seed.
+`examples/sample.md` — a full corpus map for Halcyon Safety's field-log data: rejects public gas-safety standards and industry news as model-reachable, surfaces rig permits (gated), shadow operator threads (proprietary, compounds), the field logs themselves (proprietary, compounds), and vendor-locked detector telemetry (proprietary but vendor-owned → data-rights clause needed), then names the moat seed.
 
 ## Related skills
 
-`data-rights-clause` (section 06, forthcoming) — where a gated or vendor-locked row goes next. This skill names *that* a source needs a signed clause to use; that skill writes the clause. Point there; do not draft legal language here.
+`data-rights-clause` — where a gated or vendor-locked row goes next. This skill names *that* a source needs a signed clause to use; that skill writes the clause. Point there; do not draft legal language here.
 
-`evidence-ladder` (section 02) — owns the rungs this skill borrows to weigh whether a source is real. When a fellow wants to score one lone signal, send them there.
+`evidence-ladder` — owns the rungs this skill borrows to weigh whether a source is real. When a builder wants to score one lone signal, send them there.
 
-`tacit-knowledge-interview` (section 02) — captures the tacit-judgment seam (row 5) this skill can only list. When a proprietary source *is* an expert's head, that runbook gets it out.
+`tacit-knowledge-interview` — captures the tacit-judgment seam (row 5) this skill can only list. When a proprietary source *is* an expert's head, that runbook gets it out.
 
-`wedge-five-questions` (section 06) — a moat seed feeds the wedge's defensibility, but the wedge test is about adoption. Different question; run this to find the data, that to find the first thing to build.
+`wedge-five-questions` — a moat seed feeds the wedge's defensibility, but the wedge test is about adoption. Different question; run this to find the data, that to find the first thing to build.
 
 Supersedes: none. Fully proprietary — there is no prior data-sourcing skill in the pack to absorb or beat.

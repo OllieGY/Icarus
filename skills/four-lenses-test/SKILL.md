@@ -1,32 +1,34 @@
 ---
 name: four-lenses-test
 description: >-
-  Scores a specific concept across the four build-risk lenses — Desirability,
-  Usability, Feasibility, Viability — where each lens is graded ONLY by its named
-  tool (onion+JTBD+Kano for Desirability, a watched usability observation for
-  Usability, a dev spike for Feasibility, ICE anchored to measured value for
-  Viability) and run by its dual-track owner (Product/Design discovery beside
-  Engineering delivery). Fires on "is this desirable / usable / feasible / viable",
-  "should we build it", "run the four lenses", "go or no-go on this concept",
-  "is this worth building". Output is a filled Four-Lens Scorecard: per-lens tool,
-  owner, evidence + ladder weight, score, and an AND gate that KILLS the go if any
-  single lens fails, every claim tagged [Fact]/[Assumption]/[Hypothesis]. NOT for
-  the full problem→vision→strategy→roadmap spine (use product-frame-stack), NOT for
-  scoring the PROBLEM on 8 dimensions (use problem-quality-scorecard), NOT for the
-  five-question so-what gut check on the whole idea (use so-what-stress-test).
-type: generator
-supersedes: none
+ Scores a specific concept across the four build-risk lenses — Desirability,
+ Usability, Feasibility, Viability — where each lens is graded ONLY by its named
+ tool (onion+JTBD+Kano for Desirability, a watched usability observation for
+ Usability, a dev spike for Feasibility, ICE anchored to measured value for
+ Viability) and run by its dual-track owner (Product/Design discovery beside
+ Engineering delivery). Fires on "is this desirable / usable / feasible / viable",
+ "should we build it", "run the four lenses", "go or no-go on this concept",
+ "is this worth building". Output is a filled Four-Lens Scorecard: per-lens tool,
+ owner, evidence + ladder weight, score, and an AND gate that KILLS the go if any
+ single lens fails, every claim tagged [Fact]/[Assumption]/[Hypothesis]. NOT for
+ the full problem→vision→strategy→roadmap spine (use product-frame-stack), NOT for
+ scoring the PROBLEM on 8 dimensions (use problem-quality-scorecard), NOT for the
+ five-question so-what gut check on the whole idea (use so-what-stress-test).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Four-Lenses Test
 
 ## What it does
-Takes one concept the fellow is thinking of building and forces a verdict on four separate risks — Desirability (do they want it enough to change behaviour or pay), Usability (can they actually get the outcome), Feasibility (can we build it at the accuracy/latency/cost the decision needs), Viability (does the money work). Each lens gets a score, but only through its named tool — never through an opinion. The four scores are then ANDed, not averaged: a single failing lens is a no-go no matter how strong the other three read. The output is a filled Four-Lens Scorecard ([template.md](template.md)) that names, per lens, the tool run, the track owner who ran it, the evidence produced with its ladder weight, the score, and the overall gate with the next probe for every lens short of a clean pass.
+Takes one concept the builder is thinking of building and forces a verdict on four separate risks — Desirability (do they want it enough to change behaviour or pay), Usability (can they actually get the outcome), Feasibility (can we build it at the accuracy/latency/cost the decision needs), Viability (does the money work). Each lens gets a score, but only through its named tool — never through an opinion. The four scores are then ANDed, not averaged: a single failing lens is a no-go no matter how strong the other three read. The output is a filled Four-Lens Scorecard ([template.md](template.md)) that names, per lens, the tool run, the track owner who ran it, the evidence produced with its ladder weight, the score, and the overall gate with the next probe for every lens short of a clean pass.
 
-## The Icarus reframe
+## The reframe
 The generic four-lenses check (and the recommendation-canvas it descends from) asks "is it desirable, feasible, viable?" and lets a team answer each lens with a confident opinion, then averages the four into a gut "yes". Icarus refuses both moves. First, a lens is graded only by the instrument that produces behaviour or money evidence for that specific risk — Desirability by onion+JTBD+Kano, Usability by watching a real user attempt the task, Feasibility by a dev spike on the riskiest slice, Viability by ICE anchored to a measured value number — so a lens with no tool behind it is not scored, it is ungraded, and an ungraded lens cannot pass. Second, the four are ANDed: one fatal lens kills the go, because a product that no one can use is not rescued by being cheap to build. Each lens also has a named track owner (Product and Design on the discovery track, Engineering on the delivery track, running in parallel) so no single person waves a lens through on their own say-so.
 
 ## When to use / When NOT
-Use it when a fellow has a specific, named concept and needs a go/no-go on whether to build it, lens by lens.
+Use it when a builder has a specific, named concept and needs a go/no-go on whether to build it, lens by lens.
 
 | Situation | Use this? | Go to |
 |---|---|---|
@@ -46,7 +48,7 @@ This skill scores one concept across exactly four build-risk lenses and gates it
 ## Method
 Fill the scorecard in [template.md](template.md). Do not narrate; fill the rows. Tag every empirical claim `[Fact]` (money moved or behaviour observed), `[Assumption]` (a stated, defensible estimate), `[Hypothesis]` (a guess or a not-yet-observed claim).
 
-**Step 0 — Name the one concept.** State the concept in one line, as concretely as the fellow gave it. If there is no concept yet — only a domain or a wish — stop and ask for it. You cannot lens a fog. Invent no concept.
+**Step 0 — Name the one concept.** State the concept in one line, as concretely as the builder gave it. If there is no concept yet — only a domain or a wish — stop and ask for it. You cannot lens a fog. Invent no concept.
 
 **Step 1 — Assign the tool and owner to each lens.** Every lens is scored by its instrument and run by its track owner. No lens is scored by "we think".
 
@@ -79,14 +81,14 @@ The discovery track (Desirability, Usability) and the delivery track (Feasibilit
 | 2 (CONDITIONAL) | **NOT-YET** | Name the cheapest probe that lifts each conditional lens to a 3. |
 | all four = 3 | **GO** | Build. Every lens cleared its bar on behaviour or money. |
 
-**Step 4 — Name the next probe per lens.** For every lens below 3, write the single cheapest observation that would move it up: the usability session to run, the spike to build, the value number to price, the behaviour to observe. This is the output the fellow acts on.
+**Step 4 — Name the next probe per lens.** For every lens below 3, write the single cheapest observation that would move it up: the usability session to run, the spike to build, the value number to price, the behaviour to observe. This is the output the builder acts on.
 
 **Step 5 — Write the one-line verdict.** `[Concept]: D_ U_ F_ V_ → [GO / NOT-YET / NO-GO] — blocked by [weakest lens], next probe: [___].`
 
 **Kill line: giving any lens a PASS on opinion with no tool run, or returning GO while any lens sits at FAIL, is an auto-fail.** Four graded lenses, ANDed. No tool, no grade; one fail, no go.
 
 ## Evidence standard
-Desirability and Viability are where fellows flatter themselves — "users love it", "the ROI is obvious". A lens score is only as strong as the evidence weight beneath it, on the ladder:
+Desirability and Viability are where builders flatter themselves — "users love it", "the ROI is obvious". A lens score is only as strong as the evidence weight beneath it, on the ladder:
 
 | Signal behind a lens | Ladder weight | Best lens it grades |
 |---|---|---|
@@ -94,7 +96,7 @@ Desirability and Viability are where fellows flatter themselves — "users love 
 | A user observed doing the task or the behaviour (behaviour observed) | 0.7 | Usability, Desirability, Feasibility (spike on real data) |
 | A priced artefact or a working spike, shown not transacted | 0.5 | Feasibility, Viability |
 | "They said they'd use it / pay for it" (verbal commitment) | 0.3 | Desirability, Viability |
-| The fellow's or an engineer's opinion | 0.1 | grades nothing — the lens stays UNGRADED |
+| The builder's or an engineer's opinion | 0.1 | grades nothing — the lens stays UNGRADED |
 
 A lens riding on opinion (0.1) is scored 0 and blocks the gate; the skill says so and names the tool to run. Confidence inside the Viability ICE is not a vibe from 1 to 10 — it is the ladder weight of the value claim. A CONDITIONAL is honest (0.3–0.5 evidence with a probe named); a PASS minted from a verbal or an opinion is the auto-fail this standard exists to catch.
 
@@ -107,7 +109,7 @@ A lens riding on opinion (0.1) is scored 0 and blocks the gate; the skill says s
 - **Lensing a fog.** "Should we build something in gas safety? Run the four lenses." There is no concept to lens. Ask for the one concept first; do not manufacture four scores for an idea that does not exist.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Barrier Intelligence, worked end to end: a gas-alert prioritiser scored on all four lenses. Desirability PASSes on field-log behaviour and Feasibility PASSes on a spike, but a watched usability session shows gloved techs mis-tapping the ranked list — Usability FAILs, so the AND gate returns NO-GO despite three strong lenses, with the glove fix and the priced-value probe named. The anti-average, anti-flattery case.
+- [examples/sample.md](examples/sample.md) — Halcyon Safety, worked end to end: a gas-alert prioritiser scored on all four lenses. Desirability PASSes on field-log behaviour and Feasibility PASSes on a spike, but a watched usability session shows gloved techs mis-tapping the ranked list — Usability FAILs, so the AND gate returns NO-GO despite three strong lenses, with the glove fix and the priced-value probe named. The anti-average, anti-flattery case.
 
 ## Related skills
 - `product-frame-stack` — builds the whole problem→vision→strategy→North Star→OKR→roadmap spine and blocks unvalidated problems from passing down. This gates one concept's four build-risks; that gates the strategy. A concept that passes four-lenses is one input to the frame stack, not a substitute for it.

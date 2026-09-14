@@ -1,15 +1,26 @@
 ---
 name: concept-council
-description: First-contact teardown of a raw product idea. Fires when a fellow says "here's my idea", "tear this apart", "rip this concept apart", "what am I missing", or "what should I build first". Convenes five adversarial lenses, names the one load-bearing gap, and returns a Gap Map plus one First-Probe Brief costing under a week. NOT for an already-scoped concept you want stress-tested against the five so-whats (use so-what-stress-test) or scored numerically across eight dimensions (use problem-quality-scorecard).
-type: interactive
-supersedes: none
+description: >-
+  First-contact teardown of a raw product idea. Fires when a builder says "here's my idea", "tear
+  this apart", "rip this concept apart", "what am I missing", or "what should I build first".
+  Convenes five adversarial lenses, names the one load-bearing gap, and returns a Gap Map plus one
+  First-Probe Brief costing under a week. NOT for an already-scoped concept you want stress-tested
+  against the five so-whats (use so-what-stress-test) or scored numerically across eight
+  dimensions (use problem-quality-scorecard).
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
+context: fork
+agent: general-purpose
+background: false
 ---
 
 ## What it does
 
-Takes a raw, unproven idea and returns one decision: the single cheapest test to run this week. It convenes a five-lens adversarial panel, forces each lens to land its hardest single attack, ranks those attacks by how much of the idea they kill, and collapses the pile into one load-bearing gap and one probe. The output is a filled Gap Map plus a First-Probe Brief. It is the first thing a fellow runs when a concept is still a sentence, before any problem statement or PRD exists.
+Takes a raw, unproven idea and returns one decision: the single cheapest test to run this week. It convenes a five-lens adversarial panel, forces each lens to land its hardest single attack, ranks those attacks by how much of the idea they kill, and collapses the pile into one load-bearing gap and one probe. The output is a filled Gap Map plus a First-Probe Brief. It is the first thing a builder runs when a concept is still a sentence, before any problem statement or PRD exists.
 
-## The Icarus reframe
+## The reframe
 
 Generic brainstorming adds ideas; a SWOT lists strengths and weaknesses in parallel and stops. concept-council does the opposite: five adversarial lenses — Skeptic, Buyer, Incumbent, Engineer, Regulator — each return their single hardest attack, and a Synthesiser ranks those attacks by likelihood-the-attack-is-right times damage-if-right, names the one load-bearing gap (the single assumption that, if wrong, sinks the whole idea), and hands back exactly one probe you can run this week to test it. It is a teardown that ends in one action, not a list; if it gives you more than one thing to build first, it has failed.
 
@@ -19,7 +30,7 @@ Use it when the idea is still one sentence and unattacked. Use it before `proble
 
 Do not use it for:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | The five so-what questions run on an already-formed concept | `so-what-stress-test` | That interrogates a stated concept; this tears down a raw one and ends in a probe. |
 | A numeric score across eight problem dimensions | `problem-quality-scorecard` | That grades; this does not score the idea, it finds the one gap and tests it. |
@@ -32,7 +43,7 @@ Fill `template.md` as you go. Do not skip the ranking. Do not return more than o
 
 ### Step 1 — Restate the concept in one sentence
 
-Write the idea back in the fellow's own words, one sentence. If you cannot — because the input names no user, no job, or no change — ask the **one** question that unblocks it and stop. Invent no user, no number, no domain detail.
+Write the idea back in the the builder's own words, one sentence. If you cannot — because the input names no user, no job, or no change — ask the **one** question that unblocks it and stop. Invent no user, no number, no domain detail.
 
 ### Step 2 — Convene the panel
 
@@ -87,7 +98,7 @@ Every attack and every probe is weighed on the ladder: money moved **1.0** > beh
 
 ## Examples
 
-See `examples/sample.md` for a full run on Mentix ("an AI copilot for factory managers"): five lens-attacks scored, the load-bearing gap named (managers will not act on the copilot mid-shift), and one week-long shadow probe that moves the claim from opinion to behaviour.
+See `examples/sample.md` for a full run on Foundry Signal ("an AI copilot for factory managers"): five lens-attacks scored, the load-bearing gap named (managers will not act on the copilot mid-shift), and one week-long shadow probe that moves the claim from opinion to behaviour.
 
 ## Related skills
 

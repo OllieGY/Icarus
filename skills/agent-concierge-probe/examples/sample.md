@@ -1,6 +1,8 @@
-# Worked example — Mentix
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Mentix** (industrial AI, factory operations). Numbers are illustrative test fixtures, not client data.
+# Worked example — Foundry Signal
+
+Builder: **Foundry Signal** (industrial AI, factory operations). Numbers are illustrative test fixtures, not client data.
 
 The product is an AI copilot for factory managers. The first task handed to an agent: triage the plant's incoming maintenance work orders — read each order, classify fault type, set priority, and route to the right crew. One triaged work order = one outcome.
 

@@ -16,9 +16,9 @@ reimplements `evidence-ladder` will drift from it.
 
 ## 2. Persona packs — `agents/personas/<name>/`
 
-Named, persistent agents with a voice and durable memory. Format adapted from the studio
+Named, persistent agents with a voice and durable memory. Format adapted from your team
 marketplace (`The-Utopia-Studio/skills`, `agents/`), which runs Ada (technical DD),
-Khalil (decks), and Salim (fellow coach).
+Khalil (decks), and Salim (builder coach).
 
 Four canonical files per persona:
 

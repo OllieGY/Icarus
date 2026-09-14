@@ -1,19 +1,21 @@
-# Worked example — Azraq static site risk report
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Azraq** (data-centre / infrastructure risk). All numbers are illustrative test fixtures, not client data.
+# Worked example — Meridian Grid static site risk report
 
-**Fellow's ask:** "How is our risk report actually produced today, and what does one cost? We know it's roughly an analyst-day but I want it itemised before we talk automation."
+Builder: **Meridian Grid** (data-centre / infrastructure risk). All numbers are illustrative test fixtures, not client data.
+
+**Builder's ask:** "How is our risk report actually produced today, and what does one cost? We know it's roughly an analyst-day but I want it itemised before we talk automation."
 
 ## Shared assumption block
-- Loaded rate: **£120/hr** = £2.00/min for the analyst/senior (fully loaded specialist)  `[Assumption]`
-- Priced against the timesheet export for the week of 3 Mar and one report observed 12 Mar  `[Fact]`
+- Loaded rate: **£120/hr** = £2.00/min for the analyst/senior (fully loaded specialist) `[Assumption]`
+- Priced against the timesheet export for the week of 3 Mar and one report observed 12 Mar `[Fact]`
 
 ---
 
 ## 1. Unit and trigger
 - **Unit:** one static site risk report (uptime/incident history + data-rights position for one operator site).
 - **Trigger:** quarterly refresh cycle opens for a site.
-- **Frequency:** ~40 sites × quarterly = **160 reports/year**  `[Assumption]`
+- **Frequency:** ~40 sites × quarterly = **160 reports/year** `[Assumption]`
 
 ## 2–3. As-is step ledger (£2.00/min loaded)
 
@@ -29,16 +31,16 @@ Fellow: **Azraq** (data-centre / infrastructure risk). All numbers are illustrat
 
 ## 4. Handoff tax
 - Handoffs: analyst chases the operator twice for missing data; one senior review round-trip. ≈ **70 min**.
-- **Handoff subtotal = 70 min × £2.00 = £140**  · Source: timesheet wk 3 Mar · `[Fact]` (0.7)
+- **Handoff subtotal = 70 min × £2.00 = £140** · Source: timesheet wk 3 Mar · `[Fact]` (0.7)
 
 ## 5. Delay
 - Elapsed time ≈ **3 calendar days** waiting on operator data vs **~7 hr** touch.
 - Does the wait cost money? A quarterly report has no SLA, no carrying cost, no decaying decision. **Delay = £0, because the refresh cadence absorbs the wait.** The three days are real but not billable.
-- **Delay subtotal = £0**  · Source: no penalty clause in the reporting agreement · `[Assumption]`
+- **Delay subtotal = £0** · Source: no penalty clause in the reporting agreement · `[Assumption]`
 
 ## 6. Failure and rework
-- **Rework loop:** 25% of drafts bounce at senior review × +180 min redo = 0.25 × 180 × £2.00 = **£90**  · Source: senior's returned-drafts log, Q4 · `[Fact]` (0.7)
-- **Escaped failure:** a *material* risk missed and shipped to the operator → mispriced SLA / reputational cost. Azraq has no historical rate or £ figure yet. **Flagged `[Hypothesis]`.** The two numbers to get: how often a material miss has occurred (returned-report + incident records); the £ cost when it did (one remediation/dispute).
+- **Rework loop:** 25% of drafts bounce at senior review × +180 min redo = 0.25 × 180 × £2.00 = **£90** · Source: senior's returned-drafts log, Q4 · `[Fact]` (0.7)
+- **Escaped failure:** a *material* risk missed and shipped to the operator → mispriced SLA / reputational cost. Meridian Grid has no historical rate or £ figure yet. **Flagged `[Hypothesis]`.** The two numbers to get: how often a material miss has occurred (returned-report + incident records); the £ cost when it did (one remediation/dispute).
 
 ## 7. Total — current priced practice per unit
 - **Total = touch £730 + handoff £140 + delay £0 + rework £90 + escaped-failure (unpriced, flagged) = £960 per report**
@@ -46,7 +48,7 @@ Fellow: **Azraq** (data-centre / infrastructure risk). All numbers are illustrat
 - This £960 is the number `physics-floor-gap` divides against the floor.
 
 ## 8. Cost concentration
-- Ranked: 1) Drafting **£300 (31%)**  2) Reconcile data-rights £160  3) Format/QA £120.
+- Ranked: 1) Drafting **£300 (31%)** 2) Reconcile data-rights £160 3) Format/QA £120.
 - **Dominant step: drafting (£300).** That is the step the product attacks first.
 - Foreshadow for the floor: automatable part (→ floor A) = drafting + log pull + formatting; irreducible judgment (→ floor B) = the 20-min senior materiality sign-off (£40).
 

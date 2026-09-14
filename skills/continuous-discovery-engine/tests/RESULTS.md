@@ -1,5 +1,11 @@
 # Eval log — continuous-discovery-engine
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -51,16 +57,16 @@ The head-to-head: on Golden 01, the static OST would keep "add more cooling-anom
 | 3 Adversarial | PASS (3/3) | 01 vague → method Step 1/2 forces "has it shipped? which feeds live? / what metric?" and builds nothing. 02 solution-in-disguise → the Icarus core inversion + "Interview-only inflation" gotcha arm the reframe (job = keep tree current with highest-rung feed, not maximise interviews; post-launch traces 0.7 beat interviews 0.3). 03 out-of-scope → description + When-NOT table decline and name `probe-matrix`, no probe designed. No fabrication/flattery/poaching. |
 | 4 Head-to-head | PASS | new vs superseded on this rubric (3 inputs): new ≈24–25 each; opportunity-solution-tree ≈7–8 each. New wins on TOTAL and on both named dims: proprietary_edge 5 vs 1, challenge 5 vs 2. |
 | 5 Anti-generic | PASS | Golden-01 output could NOT come from a generic PM prompt: Raw×rung weighting mechanically demotes opinion-backed solutions, and the loop turn kills an interview-backed 0.3 solution (A1 cooling alerts) with a 0.7 trace — moves a generic OST cannot make. All load-bearing mechanics are tabular, not prose. |
-| 6 Real-use | pending | requires 5+ real fellow uses |
+| 6 Real-use | pending | requires 5+ real builder uses |
 
 ### Gate 2 — per-case scores (dims: method_fidelity / artifact_complete / proprietary_edge / challenge / evidence_standard)
 
 | Case | MF | AC | PE | CH | ES | Total | Pass? |
 |---|---|---|---|---|---|---|---|
-| G01 Azraq post-launch | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
-| G02 Durian pre-launch (1 feed) | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
-| G03 Mentix copilot (eval≠demand) | 5 | 5 | 5 | 5 | 4 | 24 | ✅ |
-| G04 Barrier rigs (trace worship) | 5 | 4 | 5 | 5 | 4 | 23 | ✅ |
+| G01 Meridian Grid post-launch | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
+| G02 Larder Labs pre-launch (1 feed) | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
+| G03 Foundry Signal copilot (eval≠demand) | 5 | 5 | 5 | 5 | 4 | 24 | ✅ |
+| G04 Halcyon Safety rigs (trace worship) | 5 | 4 | 5 | 5 | 4 | 23 | ✅ |
 | G05 mundane expense-approval | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
 
 Notes on Gate 2:
@@ -75,7 +81,7 @@ Notes on Gate 2:
 - Kill line present and enforced; the static-poster relapse is named as failure, not softened.
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas / template.md)
-- **Trace-worship weighting is not structurally enforced in the template.** The "distinct users producing the signal" rule lives only in the Gotchas prose + evidence standard. The Step-6 loop-turn table (`Signal | Feed + rung | Node | Tree action | ...`) has no "distinct users / N" field, so a fast applier could log one crew member's dismiss as a 0.7 finding (exactly the Golden-04 trap) while still "filling the template." Recommend adding a **distinct-users column** to the loop-turn table so the guard is enforced by the artifact, not just by reading the gotcha.
+- **Trace-worship weighting is not structurally enforced in the template.** The "distinct users producing the signal" rule lives only in the Gotchas prose + evidence standard. The Step-6 loop-turn table (`Signal | Feed + rung | Node | Tree action |...`) has no "distinct users / N" field, so a fast applier could log one crew member's dismiss as a 0.7 finding (exactly the Golden-04 trap) while still "filling the template." Recommend adding a **distinct-users column** to the loop-turn table so the guard is enforced by the artifact, not just by reading the gotcha.
 - **Pre-launch loop turn is structurally thin and could be mistaken for poster-relapse.** With only interviews live (Golden 02), Step 7's demonstrated turn can only refine an interview-backed node within 0.3 (interview→interview, no rung movement). It is honest, but the template should add a one-line note that pre-launch the demonstrated turn is a 0.3 interview refinement and the rung-moving turn arrives when the thin slice ships — otherwise a reviewer may read the thin turn as a missing loop.
 - (Non-defect) The `description` is long, but it fires precisely and scopes cleanly — no change needed.
 

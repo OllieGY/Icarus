@@ -6,7 +6,7 @@ Fill top to bottom. One attack per lens. One gap. One probe. Tag every claim `[F
 
 ## 0. Concept in one sentence
 
-> [Restate the idea in the fellow's own words. Name the user, the job, and the change. If you cannot, write the ONE unblocking question here and stop.]
+> [Restate the idea in the the builder's own words. Name the user, the job, and the change. If you cannot, write the ONE unblocking question here and stop.]
 
 ---
 
@@ -48,7 +48,7 @@ One probe. It must test the gap above, cost ≤ 1 week, and move the claim up th
 | Ladder rung it reaches | [behaviour 0.7 / money 1.0 — not opinion] |
 | Pass looks like | [the specific observed behaviour or payment that says "gap survives"] |
 | Fail looks like | [the specific result that says "kill or pivot"] |
-| Decision on pass | [what the fellow does next] |
+| Decision on pass | [what the builder does next] |
 | Decision on fail | [kill / pivot / re-scope — name it] |
 
 ---

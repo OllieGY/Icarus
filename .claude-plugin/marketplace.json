@@ -1,16 +1,39 @@
 {
   "name": "icarus",
   "owner": {
-    "name": "The Utopia Studio",
-    "url": "https://github.com/OllieGY/icarus"
+    "name": "Ollie Graham-Yooll",
+    "url": "https://github.com/OllieGY"
   },
-  "description": "Utopia Studio's Product Management hub — the Icarus method as skills, agents, tools and lessons.",
+  "description": "Icarus — an eval-gated method for building AI-native products, as Claude Code skills.",
   "plugins": [
     {
       "name": "icarus",
+      "displayName": "Icarus",
       "source": "./",
-      "description": "Product Management hub. The 45 eval-gated Icarus skills, the golden rules they run on, an adversarial reviewer agent, and an append-only lessons log.",
-      "version": "0.1.0"
+      "description": "52 skills that take a raw idea from first-principles problem to a scored, shipped v1. Evidence weighted by what people did, not what they said.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": [
+        "product",
+        "evals",
+        "ai-native",
+        "agents",
+        "discovery"
+      ],
+      "keywords": [
+        "product-management",
+        "evals",
+        "context-engineering",
+        "red-team",
+        "pricing"
+      ],
+      "author": {
+        "name": "Ollie Graham-Yooll",
+        "url": "https://github.com/OllieGY"
+      },
+      "homepage": "https://github.com/OllieGY/icarus",
+      "repository": "https://github.com/OllieGY/icarus",
+      "license": "Apache-2.0"
     }
   ]
 }

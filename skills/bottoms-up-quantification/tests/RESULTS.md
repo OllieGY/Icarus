@@ -1,5 +1,11 @@
 # Eval log — bottoms-up-quantification
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -29,17 +35,17 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner: refuses to produce a number, asks the ONE atom+enumerable-population question, routes to physics-floor-gap — no fabrication. 02 lead-with-TAM: names the unfalsifiability trap (kill line), refuses top-down-led number, relegates TAM to labelled sanity check — no compliance-as-asked. 03 out-of-scope: declines the size model, names physics-floor-gap, explains run-order handoff, computes no per-unit floor. |
 | 4 Head-to-head | n-a | `supersedes: none` |
 | 5 Anti-generic | PASS | G01 output could NOT come from a generic PM prompt: evidence-ladder weight per rung, weakest-rung-caps-confidence (min not average), value rung must sit inside the physics-floor-gap gap, bottom-up÷top-down reconciliation band (Triangulated/Divergent/Broken), refusal to average a built number with an invented one, TAM demoted to last-step 0.1 sanity check. Reframe is load-bearing, not decoration. Confidence/reconciliation/when-NOT all in tables; template.md is a full worksheet. No guidance mis-cast as prose. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. |
+| 6 Real-use | pending | Requires 5+ real builder uses. |
 
 ### Gate 2 per-case scores (dimensions: method_fidelity / artifact_complete / proprietary_edge / challenge / evidence_standard)
 
 | Golden | MF | AC | PE | CH | ES | Total | Pass? |
 |---|---|---|---|---|---|---|---|
-| 01 Barrier per-permit | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
-| 02 Azraq risk reports | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
-| 03 Mentix headline population | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
-| 04 Durian invoice reconciliation | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
-| 05 Barrier leak-detection (money moving) | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
+| 01 Halcyon Safety per-permit | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
+| 02 Meridian Grid risk reports | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
+| 03 Foundry Signal headline population | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
+| 04 Larder Labs invoice reconciliation | 5 | 4 | 5 | 5 | 5 | 24 | ✅ |
+| 05 Halcyon Safety leak-detection (money moving) | 5 | 5 | 5 | 5 | 5 | 25 | ✅ |
 
 All ≥ 21 and no dimension < 4. No auto_fail triggered (no fabricated numbers — G03 £576M is computed from input figures and stamped Fiction, not presented as defensible; no flattery; no scope-poaching; not generic). G03 correctly refuses to dress a market-report aggregate as a bottom-up [Fact]; G05 correctly UPWEIGHTS money-moved (1.0) and observed close-rate (0.7) instead of reflexively marking rungs soft, and still warns the 18-approach sample is small.
 

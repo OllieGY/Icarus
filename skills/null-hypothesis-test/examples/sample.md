@@ -1,6 +1,8 @@
-# Null-Hypothesis Test — Azraq (worked)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow / venture:** Azraq (data-centre / infrastructure risk)
+# Null-Hypothesis Test — Meridian Grid (worked)
+
+**Builder / venture:** Meridian Grid (data-centre / infrastructure risk)
 **Plan / wedge under test:** Sell an outage-risk score for data centres to
 underwriters, built on operators' incident and uptime logs, with an exclusive
 data-rights position.
@@ -20,7 +22,7 @@ format, refresh latency) were cut to the park line.
 
 | # | Belief (claim about the world) | Null H0 (belief is false) | P(wrong) | Impact | Rank | Cheapest disproof + evidence rung | Cost/time | Pre-committed kill signal |
 |---|---|---|---|---|---|---|---|---|
-| 1 | `[Assumption]` A data-centre operator will grant Azraq rights to its incident/uptime logs | Operators will not grant log rights | 4 | 5 | **20** | Ask ONE friendly operator for a signed sandbox read-grant to one month of real logs (rung: artefact -> behaviour) | 1 week, £0 | Not granted, OR it routes to legal and stalls past 5 business days |
+| 1 | `[Assumption]` A data-centre operator will grant Meridian Grid rights to its incident/uptime logs | Operators will not grant log rights | 4 | 5 | **20** | Ask ONE friendly operator for a signed sandbox read-grant to one month of real logs (rung: artefact -> behaviour) | 1 week, £0 | Not granted, OR it routes to legal and stalls past 5 business days |
 | 2 | `[Assumption]` An underwriter will pay for a third-party outage-risk score | Underwriters price it in-house and won't buy | 4 | 5 | **20** | Take one historical outage to ONE underwriting lead and ask for a signed paid-pilot LOI, not a compliment (rung: verbal -> money) | 2 weeks | "We'd use it but wouldn't pay", OR no budget line named |
 | 3 | `[Hypothesis]` The incident logs predict outages better than public signals | Logs add no lift over public data | 3 | 4 | **12** | Backtest the score against known past outages vs a public-signal baseline on the one operator's logs (rung: behaviour) | 3-4 days | Lift <= public-signal baseline |
 | 4 | `[Assumption]` The data-rights position is exclusive/defensible | Operators grant the same rights to competitors | 4 | 3 | **12** | Ask the operator for an exclusivity clause in the sandbox grant (rung: artefact) | in the same ask as #1 | They sign access but refuse exclusivity |
@@ -28,7 +30,7 @@ format, refresh latency) were cut to the park line.
 | 6 | `[Assumption]` Underwriters will trust an external model's methodology | They discount any model they can't audit | 2 | 1 | **2** | Park — cosmetic vs #2; folds into the pilot | — | (not tested yet) |
 
 **Note the floor biting:** beliefs 1 and 2 are Impact 5 resting on opinion, so
-even a confident fellow cannot score them below P(wrong) 3; here honest P is 4.
+even a confident builder cannot score them below P(wrong) 3; here honest P is 4.
 Both land at 20 — the two load-bearing walls.
 
 ---
@@ -53,10 +55,10 @@ Both land at 20 — the two load-bearing walls.
 ## What would change the view
 
 - **Belief #1 (data rights):** abandon the "we own the data moat" plan if the first
-  operator won't grant access on any terms; it climbs a rung if a signed sandbox
-  grant lands (opinion -> artefact), and another if a second operator grants without
-  being asked twice (-> behaviour).
+ operator won't grant access on any terms; it climbs a rung if a signed sandbox
+ grant lands (opinion -> artefact), and another if a second operator grants without
+ being asked twice (-> behaviour).
 - **Belief #2 (will-pay):** abandon the direct-to-underwriter wedge if no underwriter
-  will name a budget line against a real historical outage; it climbs to money the
-  moment one signs a paid-pilot LOI. Until #1 and #2 both clear, nothing downstream
-  (model, report, exclusivity) is worth building.
+ will name a budget line against a real historical outage; it climbs to money the
+ moment one signs a paid-pilot LOI. Until #1 and #2 both clear, nothing downstream
+ (model, report, exclusivity) is worth building.

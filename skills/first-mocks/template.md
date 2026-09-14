@@ -1,6 +1,6 @@
 # Clickable-Prototype Plan
 
-**Fellow / venture:** _______________
+**Builder / venture:** _______________
 **Date:** _______________
 
 ## Step 0 — The ONE thing the mock must provoke a reaction to
@@ -18,7 +18,7 @@ _(e.g. "states the correct next action cold", "picks the less-confusing of two f
 ☐ Probe — will they pay / would they use it → stop, go to `probe-matrix`, then return
 
 **Is Step 0 a solution-in-disguise?**
-☐ No, it names a moment/unknown  ☐ Yes ("mock the mobile app") → reframe with
+☐ No, it names a moment/unknown ☐ Yes ("mock the mobile app") → reframe with
 `problem-statement`, then return.
 
 ## Steps 1–4 — Climb only as far as the reaction needs
@@ -33,7 +33,7 @@ Tick the top band you actually need. Do not cross the band's ceiling.
 | ☐ | 4 Clickable hybrid | wired frames (v0 / Figma Make) | can a hand click + react | one afternoon | no backend/data/auth |
 | ☐ | — code | STOP | — | — | BANNED — belongs to build (07) |
 
-**Top band needed:** ____   **Why not lower / not higher:** _______________
+**Top band needed:** ____ **Why not lower / not higher:** _______________
 
 ### Step 1 — Crazy 8s
 
@@ -53,17 +53,17 @@ Tick the top band you actually need. Do not cross the band's ceiling.
 
 ### Step 4 — Clickable hybrid
 
-**Tool:** ☐ v0  ☐ Figma Make  ☐ other: ____
+**Tool:** ☐ v0 ☐ Figma Make ☐ other: ____
 **What is real (clickable):** _______________
 **What is faked (data / backend / auth):** _______________ `[Assumption]`
-**Built in:** ____ hours  (☐ ≤ one afternoon — if not, you are building the product; stop)
+**Built in:** ____ hours (☐ ≤ one afternoon — if not, you are building the product; stop)
 
 ## Step 5 — Route the visual craft OUT
 
 > _Do not polish pixels here. Name where the look goes._
 
 **UX/UI plan → :** ☐ `shape` (/impeccable)
-**Distinctive UI build → :** ☐ `impeccable`   **or specific surface → :** ☐ `design/____`
+**Distinctive UI build → :** ☐ `impeccable` **or specific surface → :** ☐ `design/____`
 ☐ This plan contains NO colour / type / layout advice of its own (that would be the kill line).
 
 ## Step 6 — Hand to the reaction (pre-registered)
@@ -72,7 +72,7 @@ Set BEFORE anyone sees the mock. The mock is 0.5; the reaction is where 0.7 is m
 
 | | |
 |---|---|
-| **Hand off to:** | ☐ `usability-test-protocol` (watch a user)  ☐ `probe-matrix` (needs a probe) |
+| **Hand off to:** | ☐ `usability-test-protocol` (watch a user) ☐ `probe-matrix` (needs a probe) |
 | **Reaction that = pass (behaviour):** | _______________ |
 | **Threshold + sample:** | _______________ |
 | **A pass moves the claim to rung:** | 0.7 (behaviour) `[tag]` |

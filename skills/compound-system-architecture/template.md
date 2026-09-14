@@ -1,6 +1,6 @@
 # Compound-System Architecture — <product name>
 
-**Fellow:** <name> · **Date:** <date> · **Stage:** commit-build v1
+**Builder:** <name> · **Date:** <date> · **Stage:** commit-build v1
 
 ## A. The system job (one sentence)
 
@@ -15,7 +15,7 @@ The corpus / state / memory the system reasons over. Score its grounding on the 
 | Data source | What it grounds | Workflow exhaust? | Exists today? | Rung (0.1–1.0) |
 |---|---|---|---|---|
 | <e.g. maintenance logs> | <retrieval for diagnostics> | yes / no | yes / no | <e.g. behaviour 0.7> `[Fact]` |
-| <source 2> | ... | ... | ... | <rung> |
+| <source 2> |... |... |... | <rung> |
 
 Ladder: money 1.0 · behaviour 0.7 · artefact 0.5 · verbal 0.3 · opinion 0.1.
 Bar: the data layer must clear **0.7** — real workflow exhaust the target already
@@ -27,9 +27,9 @@ Spine is fixed. A node may be collapsed (write "n/a — rules" and why); it may 
 deleted silently.
 
 ```
-          ┌──────────── data layer (B) ────────────┐
-          │                                          │
-input → router →  ⟨ retrieve ∥ reason ∥ act ⟩  → validate & guardrails → output
+ ┌──────────── data layer (B) ────────────┐
+ │ │
+input → router → ⟨ retrieve ∥ reason ∥ act ⟩ → validate & guardrails → output
 ```
 
 | # | Component | Its one job here | Input | Output | Failure mode | Model call? |
@@ -82,13 +82,13 @@ component table and hand off the render. This skill decides the shape; that skil
 ## Kill line — self-check before returning
 
 - [ ] Not a monolith. There is a real router, retrieve, and an independent validate —
-      not "one big prompt does everything". A one-node design is an automatic KILL.
+ not "one big prompt does everything". A one-node design is an automatic KILL.
 - [ ] Model ≤ 20%, OR a legitimate stated reason is written in bucket D. "Great prompt"
-      and "niche jargon" are not legitimate reasons.
+ and "niche jargon" are not legitimate reasons.
 - [ ] Data ≥ Model. If Model > Data, stop and rebalance.
 - [ ] The data layer (B) clears 0.7 — real exhaust that exists today, not a hope.
 - [ ] Component 4 (validate) is independent of component 3b (the model).
 - [ ] Every swap point in E names a gating eval. No blank eval cells.
 - [ ] Every empirical claim (data, cost, latency, accuracy) is tagged
-      `[Fact]`/`[Assumption]`/`[Hypothesis]`. No number invented that the fellow did
-      not provide.
+ `[Fact]`/`[Assumption]`/`[Hypothesis]`. No number invented that the builder did
+ not provide.

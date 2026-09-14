@@ -53,4 +53,4 @@ Route on gate failure:
 **Discarded (contaminated / reproducible):** _[cases + which leak]_
 **Retired to training (build already saw them):** _[cases]_
 
-**Handoff:** the _[N]_ golden cases are the seed. They go to `eval-first-spec` (section 07), which writes the job line, composes them into the typical/edge/adversarial/must-refuse spread, and sets the autonomy level and cost-per-outcome budget. This skill stops at the clean, ground-truth-labelled, unreachable seed; it does not write the spec.
+**Handoff:** the _[N]_ golden cases are the seed. They go to `eval-first-spec`, which writes the job line, composes them into the typical/edge/adversarial/must-refuse spread, and sets the autonomy level and cost-per-outcome budget. This skill stops at the clean, ground-truth-labelled, unreachable seed; it does not write the spec.

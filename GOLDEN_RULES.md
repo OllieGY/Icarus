@@ -80,9 +80,9 @@ Scored by a judge agent separate from the author.
 3. **Adversarial** — survives the vague one-liner, the solution-in-disguise, and the out-of-scope ask without fabricating or flattering.
 4. **Head-to-head** — a superseding skill must beat the skill it replaces on the same inputs.
 5. **Anti-generic** — its output could not have come from a generic PM prompt.
-6. **Used 5+ times in real fellow work** — completes in use. Log each miss as a gotcha and re-run the set.
+6. **Used 5+ times in real real product work** — completes in use. Log each miss as a gotcha and re-run the set.
 
-Golden cases come from real fellow work: Azraq, Mentix, Barrier Intelligence, Durian.
+Golden cases come from real real product work: Meridian Grid, Foundry Signal, Halcyon Safety, Larder Labs.
 
 ## Rule 8 — Judgment, not steps
 
@@ -92,21 +92,21 @@ Golden cases come from real fellow work: Azraq, Mentix, Barrier Intelligence, Du
 
 "Every market skill is, by default, folded into an existing studio skill or rejected. It is never added as new surface, and never vendored wholesale."
 
-Every skill Claude can load costs context on every session, for every fellow. Net-new surface has to earn that recurring cost, not just be good in isolation. Adoption and behaviour outrank author opinion: install counts and real usage are evidence, a README's self-description is not.
+Every skill Claude can load costs context on every session, for every builder. Net-new surface has to earn that recurring cost, not just be good in isolation. Adoption and behaviour outrank author opinion: install counts and real usage are evidence, a README's self-description is not.
 
 ## Rule 10 — Don't re-run a stage you have already earned
 
-The biggest waste is not skipping a stage, it is re-running one whose answer you already hold in behaviour or money. Subtract stages you have evidenced past. Refuse to leap a stage you only feel you have done. Type is graded to the highest rung the fellow can actually show, and it rounds down, never up.
+The biggest waste is not skipping a stage, it is re-running one whose answer you already hold in behaviour or money. Subtract stages you have evidenced past. Refuse to leap a stage you only feel you have done. Type is graded to the highest rung the builder can actually show, and it rounds down, never up.
 
 ---
 
 ## The flow
 
-Entry point is `fellow-path-router` — it decides which of these stages are yours. Full sequence in [`skills/ICARUS.md`](./skills/ICARUS.md).
+Entry point is `start-here-router` — it decides which of these stages are yours. Full sequence in [`skills/ICARUS.md`](./skills/ICARUS.md).
 
 | # | Stage | Skills |
 |---|---|---|
-| 00 | Concept council — entry & triage | `fellow-path-router`, `concept-council`, `so-what-stress-test` |
+| 00 | Concept council — entry & triage | `start-here-router`, `concept-council`, `so-what-stress-test` |
 | 01 | First-principles problem | `product-as-decision`, `job-in-primitives`, `current-state-map`, `physics-floor-gap`, `problem-quality-scorecard`, `null-hypothesis-test`, `bottoms-up-quantification` |
 | 02 | Customer discovery | `user-buyer-decider-map`, `unserved-needs-finder`, `synthetic-users`, `tacit-knowledge-interview`, `evidence-ladder`, `continuous-discovery-engine` |
 | 03 | YODA — your own data | `yoda-data-sourcing`, `explicit-vs-tacit-capture`, `dataset-builder` |
@@ -116,6 +116,6 @@ Entry point is `fellow-path-router` — it decides which of these stages are you
 | 07 | Commit — build & sell v1 | `eval-first-spec`, `compound-system-architecture`, `guardrail-design`, `pilot-six-term-sheet`, `value-based-pricing`, `v1-launch-bar` |
 | 08 | Refine flywheel | `refine-flywheel`, `trace-to-interview`, `metrics-that-matter` |
 | 09 | Build craft | `agent-design`, `workflow-design` |
-| 10 | Fellow progression | `fellow-level-ladder`, `platform-vs-venture` |
+| 10 | Builder progression | `builder-level-ladder`, `build-vs-buy-boundary` |
 
 Three skills supersede a weaker generic incumbent and beat it head-to-head: `problem-quality-scorecard` → `identify-assumptions-new`; `continuous-discovery-engine` → `opportunity-solution-tree`; `probe-matrix` → `prototyping-pretotyping`.

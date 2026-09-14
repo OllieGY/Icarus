@@ -1,17 +1,19 @@
-# Worked example — Barrier Intelligence, rig-sensor data at pilot #1
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Barrier Intelligence builds gas-safety software for oil and gas crews. YODA (section 03) already banded its sources and flagged two clause-gated rows. This is a test fixture: numbers and parties are illustrative, not real client data. It is a drafting scaffold for counsel, not legal advice.
+# Worked example — Halcyon Safety, rig-sensor data at pilot #1
 
-## Input the fellow brought
+Halcyon Safety builds gas-safety software for oil and gas crews. YODA already banded its sources and flagged two clause-gated rows. This is a test fixture: numbers and parties are illustrative, not real client data. It is a drafting scaffold for counsel, not legal advice.
+
+## Input the builder brought
 
 "YODA said our moat seed is the field logs plus the operator corrections in our product, and that the detector vendor's raw telemetry is P-but-vendor-owned. We're about to start a paid pilot with a national oil operator on two rigs. What do we sign so the data is actually ours?"
 
 Available material, as stated:
-- Field-log write-ups the crews create in Barrier's product; Barrier holds the exports. [Fact]
-- Operator corrections: crews accept, edit, or override Barrier's suggested go/no-go call, logged by default. [Fact]
-- Raw detector telemetry streamed to the detector vendor's cloud; Barrier sees dashboards, not the raw feed. [Fact]
+- Field-log write-ups the crews create in Halcyon Safety's product; Halcyon Safety holds the exports. [Fact]
+- Operator corrections: crews accept, edit, or override Halcyon Safety's suggested go/no-go call, logged by default. [Fact]
+- Raw detector telemetry streamed to the detector vendor's cloud; Halcyon Safety sees dashboards, not the raw feed. [Fact]
 - The operator's procurement team has sent over its standard vendor agreement to sign. [Fact]
-- The operator is a national oil company (state-owned). [Assumption — stated by the fellow]
+- The operator is a national oil company (state-owned). [Assumption — stated by the builder]
 
 ## 1. The seed and the counterparty
 
@@ -32,13 +34,13 @@ Two counterparties, so two clauses. This example drafts the operator clause and 
 
 ## 3. What the default contract does to the moat
 
-The operator's standard vendor agreement, read for what it does to Barrier's seed:
+The operator's standard vendor agreement, read for what it does to Halcyon Safety's seed:
 
-| Default term (theirs) | What it does to the moat | The flip Barrier needs |
+| Default term (theirs) | What it does to the moat | The flip Halcyon Safety needs |
 |---|---|---|
-| "All Customer Data deleted on termination" | Erases the correction corpus if the pilot does not convert — exactly when Barrier most needs the seed | De-identified corrections + logs survive termination (§4) |
-| "Vendor may process data solely to deliver the Services" | Forbids training Barrier's models on the corrections | Explicit grant to train in de-identified form (§2) |
-| Silent on the accept/edit/override labels | Barrier would hold the readings but not the corrections — the part that compounds | Derived-data rights on the correction stream (§3) |
+| "All Customer Data deleted on termination" | Erases the correction corpus if the pilot does not convert — exactly when Halcyon Safety most needs the seed | De-identified corrections + logs survive termination (§4) |
+| "Vendor may process data solely to deliver the Services" | Forbids training Halcyon Safety's models on the corrections | Explicit grant to train in de-identified form (§2) |
+| Silent on the accept/edit/override labels | Halcyon Safety would hold the readings but not the corrections — the part that compounds | Derived-data rights on the correction stream (§3) |
 
 Countersigning the operator's template as-is would have "handled data rights" by deleting the moat on termination and banning training. This is the inversion Step 3 exists to catch.
 
@@ -48,16 +50,16 @@ Countersigning the operator's template as-is would have "handled data rights" by
 Covers: (a) field-log write-ups created in the Product; (b) the go/no-go suggestions the Product makes and the crew's response to each (accept / edit / override) — the "Corrections"; (c) associated non-personal operational context. Not "all data of the Operator"; limited to these categories.
 
 ### §2 Grant of use & improvement
-Operator grants Barrier a non-exclusive, perpetual right to retain and use the Covered Data to operate, develop, and improve the Product, **including training and evaluating models**, in aggregated and/or de-identified form. Excludes: re-identification of individual crew members.
+Operator grants Halcyon Safety a non-exclusive, perpetual right to retain and use the Covered Data to operate, develop, and improve the Product, **including training and evaluating models**, in aggregated and/or de-identified form. Excludes: re-identification of individual crew members.
 
 ### §3 Derived-data & compounding rights
 The Corrections (§1b) and any labels, decisions, or model-evaluation records generated by use of the Product are licensed to Barrier to retain and use per §2, and are **not** "Operator Data" for the deletion terms in §4. _[Crux row: this is the correction stream that compounds — the reason the pilot exists.]_
 
 ### §4 Survival & retention
-Rights in §2–§3 survive expiry, non-conversion, and termination. On termination Barrier retains the de-identified / derived corpus (field logs + Corrections); raw identifiable Operator records are returned or deleted on request. Survival enforceability: `[Assumption — confirm with counsel]`.
+Rights in §2–§3 survive expiry, non-conversion, and termination. On termination Halcyon Safety retains the de-identified / derived corpus (field logs + Corrections); raw identifiable Operator records are returned or deleted on request. Survival enforceability: `[Assumption — confirm with counsel]`.
 
 ### §5 Residency, handling & security
-Covered Data stored in `[region]`, accessed by named Barrier engineers under `[security posture]`.
+Covered Data stored in `[region]`, accessed by named Halcyon Safety engineers under `[security posture]`.
 - Residency: a state-owned operator may require in-country hosting of operational data. `[Assumption — confirm with counsel]`
 - Cross-border transfer of the corpus for training: `[Assumption — confirm with counsel]`
 
@@ -79,8 +81,8 @@ Operator warrants it may share the Covered Data, including any identifiable crew
 
 **Timing:** signed at pilot #1, as one term of the six-term sheet. **No clause, no pilot.**
 
-**Right-held score:** today Barrier has the operator's *standard template offered to sign* and a verbal "you can keep the data for your product" from the pilot sponsor — 0.3 `[Fact]`. Not held. It reaches 1.0 only when the flipped clause above is countersigned by an authorized operator signatory. Until then the correction stream is a seed-in-waiting.
+**Right-held score:** today Halcyon Safety has the operator's *standard template offered to sign* and a verbal "you can keep the data for your product" from the pilot sponsor — 0.3 `[Fact]`. Not held. It reaches 1.0 only when the flipped clause above is countersigned by an authorized operator signatory. Until then the correction stream is a seed-in-waiting.
 
 ## The correction this skill forced
 
-The fellow thought "what do we sign" meant "sign their agreement." Their agreement deletes the seed on termination and bans training — it would have destroyed the moat with Barrier's own signature. The skill flipped three terms, made the compounding correction stream (§3) explicit rather than assumed, made the rights survive a pilot that might not convert (§4), and pushed every state-entity and residency question to counsel as an `[Assumption]` rather than guessing at GCC law. The vendor telemetry is a second clause with a second counterparty, not folded into this one.
+The builder thought "what do we sign" meant "sign their agreement." Their agreement deletes the seed on termination and bans training — it would have destroyed the moat with Halcyon Safety's own signature. The skill flipped three terms, made the compounding correction stream (§3) explicit rather than assumed, made the rights survive a pilot that might not convert (§4), and pushed every state-entity and residency question to counsel as an `[Assumption]` rather than guessing at GCC law. The vendor telemetry is a second clause with a second counterparty, not folded into this one.

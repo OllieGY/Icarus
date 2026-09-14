@@ -1,11 +1,13 @@
-# Evidence ladder — Barrier Intelligence (gas-safety alerts for rigs)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
+
+# Evidence ladder — Halcyon Safety (gas-safety alerts for rigs)
 
 *Illustrative fixture. Numbers are plausible, not real client data.*
 
 **Core claim:** an operator will pay for the gas-safety alert product.
-**Signals weighed:** 5   **Date:** 2026-07-20
+**Signals weighed:** 5 **Date:** 2026-07-20
 
-The fellow arrived saying: "We're validated — a rig is paying, two supervisors
+The builder arrived saying: "We're validated — a rig is paying, two supervisors
 love it, forty people signed up, and an engineer showed me exactly the problem."
 Here is what that pile actually weighs.
 
@@ -27,7 +29,7 @@ rollout (0.1).
 - **Core claim:** an operator will pay — **1.0, money moved.** [Fact] One rig paid.
 - **Coverage:** 1 of 5 claims at behaviour-or-money (0.7+); 2 opinion-only (0.1).
 - No average is reported. A mean of the five (≈0.4) would launder two opinions
-  behind one real payment and read as "moderately validated" — which is false.
+ behind one real payment and read as "moderately validated" — which is false.
 
 ## Honest read
 
@@ -40,7 +42,7 @@ rollout (0.1).
 > another demo. [Assumption] Purchase will convert to trust once alerts fire in
 > anger; [Hypothesis] a live shift will surface the override rate that decides it.
 
-## What the fellow was told, plainly
+## What the builder was told, plainly
 
 "Paying" is your one solid claim — bank it. "Loved it" and "signed up" are not
 validation; they are enthusiasm, and stacking them does not add up to the one

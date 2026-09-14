@@ -1,6 +1,8 @@
-# Metric Scorecard — Durian Labs shift-handover drafter
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Durian Labs · **Date:** 2026-07-22 · **Stage:** refine / metrics
+# Metric Scorecard — Larder Labs shift-handover drafter
+
+**Builder:** Larder Labs · **Date:** 2026-07-22 · **Stage:** refine / metrics
 
 Illustrative fixtures. Numbers are plausible, not real client data.
 
@@ -8,7 +10,7 @@ Depth routed: NSM framework → `north-star-metric`; AARRR → its resource; coh
 `cohort-analysis`; dashboard build → `retention-dashboard`; unit economics → `financial-unit-economics`.
 This scorecard adds the retention gate (C) and cost-per-outcome (D).
 
-The fellow arrived with: *"Our North Star is documents drafted — we're at 40,000 all-time
+The builder arrived with: *"Our North Star is documents drafted — we're at 40,000 all-time
 and climbing. What else should we track?"*
 
 ## A. Business game and North Star
@@ -16,7 +18,7 @@ and climbing. What else should we track?"*
 | Field | Value |
 |---|---|
 | Business game | Productivity (helps a warehouse team finish the shift handover faster) |
-| Proposed North Star | ~~Documents drafted (40,000 all-time)~~ — rejected: a cumulative total, and an *output* Durian emits, not an outcome the team received |
+| Proposed North Star | ~~Documents drafted (40,000 all-time)~~ — rejected: a cumulative total, and an *output* Larder Labs emits, not an outcome the team received |
 | Adopted North Star | **Accepted handovers per active team per week** (a draft the team accepted with minor edits and posted) `[Fact]` — logged on the post button |
 | Why it is an outcome | The team *used* the handover; a drafted-but-discarded doc does not count |
 | Status | **PROVISIONAL** until the retention gate (C) passes |
@@ -70,7 +72,7 @@ Per accepted handover:
 | Line | Source | Amount |
 |---|---|---|
 | Inference / API | ~7k tokens in + 1.5k out across retrieval + draft calls | $0.09 `[Assumption]` from token logs |
-| Human-in-loop | the team's own edit time — Durian pays $0 (customer labour) | $0.00 |
+| Human-in-loop | the team's own edit time — Larder Labs pays $0 (customer labour) | $0.00 |
 | Infra / retrieval | vector lookup over past handovers + exception feed | $0.05 `[Assumption]` |
 | **Cost per outcome** | sum | **$0.14** |
 | Price per outcome | metered at $2.00 per accepted handover | $2.00 `[Fact]` |
@@ -99,11 +101,11 @@ via `refine-flywheel`.
 ## Kill line — self-check
 
 - [x] Exactly one North Star, a customer-received outcome (accepted, posted handover) — the
-      40,000-total headline was killed.
+ 40,000-total headline was killed.
 - [x] Retention truth test run: curve flattens ~55% by W8, tail slope ~0.3 pt → VALID.
 - [x] Cost-per-outcome $0.14 to the cent; margin $1.86; direction holding; inversion line named.
 - [x] Retention measured on the outcome, over the activated cohort — not logins, not billing.
 - [x] Every metric tagged vanity/actionable; both totals converted.
 - [x] Numbers tagged; retention (0.7) and NRR (1.0) carry the verdict, not opinion; no figure
-      invented beyond Durian's token logs, price sheet, and cohort export.
-- [x] Depth routed to the M9 skills; the NSM framework and cohort mechanics are not restated.
+ invented beyond Larder Labs's token logs, price sheet, and cohort export.
+- [x] Depth routed to the an external analytics pack skills; the NSM framework and cohort mechanics are not restated.

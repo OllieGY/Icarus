@@ -1,25 +1,27 @@
 ---
 name: synthetic-users
 description: >-
-  Build a synthetic user panel grounded in your YODA corpus and pre-test a concept, message, or
-  flow against it — cheaply, before you spend real interview time. Returns a Synthetic Panel +
-  Pre-Test Transcript carrying a lie ledger (what synthetic users systematically get wrong: they
-  never pay, never no-show, over-rationalise, over-agree) and a kill / revise /
-  promote-to-real-interview verdict. Fires on "test this before real interviews", "simulate a
-  user", "dry-run the pitch", "pre-test the message/flow", "which of these should I even bother
-  interviewing about". NOT for running the real interview that captures an expert's judgment (use
-  tacit-knowledge-interview), scripting a Mom-Test discovery interview (use interview-script) or
-  planning one (use discovery-interview-prep), or sourcing the corpus the panel is built from (use
-  yoda-data-sourcing). Never treats a synthetic response as validation.
-type: interactive
-supersedes: none
+ Build a synthetic user panel grounded in your YODA corpus and pre-test a concept, message, or
+ flow against it — cheaply, before you spend real interview time. Returns a Synthetic Panel +
+ Pre-Test Transcript carrying a lie ledger (what synthetic users systematically get wrong: they
+ never pay, never no-show, over-rationalise, over-agree) and a kill / revise /
+ promote-to-real-interview verdict. Fires on "test this before real interviews", "simulate a
+ user", "dry-run the pitch", "pre-test the message/flow", "which of these should I even bother
+ interviewing about". NOT for running the real interview that captures an expert's judgment (use
+ tacit-knowledge-interview), scripting a Mom-Test discovery interview (use interview-script) or
+ planning one (use discovery-interview-prep), or sourcing the corpus the panel is built from (use
+ yoda-data-sourcing). Never treats a synthetic response as validation.
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Takes a concept, a message, or a flow you are about to take to real customers, and runs it past a small panel of synthetic users built from your YODA corpus — the field logs, shadow threads, and tacit captures a foundation model cannot reach. It returns a Synthetic Panel + Pre-Test Transcript: each panellist grounded in a named slice of the corpus, the concept posed to each, and every response tagged with which known lie could be corrupting it. The output is a kill / revise / promote verdict, not a verdict of "validated". Its only legitimate job is to eliminate weak concepts and prioritise which real interview to run first. A synthetic "yes" is worth nothing; a synthetic "I don't understand this" is worth acting on.
 
-## The Icarus reframe
+## The reframe
 
 The generic move is to prompt an LLM to role-play a persona and ask it whether it likes your idea. It will say yes, because a base model agrees, never pays, and never no-shows. That is not a test; it is a machine built to flatter you. The Icarus version fixes two things. First, ground every panellist in your proprietary corpus, not the model's prior — a persona a generic prompt could invent only tells you what every competitor's model already believes about your market. Second, run it as a kill screen, never a validation: positive signal is null, only negative signal (confusion, an existing workaround, a flow that breaks) may transfer to a real user, and even then it caps at [Hypothesis]. Synthetic output sits below opinion on the evidence ladder. Its whole value is spending a real interview well, not replacing it.
 
@@ -29,7 +31,7 @@ Use it when you have a YODA corpus and a specific thing to pre-test — a concep
 
 Do not use it for:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | To watch a real expert do a real task and capture their judgment | `tacit-knowledge-interview` | That creates real behaviour signal (0.7); this simulates and caps at [Hypothesis]. This runs *before* it to decide whether that interview is worth booking. |
 | A Mom-Test script for a real discovery interview | `interview-script` | That prepares questions for a real person; this poses a concept to a simulation. |
@@ -45,7 +47,7 @@ Fill `template.md` as you go. The watch-out running through every step: a synthe
 
 ### Step 0 — No corpus, no panel
 
-A synthetic user is only worth building from real proprietary data. If the fellow has no YODA corpus — no field logs, no shadow threads, no tacit capture, no transaction record — stop. A persona built from the base model is the model's prior about your market wearing a name tag, and testing your concept against it tells you exactly what every competitor's model would also say: nothing proprietary. Route to `yoda-data-sourcing`. For each panellist you do build, name the corpus slice it is grounded in. A panellist with no named slice is a fiction; delete it.
+A synthetic user is only worth building from real proprietary data. If the builder has no YODA corpus — no field logs, no shadow threads, no tacit capture, no transaction record — stop. A persona built from the base model is the model's prior about your market wearing a name tag, and testing your concept against it tells you exactly what every competitor's model would also say: nothing proprietary. Route to `yoda-data-sourcing`. For each panellist you do build, name the corpus slice it is grounded in. A panellist with no named slice is a fiction; delete it.
 
 ### Step 1 — Declare the target and the kill question
 
@@ -129,7 +131,7 @@ Done means: every panellist is grounded in a named corpus slice, every logged re
 
 ## Gotchas
 
-- **The confirmation machine.** Fellows build panels to hear yes, and a synthetic panel will say yes to almost anything — over-agree plus never-pay. If your run came back mostly positive, you did not test; a machine flattered you. Re-read only the negatives, and if there are none, distrust the run before you trust the concept.
+- **The confirmation machine.** Builders build panels to hear yes, and a synthetic panel will say yes to almost anything — over-agree plus never-pay. If your run came back mostly positive, you did not test; a machine flattered you. Re-read only the negatives, and if there are none, distrust the run before you trust the concept.
 - **An ungrounded panel is the base model's prior in costume.** If a panellist is not built from a specific corpus slice, you are testing your concept against what the foundation model already believes about your market — the same belief every competitor's model holds. Zero proprietary signal. This is the failure `yoda-data-sourcing` guards against, one level up.
 - **Panel inflation feels like rigour and isn't.** Fifty synthetic users share one prior; you get one answer with noise dressed as a sample. Signal comes from grounding breadth — different corpus slices — not headcount. Four well-grounded panellists beat fifty clones.
 - **Survival is not validation.** A concept that survives the synthetic screen has earned a real interview, nothing more. The lie ledger exists so no one reads "the synthetic users loved it" as evidence. The moment "validated" sits beside a synthetic result, the skill has failed its own kill line.
@@ -138,14 +140,14 @@ Done means: every panellist is grounded in a named corpus slice, every logged re
 
 ## Examples
 
-See `examples/sample.md` for a full run on Mentix: a four-panellist panel built from field logs, shadow threads, and the tacit capture of the "mute the vibration alarm" judgment pre-tests the copilot's positioning. Three panellists are enthusiastic (discarded), but the one grounded in the tacit capture is confused because the copilot's suggested action collides with the "never override within an hour of a bearing change" rule — the one signal that transfers. Verdict: revise the message, then promote to a real usability check.
+See `examples/sample.md` for a full run on Foundry Signal: a four-panellist panel built from field logs, shadow threads, and the tacit capture of the "mute the vibration alarm" judgment pre-tests the copilot's positioning. Three panellists are enthusiastic (discarded), but the one grounded in the tacit capture is confused because the copilot's suggested action collides with the "never override within an hour of a bearing change" rule — the one signal that transfers. Verdict: revise the message, then promote to a real usability check.
 
 ## Related skills
 
-- `yoda-data-sourcing` (section 03) — sources the corpus this skill consumes. Run it first; a panel with no corpus is Step 0's stop.
-- `tacit-knowledge-interview` (section 02) — the real interview this skill pre-tests *before*. A captured judgment is also excellent grounding for a panellist. Promote survivors here; never let this skill stand in for it.
-- `interview-script`, `discovery-interview-prep` (section 02) — the real Mom-Test round. This skill decides what that round is even worth covering.
-- `unserved-needs-finder`, `user-buyer-decider-map` (section 02) — define the need and the buyer; this pre-tests a concept once you have one.
+- `yoda-data-sourcing` — sources the corpus this skill consumes. Run it first; a panel with no corpus is Step 0's stop.
+- `tacit-knowledge-interview` — the real interview this skill pre-tests *before*. A captured judgment is also excellent grounding for a panellist. Promote survivors here; never let this skill stand in for it.
+- `interview-script`, `discovery-interview-prep` — the real Mom-Test round. This skill decides what that round is even worth covering.
+- `unserved-needs-finder`, `user-buyer-decider-map` — define the need and the buyer; this pre-tests a concept once you have one.
 - `prototyping-pretotyping` (discovery) — the next rung up: a cheap test with real people. Synthetic pre-test comes below it, run first to decide what to pretotype.
 
 Supersedes: none. Fully proprietary — there is no prior synthetic-user skill in the pack, and the generic "role-play a persona" pattern is the exact anti-pattern this skill is built to correct.

@@ -1,8 +1,10 @@
-# Sample run — Mentix plant supervisor
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
+
+# Sample run — Foundry Signal plant supervisor
 
 Illustrative fixture. Names, times, and numbers are plausible and clearly synthetic, not real client data.
 
-**Fellow input (verbatim):** "I'm building the factory copilot. I want to shadow one of the plant supervisors and capture how they actually decide — not the SOP, the real judgment. What do I do with a shift?"
+**Builder input (verbatim):** "I'm building the factory copilot. I want to shadow one of the plant supervisors and capture how they actually decide — not the SOP, the real judgment. What do I do with a shift?"
 
 ---
 
@@ -58,7 +60,7 @@ A competitor can read this in the operations manual. It explains none of the fou
 - Survive (real tacit judgment): #1, #2, #3, #4 — all four. The SOP says *what* to do on each alarm; none of it encodes *when she overrides it*.
 - Struck (already in the manual): none.
 
-Everything survives. The manual is the explicit half; this ledger is the half Mentix is actually selling.
+Everything survives. The manual is the explicit half; this ledger is the half Foundry Signal is actually selling.
 
 ---
 

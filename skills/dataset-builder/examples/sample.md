@@ -1,13 +1,15 @@
-# Worked example — Mentix's operator-correction dataset
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Mentix builds an AI copilot for factory managers. `yoda-data-sourcing` already ran and named the operator-correction stream as the compounding moat seed: every time the copilot suggests a first action, the operator accepts, edits, or overrides it, and Mentix logs it. This is a test fixture — numbers are illustrative, not real client data.
+# Worked example — Foundry Signal's operator-correction dataset
 
-## Input the fellow brought
+Foundry Signal builds an AI copilot for factory managers. `yoda-data-sourcing` already ran and named the operator-correction stream as the compounding moat seed: every time the copilot suggests a first action, the operator accepts, edits, or overrides it, and Foundry Signal logs it. This is a test fixture — numbers are illustrative, not real client data.
+
+## Input the builder brought
 
 "YODA says our correction stream is the moat seed. Now make it a dataset and give me golden cases so we can actually score the copilot. We've got the logs. Someone on the team already fed a public predictive-maintenance dataset in too — can we use that to bulk it up?"
 
 Material on the table:
-- 260 copilot suggestions with the operator's accept/edit/override response, across 3 lines, 5 weeks. Mentix holds the logs. [Fact]
+- 260 copilot suggestions with the operator's accept/edit/override response, across 3 lines, 5 weeks. Foundry Signal holds the logs. [Fact]
 - For ~180 of those, the line's downstream state is logged too: did an unplanned stop follow within the shift, or not. [Fact]
 - A public "predictive maintenance" tutorial dataset the team downloaded. [Fact]
 - ~50 suggestions where a reliability engineer wrote "that looks right" but the operator took no action and no outcome was logged. [Fact]
@@ -45,8 +47,8 @@ Representative rows (the full ledger is 26 artefacts; the tally is under §6).
 
 Routing applied:
 - Rows 6 and 7 (engineer opinion, and they disagree) → **hold**. Two qualified readers disagree, so the label is not settled; and neither has an outcome behind it. They become candidates only if a later stop/clean-shift resolves them, or an adjudicator with authority settles the call.
-- Row 8 (public tutorial input) → **discard**, input-leak. This is the "bulk it up" material the fellow asked about; it fails Step 5.
-- Row 9 (textbook pattern) → **discard**, label-leak. A model answers it from world knowledge; it tests nothing Mentix owns.
+- Row 8 (public tutorial input) → **discard**, input-leak. This is the "bulk it up" material the builder asked about; it fails Step 5.
+- Row 9 (textbook pattern) → **discard**, label-leak. A model answers it from world knowledge; it tests nothing Foundry Signal owns.
 - Row 10 and its 14 siblings → **train**. The build has been few-shotted on them, so they can no longer measure generalisation. Retired to the training pile and replaced with fresh held-out cases from the correction stream.
 
 ## 6. Golden count and coverage
@@ -62,8 +64,8 @@ Arithmetic: 26 labelled artefacts shown-and-summarised → −1 public-tutorial 
 **Discarded (contaminated):** the public predictive-maintenance set (input-leak) and the textbook pattern (label-leak). Neither can bulk up the seed; both would inflate the score and hide real failures.
 **Retired to training:** the 15 few-shot cases — replaced, not reused as tests.
 
-**Handoff:** the 22 golden cases are the seed. They go to `eval-first-spec` (section 07), which writes the job line ("at each moment on the line, the correct first action…"), composes them into the typical/edge/adversarial/must-refuse spread, and sets the autonomy level and cost-per-outcome budget. This skill stops here.
+**Handoff:** the 22 golden cases are the seed. They go to `eval-first-spec`, which writes the job line ("at each moment on the line, the correct first action…"), composes them into the typical/edge/adversarial/must-refuse spread, and sets the autonomy level and cost-per-outcome budget. This skill stops here.
 
 ## The correction this skill forced
 
-The fellow wanted to "bulk it up" with a public dataset and treat 50 engineer notes as labels. Both would have produced a set the copilot passes without being right: the public rows are memorised, and opinion labels grade the model against a vibe. The real seed was smaller and harder — 22 cases the model has never seen, each labelled by what the line actually did — and it is the only set that can tell Mentix whether the copilot matches reality. Twenty-two unreachable, outcome-labelled cases beat ten thousand synthetic ones.
+The builder wanted to "bulk it up" with a public dataset and treat 50 engineer notes as labels. Both would have produced a set the copilot passes without being right: the public rows are memorised, and opinion labels grade the model against a vibe. The real seed was smaller and harder — 22 cases the model has never seen, each labelled by what the line actually did — and it is the only set that can tell Foundry Signal whether the copilot matches reality. Twenty-two unreachable, outcome-labelled cases beat ten thousand synthetic ones.

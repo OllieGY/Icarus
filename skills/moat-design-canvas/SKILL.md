@@ -1,21 +1,31 @@
 ---
 name: moat-design-canvas
-description: Sequence a validated wedge into a defensible moat as four DATED gates (wedge → usage → lock-in → data advantage), forced through an incumbent-veto sentence ("X won't copy this because ___") and three monthly falsifiers; returns a filled moat canvas. Fires on "what's the moat", "how is this defensible", "will this compound", "design the moat", "will competitors just copy this / how do we stay defensible as they show up". Not for whether one wedge gets adopted now (use wedge-five-questions — run it first), not for drafting the pilot data-rights clause itself (use data-rights-clause), not for scoring the whole idea across dimensions (use problem-quality-scorecard).
-type: generator
-supersedes: none
+description: >-
+  Sequence a validated wedge into a defensible moat as four DATED gates (wedge → usage → lock-in →
+  data advantage), forced through an incumbent-veto sentence ("X won't copy this because ___") and
+  three monthly falsifiers; returns a filled moat canvas. Fires on "what's the moat", "how is this
+  defensible", "will this compound", "design the moat", "will competitors just copy this / how do
+  we stay defensible as they show up". Not for whether one wedge gets adopted now (use
+  wedge-five-questions — run it first), not for drafting the pilot data-rights clause itself (use
+  data-rights-clause), not for scoring the whole idea across dimensions (use
+  problem-quality-scorecard).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Takes a wedge that has already passed `wedge-five-questions` and forces it into a moat you can put dates on. It sequences defensibility as four gates — wedge → usage → lock-in → data advantage — each with a target date, an entry condition, and a through-it signal scored on the evidence ladder. It then makes you write two things a generic strategy answer never demands: the incumbent-veto sentence ("X won't copy this because ___") and three falsifiers you review every month. The output is a filled moat canvas: the four dated gates, the veto sentence, the three monthly falsifiers. If you cannot finish the veto sentence with a structural reason, or cannot name three things that would prove the moat is not forming, the skill returns NO MOAT DESIGNED and says why.
 
-## The Icarus reframe
+## The reframe
 
 A moat is a dated trajectory, not an adjective. "Defensible," "sticky," "we have a data advantage" are words; a moat is a sequence of gates with target months and a signal at each one that tells you whether you cleared it. Two tests separate a real moat from a head start. First, the incumbent-veto sentence: name the single most-likely incumbent to copy you and finish "X won't copy this because ___" with a reason rooted in *their* structure — their contracts, their channel, their margin, their data rights — not in your speed or your UX. If the blank survives the incumbent having unlimited engineers and eighteen months, it is a moat; if unlimited resources erase it, it is a head start, and head starts get erased. Second, three monthly falsifiers: the observations that would prove the compounding is not happening. A moat you cannot falsify is faith with a diagram.
 
 ## When to use / When NOT
 
-Use when a fellow has a wedge that already scores 5/5 on `wedge-five-questions` and wants to know whether — and how — it compounds into something a competitor cannot copy. Trigger phrases: "what's the moat", "how is this defensible", "will this compound", "design the moat", "will competitors just copy this", "how do we stay defensible as competitors show up".
+Use when a builder has a wedge that already scores 5/5 on `wedge-five-questions` and wants to know whether — and how — it compounds into something a competitor cannot copy. Trigger phrases: "what's the moat", "how is this defensible", "will this compound", "design the moat", "will competitors just copy this", "how do we stay defensible as competitors show up".
 
 Do not use when:
 
@@ -33,7 +43,7 @@ Fill in `template.md`. Five steps.
 
 ### Step 1 — Confirm the wedge is real (Gate 0)
 
-The first gate is the adopted wedge. If it has not passed `wedge-five-questions` 5/5, stop. Route the fellow there. Do not design a moat around a wedge no one adopts — you would be fortifying an empty field. State the wedge in one sentence and confirm its verdict.
+The first gate is the adopted wedge. If it has not passed `wedge-five-questions` 5/5, stop. Route the builder there. Do not design a moat around a wedge no one adopts — you would be fortifying an empty field. State the wedge in one sentence and confirm its verdict.
 
 ### Step 2 — Sequence the four dated gates
 
@@ -121,14 +131,14 @@ Lock-in counted from your side. Switching cost is what the *customer* loses by l
 
 ## Examples
 
-`examples/sample.md` — a full worked moat canvas for Azraq's cross-operator data-centre risk benchmark: four dated gates from adopted wedge to a contractually-owned incident corpus, a structural incumbent-veto sentence (data-isolation contracts the incumbent cannot un-sign), and three monthly falsifiers. Includes one gate that started as an unsigned data claim and had to be routed to `data-rights-clause` before it could count.
+`examples/sample.md` — a full worked moat canvas for Meridian Grid's cross-operator data-centre risk benchmark: four dated gates from adopted wedge to a contractually-owned incident corpus, a structural incumbent-veto sentence (data-isolation contracts the incumbent cannot un-sign), and three monthly falsifiers. Includes one gate that started as an unsigned data claim and had to be routed to `data-rights-clause` before it could count.
 
 ## Related skills
 
-`wedge-five-questions` — the sibling that runs first. It decides whether one wedge gets adopted; this decides whether that adopted wedge compounds into a moat. Gate 1 of this canvas *is* its 5/5 verdict. If the wedge has not passed, this skill sends the fellow back there.
+`wedge-five-questions` — the sibling that runs first. It decides whether one wedge gets adopted; this decides whether that adopted wedge compounds into a moat. Gate 1 of this canvas *is* its 5/5 verdict. If the wedge has not passed, this skill sends the builder back there.
 
 `data-rights-clause` — the sibling that owns Gate 4's legal reality. This canvas names the data-advantage gate and requires a signed clause to clear it; that skill drafts the clause and flags the jurisdiction specifics. This canvas does not write contract language.
 
-`problem-quality-scorecard` — scores the whole idea across dimensions; defensibility is one. When a fellow wants the wide read, send them there. This is the deep read on the moat alone.
+`problem-quality-scorecard` — scores the whole idea across dimensions; defensibility is one. When a builder wants the wide read, send them there. This is the deep read on the moat alone.
 
 Supersedes: none. This is a new skill. It beats the generic VRIO / Porter's-five-forces treatment of defensibility not by adding dimensions but by refusing adjectives: dated gates, a structural veto sentence, and monthly falsifiers, where the generic frameworks stop at a checklist of qualities.

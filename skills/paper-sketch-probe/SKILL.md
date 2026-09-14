@@ -1,15 +1,23 @@
 ---
 name: paper-sketch-probe
-description: Fires when a fellow wants to test a workflow on paper before building it — "paper test", "sketch it", "paper prototype", "sketch probe", "draw the flow and check they can follow it". Output is a hand-drawn workflow sketch plus a structured read-out naming what was legible and where the decision lived. NOT for choosing which probe to run (that is `probe-matrix`), and NOT for testing demand, trust, or willingness to pay — a sketch lies about all three; route those to `wizard-of-oz-probe` or `concierge-probe`.
-type: generator
-supersedes: none
+description: >-
+  Fires when a builder wants to test a workflow on paper before building it — "paper test",
+  "sketch it", "paper prototype", "sketch probe", "draw the flow and check they can follow it".
+  Output is a hand-drawn workflow sketch plus a structured read-out naming what was legible and
+  where the decision lived. NOT for choosing which probe to run (that is `probe-matrix`), and NOT
+  for testing demand, trust, or willingness to pay — a sketch lies about all three; route those to
+  `wizard-of-oz-probe` or `concierge-probe`.
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Paper / Sketch Probe
 
 ## What it does
 Compresses a "does this workflow read the way I think it does" question into a 30-minute test. You draw the workflow as 5–9 panels, hand it to one real operator, stay silent, and log where they pause. The output is the sketch plus a read-out that names two things only: was the flow legible, and which single panel carries the real decision. It refuses to report demand or feel, because a sketch cannot observe either.
 
-## The Icarus reframe
+## The reframe
 A generic paper prototype "tests usability." This probe tests two narrower things a sketch can honestly answer: legibility (can a real operator follow the steps unprompted) and decision location (which panel holds the judgment). The pause points do the work. A pause that clears the moment you explain is a legibility gap you fix by redrawing. A pause where the operator says "it depends" or reaches for context you never drew is the decision point — that is the surface your product actually has to serve. Everything else the sketch tells you is opinion.
 
 ## When to use / When NOT
@@ -32,11 +40,11 @@ Set a 30-minute timer. Fill in `template.md` as you go.
 1. **Write the one claim (2 min).** State it as a legibility or decision-location claim, tagged `[Hypothesis]`. If the claim contains the words demand, trust, pay, or "want it," stop — wrong probe. Hand back to `probe-matrix`.
 2. **Draw the workflow (10 min).** 5–9 panels, one decision per panel, pen on paper or a single frame. No colour, no polish. Include the exception panel, not just the happy path — the decision usually hides there.
 
-   | Panel count | Reading |
-   |---|---|
-   | Under 5 | You are testing a screen, not a workflow. Fine, but say so. |
-   | 5–9 | Right size for one workflow. |
-   | Over 9 | You are testing the whole product. Split it. |
+  | Panel count | Reading |
+  |---|---|
+  | Under 5 | You are testing a screen, not a workflow. Fine, but say so. |
+  | 5–9 | Right size for one workflow. |
+  | Over 9 | You are testing the whole product. Split it. |
 3. **Recruit one real operator (target segment).** Not a colleague, not a founder friend — they read your intent, not the artifact.
 4. **Run silent (10 min).** Hand over the sketch. Ask them to talk through what they would do at each panel. You say nothing until they finish. Log every pause in the run table.
 5. **Classify each pause (5 min).** Legibility gap (resolves when you explain) or decision point (needs off-page judgment or context).
@@ -66,7 +74,7 @@ On the ladder — money moved 1.0, behaviour observed 0.7, artefact shown 0.5, v
 Kill line (auto-fail): the read-out claims the sketch proved demand, willingness to pay, trust, or how the product feels to use.
 
 ## Examples
-[examples/sample.md](examples/sample.md) — Mentix runs a sketch probe of the factory-copilot alert-to-action flow; the decision turns out to live in the "halt the line" panel, which needs shift context that was never on the page.
+[examples/sample.md](examples/sample.md) — Foundry Signal runs a sketch probe of the factory-copilot alert-to-action flow; the decision turns out to live in the "halt the line" panel, which needs shift context that was never on the page.
 
 ## Related skills
 - `probe-matrix` — the router that should have sent you here; go back to it if your claim is about demand, trust, or cost.

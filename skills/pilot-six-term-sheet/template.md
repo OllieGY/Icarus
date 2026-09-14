@@ -35,7 +35,7 @@ If success-contingent: add a floor fee that moves regardless, put the bonus on t
 
 - **Workflow exhaust the pilot generates:** _[the data the workflow throws off — corrections, labels, logs, sensor traces]_
 - **Compounds with use?** _[yes / no + why]_
-- **Signed at pilot #1?** _[YES — required]_ · Clause language: route to `data-rights-clause` (section 06); do not draft it here.
+- **Signed at pilot #1?** _[YES — required]_ · Clause language: route to `data-rights-clause`; do not draft it here.
 - Jurisdiction flags for counsel: _[mark residency / government-entity / sponsor realities as [Assumption] — do not fabricate legal specifics]_
 
 ## 4. Success metrics — agreed before start

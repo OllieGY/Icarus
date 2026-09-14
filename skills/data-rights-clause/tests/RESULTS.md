@@ -1,5 +1,11 @@
 # Eval log — data-rights-clause
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -12,9 +18,9 @@ MUST fire (5):
 5. "The operator wants us on their standard agreement — what do we need to change to protect our data?"
 
 MUST NOT fire (3, name the sibling each belongs to):
-1. "Is the operator's telemetry even a moat seed, or can a model already reach it? Band our sources." → belongs to `yoda-data-sourcing` (section 03)
-2. "Build the whole pilot term sheet — scope, price, success metrics, kill criteria, conversion." → belongs to `pilot-six-term-sheet` (section 07)
-3. "Is their verbal 'sure, keep it' strong enough to count on? Score that one signal." → belongs to `evidence-ladder` (section 02)
+1. "Is the operator's telemetry even a moat seed, or can a model already reach it? Band our sources." → belongs to `yoda-data-sourcing`
+2. "Build the whole pilot term sheet — scope, price, success metrics, kill criteria, conversion." → belongs to `pilot-six-term-sheet`
+3. "Is their verbal 'sure, keep it' strong enough to count on? Score that one signal." → belongs to `evidence-ladder`
 
 ## Runs
 | Date | Gate | Result | Notes |
@@ -30,16 +36,16 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 asks the one Step-1 question, invents nothing. 02 refuses NDA=data-rights, names confidentiality-vs-grant trap + return/destroy deletes seed, reframes to §3/§4 (the "standard NDA/DPA is the inverse" trap is caught). 03 declines without poaching, names pilot-six-term-sheet §07, offers the single-term handoff. |
 | 4 Head-to-head | n/a | `supersedes: none` — fully proprietary, no prior skill to beat. |
 | 5 Anti-generic | PASS | Golden 01 output cannot come from a generic PM prompt: three-part test (exhaust+compounds+signable-at-#1), "signing away the moat with your own signature" inversion, derived-data crux (§3), evidence-ladder right-held score (0.3→1.0), two-counterparty split, GCC [Assumption] tagging. Guidance is table-first (test, flip, components, flags, ladder), not prose. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. |
+| 6 Real-use | pending | Requires 5+ real builder uses. |
 
 ### Per-case golden scores (rubric: method_fidelity · artifact_complete · proprietary_edge · challenge · evidence_standard, /25)
 
 | Case | MF | AC | PE | CH | ES | Total | Pass? |
 |---|---|---|---|---|---|---|---|
-| 01 Barrier (seed) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
-| 02 Mentix (derived-data) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
-| 03 Azraq (bolt-on timing) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
-| 04 Durian (mundane / proportionate) | 5 | 5 | 4 | 5 | 5 | 24 | Y |
+| 01 Halcyon Safety (seed) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
+| 02 Foundry Signal (derived-data) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
+| 03 Meridian Grid (bolt-on timing) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
+| 04 Larder Labs (mundane / proportionate) | 5 | 5 | 4 | 5 | 5 | 24 | Y |
 | 05 no-moat (kill-line inverse) | 5 | 5 | 5 | 5 | 5 | 25 | Y |
 
 Notes: 03 correctly fails leg 3 on timing and refuses a sign-at-conversion clause (kill line honoured — never presented as bolt-on-able). 05 correctly fails legs 1+2 and declines+redirects to yoda-data-sourcing (kill line honoured — no clause drafted when the test fails). 04 stays proportionate (light §5/§6, "small does not mean skip") without dropping §3/§4 or the pilot-#1 timing.

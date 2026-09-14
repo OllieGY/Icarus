@@ -1,9 +1,11 @@
-# Sample — Durian Labs runs a wizard-of-oz probe
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Durian Labs (early workflow product). First workflow: turn a messy vendor email into a structured purchase order (PO).
+# Sample — Larder Labs runs a wizard-of-oz probe
+
+**Builder:** Larder Labs (early workflow product). First workflow: turn a messy vendor email into a structured purchase order (PO).
 **Illustrative fixture. Numbers are plausible, not real client data.**
 
-Durian has not built the parser. Before writing any extraction code, it tests one thing: would an ops manager actually submit the PO if it came back fast and correct.
+Larder Labs has not built the parser. Before writing any extraction code, it tests one thing: would an ops manager actually submit the PO if it came back fast and correct.
 
 ## 1. The claim
 `[Hypothesis]` An ops manager would submit the auto-generated PO into their system if it arrived within the hour and was correct.
@@ -13,7 +15,7 @@ Type: usage / would-they-act. Passes the check — no feasibility/cost/scale wor
 
 | The user sees | The wizard does |
 |---|---|
-| Forward the vendor email to intake@durianlabs.co | A Durian founder reads it, builds the structured PO by hand, emails it back |
+| Forward the vendor email to intake@example.com | A Larder Labs founder reads it, builds the structured PO by hand, emails it back |
 
 Opaque: yes. Users were told "our system turns your email into a PO," not that a human types it.
 
@@ -25,7 +27,7 @@ Opaque: yes. Users were told "our system turns your email into a PO," not that a
 | Quality band | No worse than a plausible v1 parser: standard fields, flag ambiguous lines rather than guess | Held — wizard flagged 3 ambiguous lines instead of inventing values |
 
 ## 4. Operators
-Six ops managers at SMB distributors, recruited from Durian's waitlist. Each forwarded a real vendor email from their own inbox with a real PO they needed to raise.
+Six ops managers at SMB distributors, recruited from Larder Labs's waitlist. Each forwarded a real vendor email from their own inbox with a real PO they needed to raise.
 
 ## 5. Run log
 
@@ -52,7 +54,7 @@ Six ops managers at SMB distributors, recruited from Durian's waitlist. Each for
 - Single-line and multi-vendor emails were both ignored — the wedge may be mid-size single-vendor POs `[Hypothesis]`.
 
 **What this does NOT prove:**
-- Feasibility — a founder read every email; Durian has not shown a parser can extract these fields. `[Assumption]`
+- Feasibility — a founder read every email; Larder Labs has not shown a parser can extract these fields. `[Assumption]`
 - Unit cost — 7.2 wizard minutes is not machine cost, and says nothing about API or infra spend.
 - Scale — one founder handled six POs in a day. Throughput at 600 is untested.
 

@@ -4,7 +4,7 @@ One concept, four build-risk lenses, each graded ONLY by its named tool, then AN
 Two auto-fails: (a) a lens given a PASS with no tool run / on opinion; (b) an overall GO while any lens sits at FAIL.
 Tag every claim `[Fact]` / `[Assumption]` / `[Hypothesis]`.
 
-## 0. The concept (exactly one, as the fellow said it)
+## 0. The concept (exactly one, as the builder said it)
 > [one concrete line — if there is no concept yet, STOP and ask; do not lens a fog]
 
 ## 1. Tool + owner per lens (fill before scoring)
@@ -22,23 +22,23 @@ Discovery track (D, U) and delivery track (F) run in parallel. Any "N" above →
 
 ### Desirability
 - **Tool output:** core need = [___]; JTBD = [___]; Kano class = [must / performance / delighter / indifferent]
-- **Evidence + weight:** [behaviour / money / artefact / verbal / opinion] → [1.0 / 0.7 / 0.5 / 0.3 / 0.1]  `[Fact | Assumption | Hypothesis]`
+- **Evidence + weight:** [behaviour / money / artefact / verbal / opinion] → [1.0 / 0.7 / 0.5 / 0.3 / 0.1] `[Fact | Assumption | Hypothesis]`
 - **Score:** [3 PASS / 2 CONDITIONAL / 1 FAIL / 0 UNGRADED]
 
 ### Usability
 - **Tool output:** task observed = [___]; result = [succeeded / failed / needed help]
-- **Evidence + weight:** [observed 0.7 / stated preference 0.3 / opinion 0.1]  `[Fact | Assumption | Hypothesis]`
+- **Evidence + weight:** [observed 0.7 / stated preference 0.3 / opinion 0.1] `[Fact | Assumption | Hypothesis]`
 - **Score:** [3 / 2 / 1 / 0]
 
 ### Feasibility
 - **Tool output:** riskiest slice = [___]; spike result vs the floor = [hit / missed / not built]
-- **Evidence + weight:** [spike on real data 0.7 / spike shown 0.5 / engineer opinion 0.1]  `[Fact | Assumption | Hypothesis]`
+- **Evidence + weight:** [spike on real data 0.7 / spike shown 0.5 / engineer opinion 0.1] `[Fact | Assumption | Hypothesis]`
 - **Score:** [3 / 2 / 1 / 0]
 
 ### Viability
 - **Tool output (ICE):** Impact = [measured value, sourced]; Confidence = [evidence weight of that value]; Ease = [from spike]
 - **Price check:** proposed price = [___] = [__]% of measured value (target 10–20%)
-- **Evidence + weight:** [money 1.0 / artefact 0.5 / verbal 0.3 / opinion 0.1]  `[Fact | Assumption | Hypothesis]`
+- **Evidence + weight:** [money 1.0 / artefact 0.5 / verbal 0.3 / opinion 0.1] `[Fact | Assumption | Hypothesis]`
 - **Score:** [3 / 2 / 1 / 0]
 
 ## 3. The gate (AND, never average)

@@ -1,38 +1,49 @@
 ---
 name: value-based-pricing
-description: Set the price and the charging metric for a validated product — anchor the number at 10–20% of the MEASURED incremental value, and charge on the outcome / asset / decision the customer gets, never on seats or tiers. Emits a value-priced model. Fires on "how should we price this", "what do we charge", "per seat or per outcome", "set the price", "what's the number". Not for brainstorming which revenue model to bet on across the product (that is `monetization-strategy`, exploratory; this commits ONE value-anchored number on ONE metric), not for structuring the whole pilot deal — scope, success metrics, kill criteria (that is `pilot-six-term-sheet`; this produces the price and metric that become its term 2 and term 6), not for measuring the value in the first place (that is `current-state-map`, which prices the status quo this consumes).
-type: generator
-supersedes: none
+description: >-
+  Set the price and the charging metric for a validated product — anchor the number at 10–20% of
+  the MEASURED incremental value, and charge on the outcome / asset / decision the customer gets,
+  never on seats or tiers. Emits a value-priced model. Fires on "how should we price this", "what
+  do we charge", "per seat or per outcome", "set the price", "what's the number". Not for
+  brainstorming which revenue model to bet on across the product (that is `monetization-strategy`,
+  exploratory; this commits ONE value-anchored number on ONE metric), not for structuring the
+  whole pilot deal — scope, success metrics, kill criteria (that is `pilot-six-term-sheet`; this
+  produces the price and metric that become its term 2 and term 6), not for measuring the value in
+  the first place (that is `current-state-map`, which prices the status quo this consumes).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Takes a validated product and returns one price on one metric, both defended. It forces the price to sit between two measured walls: a floor (your cost per outcome) and a ceiling (the incremental value the customer measures). The price is set at 10–20% of that incremental value — the band where the buyer keeps a 5–10× return and still feels the win — and it is charged on the outcome, asset, or decision the customer receives, not on seats, tiers, or usage. The output is a filled `template.md`: the measured value anchor with its evidence-ladder score, the incremental-over-status-quo calculation, the cost floor, the chosen metric with its coupling defended, the capture rate with its band position argued, and a single price statement a customer would see on an invoice. If the value is not measured, the skill does not produce a price. It names the gap and routes to where the value gets measured.
 
-## The Icarus reframe
+## The reframe
 
 Generic pricing advice knows the "charge a fraction of value" rule and stops there. Two things make this different, and both are refusals. First: you cannot price value you have not measured — a willingness-to-pay survey is opinion (0.1 on the ladder), a competitor's number is their guess inherited as yours, and cost-plus caps your price at your own cost structure and falls exactly when your costs fall. The value anchor must clear behaviour (0.7) or money (1.0), or there is no value-based price to set. Second: price the METRIC, not the LEVEL. A seat or a tier is a proxy that decouples from value — as the product improves and one seat delivers the work of five, per-seat pricing caps your revenue while the value explodes, and it has told the customer they bought a tool per person, not an outcome. The metric must be the outcome unit itself, chosen so revenue tracks value as the flywheel makes the product better.
 
 ## When to use / When NOT
 
-Use when a fellow has a validated product (a passed wedge, a working v1, or a pilot about to be priced) and needs the number and the charging axis set, and has — or can quickly get — a measured value figure. Trigger phrases: "how should we price this", "what do we charge", "per seat or per outcome", "set the price", "what's the number", "are we charging on the right thing".
+Use when a builder has a validated product (a passed wedge, a working v1, or a pilot about to be priced) and needs the number and the charging axis set, and has — or can quickly get — a measured value figure. Trigger phrases: "how should we price this", "what do we charge", "per seat or per outcome", "set the price", "what's the number", "are we charging on the right thing".
 
 Do not use when:
 
 | Request | Belongs to |
 |---|---|
 | "Brainstorm 3–5 revenue models and test which one to bet on" | `monetization-strategy` (concept) — exploratory, tests willingness to pay across models. This skill does the opposite: it commits to ONE value-anchored number on ONE metric. |
-| "Structure the whole pilot deal — scope, data-rights, success metrics, kill criteria, conversion" | `pilot-six-term-sheet` (section 07). This skill produces the price (its term 2) and the charging metric (its term 6 basis); it does not structure the six-term deal. |
-| "How is this done today / what does the status quo cost / what is it worth" | `current-state-map` (section 01) prices the status quo — the value denominator this skill consumes. If the value is not measured yet, route there first. |
-| "What does one outcome cost us to produce" | `eval-first-spec` (section 07) produces cost_per_outcome — the floor this skill checks the price against. |
+| "Structure the whole pilot deal — scope, data-rights, success metrics, kill criteria, conversion" | `pilot-six-term-sheet`. This skill produces the price (its term 2) and the charging metric (its term 6 basis); it does not structure the six-term deal. |
+| "How is this done today / what does the status quo cost / what is it worth" | `current-state-map` prices the status quo — the value denominator this skill consumes. If the value is not measured yet, route there first. |
+| "What does one outcome cost us to produce" | `eval-first-spec` produces cost_per_outcome — the floor this skill checks the price against. |
 
-Also do not use it to invent a price when there is no measured value. A price with a value anchor scoring ≤ 0.3 on the ladder is not a value-based price; say so and route the fellow to measure the value before returning here (see Method step 1).
+Also do not use it to invent a price when there is no measured value. A price with a value anchor scoring ≤ 0.3 on the ladder is not a value-based price; say so and route the builder to measure the value before returning here (see Method step 1).
 
 ## Method
 
 Fill in `template.md`. Five parts, then a kill-line check. The spine is one inequality:
 
-> cost_per_outcome  **<**  PRICE = capture_rate × incremental_value_per_outcome  **<**  incremental_value_per_outcome
+> cost_per_outcome **<** PRICE = capture_rate × incremental_value_per_outcome **<** incremental_value_per_outcome
 > with capture_rate ∈ [10%, 20%], value measured at ≥ 0.7 on the ladder, charged on the outcome / asset / decision metric.
 
 ### Step 1 — Measure the value, or stop (Part 1)
@@ -116,16 +127,16 @@ The priceless outcome. When one outcome is a prevented fatality or an unbounded 
 
 ## Examples
 
-`examples/sample.md` — a full value-priced model for Azraq (data-centre risk), built from a real $220k SLA-breach penalty the design partner paid (money 1.0). Includes the fellow's first draft — a competitor-anchored per-seat price — and the correction that shows per-seat was wrong on the axis, not just the number. Figures are illustrative test fixtures.
+`examples/sample.md` — a full value-priced model for Meridian Grid (data-centre risk), built from a real $220k SLA-breach penalty the design partner paid (money 1.0). Includes the builder's first draft — a competitor-anchored per-seat price — and the correction that shows per-seat was wrong on the axis, not just the number. Figures are illustrative test fixtures.
 
 ## Related skills
 
-`monetization-strategy` (concept) — the skill this one absorbs and reframes. It brainstorms 3–5 revenue models and tests willingness to pay to decide which to bet on; this skill takes the chosen model and commits ONE value-anchored number on ONE metric. Send a fellow there when the model itself is still open; use this when it is time to set the number.
+`monetization-strategy` (concept) — the skill this one absorbs and reframes. It brainstorms 3–5 revenue models and tests willingness to pay to decide which to bet on; this skill takes the chosen model and commits ONE value-anchored number on ONE metric. Send a builder there when the model itself is still open; use this when it is time to set the number.
 
-`pilot-six-term-sheet` (section 07) — consumes this skill's output: the price becomes term 2 and the metric becomes the term 6 conversion basis. That skill structures the whole deal (scope, data-rights, success metrics, kill criteria); this one only sets what to charge and on what. Route there to write the deal.
+`pilot-six-term-sheet` — consumes this skill's output: the price becomes term 2 and the metric becomes the term 6 conversion basis. That skill structures the whole deal (scope, data-rights, success metrics, kill criteria); this one only sets what to charge and on what. Route there to write the deal.
 
-`current-state-map` (section 01) — prices the status quo, which is both the value denominator (Step 1) and the delta subtrahend (Step 2). If the value is not measured, this skill routes there first.
+`current-state-map` — prices the status quo, which is both the value denominator (Step 1) and the delta subtrahend (Step 2). If the value is not measured, this skill routes there first.
 
-`eval-first-spec` (section 07) — produces cost_per_outcome, the price floor this skill checks against (Step 3).
+`eval-first-spec` — produces cost_per_outcome, the price floor this skill checks against (Step 3).
 
 Supersedes: none. This is a new skill; there is no prior value-pricing skill in the pack to beat.

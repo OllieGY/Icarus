@@ -1,19 +1,21 @@
 ---
 name: null-hypothesis-test
 description: >-
-  Falsification pass for the load-bearing beliefs under a chosen plan or wedge.
-  Restates each assumption as a null hypothesis (the belief is FALSE), designs the
-  single cheapest observation whose failure would disprove it, and ranks every
-  assumption by P(wrong) x impact-if-wrong so the fellow shoots at the most-likely-
-  fatal belief first. Fires on "what has to be true", "how would I disprove this",
-  "what's the riskiest assumption", "what could kill this", "which belief do I test
-  first". Output is an Assumption -> Null -> Disproof table with a pre-committed kill
-  signal on every row. NOT the go/no-go on whether the problem is worth building at
-  all (problem-quality-scorecard), NOT bottom-up sizing (bottoms-up-quantification),
-  NOT the priced workflow map (current-state-map), NOT a narrative failure story
-  (pre-mortem).
-type: generator
-supersedes: none
+ Falsification pass for the load-bearing beliefs under a chosen plan or wedge.
+ Restates each assumption as a null hypothesis (the belief is FALSE), designs the
+ single cheapest observation whose failure would disprove it, and ranks every
+ assumption by P(wrong) x impact-if-wrong so the builder shoots at the most-likely-
+ fatal belief first. Fires on "what has to be true", "how would I disprove this",
+ "what's the riskiest assumption", "what could kill this", "which belief do I test
+ first". Output is an Assumption -> Null -> Disproof table with a pre-committed kill
+ signal on every row. NOT the go/no-go on whether the problem is worth building at
+ all (problem-quality-scorecard), NOT bottom-up sizing (bottoms-up-quantification),
+ NOT the priced workflow map (current-state-map), NOT a narrative failure story
+ (pre-mortem).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
@@ -22,10 +24,10 @@ Takes the beliefs a plan silently depends on and turns each into a falsifiable
 bet: its null form (the belief is false), the single cheapest observation that
 could kill it, and the exact result that counts as death — written down before
 you run it. It then ranks the beliefs by how likely each is to be wrong times how
-much dies if it is, and tells the fellow which one to shoot at this week. The
+much dies if it is, and tells the builder which one to shoot at this week. The
 output is a ranked disproof table, not a risk list.
 
-## The Icarus reframe
+## The reframe
 
 Generic assumption work lists beliefs and "suggests a test" — and the test almost
 always goes looking for support, so it can only ever pass. This inverts it. You
@@ -37,12 +39,12 @@ that is where a week of testing buys the most.
 
 ## When to use / When NOT
 
-Use it once a fellow has a plan, wedge, or concept in hand and needs to know which
+Use it once a builder has a plan, wedge, or concept in hand and needs to know which
 of its underlying beliefs to falsify, in what order, with what test.
 
 Do not use it for these — hand off instead:
 
-| If the fellow wants… | Use instead |
+| If the builder wants… | Use instead |
 |---|---|
 | A go/no-go on whether the problem is worth building at all | `problem-quality-scorecard` (8-dimension gate) — this skill runs *after* a problem clears it, or on the dimensions it opinion-capped |
 | To build magnitude from the smallest verifiable units | `bottoms-up-quantification` |
@@ -60,7 +62,7 @@ Fill in `template.md`. Seven steps.
 **Step 1 — Surface only the load-bearing beliefs.** Read the plan from four seats
 (PM: will they pay; designer: will they use it; engineer: can we build it; legal/
 GTM: are we allowed to and can we reach them). Keep only the beliefs the plan
-*dies* without. Delete every nice-to-know. If the fellow gave you a solution
+*dies* without. Delete every nice-to-know. If the builder gave you a solution
 ("we need a mobile app") rather than a belief about the world, reframe it to the
 underlying claim first ("users abandon because the task can't be done on mobile")
 — you cannot falsify a feature.
@@ -83,10 +85,10 @@ the evidence you hold today.
 
 Two anti-overconfidence rules, both enforced:
 - Opinion-only support caps you at **P(wrong) >= 4**. You do not get to call a
-  belief probably-true because you feel sure of it.
+ belief probably-true because you feel sure of it.
 - Any belief with Impact 5 (venture-fatal, Step 4) resting below behaviour-grade
-  evidence has **P(wrong) floored at 3** — so a fatal belief can never be parked on
-  confidence; it always lands in the "test first" band.
+ evidence has **P(wrong) floored at 3** — so a fatal belief can never be parked on
+ confidence; it always lands in the "test first" band.
 
 **Step 4 — Score Impact-if-wrong 1-5.** If the belief is false, how much of the
 plan dies.
@@ -114,9 +116,9 @@ disproof.** The observation must clear three gates or it is theatre:
 
 1. **Can-fail** — there is a realistic result that kills the belief.
 2. **Pre-committed kill signal** — you write the exact result that = death *before*
-   running, so no post-hoc rationalising a bad result into a good one.
+ running, so no post-hoc rationalising a bad result into a good one.
 3. **Behaviour-or-money** — the observation produces evidence at behaviour rung or
-   higher (see Evidence standard), not an opinion.
+ higher (see Evidence standard), not an opinion.
 
 A test is a **confirmation test** — banned, this is the kill line — if any of these
 is true: it can only return support (friendly sample, hypothetical question); its
@@ -152,35 +154,35 @@ free access and they never pulled a log") is strong disproof. Money is strongest
 The cheapest test that produces behaviour-grade-or-better evidence wins; a cheaper
 test that only produces opinion does not count as a disproof and must be rewritten.
 Tag every empirical claim `[Fact]`, `[Assumption]`, or `[Hypothesis]`. Never invent
-a frequency, cost, or quote the fellow did not give you.
+a frequency, cost, or quote the builder did not give you.
 
 ## Gotchas
 
 - **Confirmation dressed as rigour.** "Run 10 interviews to validate demand" feels
-  like a test and is not — it is built so the belief can only survive. If the
-  observation has no result you would accept as death, it is theatre. Force the
-  pre-committed kill signal.
+ like a test and is not — it is built so the belief can only survive. If the
+ observation has no result you would accept as death, it is theatre. Force the
+ pre-committed kill signal.
 - **Parking the fatal belief.** The one belief that would end the venture is the one
-  a fellow is most tempted to declare "obviously fine" and skip. The Impact-5 floor
-  (Step 3) exists to stop that: a venture-fatal belief on opinion evidence lands in
-  the test-first band whether the fellow likes it or not.
+ a builder is most tempted to declare "obviously fine" and skip. The Impact-5 floor
+ (Step 3) exists to stop that: a venture-fatal belief on opinion evidence lands in
+ the test-first band whether the builder likes it or not.
 - **Ranking by fear, not by wrong x impact.** The scariest-sounding risk is not
-  always the highest-ranked. A belief that is terrifying but you already have money
-  evidence for (P=1) ranks below a dull-sounding belief that is probably wrong and
-  wedge-fatal. Rank on the product, not on the adrenaline.
+ always the highest-ranked. A belief that is terrifying but you already have money
+ evidence for (P=1) ranks below a dull-sounding belief that is probably wrong and
+ wedge-fatal. Rank on the product, not on the adrenaline.
 - **Falsifying a solution.** If the "assumption" is a chosen feature ("we assume we
-  need X"), every test scores the feature, not a belief about the world. Reframe to
-  the underlying claim before writing the null.
+ need X"), every test scores the feature, not a belief about the world. Reframe to
+ the underlying claim before writing the null.
 - **Cheap-but-empty disproof.** A test can be cheap and still worthless if its
-  output is opinion (a survey). Cheapness is necessary, not sufficient; the output
-  rung is the other half of the gate.
+ output is opinion (a survey). Cheapness is necessary, not sufficient; the output
+ rung is the other half of the gate.
 
 ## Examples
 
-`examples/sample.md` — a worked Azraq disproof table: six load-bearing beliefs,
+`examples/sample.md` — a worked Meridian Grid disproof table: six load-bearing beliefs,
 each with its null, P(wrong) x impact rank, cheapest disproof, evidence rung, cost
 and pre-committed kill signal; the data-rights belief ranks top at 20/25 and is
-shot at first; one of the fellow's proposed tests is caught as a confirmation test
+shot at first; one of the builder's proposed tests is caught as a confirmation test
 and rewritten.
 
 ## Related skills
@@ -191,7 +193,7 @@ designer / engineer) and a per-item test — and beats them: those skills stop a
 listing assumptions, rating confidence, and "suggesting a test" that is usually a
 confirmation test with no ranking. This skill converts that soft inventory into
 falsifiable nulls, forbids confirmation tests, forces a pre-committed kill signal,
-and ranks by P(wrong) x impact so the fellow knows what to test first.
+and ranks by P(wrong) x impact so the builder knows what to test first.
 `identify-assumptions-new` is already superseded by `problem-quality-scorecard`;
 this skill does not re-supersede it, it takes its bones.
 

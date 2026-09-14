@@ -3,8 +3,8 @@
 Four people, not one. Fill every line. Tag claims `[Fact]` / `[Assumption]` / `[Hypothesis]`.
 Two auto-fails: (a) user and buyer collapsed with no self-serve reason; (b) a buyer with no budget line and no why-now.
 
-## 0. The situation, as the fellow said it
-> [paste the fellow's own words — "the customer" / "they" / "the market" language stays HERE and nowhere below]
+## 0. The situation, as the builder said it
+> [paste the the builder's own words — "the customer" / "they" / "the market" language stays HERE and nowhere below]
 
 ## 1. The four roles — one title each
 | Role | Title (exactly one) | Named / reachable in N steps | The test it passes | Evidence rung it exists |
@@ -17,7 +17,7 @@ Two auto-fails: (a) user and buyer collapsed with no self-serve reason; (b) a bu
 "The ops team" is not a title. A role you cannot name is **UNFOUND** — leave it marked so; do not fill it with a guess.
 
 ## 2. Budget — buyer only
-- **Buyer's line item:** [name]  ·  **size:** [$__]  ·  **rung:** [money 1.0 / behaviour 0.7 / artefact 0.5 / verbal 0.3 / opinion 0.1]  `[Fact | Assumption]`
+- **Buyer's line item:** [name] · **size:** [$__] · **rung:** [money 1.0 / behaviour 0.7 / artefact 0.5 / verbal 0.3 / opinion 0.1] `[Fact | Assumption]`
 - Other three roles: **no budget** (correct, not missing). A non-buyer with a budget is mis-filed — move them to Buyer.
 - If the buyer's rung = 0.1 → **STOP: not a buyer yet.** Cheapest check: [ask for the line item / ask what they pay the incumbent].
 
@@ -55,7 +55,7 @@ A role with no why-now will not move this quarter. Write **none found** — do n
 | Buyer budget or why-now rests on verbal/opinion | THIN MAP — probe named; buyer-clarity capped at 2 |
 | User = buyer without a self-serve reason, OR buyer has no budget line + no why-now | COLLAPSED MAP — not a buyer; buyer-clarity caps at 1 |
 
-- **This map: __________**  — reason (name the binding hole, not just the label): [__________]
+- **This map: __________** — reason (name the binding hole, not just the label): [__________]
 
 ## 9. What would change this map
 - [the probe that finds the real budget line / confirms the why-now date / surfaces the hidden decision-maker or the fifth face]

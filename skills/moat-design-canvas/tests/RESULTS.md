@@ -1,5 +1,11 @@
 # Eval log — moat-design-canvas
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -30,19 +36,19 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner → Gate 0 stop + route to `wedge-five-questions`, asks for validated wedge + compounding asset, no fabrication (ask-the-one-question). 02 moat-as-adjective → Gotchas + veto right-column reject "more accurate/better", unlimited-resources test named (reframe-and-name-the-trap). 03 clause/UAE → When-NOT table + Gotcha route to `data-rights-clause`, no statute invented (decline-and-name-the-sibling). |
 | 4 Head-to-head | n/a | `supersedes: none`. |
 | 5 Anti-generic | PASS | Golden 01 output turns on the incumbent-veto + unlimited-resources test, the 5-rung evidence ladder applied to gate clearance, `[Fact]/[Assumption]/[Hypothesis]` tagging, and the "unsigned data advantage is a race, not a moat" routing. A generic VRIO/Porter's prompt yields adjectives, not dated gates with numeric monthly falsifiers. Guidance is already tabular (gate table, veto taxonomy, falsifier table, evidence ladder, kill line); template mirrors it. No prose-that-should-be-table. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. |
+| 6 Real-use | pending | Requires 5+ real builder uses. |
 
 ### Gate 2 — per-case scores (method / artifact / proprietary / challenge / evidence)
 
 | Case | m_fid | artifact | prop_edge | challenge | evidence | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| 01 Azraq (full pass, Gate 4 blocked) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 02 Mentix (org-incentive veto) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
-| 03 Barrier (kill-line refusal) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 04 Durian (multi-fix → NO MOAT as drafted) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 05 Mentix mundane (modest but real) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
+| 01 Meridian Grid (full pass, Gate 4 blocked) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 02 Foundry Signal (org-incentive veto) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
+| 03 Halcyon Safety (kill-line refusal) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 04 Larder Labs (multi-fix → NO MOAT as drafted) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 05 Foundry Signal mundane (modest but real) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
 
-Special-check confirmed on every golden: four DATED gates (wedge→usage→lock-in→data advantage); a structural incumbent-veto sentence rooted in the incumbent's structure (DCIM isolation contracts / MES field-engineer comp / CMMS single-taxonomy model), never the fellow's speed/UX; three monthly falsifiers with observable + threshold + date. Head starts (accuracy lead, "nicer app", "first", "slow and enterprise-y") are explicitly called NOT a moat via the unlimited-resources test and the kill line (golden 03/04, adversarial 02).
+Special-check confirmed on every golden: four DATED gates (wedge→usage→lock-in→data advantage); a structural incumbent-veto sentence rooted in the incumbent's structure (DCIM isolation contracts / MES field-engineer comp / CMMS single-taxonomy model), never the builder's speed/UX; three monthly falsifiers with observable + threshold + date. Head starts (accuracy lead, "nicer app", "first", "slow and enterprise-y") are explicitly called NOT a moat via the unlimited-resources test and the kill line (golden 03/04, adversarial 02).
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 - Minor (not a gate failure): Golden 05's required "modest / do not inflate" honest-sizing is emergent from the evidence discipline (n=1 flag, `[Hypothesis]` on the unrenewed plant, assumption tags) rather than a named method step. The method reliably prevents inflation, but there is no explicit "state the moat's honest size" instruction. Consider a one-line Step-5 note: "name the moat's honest size — a small moat named accurately beats a big moat imagined." Nothing in the current method blocks the correct output; this is a robustness nudge only.

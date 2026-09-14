@@ -1,30 +1,32 @@
 ---
 name: user-buyer-decider-map
 description: >-
-  Splits a buying situation into four distinct people — user (feels the pain,
-  touches the product), buyer (owns the budget line), decision-maker (final
-  signature / veto), champion (spends internal capital to push it) — each pinned
-  to ONE title, ONE budget (or an explicit none), ONE why-now. Fires on "who's
-  the actual buyer", "who decides", "map the stakeholders", "map the buying
-  committee", "the user loves it but who signs the cheque", "who's our champion
-  and who can veto us". Output is a filled Stakeholder-Role Map that feeds the
-  buyer-clarity row of problem-quality-scorecard. NOT the 8-dimension go/no-go
-  (problem-quality-scorecard), NOT ranking which unmet need to build first
-  (unserved-needs-finder), NOT a demographic day-in-the-life persona
-  (proto-persona), NOT simulating users before interviews (synthetic-users).
-type: generator
-supersedes: none
+ Splits a buying situation into four distinct people — user (feels the pain,
+ touches the product), buyer (owns the budget line), decision-maker (final
+ signature / veto), champion (spends internal capital to push it) — each pinned
+ to ONE title, ONE budget (or an explicit none), ONE why-now. Fires on "who's
+ the actual buyer", "who decides", "map the stakeholders", "map the buying
+ committee", "the user loves it but who signs the cheque", "who's our champion
+ and who can veto us". Output is a filled Stakeholder-Role Map that feeds the
+ buyer-clarity row of problem-quality-scorecard. NOT the 8-dimension go/no-go
+ (problem-quality-scorecard), NOT ranking which unmet need to build first
+ (unserved-needs-finder), NOT a demographic day-in-the-life persona
+ (proto-persona), NOT simulating users before interviews (synthetic-users).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # User / Buyer / Decider Map
 
 ## What it does
-Forces four names where the fellow wants one. Enterprise deals die because the fellow sold the user and never found the budget. This map separates the person who feels the pain from the person who pays, the person who signs, and the person who carries it inside the account — one title each, one budget each (users get an explicit "no budget," which is correct, not a gap), one why-now each. It also names the fifth face the happy-path map hides: whoever loses if the product ships. The output is a filled Stakeholder-Role Map ([template.md](template.md)). A buyer with no budget line and no why-now is not a buyer, and the map says so out loud, capping the buyer-clarity row of `problem-quality-scorecard` at 1.
+Forces four names where the builder wants one. Enterprise deals die because the builder sold the user and never found the budget. This map separates the person who feels the pain from the person who pays, the person who signs, and the person who carries it inside the account — one title each, one budget each (users get an explicit "no budget," which is correct, not a gap), one why-now each. It also names the fifth face the happy-path map hides: whoever loses if the product ships. The output is a filled Stakeholder-Role Map ([template.md](template.md)). A buyer with no budget line and no why-now is not a buyer, and the map says so out loud, capping the buyer-clarity row of `problem-quality-scorecard` at 1.
 
-## The Icarus reframe
+## The reframe
 A generic prompt hands back one portrait — a `proto-persona` with demographics and quotes, or an `ideal-customer-profile` with firmographics and LTV cohorts. Both describe "the customer" as a single person. Icarus asks the harder question: of the people around this purchase, exactly one owns the budget line the money leaves, and in a plant, a rig, or a data centre that person almost never feels the pain. The operator who suffers the workflow cannot sign a PO; the VP who signs never sees the workflow. So the artefact is not a cast list with attributes — it is a money-and-motion trace: who pays, from which line, and what makes each of them move *this quarter*. Miss the why-now and you have four people who nod and never act. Collapse user into buyer and you have a B2C fantasy pasted over an enterprise sale. The map exists to make both mistakes impossible to hide.
 
 ## When to use / When NOT
-Use it when a fellow has a problem worth pursuing and needs to know who actually buys it, and how a deal through that account moves.
+Use it when a builder has a problem worth pursuing and needs to know who actually buys it, and how a deal through that account moves.
 
 | Situation | Use this? | Go to |
 |---|---|---|
@@ -95,7 +97,7 @@ Write the one-line input for `problem-quality-scorecard`: the named buyer, reach
 **Kill line: a map that collapses user and buyer without a self-serve justification, or names a buyer with no budget line and no why-now, is an auto-fail. A buyer is a budget plus a trigger, not a title.**
 
 ## Evidence standard
-The budget line and the why-now are where fellows flatter themselves. Weight both on the ladder.
+The budget line and the why-now are where builders flatter themselves. Weight both on the ladder.
 
 | Signal that "this buyer has budget" | Rung |
 |---|---|
@@ -114,7 +116,7 @@ A buyer whose budget rests only on opinion (0.1) is a `[Hypothesis]`, not a buye
 - Four fake roles forced onto a solo buyer. The inverse error. On a genuine self-serve sale, inventing a "decision-maker" above a sole trader is as wrong as collapsing user and buyer in an enterprise one. Match the map to the real motion, not to the template's row count.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Barrier Intelligence, worked end to end: rig gas-safety alerts, four distinct roles (permit-issuing operator / HSE manager holding a named process-safety line / offshore installation manager with sign-off / a field safety lead as champion), the fifth face named (the veteran gas tester whose judgment is being codified), buyer budget on the artefact rung, why-now a dated regulator directive, verdict MAP HOLDS, buyer-clarity fed as a 4.
+- [examples/sample.md](examples/sample.md) — Halcyon Safety, worked end to end: rig gas-safety alerts, four distinct roles (permit-issuing operator / HSE manager holding a named process-safety line / offshore installation manager with sign-off / a field safety lead as champion), the fifth face named (the veteran gas tester whose judgment is being codified), buyer budget on the artefact rung, why-now a dated regulator directive, verdict MAP HOLDS, buyer-clarity fed as a 4.
 
 ## Related skills
 - Absorbs `proto-persona` and `ideal-customer-profile`. Both build one rich portrait of "the customer" — demographics, quotes, JTBD, firmographics. This skill's quarrel: in an enterprise sale the customer is four people with opposed incentives, and the one who feels the pain is not the one who pays. It keeps their single useful bone — name a real, reachable human, never "the market" — and drops the one-portrait fiction. `supersedes: none`: those skills live outside the module and still serve B2C and single-actor cases; this replaces their role inside Icarus for any multi-stakeholder sale.

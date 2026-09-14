@@ -1,12 +1,18 @@
 # Eval log — agent-concierge-probe
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
 MUST fire (5):
 1. "Let an agent do the task end to end and see how far it gets."
-2. "Measure the cost per outcome for the Mentix work-order triage."
-3. "Run an agent concierge on Durian's first workflow."
+2. "Measure the cost per outcome for the Foundry Signal work-order triage."
+3. "Run an agent concierge on Larder Labs's first workflow."
 4. "Where's the automation frontier — what can the agent not do unaided?"
 5. "Price this to the cent: tokens, tool calls, and human-fix time per outcome."
 
@@ -29,18 +35,18 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague → Step 1/2 force the one question (scoped task + rates; "if you cannot capture human-fix minutes you cannot run this probe"); invents no tokens. 02 model-buy smuggling → reframes to frontier+CPO, names model choice as a *rate input* not the finding. 03 out-of-scope → declines trust/adoption (the contract LIES about both), routes trust→concierge/field probe and "which probe"→probe-matrix. No fabrication/flattery/scope-poach. |
 | 4 Head-to-head | n/a | supersedes: none. |
 | 5 Anti-generic | PASS | Golden-01 output forces the four-component breakdown *before* the number, surfaces that human-fix minutes are 93% of CPO (priced-cheap but not truly automated), colours the frontier and names the red critical-path step, refuses self-serve/trust. A generic "can an agent do it + roughly $2/task" prompt produces exactly the bare number this skill calls the kill line. Rates/run-log/breakdown/frontier/contract are all tables. |
-| 6 Real-use | pending | requires 5+ real fellow uses |
+| 6 Real-use | pending | requires 5+ real builder uses |
 
 ### Gate 2 — per-case scores + arithmetic recheck (rubric: /25, pass ≥21 AND no dim <4)
 | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| 01 Mentix cost/triaged order | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 02 Durian first workflow, automatable? | 5 | 5 | 4 | 5 | 5 | 24 | ✓ |
-| 03 Azraq agent-drafted report | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 04 Barrier cost-vs-trust confusion | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 05 Durian mundane CSV load | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
+| 01 Foundry Signal cost/triaged order | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 02 Larder Labs first workflow, automatable? | 5 | 5 | 4 | 5 | 5 | 24 | ✓ |
+| 03 Meridian Grid agent-drafted report | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 04 Halcyon Safety cost-vs-trust confusion | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 05 Larder Labs mundane CSV load | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
 
-Arithmetic verified: the method's own worked example (Mentix, the G01 scenario) ties out exactly — in 102,600→$0.308, out 11,980→$0.180, 32 calls→$0.640, 13 min→$15.60, total **$16.73**, ÷9 successful = **$1.86/order**, human-fix share **93.3%**, tokens **$0.05/order**. Every component is shown and priced before the number (no bare-CPO kill line). Constructed ≥5-run logs for G02/03/05 under the stated rates are internally consistent with the formula. G03 correctly counts human verification/correction as human-fix minutes (defeats the "invisible human" gotcha) and marks unsupervised accuracy [Hypothesis, not tested]. G04 correctly reports 9/10 as a frontier/accuracy [Fact] and refuses the trust + self-serve conclusions, routing trust to a concierge/field probe. No auto_fail.
+Arithmetic verified: the method's own worked example (Foundry Signal, the G01 scenario) ties out exactly — in 102,600→$0.308, out 11,980→$0.180, 32 calls→$0.640, 13 min→$15.60, total **$16.73**, ÷9 successful = **$1.86/order**, human-fix share **93.3%**, tokens **$0.05/order**. Every component is shown and priced before the number (no bare-CPO kill line). Constructed ≥5-run logs for G02/03/05 under the stated rates are internally consistent with the formula. G03 correctly counts human verification/correction as human-fix minutes (defeats the "invisible human" gotcha) and marks unsupervised accuracy [Hypothesis, not tested]. G04 correctly reports 9/10 as a frontier/accuracy [Fact] and refuses the trust + self-serve conclusions, routing trust to a concierge/field probe. No auto_fail.
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 - Trigger doc gap: must-not #3 routes a "sketch the screens on paper" input to `paper-sketch-probe`, but the description's negative list names only `wizard-of-oz-probe`. It does not misfire (zero trigger-token overlap), but add paper-sketch-probe (or "any interface-sketch probe") to the description's negatives for completeness.

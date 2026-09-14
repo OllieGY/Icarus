@@ -1,5 +1,11 @@
 # Eval log — v1-launch-bar
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -30,15 +36,15 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner → Step 0 preconditions + "Do not invent readiness / never fabricate a stranger session" produce ask-for-the-running-v1 + outcome unit, no verdict. 02 solution-in-disguise → "Feature-completeness is not a gate here" + "static tool that demos beautifully" gotcha reframes wizard/polish to the two tests and flags Gate B untouched; routes UI craft to usability-test-protocol. 03 out-of-scope → When-NOT row 1 + Step 4 boundary decline-and-route to refine-flywheel by name, no cadence produced. No fabrication, no flattery, no poaching in any. |
 | 4 Head-to-head | n-a | frontmatter `supersedes: none`. |
 | 5 Anti-generic | PASS | Golden-01 faithful output turns on moves a generic PM prompt cannot supply: the ≤60s recorded true-stranger test with disqualification rules, the learn-from-corrections mechanism as a HARD gate (B1–B4 wired + B3 proven-once on tape + B5 numeric delta) before launch, the evidence ladder with a 0.7 floor, the "95% static-tool death shape" reframe, and two hard non-averaged gates. Generic prompt yields a feature/QA readiness checklist, not "NO-GO unless the corrections loop is proven once on tape." Guidance is properly tabular (Step 0, Gate A metrics, B1–B5, decision, ladder) and mirrored in template.md — not prose-smuggled. |
-| 6 Real-use | pending | Requires 5+ real fellow uses; not executable here. |
+| 6 Real-use | pending | Requires 5+ real builder uses; not executable here. |
 
 ### Gate 2 per-case scores (rubric: /25, pass ≥21 AND no dim <4)
 
 | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Verdict |
 |---|---|---|---|---|---|---|---|
-| 01 Mentix clean-GO | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 02 Barrier gas-safety | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
-| 03 Durian mundane draft | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 01 Foundry Signal clean-GO | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 02 Halcyon Safety gas-safety | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
+| 03 Larder Labs mundane draft | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
 | 04 Gate A fail / B strong | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
 | 05 "everyone loves it" | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
 

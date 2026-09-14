@@ -1,21 +1,30 @@
 ---
 name: wedge-five-questions
-description: Pressure-test ONE proposed wedge against five pass/fail thresholds (standalone value, forced cadence, travel, structural expansion, scoreable adoption) and return a 5-row verdict that calls it a real wedge only on 5/5. Fires on "is this a wedge", "is my wedge sharp enough", "what's my wedge", "the smallest thing that forces adoption", "will this actually get adopted". Not for defensibility over years (use moat-design-canvas), not for scoring the whole idea across eight dimensions (use problem-quality-scorecard), not for the one-glance so-what gut check (use so-what-stress-test).
-type: generator
-supersedes: none
+description: >-
+  Pressure-test ONE proposed wedge against five pass/fail thresholds (standalone value, forced
+  cadence, travel, structural expansion, scoreable adoption) and return a 5-row verdict that calls
+  it a real wedge only on 5/5. Fires on "is this a wedge", "is my wedge sharp enough", "what's my
+  wedge", "the smallest thing that forces adoption", "will this actually get adopted". Not for
+  defensibility over years (use moat-design-canvas), not for scoring the whole idea across eight
+  dimensions (use problem-quality-scorecard), not for the one-glance so-what gut check (use
+  so-what-stress-test).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
-Takes one proposed wedge and forces a binary verdict: real wedge, or a feature in a wedge costume. It runs the wedge through five thresholds, each with a hard pass bar, each demanding observed behaviour or money over opinion. The output is a 5-row table (question, threshold, evidence, pass/fail) and one overall verdict. The verdict is `AND` across all five: 4/5 is not "almost a wedge," it is a NO. For every failing row the skill names the single change that would flip it. This compresses the decision "should I build this first?" into evidence a fellow can hold up in a room.
+Takes one proposed wedge and forces a binary verdict: real wedge, or a feature in a wedge costume. It runs the wedge through five thresholds, each with a hard pass bar, each demanding observed behaviour or money over opinion. The output is a 5-row table (question, threshold, evidence, pass/fail) and one overall verdict. The verdict is `AND` across all five: 4/5 is not "almost a wedge," it is a NO. For every failing row the skill names the single change that would flip it. This compresses the decision "should I build this first?" into evidence a builder can hold up in a room.
 
-## The Icarus reframe
+## The reframe
 
 A wedge is not the small first feature; it is the smallest thing whose adoption and spread are forced by the user's own workflow rather than by you. This skill refuses the usual soft "wedge score" and runs a hard `AND` across five thresholds — standalone value, forced cadence, travel, structural expansion, scoreable adoption — so passing four and failing one still returns NO, because a wedge that needs your reminders to get used or your pitch to spread is a feature in a wedge costume. Every threshold must clear on observed behaviour or money moved; a threshold argued from opinion is scored as failed.
 
 ## When to use / When NOT
 
-Use when a fellow has one concrete candidate for the first thing to build and wants to know if it will pull its own adoption. Trigger phrases: "is this a wedge", "is my wedge sharp enough", "what's my wedge", "the smallest thing that forces adoption", "will this actually get adopted".
+Use when a builder has one concrete candidate for the first thing to build and wants to know if it will pull its own adoption. Trigger phrases: "is this a wedge", "is my wedge sharp enough", "what's my wedge", "the smallest thing that forces adoption", "will this actually get adopted".
 
 Do not use when:
 
@@ -33,7 +42,7 @@ Fill in `template.md`. Five steps.
 
 ### Step 1 — State the wedge in one sentence
 
-Force this shape: **who** uses it, on **what recurring trigger**, to get **one output**. If the fellow cannot write it in one sentence, that is the first failure. Name it and ask for the sentence. Do not invent the missing pieces.
+Force this shape: **who** uses it, on **what recurring trigger**, to get **one output**. If the builder cannot write it in one sentence, that is the first failure. Name it and ask for the sentence. Do not invent the missing pieces.
 
 Good: "Every Monday a regional planner uploads last week's CSV and gets a ranked list of the 20 SKUs most likely to stock out this week."
 Not yet a wedge sentence: "An AI copilot for planners." (No trigger, no single output. That is an engine, not a wedge.)
@@ -76,7 +85,7 @@ Every Icarus skill weights behaviour and money over opinion. The ladder:
 | Verbal commitment | 0.3 |
 | Opinion | 0.1 |
 
-A probe's job is to move a claim up this ladder. The bar this skill enforces: **a row passes only on evidence ≥ 0.5** (money, behaviour, or a shown artefact). A row "passed" on "they said they'd use it" (0.3) or "it seems useful" (0.1) is a fail, no matter how confident the fellow sounds. Travel and adoption cannot be scored on intent; they are behaviours you either observed or did not. Tag each empirical claim `[Fact]`, `[Assumption]`, or `[Hypothesis]`. If a row's whole case is `[Assumption]`, it has not passed; it has a test to run first.
+A probe's job is to move a claim up this ladder. The bar this skill enforces: **a row passes only on evidence ≥ 0.5** (money, behaviour, or a shown artefact). A row "passed" on "they said they'd use it" (0.3) or "it seems useful" (0.1) is a fail, no matter how confident the builder sounds. Travel and adoption cannot be scored on intent; they are behaviours you either observed or did not. Tag each empirical claim `[Fact]`, `[Assumption]`, or `[Hypothesis]`. If a row's whole case is `[Assumption]`, it has not passed; it has a test to run first.
 
 ## Gotchas
 
@@ -92,13 +101,13 @@ Standalone value smuggling in dependencies. "It's valuable once the ERP is conne
 
 ## Examples
 
-`examples/sample.md` — a full worked wedge test on Durian Labs' first workflow (the weekly stockout digest), scored 5/5, with one row that started as opinion and had to be upgraded to observed behaviour before it could pass.
+`examples/sample.md` — a full worked wedge test on Larder Labs' first workflow (the weekly stockout digest), scored 5/5, with one row that started as opinion and had to be upgraded to observed behaviour before it could pass.
 
 ## Related skills
 
 `moat-design-canvas` — the sibling in this section. It handles defensibility once you are adopted; this handles whether you get adopted at all. Run this first, that second.
 
-`problem-quality-scorecard` — scores the whole idea across eight dimensions; wedge sharpness is one of them. When a fellow wants the wide read, send them there. When they want the deep read on the wedge alone, use this.
+`problem-quality-scorecard` — scores the whole idea across eight dimensions; wedge sharpness is one of them. When a builder wants the wide read, send them there. When they want the deep read on the wedge alone, use this.
 
 `so-what-stress-test` — its Q3 asks "what's the wedge?" at a glance and moves on. This skill is where that glance becomes a five-threshold verdict.
 

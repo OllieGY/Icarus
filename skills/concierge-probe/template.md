@@ -25,7 +25,7 @@ One row per step. Log exceptions even when you fixed them in your head.
 | … | | | | |
 
 Total founder minutes: __
-Distinct exceptions logged: __  (run until ≥3, or the customer decides)
+Distinct exceptions logged: __ (run until ≥3, or the customer decides)
 
 ## 2. WTP score
 
@@ -39,8 +39,8 @@ Score the strongest signal that actually happened.
 | "Yes, I'd pay for that" | verbal | 0.3 | |
 | "Sounds useful" | opinion | 0.1 | |
 
-WTP score: __  (single number = the highest rung that actually happened)
-Evidence for that rung: __  (invoice #, the thing they did, the words they said)
+WTP score: __ (single number = the highest rung that actually happened)
+Evidence for that rung: __ (invoice #, the thing they did, the words they said)
 
 ## 3. Read-out (honesty contract)
 

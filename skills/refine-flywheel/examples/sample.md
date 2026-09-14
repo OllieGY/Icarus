@@ -1,8 +1,10 @@
-# Worked example — Mentix post-launch flywheel (shift-handover machine-risk digest)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Mentix builds industrial AI for factory operations. This picks up exactly where `eval-first-spec` shipped Mentix v1: the shift-handover digest, at autonomy **L1 (Drafts)**, with a 20-case golden set and a cost-per-outcome of **$3.55/shift** checked against ~$900 value. This is a test fixture — numbers are illustrative, not real client data. Every rate is tagged `[Fact]` (measured on real traces / the real golden set) or `[Assumption]` (projected).
+# Worked example — Foundry Signal post-launch flywheel (shift-handover machine-risk digest)
 
-## Input the fellow brought
+Foundry Signal builds industrial AI for factory operations. This picks up exactly where `eval-first-spec` shipped Foundry Signal v1: the shift-handover digest, at autonomy **L1 (Drafts)**, with a 20-case golden set and a cost-per-outcome of **$3.55/shift** checked against ~$900 value. This is a test fixture — numbers are illustrative, not real client data. Every rate is tagged `[Fact]` (measured on real traces / the real golden set) or `[Assumption]` (projected).
+
+## Input the builder brought
 
 "The digest has been live on 3 lines for 10 weeks. Supervisors seem happy. The team wants to let it auto-post to the handover board without a supervisor sign-off, and there's a new model release out this week. What's the loop, and can we raise the autonomy?"
 
@@ -71,7 +73,7 @@ This is the whole point of the station. Without re-running all 20 cases, "the ne
 
 ## Station 4 — Refine (autonomy by eval, never by feel)
 
-The fellow asked for two moves. Both are decided by the eval, not the mood.
+The builder asked for two moves. Both are decided by the eval, not the mood.
 
 | Ask | Decision | Why |
 |---|---|---|

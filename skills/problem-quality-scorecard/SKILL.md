@@ -1,18 +1,20 @@
 ---
 name: problem-quality-scorecard
 description: >-
-  Numeric go/no-go gate that scores ONE product problem 1-5 on eight
-  evidence-backed dimensions (frequency, budgeted pain, severity, data exhaust,
-  structural persistence, buyer clarity, wedge sharpness, founder asymmetry),
-  sums to /40, and returns pass (>=32) / redesign (28-31) / kill (<28). Fires on
-  "should I build this", "score this problem", "go or no-go", "is this problem
-  good enough", "rate this problem". Output is a filled 8-row scorecard with a
-  money-or-behaviour citation on every row. NOT for broad risk mapping across
-  GTM/strategy/team (use identify-assumptions-new), NOT the five qualitative
-  whole-idea questions (so-what-stress-test), NOT the per-unit size ratio
-  (physics-floor-gap), NOT the wedge-only deep dive (wedge-five-questions).
-type: generator
-supersedes: skills/discovery/identify-assumptions-new
+ Numeric go/no-go gate that scores ONE product problem 1-5 on eight
+ evidence-backed dimensions (frequency, budgeted pain, severity, data exhaust,
+ structural persistence, buyer clarity, wedge sharpness, founder asymmetry),
+ sums to /40, and returns pass (>=32) / redesign (28-31) / kill (<28). Fires on
+ "should I build this", "score this problem", "go or no-go", "is this problem
+ good enough", "rate this problem". Output is a filled 8-row scorecard with a
+ money-or-behaviour citation on every row. NOT for broad risk mapping across
+ GTM/strategy/team (use identify-assumptions-new), NOT the five qualitative
+ whole-idea questions (so-what-stress-test), NOT the per-unit size ratio
+ (physics-floor-gap), NOT the wedge-only deep dive (wedge-five-questions).
+metadata:
+  supersedes: skills/discovery/identify-assumptions-new
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
@@ -20,10 +22,10 @@ supersedes: skills/discovery/identify-assumptions-new
 Compresses "should we build this?" into one number and one verdict. It scores a
 single, named problem on eight dimensions, forces a money-or-behaviour citation
 behind each score, sums to /40, and returns a gate: build, redesign the wedge, or
-kill. It is the go/no-go at the top of the Icarus funnel — nothing downstream
+kill. It is the go/no-go at the top of this kit's flow — nothing downstream
 (wedge, prototype, PRD) should start until a problem clears this gate.
 
-## The Icarus reframe
+## The reframe
 
 Most problem-scoring rates a problem on how good it *feels*. This inverts that:
 the evidence you hold sets a hard ceiling on the score a dimension can earn.
@@ -37,12 +39,12 @@ build.
 
 ## When to use / When NOT
 
-Use it when a fellow has ONE problem in hand and needs a build/no-build decision
+Use it when a builder has ONE problem in hand and needs a build/no-build decision
 backed by evidence.
 
 Do not use it for these — hand off instead:
 
-| If the fellow wants… | Use instead |
+| If the builder wants… | Use instead |
 |---|---|
 | Every risky assumption mapped across value, GTM, strategy, team | `identify-assumptions-new` (the skill this supersedes) — a risk inventory, not a gate |
 | The five qualitative whole-idea business questions | `so-what-stress-test` |
@@ -64,10 +66,10 @@ the feature, not the pain. Reframe with `problem-statement` first, then return.
 **Step 2 — For each of the 8 dimensions, write the evidence you actually hold and
 tag its rung.** No evidence means opinion. A verified *absence* of money (you
 checked, there is no budget line) is behaviour-grade evidence for a low score —
-it is not an opinion cap. A dimension the fellow simply never mentioned is
+it is not an opinion cap. A dimension the builder simply never mentioned is
 **unexamined**: default it to opinion-grade (ceiling 1, flag it) and count it toward
 the "3+ opinion-only" trigger in Step 5 — do not confuse it with a verified-low. An
-unexamined dimension only escapes the opinion cap if the fellow asserted a verified
+unexamined dimension only escapes the opinion cap if the builder asserted a verified
 absence.
 
 **Step 3 — Apply the evidence ceiling.** The rung of your best evidence caps the
@@ -95,7 +97,7 @@ ceiling, not the substance, set the score.
 | Structural persistence | Will it still exist and matter in 3-5 years | Transient: a fad, a subsidy, one repealable rule | Rooted in physics, unit economics, or durable regulation |
 | Buyer clarity | One reachable person with budget who says yes | No clear buyer; committee; "the market" | A named role you can reach, with budget, who has bought comparables |
 | Wedge sharpness | A narrow first slice you can own completely | Broad, undifferentiated "platform for X" | One painful task, one segment, where you can be unambiguously best |
-| Founder asymmetry | THIS fellow's unfair, hard-to-copy edge | None; anyone could do this | Proprietary access / data rights / distribution / lived domain scar tissue |
+| Founder asymmetry | THIS builder's unfair, hard-to-copy edge | None; anyone could do this | Proprietary access / data rights / distribution / lived domain scar tissue |
 
 Add a confidence and a cheapest-test-to-raise to each row (see template). Confidence:
 High = two-plus independent money/behaviour data points; Med = one artefact or one
@@ -131,23 +133,23 @@ claim `[Fact]`, `[Assumption]`, or `[Hypothesis]`. If you catch yourself typing
 ## Gotchas
 
 - **Frequency inflation.** Scoring how often the pain *could* occur, not how
-  often it is *observed* to. Cap frequency by logs, ticket counts, or timestamps,
-  never by intuition.
+ often it is *observed* to. Cap frequency by logs, ticket counts, or timestamps,
+ never by intuition.
 - **Wish in the money column.** "They said they'd pay" is verbal (ceiling 2), not
-  money (ceiling 5). Budgeted pain measures money spent *today*, not money
-  promised. Keep the two rungs apart or the whole card inflates.
+ money (ceiling 5). Budgeted pain measures money spent *today*, not money
+ promised. Keep the two rungs apart or the whole card inflates.
 - **Wedge / founder double-count.** When the founder's unfair asset *is* the
-  wedge, do not bank it twice. Founder asymmetry is the advantage; wedge sharpness
-  is the narrow first slice. Score each on its own evidence.
+ wedge, do not bank it twice. Founder asymmetry is the advantage; wedge sharpness
+ is the narrow first slice. Score each on its own evidence.
 - **Scoring a solution.** If the "problem" is a pre-chosen feature, every row
-  scores the feature's appeal, not the pain's size. Reframe before scoring.
+ scores the feature's appeal, not the pain's size. Reframe before scoring.
 - **Verified-low is not opinion.** A dimension scored 1 because you checked and
-  there is genuinely no spend / no data / no edge is honest behaviour-grade
-  evidence, scored with High confidence. Do not flag it as an opinion cap.
+ there is genuinely no spend / no data / no edge is honest behaviour-grade
+ evidence, scored with High confidence. Do not flag it as an opinion cap.
 
 ## Examples
 
-`examples/sample.md` — a worked Barrier Intelligence scorecard: eight rows, each
+`examples/sample.md` — a worked Halcyon Safety scorecard: eight rows, each
 with its evidence rung and cheapest test, total 34/40, gate PASS with the two
 soft spots named as the two-week priorities.
 
@@ -156,7 +158,7 @@ soft spots named as the two-week priorities.
 Supersedes `identify-assumptions-new`. That skill lists risky assumptions across
 eight categories and asks you to "rate confidence and suggest a test" — a soft
 inventory that never gates and never enforces evidence, so an opinion can sit in
-it unchallenged and the fellow still gets no go/no-go. This skill keeps its two
+it unchallenged and the builder still gets no go/no-go. This skill keeps its two
 useful bones (per-item confidence, per-item cheapest test) and converts them into
 a hard numeric gate with evidence ceilings: opinion caps at 1, a pass is
 impossible on opinion, and the output is a decision, not a list.

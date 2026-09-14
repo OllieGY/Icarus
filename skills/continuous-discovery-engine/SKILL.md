@@ -1,15 +1,25 @@
 ---
 name: continuous-discovery-engine
-description: Stands up ONE living opportunity tree fed by three live inputs and keeps it current after launch. Fires when a fellow says "set up discovery", "continuous discovery", "opportunity tree", "keep learning after launch", or "discovery after launch". Returns an opportunity tree (outcome → opportunities → solutions → tests) wired to customer interviews, production traces, and eval telemetry — each feed stamped with its evidence rung, its cadence, and a named synthesis owner. NOT for scoring one signal's rung (use evidence-ladder), picking which probe tests one question (use probe-matrix), or running a single customer interview (use tacit-knowledge-interview).
-type: interactive
-supersedes: skills/discovery/opportunity-solution-tree
+description: >-
+  Stands up ONE living opportunity tree fed by three live inputs and keeps it current after
+  launch. Fires when a builder says "set up discovery", "continuous discovery", "opportunity
+  tree", "keep learning after launch", or "discovery after launch". Returns an opportunity tree
+  (outcome → opportunities → solutions → tests) wired to customer interviews, production traces,
+  and eval telemetry — each feed stamped with its evidence rung, its cadence, and a named
+  synthesis owner. NOT for scoring one signal's rung (use evidence-ladder), picking which probe
+  tests one question (use probe-matrix), or running a single customer interview (use
+  tacit-knowledge-interview).
+metadata:
+  supersedes: skills/discovery/opportunity-solution-tree
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Turns discovery from a one-time drawing into a running loop. It builds one opportunity tree (outcome → opportunities → solutions → tests) and wires it to three live inputs — customer interviews, production traces, eval telemetry — so the tree updates on a cadence instead of aging on a wall. Each node carries a provenance stamp (which feed touched it, at what evidence rung, on what date). A named human owns synthesis: the machine surfaces candidate tree edits, the human promotes, parks, or discards them. The output is the wired tree plus the loop that keeps it alive, not a static poster.
 
-## The Icarus reframe
+## The reframe
 
 The generic Opportunity Solution Tree is a poster — drawn once, pinned up, stale the moment the market moves. The Icarus engine feeds one living tree from three live inputs sitting at different rungs of the evidence ladder — customer interviews (verbal, 0.3), production traces (behaviour, 0.7, and nearly free once you have shipped), and eval telemetry (the product grading its own quality before a customer complains) — with a named human owning synthesis: the machine surfaces candidate edits, the human decides. The inversion that matters is that shipping makes discovery cheaper, not finished — every production trace is a fresh interview you never had to schedule (see the forthcoming `trace-to-interview`), so the fastest route to a 0.7-backed tree is to launch, not to run more interviews.
 
@@ -19,7 +29,7 @@ Use it when you have a scoped product (shipped, in pilot, or about to ship) and 
 
 Do not use it for:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | To score one signal's evidence rung ("what rung is 'they said they'd buy it'?") | `evidence-ladder` | That grades a single signal; this wires many signals into a tree over time. |
 | To pick the cheapest honest test for one question | `probe-matrix` | That routes one question to one probe; this decides which node needs a probe, then hands off to it. |
@@ -33,7 +43,7 @@ Fill `template.md` as you go. Do not stop at the tree — a tree with no wired f
 
 ### Step 1 — Set the outcome
 
-One measurable metric, with a current baseline and a target. Not "improve UX." If the fellow gives a vague outcome, name it as unmeasurable and ask for the number before proceeding.
+One measurable metric, with a current baseline and a target. Not "improve UX." If the builder gives a vague outcome, name it as unmeasurable and ask for the number before proceeding.
 
 | Field | Fill |
 |---|---|
@@ -69,10 +79,10 @@ Outcome → opportunities → solutions → tests. Each opportunity and solution
 
 ```
 Outcome
-  └─ Opportunity  [feed] [rung] [date]
-       ├─ Solution  [feed] [rung] [date]
-       │    └─ Test → hand off to probe-matrix
-       └─ Solution  ...
+ └─ Opportunity [feed] [rung] [date]
+ ├─ Solution [feed] [rung] [date]
+ │ └─ Test → hand off to probe-matrix
+ └─ Solution...
 ```
 
 An opportunity with no feed and no rung is a belief, not a finding. Tag it `[Hypothesis]` and mark it un-provenanced.
@@ -104,7 +114,7 @@ The machine surfaces; the human decides. Write the ritual, the stale rule, and t
 
 ### Step 7 — Demonstrate one turn of the loop
 
-Take one real signal from a live feed and update the tree in front of the fellow: show the node it lands on, the rung it moves, the solution it promotes or kills, the re-picked POC. A tree that cannot show one loop turn is still a poster.
+Take one real signal from a live feed and update the tree in front of the builder: show the node it lands on, the rung it moves, the solution it promotes or kills, the re-picked POC. A tree that cannot show one loop turn is still a poster.
 
 ## Evidence standard
 
@@ -121,7 +131,7 @@ Every node's strength equals the highest rung of signal supporting it: money 1.0
 
 ## Examples
 
-See `examples/sample.md` for a full run on a post-launch Azraq data-centre risk product: three live feeds wired to one tree, the evidence-weighted POC ranking, and one loop turn where a production trace (operators dismiss 80% of cooling alerts in under 5s but always open and export power-feed alerts) kills a planned solution and promotes another — the tree updating in front of you.
+See `examples/sample.md` for a full run on a post-launch Meridian Grid data-centre risk product: three live feeds wired to one tree, the evidence-weighted POC ranking, and one loop turn where a production trace (operators dismiss 80% of cooling alerts in under 5s but always open and export power-feed alerts) kills a planned solution and promotes another — the tree updating in front of you.
 
 ## Related skills
 

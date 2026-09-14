@@ -49,7 +49,7 @@ Say nothing but the recovery script. Log the path they took, not the path you de
 | U2 | | 1 | | | | | |
 | U2 | | 2 | | | | | |
 | U3 | | 1 | | | | | |
-| ... | | | | | | | |
+|... | | | | | | | |
 
 Outcome scale: **unaided success** = zero facilitator input (0.7) · **aided success** = completed only after a nudge (log the exact words) · **fail** = gave up, timed out, or completed wrong without noticing (strongest finding).
 

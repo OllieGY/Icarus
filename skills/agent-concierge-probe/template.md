@@ -43,7 +43,7 @@ Successful outcomes: __
 
 CPO = total cost ÷ successful outcomes = **$__.__ / outcome** [Fact]
 
-Sanity check vs concierge price paid: __  (flag if CPO > price)
+Sanity check vs concierge price paid: __ (flag if CPO > price)
 
 ## 3. Frontier map
 
@@ -53,7 +53,7 @@ Sanity check vs concierge price paid: __  (flag if CPO > price)
 | 2 | | | | |
 | … | | | | |
 
-Red steps on the critical path: __  (these are the frontier)
+Red steps on the critical path: __ (these are the frontier)
 
 ## 4. Read-out (honesty contract)
 

@@ -1,18 +1,20 @@
-# Sample — Mentix runs a usability test on the copilot mock
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Mentix (industrial AI — an "AI copilot for factory managers").
+# Sample — Foundry Signal runs a usability test on the copilot mock
+
+**Builder:** Foundry Signal (industrial AI — an "AI copilot for factory managers").
 
 > **Illustrative fixture — label convention.** No real session data exists behind this. The users, paths, and numbers are plausible constructions, not client records. The run is scored on *shape* — did it frame tasks as goals, keep the builder muted, log behaviour, quarantine opinion, and rank findings by frequency × blocking — not on the literal figures.
 
-`first-mocks` produced a clickable mock in v0: an alert feed, an alert detail screen with a trend chart and an **Acknowledge** button, and a short "log the action" flow. Before Mentix commits engineering to the acknowledge flow, they watch five real plant managers try to use it.
+`first-mocks` produced a clickable mock in v0: an alert feed, an alert detail screen with a trend chart and an **Acknowledge** button, and a short "log the action" flow. Before Foundry Signal commits engineering to the acknowledge flow, they watch five real plant managers try to use it.
 
 ## 0. Preconditions
 - Working prototype: yes — the v0 clickable mock. `[Fact]`
-- Real target user: yes — 5 shift managers from 3 design-partner plants, no Mentix staff. `[Fact]`
+- Real target user: yes — 5 shift managers from 3 design-partner plants, no Foundry Signal staff. `[Fact]`
 - Task is a goal: rewritten below to remove UI nouns.
 
 ## 1. Roles
-- Runner (Product): the Mentix PM. Sets the scene, then silent.
+- Runner (Product): the Foundry Signal PM. Sets the scene, then silent.
 - Watcher (Engineering): the engineer who built the Acknowledge flow. Muted — the whole point is that she feels the wall, not reads it in a deck.
 - Scribe (Design): logs paths, not interpretations.
 

@@ -1,12 +1,14 @@
-# Probe Selection + Plan — Barrier Intelligence (worked)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow / venture:** Barrier Intelligence (oil & gas safety)
+# Probe Selection + Plan — Halcyon Safety (worked)
+
+**Builder / venture:** Halcyon Safety (oil & gas safety)
 **Date:** 2026-07-20
 
 > All numbers here are synthetic, domain-plausible test fixtures — not real client
 > data. They show the mechanic, not a finding.
 
-**Fellow's ask:** "What's the cheapest way to test whether operators trust the gas
+**Builder's ask:** "What's the cheapest way to test whether operators trust the gas
 alert? I was going to mock up the alert screen on paper and walk three operators
 through it."
 
@@ -28,7 +30,7 @@ feature to validate.
 Target **E — Trust & adoption.** Trust is not comprehension and not demand; it is
 behaviour under real stakes, over time. Rung the answer needs: behaviour (0.7).
 
-**Current rung of the claim today:** opinion (0.1) — `[Assumption]` the fellow
+**Current rung of the claim today:** opinion (0.1) — `[Assumption]` the builder
 believes operators will trust it; no operator has yet acted on a real alert.
 
 ## Step 3 — Kill check

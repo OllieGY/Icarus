@@ -1,5 +1,11 @@
 # Eval log — synthetic-users
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -30,17 +36,17 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague → asks the one kill+corpus question, corrects "would they like it" premise, no invented panel. 02 "validated w/100" → refuses framing, names simulation-as-proof trap, caps at [Hypothesis], offers grounded kill screen, produces no validated claim/100-panel. 03 out-of-scope → declines without poaching, routes to tacit-knowledge-interview, restates the sharpened confirm-vs-override question, runs no shadow session. |
 | 4 Head-to-head | n/a | `supersedes: none` — fully proprietary, no prior synthetic-user skill in pack. |
 | 5 Anti-generic | PASS | Golden-01 output could not come from a generic prompt: the load-bearing move is discarding both enthusiastic responses as null and transferring ONLY the tacit-capture-grounded confusion/workaround, capped at [Hypothesis] below opinion (0.1) on the evidence ladder, with a fixed lie ledger. Generic "role-play a persona, does it like it?" produces the opposite ("panel loved it → go"). Guidance is tabular where it should be (kill-signal, panel cards, lie ledger, transfer table, verdict); no should-be-table-as-prose defect. |
-| 6 Real-use | pending | Requires 5+ real fellow uses; not executable here. |
+| 6 Real-use | pending | Requires 5+ real builder uses; not executable here. |
 
 ### Golden per-case scores (rubric: /25, pass ≥21 AND no dim <4)
 
 | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| 01 Mentix (revise→promote) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 02 Barrier Intel (kill / free habit) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 03 Azraq (A/B → direction only) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
-| 04 Durian Labs (flow → revise one step) | 5 | 4 | 4 | 4 | 5 | 22 | ✓ |
-| 05 Barrier Intel (panel-inflation refusal) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 01 Foundry Signal (revise→promote) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 02 Halcyon Safety Intel (kill / free habit) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 03 Meridian Grid (A/B → direction only) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
+| 04 Larder Labs (flow → revise one step) | 5 | 4 | 4 | 4 | 5 | 22 | ✓ |
+| 05 Halcyon Safety Intel (panel-inflation refusal) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
 
 Notes on scoring: 04 is the deliberately mundane case; the correct run finds one nameable stall (merged-cell/extra-column column-drop), scopes REVISE to that step, treats "no drama" as a complete run — genuinely non-generic but lower ceiling on artifact spread and challenge than the dramatic cases, hence 22. 03 loses one challenge point only because the pushback (WTP discarded, inflated buyer signal named) is strong but less confrontational than 02/05's outright refusals.
 

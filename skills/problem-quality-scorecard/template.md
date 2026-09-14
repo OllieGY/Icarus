@@ -1,6 +1,6 @@
 # Problem Quality Scorecard
 
-**Fellow / venture:** _______________
+**Builder / venture:** _______________
 **Date:** _______________
 
 ## The one problem (a pain, not a feature)

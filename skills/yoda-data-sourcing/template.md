@@ -34,7 +34,7 @@ Assign exactly one band. If a source could sit in two, place it in the lower one
 
 ## 4. Access — model-can't-reach-it vs you-can-reach-it
 
-For every G and P row, record how *you* get it and any data-rights note. A P source you cannot access is a seed you do not hold yet. Flag it for `data-rights-clause` (section 06).
+For every G and P row, record how *you* get it and any data-rights note. A P source you cannot access is a seed you do not hold yet. Flag it for `data-rights-clause`.
 
 **Clause-gated:** if a row is reachable *only* through a signed clause, give it its own line — mark **access = clause-gated**, name the counterparty and the clause, and list it as a seed-in-waiting. Do not fold it silently into the access cell.
 
@@ -62,6 +62,6 @@ One row per candidate. A row is a **moat seed** only if band = P **and** a credi
 
 ## 7. Next step
 
-- For each **P-with-no-access** row: it needs a signed clause before it is usable. Take it to `data-rights-clause` (section 06).
+- For each **P-with-no-access** row: it needs a signed clause before it is usable. Take it to `data-rights-clause`.
 - For each **P source that is an expert's head** (tacit judgment): capture it with `tacit-knowledge-interview`.
 - For each **moat seed you hold**: it is also your eval set. A model cannot narrate it from training, so it is the only data that can tell you whether the product actually works.

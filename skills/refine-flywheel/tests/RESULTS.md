@@ -1,5 +1,11 @@
 # Eval log — refine-flywheel
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -30,7 +36,7 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner → Station 0 precondition gate is the Method's first move ("no eval set, no flywheel… stop and route to eval-first-spec. Do not invent an eval set here") → asks the one question / routes, fills nothing. 02 solution-in-disguise → Gotcha "model upgrade as a free win" + Station 3 "regression risk until the eval set re-scores it" → reframes to keep-quality-honest, routes through Station 3, names silent safety-mode regression. 03 out-of-scope → When-NOT table + description NOT clause decline and name metrics-that-matter, note the boundary. No fabrication, no flattery, no scope-poach. |
 | 4 Head-to-head | n-a | `supersedes: none`. New skill; no prior flywheel to beat. |
 | 5 Anti-generic | PASS | Golden-01 output rests on three moves a generic PM prompt cannot produce: tweak-time (edit-distance-from-traces) as the trust signal instead of an engagement dashboard, model-release-as-regression-risk (re-run the WHOLE set before prod), and eval-gated two-way autonomy ratchet. Reframe is load-bearing, not decoration. Fill-in guidance (observe bands, learn triggers, refine conditions, cadence, compounding, kill-line) is tabulated in both SKILL and template; prose is reserved for explanation. Cost is built into the loop's success test (compounding check = falling cost_per_outcome). |
-| 6 Real-use | pending | Requires 5+ real fellow uses. Not executable here. |
+| 6 Real-use | pending | Requires 5+ real builder uses. Not executable here. |
 
 ### Gate 2 — per-case scores (rubric: 5 dims × 0–5, /25; pass ≥21 AND no dim <4)
 
@@ -52,7 +58,7 @@ Clean on all three siblings. metrics-that-matter: Station 2 explicitly "Retentio
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 - Fixture ambiguity (not a skill defect): golden/01 lists "baseline cost-per-outcome carried from the spec" under "Numbers that must appear", but the golden-01 input supplies no cost figure. The skill's discipline resolves it correctly (tag [Assumption]/carry-placeholder, never fabricate), but the fixture invites a fabrication auto-fail. Consider having golden/01's input state the carried $ value, or note in the case that the number is a placeholder to carry.
-- template.md hardcodes five failure-mode columns in the eval ledger (Miss / False alarm / Confidently wrong / Wrong format / Silent failure). A product whose eval-first-spec modes differ must relabel these. The SKILL's own ledger table uses "…" to signal modes are product-specific; the template could mirror that (a note: "columns = this product's modes from eval-first-spec") to avoid a fellow treating the five as canonical.
+- template.md hardcodes five failure-mode columns in the eval ledger (Miss / False alarm / Confidently wrong / Wrong format / Silent failure). A product whose eval-first-spec modes differ must relabel these. The SKILL's own ledger table uses "…" to signal modes are product-specific; the template could mirror that (a note: "columns = this product's modes from eval-first-spec") to avoid a builder treating the five as canonical.
 - Sandbox path note: the judged copy lives under `skills/sandbox/product-icarus/`, whose `07-commit-build-v1/` folder does not contain `eval-first-spec` (it holds guardrail-design, v1-launch-bar, value-based-pricing); `eval-first-spec` lives in the promoted `skills/product-icarus/07-commit-build-v1/`. Routing is to a real skill, but the sandbox 07 subset is incomplete relative to the references. Orchestrator may want the sandbox 07 to carry eval-first-spec for a self-contained pilot.
 
 ## Refine run 2 — applied judge fixes: re-tagged golden/01's carried baseline cost-per-outcome as an illustrative `[Assumption]` placeholder (never `[Fact]`, added to auto-fail), and noted in template.md that the eval-ledger's five mode columns are illustrative and must be relabelled per product.

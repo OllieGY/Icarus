@@ -1,5 +1,11 @@
 # Eval log — current-state-map
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -29,22 +35,22 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner → Method Step 1 stops and asks for one unit + one priced artefact, invents nothing. 02 solution-in-disguise → Step 2 + Gotcha "price the real practice not the SOP/future-with-product" refuses the to-be map and re-anchors on today's manual work. 03 out-of-scope → When-NOT table + Related-skills decline and name `physics-floor-gap`, compute no floor/gap. No fabrication, no flattery, no scope-poaching. |
 | 4 Head-to-head | n/a | `supersedes: none`. |
 | 5 Anti-generic | PASS | G01 output turns on moves a generic PM prompt lacks: paid-wait-vs-free-delay split, the evidence ladder (shift logs = 0.7), [Fact]/[Assumption]/[Hypothesis] tagging, and failure-tail-flagged-not-invented. The load-bearing artifact (priced ledger) is a table in template.md; Method prose is procedural, not misplaced guidance. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. |
+| 6 Real-use | pending | Requires 5+ real builder uses. |
 
 ### Gate 2 — per-case scores (rubric: /25, pass ≥21 AND no dim <4)
 
 | Case | method | artifact | proprietary | challenge | evidence | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| G01 Mentix shift-handover (paid-wait handoff) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
-| G02 Barrier permit-to-work (delay dominates) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| G03 Durian invoice reconciliation (mundane) | 5 | 4 | 4 | 5 | 5 | 23 | PASS |
-| G04 Mentix config → NOT READY (failure tail) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| G05 Azraq aggregate → NOT READY | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| G01 Foundry Signal shift-handover (paid-wait handoff) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
+| G02 Halcyon Safety permit-to-work (delay dominates) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| G03 Larder Labs invoice reconciliation (mundane) | 5 | 4 | 4 | 5 | 5 | 23 | PASS |
+| G04 Foundry Signal config → NOT READY (failure tail) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| G05 Meridian Grid aggregate → NOT READY | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
 
 Numeric kill-line re-check (per protocol): every case that emits a total prices each step from a cited artefact and totals correctly (G01 £41.17 from shift logs; G02 £18,850 with £180k/24=£7,500/hr × 2.5hr=£18,750 from charter; G03 ~£3.32/unit from time-tracking export). G04 and G05 correctly refuse a trustworthy total — decomposed / flagged [Hypothesis] and returned NOT READY, never floored. No unpriced step, no price without a cited source, no invented number. No `auto_fail` triggered in any case.
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 - **The readiness gate has no crisp rule for an unpriced [Hypothesis] failure tail that *might* dominate.** In G04 an unpriced stoppage tail forces NOT READY; in G01 and examples/sample.md an unpriced failure tail sits "outside the priced total" and the map is READY. The concentration gate is stated in % of total, but a [Hypothesis] tail has no % (it is unpriced), so the arithmetic gate does not decide it — the boundary is left to judgment. Suggest an explicit rule: an unpriced tail is dominant-suspect (→ NOT READY) when the priced base is thin enough that a plausible tail could exceed it; it is an upside-risk sitting outside a holding total only when a substantial sourced base already stands. Both correct applications exist in the fixtures; the skill should name the test that separates them.
-- **template.md vs sample.md column drift (minor).** template.md's step ledger carries a `Loaded £/min` column; examples/sample.md drops it. Harmless, but align them so the worked example matches the template a fellow fills.
+- **template.md vs sample.md column drift (minor).** template.md's step ledger carries a `Loaded £/min` column; examples/sample.md drops it. Harmless, but align them so the worked example matches the template a builder fills.
 
 ## Refine run 2 — applied judge fixes: readiness gate (SKILL Step 9 + template §9) now separates a *dominant-suspect* unpriced `[Hypothesis]` tail that could exceed the priced total (→ NOT READY) from an *upside-risk* tail outside a valid holding total (→ READY, tail flagged); sample.md ledger regains the `Loaded £/min` column to match the template.

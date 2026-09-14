@@ -1,6 +1,8 @@
-# Clickable-Prototype Plan — Mentix (copilot shift-handover card)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow / venture:** Mentix — AI copilot for factory managers
+# Clickable-Prototype Plan — Foundry Signal (copilot shift-handover card)
+
+**Builder / venture:** Foundry Signal — AI copilot for factory managers
 **Date:** 2026-07-21
 
 > Numbers below are illustrative test fixtures, clearly synthetic — not real plant
@@ -25,7 +27,7 @@ justify.
 
 ## Steps 1–4 — Top band needed
 
-**Top band needed:** 4 (clickable hybrid). **Why:** the fellow needs a manager to
+**Top band needed:** 4 (clickable hybrid). **Why:** the builder needs a manager to
 *act* on the card, and acting means clicking the flagged line to see why and marking
 it done or escalated — a static frame cannot show whether the path is followable.
 Not higher: no backend is needed to test whether the card reads and the flow
@@ -96,18 +98,18 @@ Set before any manager sees it.
 | **A pass moves the claim to rung:** | 0.7 (behaviour — comprehension under a real task) |
 | **What I will NOT count as a pass:** | "the card looks clear" / "I'd use this" (verbal, 0.3) |
 
-**Evidence log:** the v0 clickable hybrid = **artefact shown, 0.5**. Mentix may not
+**Evidence log:** the v0 clickable hybrid = **artefact shown, 0.5**. Foundry Signal may not
 claim managers understand the card until `usability-test-protocol` returns the
 behaviour read-out. The mock's whole value was making that test possible in an
 afternoon instead of after a build. [Fact]
 
 ## What a generic prototyping answer would have missed
 
-- It would have offered a fidelity ladder and let Mentix pick "clickable" by taste,
-  not because the reaction (act on the line) requires clicking.
+- It would have offered a fidelity ladder and let Foundry Signal pick "clickable" by taste,
+ not because the reaction (act on the line) requires clicking.
 - It would not have banned code, so "just build a quick React version" would have
-  slipped through — and Mentix would now be defending a half-app.
+ slipped through — and Foundry Signal would now be defending a half-app.
 - It would have described how to style the card; first-mocks routes that to
-  `impeccable` and keeps its own hands off the pixels.
+ `impeccable` and keeps its own hands off the pixels.
 - It would have let "the prototype looked great" stand as progress; here the mock is
-  logged at 0.5 and nothing above it is claimed until a manager acts.
+ logged at 0.5 and nothing above it is claimed until a manager acts.

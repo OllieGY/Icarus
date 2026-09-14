@@ -1,19 +1,21 @@
 ---
 name: guardrail-design
 description: >-
-  Fires when a fellow needs to decide how an AI product is stopped from doing the
-  wrong thing — "design the guardrails", "when does a human sign off", "how do we
-  handle failures / bad outputs", "what confidence threshold should we auto-approve
-  at", "where do we put the human in the loop". Returns a guardrail spec: every
-  failure mode placed on a cost-of-error × volume matrix, a three-layer stack (rules
-  in code → confidence threshold → human sign-off) sized per mode, a derived
-  confidence threshold, and a human-sign-off trigger for every high-cost / low-
-  confidence path. Do NOT fire to derive the acceptable failure rate or pick the
-  autonomy level (use eval-first-spec), to lay out the whole component pipeline (use
-  compound-system-architecture), or to decide whether a human can now be REMOVED
-  because accuracy has held (use refine-flywheel).
-type: generator
-supersedes: none
+ Fires when a builder needs to decide how an AI product is stopped from doing the
+ wrong thing — "design the guardrails", "when does a human sign off", "how do we
+ handle failures / bad outputs", "what confidence threshold should we auto-approve
+ at", "where do we put the human in the loop". Returns a guardrail spec: every
+ failure mode placed on a cost-of-error × volume matrix, a three-layer stack (rules
+ in code → confidence threshold → human sign-off) sized per mode, a derived
+ confidence threshold, and a human-sign-off trigger for every high-cost / low-
+ confidence path. Do NOT fire to derive the acceptable failure rate or pick the
+ autonomy level (use eval-first-spec), to lay out the whole component pipeline (use
+ compound-system-architecture), or to decide whether a human can now be REMOVED
+ because accuracy has held (use refine-flywheel).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 # Guardrail Design
@@ -21,7 +23,7 @@ supersedes: none
 ## What it does
 
 Turns "how do we stop it doing something bad?" into a spec a build can enforce. The
-fellow brings the failure taxonomy, the chosen autonomy level, and the cost of one
+builder brings the failure taxonomy, the chosen autonomy level, and the cost of one
 failure per mode (from `eval-first-spec`). This skill places each mode on a
 cost-of-error × volume matrix, assigns a three-layer guardrail stack — rules in code,
 a confidence threshold, human sign-off — sized to the quadrant, derives the confidence
@@ -30,7 +32,7 @@ path where a high-cost failure could ship on low confidence. The output is the f
 [template.md](template.md). It refuses one guardrail applied to everything, and it
 refuses a felt confidence number.
 
-## The Icarus reframe
+## The reframe
 
 A guardrail is not one thing you bolt on the end. It is three layers, each cheaper than
 the next, each sized to a single number: cost-of-error × volume. Rules in code catch the
@@ -171,25 +173,25 @@ trigger, τ is derived not felt, and the stack's cost is written back into cost-
 ## Gotchas
 
 - **The uniform stack.** "Input validation + output validation + a human reviews it" applied
-  identically to every output. It wastes sign-off on the Low-cost high-volume modes — so in
-  practice that review silently gets skipped — and under-guards the Catastrophic case, where a
-  schema check is not a sign-off. The matrix exists to break this habit; a grid with one class
-  in every cell is the auto-fail.
+ identically to every output. It wastes sign-off on the Low-cost high-volume modes — so in
+ practice that review silently gets skipped — and under-guards the Catastrophic case, where a
+ schema check is not a sign-off. The matrix exists to break this habit; a grid with one class
+ in every cell is the auto-fail.
 - **Uncalibrated confidence.** Treating the model's self-reported certainty as the threshold.
-  LLM self-confidence is not calibrated and is highest on the Confidently-wrong mode. A real τ
-  needs an independent score measured against golden-case outcomes. No calibration curve → no
-  threshold, only a number; route to human until the curve exists.
+ LLM self-confidence is not calibrated and is highest on the Confidently-wrong mode. A real τ
+ needs an independent score measured against golden-case outcomes. No calibration curve → no
+ threshold, only a number; route to human until the curve exists.
 - **Sign-off that fails open.** The human is named as the guard, but on timeout the action ships
-  anyway "so we don't block the user". On a Catastrophic or High mode that turns the guard into
-  theatre. High cost fails safe — it holds — or it is not a guard.
+ anyway "so we don't block the user". On a Catastrophic or High mode that turns the guard into
+ theatre. High cost fails safe — it holds — or it is not a guard.
 - **Rubber-stamp by over-flagging.** Routing everything to a person does not make it safe; a
-  reviewer facing 500 approvals a shift approves by reflex, which is the L2 rubber-stamp failure
-  from `eval-first-spec`. Over-flagging destroys the guard as surely as under-flagging. Size the
-  flagged volume to what one reviewer can actually attend to within the SLA.
+ reviewer facing 500 approvals a shift approves by reflex, which is the L2 rubber-stamp failure
+ from `eval-first-spec`. Over-flagging destroys the guard as surely as under-flagging. Size the
+ flagged volume to what one reviewer can actually attend to within the SLA.
 
 ## Examples
 
-[examples/sample.md](examples/sample.md) — Barrier Intelligence's gas-safety alerting built
+[examples/sample.md](examples/sample.md) — Halcyon Safety's gas-safety alerting built
 as a guardrail spec: the counter-intuitive finding that for a safety product the risky
 auto-action is *suppression*, not alerting; a Miss placed Catastrophic × low-true-volume with
 a deterministic LEL hard-block that no confidence score may gate; a False alarm placed High ×
@@ -200,14 +202,14 @@ engineer must give before any potential hazard is permanently closed.
 ## Related skills
 
 - `eval-first-spec` (07, sibling) — derives the acceptable failure rate per mode, the autonomy
-  level, and the cost-of-one-failure. This skill consumes all three; it does not re-derive them.
-  Its golden cases are the calibration set that Step 4's threshold is measured against.
+ level, and the cost-of-one-failure. This skill consumes all three; it does not re-derive them.
+ Its golden cases are the calibration set that Step 4's threshold is measured against.
 - `compound-system-architecture` (07, sibling) — names component 4 (validate & guardrails) and
-  the rule that it must be independent of the reasoning model. This skill is the depth build of
-  that one component. The architecture says a guard sits there; this says what it is.
+ the rule that it must be independent of the reasoning model. This skill is the depth build of
+ that one component. The architecture says a guard sits there; this says what it is.
 - `refine-flywheel` (08) — promotes autonomy as an eval result. When accuracy has been earned and
-  a guard layer can come off, that decision is the flywheel's, gated by re-running the eval set —
-  not this skill's, and never by feel.
+ a guard layer can come off, that decision is the flywheel's, gated by re-running the eval set —
+ not this skill's, and never by feel.
 - `pilot-six-term-sheet` (07, sibling) — the commercial contract. Guardrail cost lands in this
-  skill's cost-per-outcome, which the term sheet prices against; keep the boundary.
+ skill's cost-per-outcome, which the term sheet prices against; keep the boundary.
 - Supersedes nothing. New skill; no prior guardrail spec exists in the pack to replace.

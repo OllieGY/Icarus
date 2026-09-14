@@ -1,10 +1,12 @@
-# Worked example — Barrier Intelligence, offshore gas-safety alerts
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Barrier Intelligence** (oil & gas safety — gas-safety alerts, field logs from rigs, permit data). All numbers and titles are illustrative test fixtures, not client data.
+# Worked example — Halcyon Safety, offshore gas-safety alerts
 
-**Fellow's pitch:** "The rigs love our gas-safety alerts — the control-room operators can't work without them. We just need to sell it to the operator." One "customer," one motion. This skill splits it into four people plus the face that kills the deal.
+Builder: **Halcyon Safety** (oil & gas safety — gas-safety alerts, field logs from rigs, permit data). All numbers and titles are illustrative test fixtures, not client data.
 
-## 0. The situation, as the fellow said it
+**Builder's pitch:** "The rigs love our gas-safety alerts — the control-room operators can't work without them. We just need to sell it to the operator." One "customer," one motion. This skill splits it into four people plus the face that kills the deal.
+
+## 0. The situation, as the builder said it
 > "The rigs love our gas-safety alerts — the control-room operators can't work without them. We just need to sell it to the operator."
 
 ## 1. The four roles — one title each
@@ -15,10 +17,10 @@ Fellow: **Barrier Intelligence** (oil & gas safety — gas-safety alerts, field 
 | Decision-maker | Offshore Installation Manager (OIM) | 3 | Legally accountable for the installation; holds veto on anything touching permit-to-work | Verbal 0.3 — named by the champion, not yet met `[Assumption]` |
 | Champion | Field safety lead who was on shift during the near-miss | 1 | Has already walked it to the HSE Manager unprompted | Behaviour 0.7 — made the internal intro `[Fact]` |
 
-The fellow's "operator" is the **User**, not the buyer. Loving the alerts is evidence about the wrong person for the purchase.
+The builder's "operator" is the **User**, not the buyer. Loving the alerts is evidence about the wrong person for the purchase.
 
 ## 2. Budget — buyer only
-- **Buyer's line item:** process-safety monitoring (opex)  ·  **size:** ~$250k/yr, illustrative  ·  **rung:** artefact 0.5 (last year's PO for a comparable tool)  `[Assumption]`
+- **Buyer's line item:** process-safety monitoring (opex) · **size:** ~$250k/yr, illustrative · **rung:** artefact 0.5 (last year's PO for a comparable tool) `[Assumption]`
 - User, decision-maker, champion: **no budget** (correct).
 - Rung is 0.5, not 0.1 → this is a real buyer with a verifiable line. To lift to 1.0: redirect an actual invoice, not just point at last year's PO.
 
@@ -38,7 +40,7 @@ Every role has a dated or observed why-now. This is why the map holds rather tha
 - **How they block:** silent non-adoption on their shifts, and a quiet word to the OIM that "the black box misses things a good tester wouldn't." This, not budget, is the real adoption risk. The champion neutralises it by co-designing the alert thresholds with the veteran named on the credit.
 
 ## 5. Collapse check
-- Any two roles the same person? No. The fellow tried to collapse User and Buyer ("sell it to the operator") — that is the **ERROR** case: the operator feels the pain and cannot sign a PO. Split confirmed: User = operator, Buyer = HSE Manager.
+- Any two roles the same person? No. The builder tried to collapse User and Buyer ("sell it to the operator") — that is the **ERROR** case: the operator feels the pain and cannot sign a PO. Split confirmed: User = operator, Buyer = HSE Manager.
 
 ## 6. Path to yes
 > Field safety lead (champion) → HSE Manager (budget: process-safety line) → OIM (signature), with the veteran gas tester neutralised at the threshold-design step, before the OIM meeting.
@@ -53,4 +55,4 @@ Every role has a dated or observed why-now. This is why the map holds rather tha
 - Binding watch-item: the OIM's personal liability caps how autonomous the alert system may become — a finding for `guardrail-design`, not a hole in this map. The adoption risk is the veteran, not the money.
 
 ## 9. What would change this map
-- The buyer sits at 0.5 (a shown PO), not 1.0 (a redirected invoice). Barrier's next move: get the HSE Manager to name the incumbent spend they would redirect, and confirm the safety-case deadline date in writing. If the deadline slips or the "$250k line" turns out to be a wish rather than a line item, the buyer drops to verbal and the verdict falls to THIN MAP — so verify the line before pricing the pilot.
+- The buyer sits at 0.5 (a shown PO), not 1.0 (a redirected invoice). Halcyon Safety's next move: get the HSE Manager to name the incumbent spend they would redirect, and confirm the safety-case deadline date in writing. If the deadline slips or the "$250k line" turns out to be a wish rather than a line item, the buyer drops to verbal and the verdict falls to THIN MAP — so verify the line before pricing the pilot.

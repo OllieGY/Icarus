@@ -3,10 +3,10 @@
 Fill every section. Tag empirical claims `[Fact]` / `[Assumption]` / `[Hypothesis]`. A primitive line in §2 that still contains a proper noun, product, or role is an auto-fail — see §5.
 
 ## 0. The job in the customer's words (raw — keep the tool/role language)
-> [Paste or describe the job exactly as the fellow/customer says it. Do not clean it up. Vendor names, team names, and steps all stay in.]
+> [Paste or describe the job exactly as the builder/customer says it. Do not clean it up. Vendor names, team names, and steps all stay in.]
 
 - Source of this description: [observed instance / completed artefact / interview / opinion]
-- Evidence-ladder weight: [1.0 money · 0.7 observed instance · 0.5 artefact · 0.3 interview · 0.1 opinion]  `[Fact | Assumption]`
+- Evidence-ladder weight: [1.0 money · 0.7 observed instance · 0.5 artefact · 0.3 interview · 0.1 opinion] `[Fact | Assumption]`
 - If weight = 0.1 → **STOP: input not ready.** Cheapest fix: [observe one real run / pull one completed artefact].
 
 ## 1. Kill-list — delete every proper noun, product, tool, vendor, team, role, place
@@ -50,10 +50,10 @@ Scan §2 for any surviving proper noun, product name, or org-chart role.
 - If any survive → **REDUCTION FAILED.** You have restated the workflow, not the job. Re-run §1 and rewrite §2.
 
 ## 6. Evidence on the liability line
-The liability primitive is the one fellows guess at. State its source.
+The liability primitive is the one builders guess at. State its source.
 - Who is on the hook: [named role, abstracted]
 - Mechanism that makes it load-bearing: [a clause / a signature that gates money / a statutory duty]
-- Evidence it is real: [contract / observed sign-off gating work / regulation cited] · ladder weight [__]  `[Fact | Assumption]`
+- Evidence it is real: [contract / observed sign-off gating work / regulation cited] · ladder weight [__] `[Fact | Assumption]`
 - If the only evidence is opinion (0.1): **liability primitive UNVERIFIED** — find the sign-off, the clause, or the payment it gates before treating it as the moat.
 - Moat check on a *described* (not observed) sign-off: a defensibility/"moat" claim does not count until it is money-anchored — the sign-off must gate a payment, a paid invoice, or a priced contract you can point to. A described sign-off with no money behind it is habit, not a moat.
 

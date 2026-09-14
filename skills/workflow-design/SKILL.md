@@ -1,18 +1,20 @@
 ---
 name: workflow-design
 description: >-
-  Fires when a fellow needs to coordinate MORE THAN ONE agent to get the work done —
-  "design the workflow", "orchestrate the agents", "set up the fleet", "how do the agents
-  work together", "which agents do I need and when do they spawn", "multi-agent setup".
-  Returns a workflow + fleet map: the multi-step orchestration, a spawn-by-rule fleet
-  (researcher, analyst, prototyper, drafter, critic) each with an observable spawn trigger,
-  and a Think/Build/Admin surface assignment (Claude.ai / Claude Code / Cowork), then kills
-  a single-agent design where a fleet is needed and any spawn rule with no trigger. Do NOT
-  fire to spec ONE agent's role/tools/memory (use agent-design), to design the product's
-  internal request-time pipeline of input→router→reason→validate (use
-  compound-system-architecture), or to write the pass/fail eval (use eval-first-spec).
-type: generator
-supersedes: none
+ Fires when a builder needs to coordinate MORE THAN ONE agent to get the work done —
+ "design the workflow", "orchestrate the agents", "set up the fleet", "how do the agents
+ work together", "which agents do I need and when do they spawn", "multi-agent setup".
+ Returns a workflow + fleet map: the multi-step orchestration, a spawn-by-rule fleet
+ (researcher, analyst, prototyper, drafter, critic) each with an observable spawn trigger,
+ and a Think/Build/Admin surface assignment (Claude.ai / Claude Code / Cowork), then kills
+ a single-agent design where a fleet is needed and any spawn rule with no trigger. Do NOT
+ fire to spec ONE agent's role/tools/memory (use agent-design), to design the product's
+ internal request-time pipeline of input→router→reason→validate (use
+ compound-system-architecture), or to write the pass/fail eval (use eval-first-spec).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 # Workflow-Design
@@ -21,19 +23,19 @@ supersedes: none
 
 Turns "I'll spin up some agents" into a directed workflow of specialised agents, each
 summoned by a rule and dismissed by a rule, run across the three surfaces where the work
-actually belongs. The fellow describes the work; the skill first checks whether a fleet is
+actually belongs. The builder describes the work; the skill first checks whether a fleet is
 even warranted, then lays out the multi-step orchestration, assigns the spawn-by-rule fleet
 (researcher / analyst / prototyper / drafter / critic — a menu, not a requirement), wires
 each agent to an observable spawn trigger and a done condition, and puts every step on the
 right surface: Think in Claude.ai, Build in Claude Code, Admin in Cowork. It refuses the two
-things fellows reach for: a lone agent doing work that needs a fleet, and a "fleet" that is
+things builders reach for: a lone agent doing work that needs a fleet, and a "fleet" that is
 really five chat windows with no triggers.
 
-## The Icarus reframe
+## The reframe
 
 A workflow is not a chat thread and a fleet is not a tab bar. It is a directed graph of
 agents where each agent is spawned by a **rule you could write as an if-condition**, not by
-the fellow remembering to open a new window. The unit of design is the spawn trigger — the
+the builder remembering to open a new window. The unit of design is the spawn trigger — the
 observable event that summons an agent and the done signal that dismisses it. The five
 archetypes divide labour by **cognitive mode** (gather, structure, make tangible, compose,
 falsify), not by topic; you never spawn "the marketing agent", you spawn the critic because
@@ -53,7 +55,7 @@ context; and the question is now how the agents coordinate and when each one fir
 | Not this skill | Use instead | Why |
 |---|---|---|
 | "Spec one agent — its role, tools, and memory layer" | `agent-design` | That designs a single agent's guts. This coordinates several. If the honest answer is one agent, route there — a fleet for solo work is theatre. |
-| "Design the product's system: input → router → retrieve → reason → validate → output" | `compound-system-architecture` | That is the product's internal request-time pipeline — how a user request is processed. This is the fellow's build/operate fleet — the agents that do the WORK, with a different lifetime and graph. |
+| "Design the product's system: input → router → retrieve → reason → validate → output" | `compound-system-architecture` | That is the product's internal request-time pipeline — how a user request is processed. This is the builder's build/operate fleet — the agents that do the WORK, with a different lifetime and graph. |
 | "Write the golden cases and the acceptable failure rate" | `eval-first-spec` | That is the scoreable contract. The critic here runs against those cases; it does not write them. |
 | "Make the UI / craft the interface" | `impeccable`, `design/*` | Route the prototyper's craft there. Do not restate a design skill inside the fleet map. |
 
@@ -147,23 +149,23 @@ if-condition, not a hope.
 ## Gotchas
 
 - **The tab-switching fleet.** Five agents with no triggers is five chat windows you switch
-  between by hand. If the fellow has to remember to spawn an agent, it is a to-do list, not a
-  fleet. The tell: a fleet table with a roster but a blank or vibes trigger column.
+ between by hand. If the builder has to remember to spawn an agent, it is a to-do list, not a
+ fleet. The tell: a fleet table with a roster but a blank or vibes trigger column.
 - **The self-critiquing drafter.** The same agent that writes the draft also "checks it". That
-  is the fleet-level disappearing guardrail — the critic is decoration and quality is self-
-  graded. Split them, or admit there is no review.
+ is the fleet-level disappearing guardrail — the critic is decoration and quality is self-
+ graded. Split them, or admit there is no review.
 - **Over-orchestration.** A fleet for work one agent could do in one context is the more common
-  failure than under-orchestration, and it is more expensive. If Step 0 shows no parallelism,
-  no role conflict, and no depth problem, a fleet is theatre; route to `agent-design`.
+ failure than under-orchestration, and it is more expensive. If Step 0 shows no parallelism,
+ no role conflict, and no depth problem, a fleet is theatre; route to `agent-design`.
 - **Wrong surface.** Divergent thinking pushed into Claude Code (slow, over-tooled) or a repo
-  build attempted in Claude.ai (no files, no ground truth). Cheap to fix once named, expensive
-  to leave. Match surface to mode.
+ build attempted in Claude.ai (no files, no ground truth). Cheap to fix once named, expensive
+ to leave. Match surface to mode.
 - **Loops with no exit.** A critic → drafter loop with no max-iteration or escalate condition
-  runs until someone notices. Every loop names its exit.
+ runs until someone notices. Every loop names its exit.
 
 ## Examples
 
-[examples/sample.md](examples/sample.md) — Barrier Intelligence's discovery-to-v1 build run
+[examples/sample.md](examples/sample.md) — Halcyon Safety's discovery-to-v1 build run
 as a spawn-by-rule fleet: researcher mines rig field logs and permit data, analyst quantifies
 near-miss base rates, prototyper builds a paper alert card, drafter writes the alert-rule spec,
 and an independent critic falsifies each rule against known incidents — with every spawn trigger
@@ -172,15 +174,15 @@ written as an observable event and the surface split (Think / Build / Admin) cal
 ## Related skills
 
 - `agent-design` — designs a single agent's role, tools, memory layer, and eval. This skill
-  coordinates several such agents; each node in this fleet is one `agent-design` output. When
-  Step 0 returns solo, hand the whole thing there.
+ coordinates several such agents; each node in this fleet is one `agent-design` output. When
+ Step 0 returns solo, hand the whole thing there.
 - `compound-system-architecture` — the product's internal request-time pipeline (input →
-  router → retrieve/reason/act → validate → output). That graph runs inside the shipped product
-  per user request; this graph is the fellow's build/operate fleet with a different lifetime.
-  Do not conflate the two routers.
+ router → retrieve/reason/act → validate → output). That graph runs inside the shipped product
+ per user request; this graph is the builder's build/operate fleet with a different lifetime.
+ Do not conflate the two routers.
 - `eval-first-spec` — the golden cases the critic runs against. This skill spawns the critic;
-  that skill writes what the critic checks.
+ that skill writes what the critic checks.
 - `impeccable`, `design/*` — where the prototyper's UI craft is done. Route to them; do not
-  restate a design system inside the fleet map.
+ restate a design system inside the fleet map.
 - Supersedes nothing. It is the multi-agent orchestration gate in the build-craft stage,
-  paired with `agent-design` (single agent).
+ paired with `agent-design` (single agent).

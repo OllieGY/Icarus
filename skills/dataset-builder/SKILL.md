@@ -1,32 +1,44 @@
 ---
 name: dataset-builder
-description: Turn field artefacts into a labelled dataset and 20+ golden cases — the seed of the eval suite that gates the build. Attaches a ground-truth label to every real artefact, scores each label on the evidence ladder, and clears each case through four gates (provenance, ground-truth, unreachable, held-out) so a foundation model cannot pre-pass its own memorised test. Fires on "make our own dataset", "create golden cases", "label this", "turn our field logs into a test set the model hasn't seen", "seed the eval suite". Not for finding which sources are proprietary in the first place (use yoda-data-sourcing, section 03), not for composing the labelled cases into the four-band spread / autonomy level / cost budget of a scoreable spec (use eval-first-spec, section 07), not for splitting an expert's teachable procedure from show-only judgment (use explicit-vs-tacit-capture, section 03).
-type: generator
-supersedes: none
+description: >-
+  Turn field artefacts into a labelled dataset and 20+ golden cases — the seed of the eval suite
+  that gates the build. Attaches a ground-truth label to every real artefact, scores each label on
+  the evidence ladder, and clears each case through four gates (provenance, ground-truth,
+  unreachable, held-out) so a foundation model cannot pre-pass its own memorised test. Fires on
+  "make our own dataset", "create golden cases", "label this", "turn our field logs into a test
+  set the model hasn't seen", "seed the eval suite". Not for finding which sources are proprietary
+  in the first place (use yoda-data-sourcing), not for composing the labelled cases into the
+  four-band spread / autonomy level / cost budget of a scoreable spec (use eval-first-spec), not
+  for splitting an expert's teachable procedure from show-only judgment (use
+  explicit-vs-tacit-capture).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
-Takes the field artefacts a fellow already holds — the moat-seed rows `yoda-data-sourcing` surfaced — and turns them into two things: a labelled dataset (every artefact paired with a ground-truth label and its provenance) and the ≥20 golden cases carved out of it. A case earns "golden" only by clearing four gates: it cites the real artefact it came from, its label is ground truth on the evidence ladder (not a rater's opinion), a foundation model has never seen the input and cannot narrate the label from training, and it is held out from the build so the model cannot be tuned against it. The artefact is the filled `template.md`: the labelling ledger plus the golden seed. That seed is the honest test — the data a model cannot pre-pass — and it is what `eval-first-spec` composes into the scoreable v1 spec. A dataset a model could reproduce is not shipped; it measures nothing.
+Takes the field artefacts a builder already holds — the moat-seed rows `yoda-data-sourcing` surfaced — and turns them into two things: a labelled dataset (every artefact paired with a ground-truth label and its provenance) and the ≥20 golden cases carved out of it. A case earns "golden" only by clearing four gates: it cites the real artefact it came from, its label is ground truth on the evidence ladder (not a rater's opinion), a foundation model has never seen the input and cannot narrate the label from training, and it is held out from the build so the model cannot be tuned against it. The artefact is the filled `template.md`: the labelling ledger plus the golden seed. That seed is the honest test — the data a model cannot pre-pass — and it is what `eval-first-spec` composes into the scoreable v1 spec. A dataset a model could reproduce is not shipped; it measures nothing.
 
-## The Icarus reframe
+## The reframe
 
 A dataset a foundation model can already reproduce cannot tell you whether your product works — the model passes its own memorised test and you learn nothing. So a golden case is golden only when it clears two gates a generic labelling job skips. First, the input is unreachable: a model has never seen it and cannot reconstruct the label from training — the YODA test, aimed this time at the eval set, not the moat. Second, the label is ground truth on the evidence ladder — what actually happened, not what a rater thinks; an opinion label scores 0.1 and is a hypothesis to resolve, not a golden case. The labelled dataset is the moat made measurable: the one test a competitor's model cannot pre-pass.
 
 ## When to use / When NOT
 
-Use once a fellow holds real field artefacts (from `yoda-data-sourcing`'s P rows, from probes, from historical records) and needs to turn them into a labelled dataset and the golden cases that will gate the build. Trigger phrases: "make our own dataset", "create golden cases", "label this", "turn our field logs into a test set the model hasn't seen", "seed the eval suite".
+Use once a builder holds real field artefacts (from `yoda-data-sourcing`'s P rows, from probes, from historical records) and needs to turn them into a labelled dataset and the golden cases that will gate the build. Trigger phrases: "make our own dataset", "create golden cases", "label this", "turn our field logs into a test set the model hasn't seen", "seed the eval suite".
 
 Do not use when:
 
 | Request | Belongs to |
 |---|---|
-| "Which of our candidate sources are actually proprietary / where is our moat data?" | `yoda-data-sourcing` (section 03). It finds and bands the sources; this labels the artefacts those sources produce. Run it first; this second. |
-| "I have my 20 labelled cases — now compose them into the typical/edge/adversarial spread, pick the autonomy level, and set the cost-per-outcome budget." | `eval-first-spec` (section 07). This skill hands it the labelled seed; that skill writes the job line, the band composition, the pass/fail contract, autonomy, and cost. Do not poach the spec. |
-| "Which of the expert's knowledge is teachable procedure vs show-only judgment?" | `explicit-vs-tacit-capture` (section 03). This skill uses inter-rater disagreement to flag an unsettled label; deciding what is codifiable at all is that skill's job. |
-| "Is this one signal strong enough evidence?" | `evidence-ladder` (section 02). This skill borrows the ladder to score a label; scoring a lone signal is that skill's job. |
+| "Which of our candidate sources are actually proprietary / where is our moat data?" | `yoda-data-sourcing`. It finds and bands the sources; this labels the artefacts those sources produce. Run it first; this second. |
+| "I have my 20 labelled cases — now compose them into the typical/edge/adversarial spread, pick the autonomy level, and set the cost-per-outcome budget." | `eval-first-spec`. This skill hands it the labelled seed; that skill writes the job line, the band composition, the pass/fail contract, autonomy, and cost. Do not poach the spec. |
+| "Which of the expert's knowledge is teachable procedure vs show-only judgment?" | `explicit-vs-tacit-capture`. This skill uses inter-rater disagreement to flag an unsettled label; deciding what is codifiable at all is that skill's job. |
+| "Is this one signal strong enough evidence?" | `evidence-ladder`. This skill borrows the ladder to score a label; scoring a lone signal is that skill's job. |
 
-Do not use it to invent cases. If there are no real artefacts to label, the input is not ready. Say so, send the fellow back to `yoda-data-sourcing` and the probes, and never pad the count with synthetic rows.
+Do not use it to invent cases. If there are no real artefacts to label, the input is not ready. Say so, send the builder back to `yoda-data-sourcing` and the probes, and never pad the count with synthetic rows.
 
 ## Method
 
@@ -38,7 +50,7 @@ Start from the moat-seed rows `yoda-data-sourcing` already produced. Name the fi
 
 ### Step 2 — Fix the label schema before labelling anything
 
-Decide the one thing each case is labelled with, and — the part fellows skip — what the ground-truth authority is. State it as: **input X → label Y, where Y is true because [what actually happened / an agreed adjudicator resolved it]**. Ban opinion labels here, at the schema, not case by case. "The expert thinks this reading is unsafe" is not a schema; "the reading was unsafe, confirmed by the outcome logged after the call" is.
+Decide the one thing each case is labelled with, and — the part builders skip — what the ground-truth authority is. State it as: **input X → label Y, where Y is true because [what actually happened / an agreed adjudicator resolved it]**. Ban opinion labels here, at the schema, not case by case. "The expert thinks this reading is unsafe" is not a schema; "the reading was unsafe, confirmed by the outcome logged after the call" is.
 
 ### Step 3 — Label each artefact and score the label on the ladder
 
@@ -110,16 +122,16 @@ Volume mistaken for a dataset. Ten thousand rows a model labelled in an afternoo
 
 ## Examples
 
-`examples/sample.md` — a full labelled dataset and golden seed for Mentix's operator-correction data: each artefact is one copilot suggestion plus the operator's accept/edit/override and what the line did afterwards, labelled with the correct first action and ground-truthed on the outcome. It scores every label on the ladder, discards a case pulled from a public predictive-maintenance tutorial (input-leak), holds a case whose only label is an engineer's opinion, retires a case the team had already few-shotted against, lands at 22 golden cases, and hands the seed to `eval-first-spec` without composing the bands.
+`examples/sample.md` — a full labelled dataset and golden seed for Foundry Signal's operator-correction data: each artefact is one copilot suggestion plus the operator's accept/edit/override and what the line did afterwards, labelled with the correct first action and ground-truthed on the outcome. It scores every label on the ladder, discards a case pulled from a public predictive-maintenance tutorial (input-leak), holds a case whose only label is an engineer's opinion, retires a case the team had already few-shotted against, lands at 22 golden cases, and hands the seed to `eval-first-spec` without composing the bands.
 
 ## Related skills
 
-`yoda-data-sourcing` (section 03) — finds and bands the proprietary sources; this labels the artefacts those P rows produce. Its moat seed is this skill's raw material. Run it first.
+`yoda-data-sourcing` — finds and bands the proprietary sources; this labels the artefacts those P rows produce. Its moat seed is this skill's raw material. Run it first.
 
-`eval-first-spec` (section 07) — consumes this skill's golden seed. It writes the one-sentence job line, composes the cases into the typical/edge/adversarial/must-refuse spread, sets the L0–L4 autonomy level and cost-per-outcome budget. This skill produces the labelled data; that skill turns it into the scoreable spec. Keep the boundary: labelling and hygiene here, composition and scoring there.
+`eval-first-spec` — consumes this skill's golden seed. It writes the one-sentence job line, composes the cases into the typical/edge/adversarial/must-refuse spread, sets the L0–L4 autonomy level and cost-per-outcome budget. This skill produces the labelled data; that skill turns it into the scoreable spec. Keep the boundary: labelling and hygiene here, composition and scoring there.
 
-`explicit-vs-tacit-capture` (section 03, sibling) — decides which expertise is teachable procedure vs show-only judgment. This skill's inter-rater test flags when a label rests on unsettled tacit judgment; resolving what is codifiable at all is that skill's job.
+`explicit-vs-tacit-capture` (, sibling) — decides which expertise is teachable procedure vs show-only judgment. This skill's inter-rater test flags when a label rests on unsettled tacit judgment; resolving what is codifiable at all is that skill's job.
 
-`evidence-ladder` (section 02) — owns the rungs this skill borrows to score whether a label is ground truth. Send a fellow there to weigh one lone signal.
+`evidence-ladder` — owns the rungs this skill borrows to score whether a label is ground truth. Send a builder there to weigh one lone signal.
 
 Supersedes: none. New skill; no prior dataset-labelling skill exists in the pack to absorb or beat.

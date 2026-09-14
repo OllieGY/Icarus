@@ -1,13 +1,15 @@
-# Worked example — Barrier Intelligence, per-permit gas-safety review
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Barrier Intelligence** (oil & gas safety). All numbers illustrative test fixtures, not client data.
+# Worked example — Halcyon Safety, per-permit gas-safety review
 
-**Fellow's question:** "We alert on gas-safety risk in permit-to-work reviews. Don't hand me a TAM — build the number bottom-up so I can defend it to the investor line by line."
+Builder: **Halcyon Safety** (oil & gas safety). All numbers illustrative test fixtures, not client data.
+
+**Builder's question:** "We alert on gas-safety risk in permit-to-work reviews. Don't hand me a TAM — build the number bottom-up so I can defend it to the investor line by line."
 
 Prerequisite: `physics-floor-gap` was run first on one permit review — current ~£180/review vs floor ~£12, gap ~15×. One unit clears, so there is something to add up. The value rung below must sit inside that gap.
 
 ## Shared block
-- Currency: GBP; FX £1 = $1.25  `[Assumption]`
+- Currency: GBP; FX £1 = $1.25 `[Assumption]`
 - For: seed investor deck, 2026; horizon 3 years
 
 ---
@@ -36,13 +38,13 @@ Prerequisite: `physics-floor-gap` was run first on one permit review — current
 - Cheapest fix: time real permit volumes at one installation for a month (moves Frequency 0.3 → 0.7), and convert one pilot to paid (moves Capture 0.1 → 1.0).
 
 ## 5. TAM sanity check — LAST, labelled
-- Top-down: global offshore safety software market ≈ **£2.1B**  `[Assumption]`, weight **0.1** (uncheckable aggregate).
-- Method: industry report headline × Barrier's beachhead share of global assets (~5%) = **£105M**.
+- Top-down: global offshore safety software market ≈ **£2.1B** `[Assumption]`, weight **0.1** (uncheckable aggregate).
+- Method: industry report headline × Halcyon Safety's beachhead share of global assets (~5%) = **£105M**.
 
 ## 6. Reconciliation band
 - Ratio = bottom-up reachable revenue ÷ top-down slice = £1.35M ÷ £105M = **0.013×**
 - **< 0.1× → Broken.** The two methods disagree by ~78×.
-- The mis-scoped assumption: the £2.1B market bundles sensors, hardware, consultancy, and full-workflow licences — Barrier's per-permit slice is a thin cut of that spend, so the top-down slice is inflated for this atom. The bottom-up structure holds; the top-down is the fabricated one here.
+- The mis-scoped assumption: the £2.1B market bundles sensors, hardware, consultancy, and full-workflow licences — Halcyon Safety's per-permit slice is a thin cut of that spend, so the top-down slice is inflated for this atom. The bottom-up structure holds; the top-down is the fabricated one here.
 - Do NOT average £1.35M and £105M into a "£50M" story. Report the built number, flag it Thin, and fix Frequency and Capture before the deck.
 
 ## 7. What would change the number

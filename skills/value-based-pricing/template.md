@@ -4,8 +4,8 @@ Fill every part. A model ships only with a value anchor scoring ≥ 0.7 on the l
 
 The spine:
 
-> cost_per_outcome  **<**  PRICE = capture_rate × incremental_value_per_outcome  **<**  incremental_value_per_outcome
-> capture_rate ∈ [10%, 20%]  ·  value measured at ≥ 0.7  ·  charged on the outcome / asset / decision metric
+> cost_per_outcome **<** PRICE = capture_rate × incremental_value_per_outcome **<** incremental_value_per_outcome
+> capture_rate ∈ [10%, 20%] · value measured at ≥ 0.7 · charged on the outcome / asset / decision metric
 
 ---
 

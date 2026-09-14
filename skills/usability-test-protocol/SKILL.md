@@ -1,15 +1,26 @@
 ---
 name: usability-test-protocol
-description: Run a moderated usability session on a working prototype and return findings tied to the screen, not the user. Fires when a fellow says "run a usability test", "watch a user try it", "usability protocol", "can a first-time user complete X", or "see where they get stuck". Product runs, Engineering watches muted, Design notes; the task is framed as a goal not an instruction, the user is kept in user mode (no leading, no explaining, no "do you like it"), and every finding is scored on observed task success (behaviour 0.7), never stated preference (opinion 0.1). Output is a Usability Findings sheet — each defect tied to a step, counted across users, severity by frequency × blocking. NOT for building the prototype (use `first-mocks`; this tests what that builds), NOT for shadowing an expert to capture their judgment (use `tacit-knowledge-interview`; that mines expertise, this tests your design), and NOT for testing demand or willingness to pay (a user can complete every task and still never want it — route to `wizard-of-oz-probe` / `concierge-probe`).
-type: interactive
-supersedes: none
+description: >-
+  Run a moderated usability session on a working prototype and return findings tied to the screen,
+  not the user. Fires on "run a usability test", "watch a user try it", "usability protocol", "can
+  a first-time user complete X", "see where they get stuck". The task is framed as a goal not an
+  instruction, the user is kept in user mode (no leading, no explaining, no "do you like it"), and
+  every finding is scored on observed task success (behaviour 0.7), never stated preference (0.1).
+  Output is a findings sheet: each defect tied to a step, counted across users, severity by
+  frequency × blocking. NOT for building the prototype (use `first-mocks`), NOT for capturing an
+  expert's judgment (use `tacit-knowledge-interview`), NOT for testing demand (use
+  `wizard-of-oz-probe`).
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Compresses "does the design actually work" into a watched session with real target users. You write each task as a goal in the user's world, hand over the prototype, and go silent while they attempt it. Three people run it: Product moderates, Engineering (the builder) watches muted, Design scribes. The output is a Usability Findings sheet — every defect attributed to the step it happened on, counted across users, ranked by frequency × task-blocking. It scores on what the user did (completed / needed a nudge / failed), not on what they said they liked. It refuses to report preference as a finding, because a usability session cannot honestly observe it.
 
-## The Icarus reframe
+## The reframe
 
 Generic usability testing recruits five users, gives them tasks, and notes where they struggle. That much Claude already knows. The Icarus edits are three. First, the builder does not run the session — Engineering watches muted, because the person who placed the button cannot resist explaining it, and one explanation contaminates every task after. Product runs (no ego in the pixels); the builder feels the wall directly instead of discounting it in a report. Second, the finding attaches to the prototype, not the person: "3 of 5 clicked Reports first" is a design fact (behaviour, 0.7), not three confused users. If a target-segment user cannot complete it, the prototype failed — never the user. Third, the session tests observed task success and quarantines opinion. "Do you like it" buys a 0.1 you will be tempted to report; the protocol bans the question and scores completion instead. A user who says "I love this" and fails the task has failed it.
 
@@ -19,7 +30,7 @@ Use it when you have a working prototype (clickable mock, v1, or the live produc
 
 Do not use it for:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | To build the clickable prototype itself | `first-mocks` | That produces the artefact; this runs a session on the artefact it produced. Same afternoon, opposite job. |
 | To shadow an expert and extract the judgment they can't articulate | `tacit-knowledge-interview` | That watches an expert do *their* real work to mine *their* expertise; this watches a target user attempt *your* task on *your* prototype to test *your* design. Same verb "watch", opposite object. |
@@ -149,12 +160,12 @@ The findings sheet is done when every Critical/Major finding is tied to a specif
 - **Opinion smuggled in as a finding.** "Users said the blue button was confusing" is opinion (0.1) dressed as fact. The fact is: 3 of 5 clicked the wrong element first. Report the behaviour; the user's theory about why is 0.1 and stays in the quarantine.
 - **Testing the person, not the prototype.** "This user just wasn't very technical" blames the user for a design defect. If a real target-segment user cannot complete the task, the prototype failed. Recruiting the actual segment removes this dodge — a colleague lets you blame the person.
 - **The task is really an instruction.** "Click submit" is the answer, not a task. If the task names a button, screen, or menu, you are testing obedience. Rewrite it as a goal in the user's world before you hand over.
-- **Chasing a preference verdict.** "Do they prefer version A or B" is not a usability question; a user can prefer the one they complete slower. If the fellow wants preference, that is opinion — hold the line at 0.1, and if they want demand, name the wrong probe (`wizard-of-oz-probe`).
+- **Chasing a preference verdict.** "Do they prefer version A or B" is not a usability question; a user can prefer the one they complete slower. If the builder wants preference, that is opinion — hold the line at 0.1, and if they want demand, name the wrong probe (`wizard-of-oz-probe`).
 - **The confirmation test in disguise.** A session designed to *confirm* the design works — or one whose tasks only route through the happy path and never let the user fail — is not a usability test; it hunts for support, not for where the design breaks. "Run a test to confirm we need [tooltips / X]" is a pre-chosen fix stated as a problem. Reframe: observe WHERE users get lost, and write every task so a real failure is possible; the pre-chosen fix is one hypothesis among the label, the flow order, and the information scent.
 
 ## Examples
 
-See `examples/sample.md` for a full run on a Mentix factory-copilot mock: the task is framed as a goal ("an alert came in for Line 3 — deal with it"), Product runs while the engineer who built the acknowledge flow watches muted, and the findings sheet shows 4 of 5 managers clicking the trend chart before the Acknowledge button (a Critical mis-attribution tied to one step), while the two "I really like this" comments stay quarantined at 0.1 and never reach the findings.
+See `examples/sample.md` for a full run on a Foundry Signal factory-copilot mock: the task is framed as a goal ("an alert came in for Line 3 — deal with it"), Product runs while the engineer who built the acknowledge flow watches muted, and the findings sheet shows 4 of 5 managers clicking the trend chart before the Acknowledge button (a Critical mis-attribution tied to one step), while the two "I really like this" comments stay quarantined at 0.1 and never reach the findings.
 
 ## Related skills
 

@@ -1,21 +1,26 @@
 ---
 name: probe-matrix
 description: >-
-  Routes the ONE question a fellow needs answered to the cheapest probe that is
-  HONEST about that question, using the probe honesty contract (paper/sketch,
-  Wizard-of-Oz, concierge, agent-concierge — each honest about some things and
-  lying about others). Fires on "how do I test this cheaply", "which experiment",
-  "what's the cheapest way to learn X", "which probe", "how do I validate this".
-  Output is a probe selection + plan: the question, the chosen probe, why it is
-  honest about this question, what it will still lie about, cost, and a
-  pre-registered pass/fail read-out — and it REFUSES a probe that lies about the
-  very thing being tested, naming the honest one instead. NOT the how-to for
-  running a probe (use the runbooks paper-sketch-probe / wizard-of-oz-probe /
-  concierge-probe / agent-concierge-probe), NOT the build/no-build gate on the
-  problem itself (problem-quality-scorecard), NOT how to score a signal you
-  already hold (evidence-ladder).
-type: interactive
-supersedes: skills/discovery/prototyping-pretotyping
+ Routes the ONE question a builder needs answered to the cheapest probe that is
+ HONEST about that question, using the probe honesty contract (paper/sketch,
+ Wizard-of-Oz, concierge, agent-concierge — each honest about some things and
+ lying about others). Fires on "how do I test this cheaply", "which experiment",
+ "what's the cheapest way to learn X", "which probe", "how do I validate this".
+ Output is a probe selection + plan: the question, the chosen probe, why it is
+ honest about this question, what it will still lie about, cost, and a
+ pre-registered pass/fail read-out — and it REFUSES a probe that lies about the
+ very thing being tested, naming the honest one instead. NOT the how-to for
+ running a probe (use the runbooks paper-sketch-probe / wizard-of-oz-probe /
+ concierge-probe / agent-concierge-probe), NOT the build/no-build gate on the
+ problem itself (problem-quality-scorecard), NOT how to score a signal you
+ already hold (evidence-ladder).
+metadata:
+  supersedes: skills/discovery/prototyping-pretotyping
+  type: interactive
+allowed-tools: Read Glob Grep Write
+context: fork
+agent: general-purpose
+background: false
 ---
 
 ## What it does
@@ -28,7 +33,7 @@ pre-registers the pass/fail read-out before you run. If you already picked a
 probe and it lies about the thing you want to learn, the skill kills it and names
 the honest one. Then it hands you to the matching runbook for the how-to.
 
-## The Icarus reframe
+## The reframe
 
 The generic fidelity ladder picks a probe by how much you want to build — paper,
 clickable, coded, MVP — as if the only question were cost. That is the wrong axis.
@@ -51,7 +56,7 @@ way to move it up the evidence ladder — before you build.
 
 Do not use it for these — hand off instead:
 
-| If the fellow wants… | Use instead |
+| If the builder wants… | Use instead |
 |---|---|
 | The step-by-step to actually run a probe (tooling, scripts, human ops) | the runbook: `paper-sketch-probe`, `wizard-of-oz-probe`, `concierge-probe`, or `agent-concierge-probe` |
 | A build / no-build decision on the problem itself | `problem-quality-scorecard` |
@@ -67,7 +72,7 @@ probe, does not gate the problem, and does not score signals you already have.
 Fill in `template.md`. Six steps.
 
 **Step 1 — Extract the ONE question.** One testable question about one unknown.
-If the fellow lists three, rank by riskiest-assumption-first (probability wrong ×
+If the builder lists three, rank by riskiest-assumption-first (probability wrong ×
 cost if wrong) and take the top one. Reject "test the idea" and "see if it works" —
 too broad to route. A question that names a solution ("test whether the mobile app
 works") is a solution-in-disguise: reframe to the underlying job first
@@ -112,7 +117,7 @@ Do not fake it with a probe that will lie. Name the smallest real build track
 instead, or narrow the question to a sub-part a probe *can* answer honestly (e.g.
 per-task cost via agent-concierge).
 
-**Step 4 — Kill check.** If the fellow already named a probe, look it up in the
+**Step 4 — Kill check.** If the builder already named a probe, look it up in the
 "lies about" column for their target. If it lies about the target, KILL it: name
 exactly what it lies about, name the rung the question needs vs the rung that
 probe tops out at, and reroute to the cheapest honest probe. This is the kill line —
@@ -143,32 +148,32 @@ F), say that; do not launder a dishonest probe into a false green light.
 ## Gotchas
 
 - **Trust is not demand.** A fake-door or landing page measures click-demand and
-  lies about trust exactly as a paper sketch does — both top out below the
-  behaviour-under-stakes rung trust needs. When the question is "will they trust /
-  adopt it," route to concierge or a field pilot, never a paper or landing probe,
-  no matter how cheap.
+ lies about trust exactly as a paper sketch does — both top out below the
+ behaviour-under-stakes rung trust needs. When the question is "will they trust /
+ adopt it," route to concierge or a field pilot, never a paper or landing probe,
+ no matter how cheap.
 - **Cheapest ≠ honest.** The router picks the cheapest *honest* probe, not the
-  cheapest probe. If paper is $0 but lies about the target, its real cost is a wrong
-  answer you will act on. Do not let the price column win Step 3.
-- **Wizard-of-Oz feasibility trap.** A WoZ that "works" tempts the fellow to claim
-  the thing is buildable. It is not evidence of that — the backend was human. WoZ is
-  honest about pull, and lies about feasibility, unit cost, and scale. Keep those
-  claims out of the read-out.
-- **One question, one probe.** A fellow with three questions wants three probes and
-  a month. Force the single riskiest question (Step 1). Routing a probe against a
-  bundle produces a read-out that answers none of them cleanly.
+ cheapest probe. If paper is $0 but lies about the target, its real cost is a wrong
+ answer you will act on. Do not let the price column win Step 3.
+- **Wizard-of-Oz feasibility trap.** A WoZ that "works" tempts the builder to claim
+ the thing is buildable. It is not evidence of that — the backend was human. WoZ is
+ honest about pull, and lies about feasibility, unit cost, and scale. Keep those
+ claims out of the read-out.
+- **One question, one probe.** A builder with three questions wants three probes and
+ a month. Force the single riskiest question (Step 1). Routing a probe against a
+ bundle produces a read-out that answers none of them cleanly.
 - **Don't over-escalate the mundane.** When the real question is legibility, paper
-  is the correct answer and the whole job. Do not talk the fellow up a rung into a
-  WoZ or concierge for a question a 30-minute sketch answers honestly.
+ is the correct answer and the whole job. Do not talk the builder up a rung into a
+ WoZ or concierge for a question a 30-minute sketch answers honestly.
 - **The obvious pick still owes you a lie.** On a mundane question the probe choice
-  is uncontroversial (legibility → paper), so the "lies about" line feels redundant
-  and gets left thin or blank — and that is exactly where it is dropped most. Even
-  for the obvious probe, still state what it lies about. The honesty contract earns
-  its keep when the choice is easy, not only when it is contested.
+ is uncontroversial (legibility → paper), so the "lies about" line feels redundant
+ and gets left thin or blank — and that is exactly where it is dropped most. Even
+ for the obvious probe, still state what it lies about. The honesty contract earns
+ its keep when the choice is easy, not only when it is contested.
 
 ## Examples
 
-`examples/sample.md` — Barrier Intelligence wants to test whether operators trust
+`examples/sample.md` — Halcyon Safety wants to test whether operators trust
 the gas alert, and proposes a paper mock-up. The skill kills the paper probe (it
 lies about trust), reroutes to a concierge probe with a behaviour read-out on a
 live shift, and names what concierge itself will still lie about (scale, self-serve

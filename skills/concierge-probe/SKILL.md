@@ -1,16 +1,18 @@
 ---
 name: concierge-probe
 description: >-
-  Runbook for delivering a product outcome by hand, as the founder, to ONE real customer — to test
-  willingness to pay and the real workflow including the exceptions that break automation. Fires
-  on "do it by hand first", "concierge test", "concierge MVP", "deliver it manually",
-  "founder-delivered version before we automate". Output: a concierge log plus a
-  willingness-to-pay signal scored on the evidence ladder (money charged 1.0 beats a verbal yes
-  0.3). Not probe-matrix (that picks which probe); not agent-concierge-probe (an agent, not the
-  founder, runs the task, and it measures cost not WTP); not wizard-of-oz-probe (fakes the
-  interface to test would-they-use-it, not whether they pay).
-type: generator
-supersedes: none
+ Runbook for delivering a product outcome by hand, as the founder, to ONE real customer — to test
+ willingness to pay and the real workflow including the exceptions that break automation. Fires
+ on "do it by hand first", "concierge test", "concierge MVP", "deliver it manually",
+ "founder-delivered version before we automate". Output: a concierge log plus a
+ willingness-to-pay signal scored on the evidence ladder (money charged 1.0 beats a verbal yes
+ 0.3). Not probe-matrix (that picks which probe); not agent-concierge-probe (an agent, not the
+ founder, runs the task, and it measures cost not WTP); not wizard-of-oz-probe (fakes the
+ interface to test would-they-use-it, not whether they pay).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 # Concierge Probe
@@ -18,7 +20,7 @@ supersedes: none
 ## What it does
 You deliver the outcome by hand — no product, no automation — to one paying customer, and log what really happens. It forces two facts a demo cannot give you: whether the customer will actually pay, and what the real workflow is once the exceptions show up. Output is a concierge log plus one willingness-to-pay (WTP) score on the evidence ladder. It compresses the "should we build this" decision into "did someone pay for the hand-made version, and what broke."
 
-## The Icarus reframe
+## The reframe
 A generic concierge MVP asks "can we deliver value manually?" and stops at a warm quote. This runbook makes the price the experiment: you set the number and the payment mechanism *before* you deliver, so the result lands on the evidence ladder as money moved (1.0) or it does not. And it treats the exceptions as the deliverable — the permit that was missing, the night-shift gap, the customer who wanted it in a different format — because those are the parts that will break the automation you were about to write. The probe is honest about WTP and the real workflow. It lies about scale and self-serve UX, and it says so in every read-out.
 
 ## When to use / When NOT
@@ -81,7 +83,7 @@ Done means: one named customer, one delivered outcome, a completed concierge log
 - **Counting your own enthusiasm as demand.** You enjoyed delivering it; that is not the customer paying. Only the ladder score counts.
 
 ## Examples
-See `examples/sample.md` — Barrier Intelligence hand-delivers a morning gas-safety alert to one rig operator, charges per site, and scores WTP on the ladder while logging the permit and night-shift exceptions that would have broken the automated version.
+See `examples/sample.md` — Halcyon Safety hand-delivers a morning gas-safety alert to one rig operator, charges per site, and scores WTP on the ladder while logging the permit and night-shift exceptions that would have broken the automated version.
 
 ## Related skills
 - `../probe-matrix` — the router that sends you here; run it first if you are unsure this is the right probe.

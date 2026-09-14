@@ -1,14 +1,16 @@
-# Worked example — Mentix v1 spec (shift-handover machine-risk digest)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Mentix builds industrial AI for factory operations. This is a test fixture: numbers are illustrative, not real client data. Every dollar figure is tagged `[Assumption]` unless a probe produced it.
+# Worked example — Foundry Signal v1 spec (shift-handover machine-risk digest)
 
-## Input the fellow brought
+Foundry Signal builds industrial AI for factory operations. This is a test fixture: numbers are illustrative, not real client data. Every dollar figure is tagged `[Assumption]` unless a probe produced it.
+
+## Input the builder brought
 
 "The wedge passed. At each shift handover the supervisor gets a ranked list of the machines most likely to stop this shift. We replayed historical sensor logs against the maintenance log on 3 lines to build it. Spec the v1 — how do we know it works and what does it cost?"
 
 Artefacts on the table:
 - A concierge replay of **60 historical shifts** across 3 production lines: each shift's sensor-log window paired with the maintenance record of what actually caused an unplanned stop that shift (ground truth). [Fact]
-- Every digest export is already logged in Mentix's event stream. [Fact]
+- Every digest export is already logged in Foundry Signal's event stream. [Fact]
 - Supervisors read the draft digest for ~3 min at handover. [Fact]
 - Illustrative plant figures: one unplanned stop ≈ $8,000; loaded supervisor rate ≈ $45/hr. [Assumption]
 

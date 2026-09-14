@@ -1,10 +1,10 @@
 # So-What Stress Test — <idea one-liner>
 
-**Fellow:** <name> · **Date:** <date> · **Idea:** <one sentence, the fellow's words>
+**Builder:** <name> · **Date:** <date> · **Idea:** <one sentence, the builder's words>
 
 ## The five questions
 
-| # | Question | Required evidence type | Fellow's answer | Rung (0.1–1.0) | Grade |
+| # | Question | Required evidence type | Builder's answer | Rung (0.1–1.0) | Grade |
 |---|---|---|---|---|---|
 | 1 | So what? | Money or hours saved per event/unit/period, tied to a countable event | <answer> `[Fact/Assumption/Hypothesis]` | <e.g. behaviour 0.7> | pass / weak |
 | 2 | Who pays? | Named role who signs the invoice + the budget line | <answer> | <rung> | pass / weak |
@@ -33,7 +33,7 @@ The idea rewritten so Q<n> would now grade `pass`. Change the idea, not the word
 > **Old:** <one-liner>
 > **New:** <rewritten one-liner that fixes the weakest question>
 > **What changed:** <the specific move — new buyer, forced wedge, compounding asset —
-> and the money/behaviour evidence the fellow must now go get>
+> and the money/behaviour evidence the builder must now go get>
 
 If the honest rewrite is "this is a script, not a venture" or "this needs a different
 buyer entirely", write that instead of dressing up the same idea.
@@ -48,10 +48,10 @@ buyer entirely", write that instead of dressing up the same idea.
 ## Self-check before returning (the kill line)
 
 - [ ] No question graded `pass` on opinion evidence (0.1). If any is, regrade — this is
-      the skill's auto-fail.
-- [ ] Every number in the answers came from the fellow's input. Nothing invented.
+ the skill's auto-fail.
+- [ ] Every number in the answers came from the builder's input. Nothing invented.
 - [ ] Every answer tagged `[Fact]`, `[Assumption]`, or `[Hypothesis]`.
 - [ ] If REDESIGN, the rewrite actually moves the weakest question to `pass`, not just
-      reworded.
+ reworded.
 - [ ] If KILL, it is driven by a Q5 `fatal`, not by averaging weak rows.
 - [ ] The verdict was reached by the ordered logic (fatal → pass → weak), not by vote.

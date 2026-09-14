@@ -5,7 +5,7 @@ A total that leads with a TAM, or hides a rung of the arithmetic, is an auto-fai
 Tag every rung `[Fact]` / `[Assumption]` / `[Hypothesis]` and give it an evidence-ladder weight.
 
 ## Shared block (state and date it)
-- Currency / FX: __________  `[Assumption]`
+- Currency / FX: __________ `[Assumption]`
 - Date, and who this number is for: __________
 - Horizon for the capture rung: [e.g. 3 years]
 

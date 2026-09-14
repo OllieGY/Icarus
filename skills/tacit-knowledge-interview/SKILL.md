@@ -1,24 +1,26 @@
 ---
 name: tacit-knowledge-interview
 description: >-
-  Shadow an expert doing real work and extract the judgment calls they make without noticing.
-  Fires when a fellow says "interview an expert", "capture how they decide", "watch them work",
-  "shadow an operator", "capture the judgment", or "encode when they override the rule". Runs a
-  watch-30 / replay-20 / edge-cases-10 session and returns a Tacit-Knowledge Capture: the explicit
-  procedure split from the tacit judgment, each fork tagged with the cue read and the exception
-  that overrides it. NOT for scripting a Mom-Test customer discovery interview (use
-  interview-script), planning discovery interviews about a problem or churn (use
-  discovery-interview-prep), or condensing a transcript you already have (use
-  summarize-interview).
-type: interactive
-supersedes: none
+ Shadow an expert doing real work and extract the judgment calls they make without noticing.
+ Fires when a builder says "interview an expert", "capture how they decide", "watch them work",
+ "shadow an operator", "capture the judgment", or "encode when they override the rule". Runs a
+ watch-30 / replay-20 / edge-cases-10 session and returns a Tacit-Knowledge Capture: the explicit
+ procedure split from the tacit judgment, each fork tagged with the cue read and the exception
+ that overrides it. NOT for scripting a Mom-Test customer discovery interview (use
+ interview-script), planning discovery interviews about a problem or churn (use
+ discovery-interview-prep), or condensing a transcript you already have (use
+ summarize-interview).
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Takes an expert who does a task better than they can explain it and returns the part they cannot explain: the forks where they chose without a written rule and never noticed choosing. It splits the session into watch-30 / replay-20 / edge-cases-10 — shadow the real task silently, then replay it fork by fork, then chase the exceptions. The output is a Tacit-Knowledge Capture that separates the explicit procedure (the SOP a competitor can already read) from the tacit judgment ledger (each fork with the cue the expert read and the exception that overrides the rule). It weighs what you watched over what they told you.
 
-## The Icarus reframe
+## The reframe
 
 Most interviews capture what an expert can tell you — the procedure, the SOP, the rules a competitor already has. The value is in what they can only show you: the forks where they chose without a written rule and never noticed choosing. So do not ask, watch. Split the session watch-30 / replay-20 / edge-cases-10 — shadow the real task for 30 minutes without interrupting, replay for 20 asking "you did X there, why, and do you always?" at each fork you logged, then spend 10 on the edge cases that break the rule. Return the explicit procedure separated from the tacit judgment, each fork tagged with the cue read and the exception that overrides it. The tacit half is the product; the explicit half a competitor can already buy. If the capture is the manual reformatted, it failed.
 
@@ -28,7 +30,7 @@ Use it when you can watch a real expert do a real task and you need their judgme
 
 Do not use it for:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | A Mom-Test script to learn a customer's problem or JTBD | `interview-script` | That prepares questions to validate a problem; this shadows an expert doing work to extract judgment. |
 | To plan/prep discovery interviews about churn or a new idea | `discovery-interview-prep` | That picks a goal, segment, and methodology for problem discovery; this needs live observation of a task, not a plan. |
@@ -117,16 +119,16 @@ The capture is done when the judgment ledger holds at least one fork you **obser
 - **The replay answer can contradict the watch.** People tell a tidy story about how they decide that is not what they did. When the narration and the observation disagree, trust the watch and log the gap — the mismatch is often the most valuable finding.
 - **Observer effect: they perform the SOP because you are there.** A watched expert follows the book. Counter it: watch long enough that they forget you, watch routine work rather than a set-piece, or use a recording of an ordinary shift. Zero forks in 30 minutes usually means you saw a performance.
 - **Interrupting the watch.** A "why" during watch-30 converts a 0.7 behaviour into a 0.3 story and biases everything after it. Silence is the instrument. Save every question for replay.
-- **Solution in disguise: "we just need documentation."** Writing an SOP captures the explicit half by definition — it cannot hold the forks. If the fellow frames the job as "write the docs", name the trap: documentation transfers the procedure, not the judgment. Reframe to the call being made badly today, then watch it.
+- **Solution in disguise: "we just need documentation."** Writing an SOP captures the explicit half by definition — it cannot hold the forks. If the builder frames the job as "write the docs", name the trap: documentation transfers the procedure, not the judgment. Reframe to the call being made badly today, then watch it.
 - **A described session is not a watched one.** If the input hands you a scenario, a pre-watch brief, or a golden example instead of a task you actually observed, you have no watch-30 log. Never fabricate a filled observation log to match it. Mark every fork `[Hypothesis]`, and for each name the cue you would watch for to confirm it — the capture stays honest about what it has not yet seen.
 
 ## Examples
 
-See `examples/sample.md` for a full run on a Mentix plant supervisor: 30 minutes of silent shadowing logs the moment they mute a vibration alarm and keep the line running, replay surfaces the cue (the alarm's rise rate, not its level) and the exception (they never override it within an hour of a bearing change), and the load-bearing judgment — when to trust the alarm versus the ear — becomes the one thing the copilot must encode.
+See `examples/sample.md` for a full run on a Foundry Signal plant supervisor: 30 minutes of silent shadowing logs the moment they mute a vibration alarm and keep the line running, replay surfaces the cue (the alarm's rise rate, not its level) and the exception (they never override it within an hour of a bearing change), and the load-bearing judgment — when to trust the alarm versus the ear — becomes the one thing the copilot must encode.
 
 ## Related skills
 
 - Uses `evidence-ladder` to weigh each fork (observed 0.7 vs recited 0.3); it does not replace it.
-- Feeds `concept-council` and the probe skills: a captured judgment is often the load-bearing assumption a probe then tests at scale, and the "when they override" fork is exactly what a Mentix-style copilot must get right.
+- Feeds `concept-council` and the probe skills: a captured judgment is often the load-bearing assumption a probe then tests at scale, and the "when they override" fork is exactly what a Foundry Signal-style copilot must get right.
 - Distinct from `yoda-data-sourcing`: that finds proprietary data a model cannot reach; this creates judgment data that exists nowhere until you observe it.
 - Absorbs the bones of `interview-script` and `discovery-interview-prep` — Mom-Test discipline (past behaviour over hypotheticals, anchor to specific instances, never pitch) — but inverts the method: those ask a customer about a problem; this watches an expert do a task and treats the words as secondary to the behaviour. It supersedes neither; use them for problem discovery, use this for judgment capture.

@@ -1,6 +1,6 @@
 # Probe Selection + Plan
 
-**Fellow / venture:** _______________
+**Builder / venture:** _______________
 **Date:** _______________
 
 ## Step 1 — The ONE question
@@ -12,7 +12,7 @@
 
 **Why this one first (riskiest-assumption check):** _______________
 
-**Is it a solution-in-disguise?** ☐ No, it names an unknown  ☐ Yes → stop, reframe
+**Is it a solution-in-disguise?** ☐ No, it names an unknown ☐ Yes → stop, reframe
 with `problem-statement`, then return.
 
 ## Step 2 — Learning target
@@ -28,15 +28,15 @@ Tick the row the question is really asking about.
 | ☐ | E — Trust & adoption | do they trust it; will they adopt / change behaviour | behaviour under real stakes (0.7 →) |
 | ☐ | F — Feasibility & scale | is it feasible; does it hold at volume | real system at load (0.7) |
 
-**Target:** ____   **Current rung of the claim today:** _______________ `[tag]`
+**Target:** ____ **Current rung of the claim today:** _______________ `[tag]`
 
 ## Step 3 — Kill check (if a probe was already proposed)
 
-**Fellow's proposed probe (if any):** _______________
+**Builder's proposed probe (if any):** _______________
 
 | Question | Answer |
 |---|---|
-| Does the proposed probe appear in the "lies about" column for this target? | ☐ Yes → KILL  ☐ No → keep |
+| Does the proposed probe appear in the "lies about" column for this target? | ☐ Yes → KILL ☐ No → keep |
 | What exactly does it lie about here? | _______________ |
 | Rung it tops out at vs rung the question needs | ____ vs ____ |
 
@@ -44,7 +44,7 @@ Tick the row the question is really asking about.
 
 ## Step 4 — Chosen probe (cheapest HONEST probe)
 
-**Probe:** ☐ paper/sketch  ☐ Wizard-of-Oz  ☐ concierge  ☐ agent-concierge
+**Probe:** ☐ paper/sketch ☐ Wizard-of-Oz ☐ concierge ☐ agent-concierge
 ☐ none of the four (target F — name the build track)
 
 **Why it is honest about THIS question:** _______________
@@ -69,8 +69,8 @@ a valid read-out.
 
 ## Step 6 — Route to runbook
 
-**Hand off to:** ☐ `paper-sketch-probe`  ☐ `wizard-of-oz-probe`
-☐ `concierge-probe`  ☐ `agent-concierge-probe`
+**Hand off to:** ☐ `paper-sketch-probe` ☐ `wizard-of-oz-probe`
+☐ `concierge-probe` ☐ `agent-concierge-probe`
 
 **Note (if target F):** No cheap probe is honest about feasibility or scale. The
 smallest real build track is: _______________

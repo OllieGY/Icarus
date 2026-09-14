@@ -1,5 +1,11 @@
 # Eval log — paper-sketch-probe
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -28,16 +34,16 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague → asks the one question (which workflow + legibility/decision claim), refuses to invent panels; 02 fidelity-for-demand → rejects framing, names polish≠demand trap, routes demand via probe-matrix→wizard-of-oz/fake-door; 03 trust-to-act → declines, names concierge-probe (real stakes), offers only the in-scope legibility slice. No fabrication, flattery, or scope-poach. |
 | 4 Head-to-head | n/a | frontmatter `supersedes: none`. (Prose claims it "absorbs/sharpens" prototyping-pretotyping — a sibling-narrowing, not a formal supersede; see gotchas.) |
 | 5 Anti-generic | PASS | Golden-01 output is not reproducible by a generic PM prompt: the two-outputs-only contract (legibility vs decision-location), the 0.7-behaviour / 0.1-opinion evidence-ladder cap on demand/feel/trust, the mandatory "does NOT tell you" block, and sibling-probe routing are all Icarus-specific. Guidance is tabular (panel/signal bands, route table, template); no should-be-a-table-as-prose defect. |
-| 6 Real-use | pending | requires 5+ real fellow uses |
+| 6 Real-use | pending | requires 5+ real builder uses |
 
 ### Gate 2 — per-case scores (dims: method / artifact / proprietary / challenge / evidence)
 | Case | method | artifact | proprietary | challenge | evidence | Total /25 | Pass? |
 |---|---|---|---|---|---|---|---|
-| 01 Durian vendor-email→PO | 5 | 5 | 5 | 4 | 5 | 24 | Y |
-| 02 Azraq incident-report | 5 | 5 | 5 | 5 | 5 | 25 | Y |
-| 03 Barrier permit-check | 5 | 5 | 5 | 5 | 5 | 25 | Y |
+| 01 Larder Labs vendor-email→PO | 5 | 5 | 5 | 4 | 5 | 24 | Y |
+| 02 Meridian Grid incident-report | 5 | 5 | 5 | 5 | 5 | 25 | Y |
+| 03 Halcyon Safety permit-check | 5 | 5 | 5 | 5 | 5 | 25 | Y |
 | 04 mundane 3-screen signup | 5 | 5 | 5 | 5 | 5 | 25 | Y |
-| 05 Mentix "whole product" (weak) | 5 | 4 | 5 | 5 | 4 | 23 | Y |
+| 05 Foundry Signal "whole product" (weak) | 5 | 4 | 5 | 5 | 4 | 23 | Y |
 
 Notes per case:
 - **01** — Drew 7 panels (email→parse→review→**ambiguous line item (exception)**→catalogue check→approve→issued). Legibility ≈86% (1 legibility gap at the parse panel, resolves by showing the raw email side-by-side); decision isolated to the ambiguous-line-item panel, needing off-page catalogue/prior-order judgment. Demand/pay refused (opinion 0.1). No auto_fail.
@@ -50,7 +56,7 @@ No `auto_fail` triggered on any case (no numbers/quotes passed off as real input
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 - **Golden cases can only be shape-scored, not outcome-scored.** The inputs provide no real operator run-log data, so the artifact's pauses/percentages are illustrative placeholders. `examples/sample.md` labels this ("Illustrative fixture… not real client data"); the golden files do not. Consider a one-line note in the goldens that eval artifacts are illustrative — real outcome validation is Gate 6.
-- **Legibility-% counting convention is implicit.** The sample computes % by counting only *legibility gaps* against the total (decision-point pauses still count as "followed"): "5 of 6 = 83%" despite two paused panels. Neither the Method nor `template.md` states this. A fellow counting *every* pause would wrongly drop below the 80% band and redraw a legible flow. Fix: state the formula in the read-out — `legibility % = (panels not blocked by a legibility gap) / N`; decision-point pauses do not count against legibility.
+- **Legibility-% counting convention is implicit.** The sample computes % by counting only *legibility gaps* against the total (decision-point pauses still count as "followed"): "5 of 6 = 83%" despite two paused panels. Neither the Method nor `template.md` states this. A builder counting *every* pause would wrongly drop below the 80% band and redraw a legible flow. Fix: state the formula in the read-out — `legibility % = (panels not blocked by a legibility gap) / N`; decision-point pauses do not count against legibility.
 - **`supersedes` prose vs frontmatter.** Frontmatter says `supersedes: none`, but the closing prose says it "absorbs/sharpens the paper/L1 rung of `prototyping-pretotyping`." That's a sibling-narrowing, not a formal supersede. Minor, but worth a word to avoid a future judge treating Gate 4 as applicable.
 
 ## Refine run 2 — applied judge fixes: added illustrative-fixture label convention to sample (shape-scored, no real operator data); stated legibility-% formula (decision-point pauses do not count against it); clarified it narrows, not supersedes, prototyping-pretotyping.

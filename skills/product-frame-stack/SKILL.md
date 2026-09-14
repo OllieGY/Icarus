@@ -1,29 +1,31 @@
 ---
 name: product-frame-stack
 description: >-
-  Walks one validated problem up a load-bearing stack — validated problem → vision
-  → strategy → product vision → North Star → OKRs → dual-track roadmap — and BLOCKS
-  any layer from resting on an unvalidated problem below it. Fires on "frame the
-  business", "vision to roadmap", "what's the strategy", "turn this validated problem
-  into a roadmap", "give me the vision, North Star and OKRs". Output is a filled frame
-  stack where every layer inherits the problem's evidence rung and every roadmap item
-  ladders to a North Star. NOT the go/no-go that validates the problem in the first
-  place (use problem-quality-scorecard / so-what-stress-test — this consumes their
-  verdict), NOT the desirable/feasible/viable score (four-lenses-test), NOT the
-  post-launch metric-tree and retention check (metrics-that-matter).
-type: generator
-supersedes: none
+ Walks one validated problem up a load-bearing stack — validated problem → vision
+ → strategy → product vision → North Star → OKRs → dual-track roadmap — and BLOCKS
+ any layer from resting on an unvalidated problem below it. Fires on "frame the
+ business", "vision to roadmap", "what's the strategy", "turn this validated problem
+ into a roadmap", "give me the vision, North Star and OKRs". Output is a filled frame
+ stack where every layer inherits the problem's evidence rung and every roadmap item
+ ladders to a North Star. NOT the go/no-go that validates the problem in the first
+ place (use problem-quality-scorecard / so-what-stress-test — this consumes their
+ verdict), NOT the desirable/feasible/viable score (four-lenses-test), NOT the
+ post-launch metric-tree and retention check (metrics-that-matter).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Product Frame Stack
 
 ## What it does
-Turns a *validated* problem into the full strategic frame in one pass: vision, strategy, product vision, North Star, OKRs, and a dual-track roadmap. It treats these seven layers as a load-bearing stack, not a flat canvas. The problem sits at the bottom and carries an evidence rung; every layer above inherits that rung as a confidence ceiling. If the problem has not cleared the Icarus gate, the stack does not get built — the skill stops at the floor and routes the fellow back to the gate. The output is a filled frame stack ([template.md](template.md)) in which no roadmap item exists without a North Star to move, and no layer claims more certainty than the problem underneath it.
+Turns a *validated* problem into the full strategic frame in one pass: vision, strategy, product vision, North Star, OKRs, and a dual-track roadmap. It treats these seven layers as a load-bearing stack, not a flat canvas. The problem sits at the bottom and carries an evidence rung; every layer above inherits that rung as a confidence ceiling. If the problem has not cleared the Icarus gate, the stack does not get built — the skill stops at the floor and routes the builder back to the gate. The output is a filled frame stack ([template.md](template.md)) in which no roadmap item exists without a North Star to move, and no layer claims more certainty than the problem underneath it.
 
-## The Icarus reframe
+## The reframe
 A business-model or recommendation canvas lays the boxes flat: fill vision, strategy, metrics, roadmap side by side, each on whatever evidence you happen to have, and you get a "recommendation" even if every box rests on opinion. Icarus refuses the flat canvas. The layers are stacked and structural. Two rules make them load-bearing. First, the **gate**: nothing enters the stack until the problem has passed `problem-quality-scorecard` (≥32/40) or `so-what-stress-test` (PASS) — an unvalidated problem is a cracked foundation and the stack refuses to be poured on it. A PASS resting on behaviour or money (0.7+) unlocks a full-confidence stack; a *soft* PASS resting only on an artefact or a verbal "yes" (0.5/0.3) still enters, but the whole stack is stamped `[Assumption]` and the roadmap is labelled a bet, not a committed plan (this is the Layer-0 floor, below). Second, the **ceiling**: the whole stack is stamped with the problem's evidence rung, so a roadmap resting on a `[Assumption]`-grade problem is itself a bet, tagged as one, never a committed plan. The North Star is the joint between strategy and delivery, and it is mandatory: a roadmap with no North Star, or a roadmap item that ladders to nothing, is an auto-fail. Dual-track runs the whole height — discovery beside delivery at every horizon — because launch is when discovery gets cheap, not when it ends.
 
 ## When to use / When NOT
-Use it when a fellow holds ONE problem that has already cleared the gate and needs the strategy frame built on top of it, end to end.
+Use it when a builder holds ONE problem that has already cleared the gate and needs the strategy frame built on top of it, end to end.
 
 | Situation | Use this? | Go to |
 |---|---|---|
@@ -38,7 +40,7 @@ Use it when a fellow holds ONE problem that has already cleared the gate and nee
 
 This skill builds the frame; it does not validate the problem, score the four lenses, invent the solution, or run the post-launch metric tree. It absorbs the generic `business-model` and `recommendation-canvas` and beats them (see Related skills), so it does not route there.
 
-If the fellow hands a problem with no gate verdict, do not build the stack. Ask the one unblocking question — has this cleared `problem-quality-scorecard` or `so-what-stress-test`, and on what evidence? — or route there. Invent no vision, no metric, no roadmap to fill the gap.
+If the builder hands a problem with no gate verdict, do not build the stack. Ask the one unblocking question — has this cleared `problem-quality-scorecard` or `so-what-stress-test`, and on what evidence? — or route there. Invent no vision, no metric, no roadmap to fill the gap.
 
 ## Method
 Fill the stack in [template.md](template.md), bottom to top. Do not narrate; fill the layers. Tag every empirical claim `[Fact]` (priced artefact or observed behaviour), `[Assumption]` (a stated, defensible estimate), `[Hypothesis]` (a directional or not-yet-observed claim). Vision, strategy, and product vision are claims about the future, so they are `[Hypothesis]` by nature — their *plausibility*, not their tag, is what inherits the ceiling.
@@ -108,7 +110,7 @@ No dated feature lists. Every delivery item must ladder to the North Star; an it
 Money moved 1.0 → behaviour observed 0.7 → artefact shown 0.5 → verbal commitment 0.3 → opinion 0.1. The gate bar is 0.7: the *problem* must rest on behaviour or money to unlock a full-confidence stack. A problem passed on an artefact or a verbal "yes" still builds a stack, but the entire stack is stamped `[Assumption]` and the roadmap is named a bet, not a plan. The North Star must be a measurable leading metric or an explicit `[Hypothesis]` with named instrumentation — never a lagging revenue figure dressed as a North Star. OKR key results are outcomes (behaviour/money/North-Star movement), so an output masquerading as a KR ("shipped X") caps that KR at opinion and does not count. Tag every empirical claim. The confidence ceiling is structural: promoting any layer above the problem's rung is the inflation this standard exists to catch.
 
 ## Gotchas
-- **Building on an ungated problem.** The most common failure: a fellow arrives excited with a problem and wants the whole frame, but the problem never cleared `problem-quality-scorecard` or `so-what-stress-test`. Every layer you build is then a hypothesis stacked on a hypothesis. Stop at Layer 0 and route to the gate. A beautiful roadmap on an unvalidated problem is the auto-fail, not the deliverable.
+- **Building on an ungated problem.** The most common failure: a builder arrives excited with a problem and wants the whole frame, but the problem never cleared `problem-quality-scorecard` or `so-what-stress-test`. Every layer you build is then a hypothesis stacked on a hypothesis. Stop at Layer 0 and route to the gate. A beautiful roadmap on an unvalidated problem is the auto-fail, not the deliverable.
 - **Strategy that is really a solution.** "Our strategy is to build a mobile app / an AI platform" names an artefact, not a choice. Strategy is beachhead + wedge + what you refuse. If the "strategy" line has no refusal and no beachhead, it is a solution in disguise — reframe it, do not fill the box.
 - **Lagging North Star.** Revenue, total signups, and cumulative-users-ever feel like North Stars and are all lagging. They tell you the past, not whether value is landing now. Pick the leading per-unit value metric, and guard it so it cannot be gamed.
 - **Roadmap as a dated feature list.** Now/Next/Later of shipped features is a Gantt chart, not a frame. The roadmap tracks outcomes (North-Star / KR moves) beside the discovery questions that gate them. An item that ladders to no North Star is cut.
@@ -116,7 +118,7 @@ Money moved 1.0 → behaviour observed 0.7 → artefact shown 0.5 → verbal com
 - **Vision as a product spec.** "A world with a great copilot for every plant manager" describes your product, not the customer's world. The vision is the outcome once the problem is gone; strike the product noun.
 
 ## Examples
-[examples/sample.md](examples/sample.md) — Barrier Intelligence, worked end to end: a hot-work-permit safety problem that cleared `problem-quality-scorecard` at 34/40 (behaviour-grade, 0.7) built into the full stack — vision, beachhead strategy with a won't-do and a unit-economics check, product vision, a leading North Star (verified hot-work permits per rig-week) guarded by a zero-false-clear metric, outcome OKRs, and a dual-track Now/Next/Later roadmap where the moat question sits on the Later discovery track. Every layer stamped at the 0.7 ceiling.
+[examples/sample.md](examples/sample.md) — Halcyon Safety, worked end to end: a hot-work-permit safety problem that cleared `problem-quality-scorecard` at 34/40 (behaviour-grade, 0.7) built into the full stack — vision, beachhead strategy with a won't-do and a unit-economics check, product vision, a leading North Star (verified hot-work permits per rig-week) guarded by a zero-false-clear metric, outcome OKRs, and a dual-track Now/Next/Later roadmap where the moat question sits on the Later discovery track. Every layer stamped at the 0.7 ceiling.
 
 ## Related skills
 Absorbs `concept/business-model` and `concept/recommendation-canvas`. The business-model canvas lays nine operational boxes flat with no vision, no trade-off, no metric, and no validation gate — its own documentation admits these gaps. The recommendation canvas adds outcomes, a solution hypothesis, and success metrics, but stays a flat ten-box fill you complete once for exec sign-off; it never blocks, so every box can rest on opinion and still yield a "recommendation". This skill keeps their useful bones — the business-outcome-beside-customer-outcome pairing, the "solution is a hypothesis" spine, the revenue-minus-cost viability check — and rebuilds them as a *stack with a gate and a ceiling*: an unvalidated problem cannot pass to strategy, and no layer outranks the evidence below it. `supersedes: none`: both canvases live outside this module; this replaces their role inside Icarus without deleting them.

@@ -1,15 +1,26 @@
 ---
 name: refine-flywheel
-description: Stands up the post-launch loop for a shipped AI product — ship behind sign-off → observe tweak-time (how much the customer edits before accepting) → learn by re-running the WHOLE eval set on every model release → refine by promoting autonomy only as a scored eval result, never by feel. Fires on "what happens after launch", "improve the product", "set up the loop", "a new model dropped, should we upgrade", "can we raise the autonomy / drop the sign-off yet". Returns a filled flywheel cadence doc. NOT for which metrics/North Star/retention to track (use metrics-that-matter), NOT for turning one trace into a discovery interview (use trace-to-interview), NOT for writing the eval set or autonomy ladder in the first place (use eval-first-spec — this re-runs what that created).
-type: generator
-supersedes: none
+description: >-
+  Stands up the post-launch loop for a shipped AI product — ship behind sign-off → observe
+  tweak-time (how much the customer edits before accepting) → learn by re-running the WHOLE eval
+  set on every model release → refine by promoting autonomy only as a scored eval result, never by
+  feel. Fires on "what happens after launch", "improve the product", "set up the loop", "a new
+  model dropped, should we upgrade", "can we raise the autonomy / drop the sign-off yet". Returns
+  a filled flywheel cadence doc. NOT for which metrics/North Star/retention to track (use
+  metrics-that-matter), NOT for turning one trace into a discovery interview (use
+  trace-to-interview), NOT for writing the eval set or autonomy ladder in the first place (use
+  eval-first-spec — this re-runs what that created).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Turns a shipped product into a loop that compounds. It takes a v1 that is live behind a human sign-off gate and stands up four stations: ship (the current autonomy level and its gate), observe (instrument tweak-time — the edit distance between what the system proposed and what the human committed), learn (re-run the entire golden set from `eval-first-spec` on every model release and on a fixed floor cadence), and refine (move autonomy up or down strictly on the scored eval result). The artefact is the filled `template.md`: a cadence doc that names what runs, how often, who owns it, and the exact numbers that move autonomy. A loop that raises autonomy on a hunch is not this skill; it is the failure this skill exists to stop.
 
-## The Icarus reframe
+## The reframe
 
 The generic post-launch loop is build-measure-learn with an engagement dashboard: usage goes up and to the right, everyone nods, nothing about the product's trustworthiness is known. Icarus replaces the vanity metric with **tweak-time** — a behaviour signal (0.7 on the ladder), read from production traces, that measures how much a customer edits an output before accepting it; tweak-time falling to zero is the product earning the right to act. It replaces "ship it and move on" with a standing regression harness: a new model release is a **regression risk until the eval set re-scores it**, not a free upgrade, so the whole golden set re-runs before any model change reaches production. And it replaces the autonomy promotion-by-confidence with a **ratchet driven by evidence in both directions** — the L0–L4 level from `eval-first-spec` climbs one rung only when the eval re-run passes that rung's derived failure rates over N real cycles, and drops when a model release regresses them. Tweak-time nominates; the eval confirms; feelings never vote.
 
@@ -78,7 +89,7 @@ This is the station the kill line guards. Re-run every golden case, not a sample
 
 On each re-run, log to a standing eval ledger and compare per-mode pass rates against two baselines: the last run, and `eval-first-spec`'s derived `acceptable_rate(mode)`.
 
-| Date | Model / change | Miss | False alarm | Confidently wrong | ... | Δ vs last | Action |
+| Date | Model / change | Miss | False alarm | Confidently wrong |... | Δ vs last | Action |
 |---|---|---|---|---|---|---|---|
 | _[date]_ | _[what changed]_ | _[rate]_ | _[rate]_ | _[rate]_ | | _[better/worse]_ | _[ship / hold / demote]_ |
 
@@ -130,13 +141,13 @@ Vanity loop. Usage up, edits still 100%, is a product people are forced to use, 
 
 ## Examples
 
-`examples/sample.md` — the post-launch flywheel for Mentix's shift-handover machine-risk digest, picking up exactly where `eval-first-spec` shipped it at L1: tweak-time instrumented on the digests (clean-accept climbing 41% → 78%), a model-release re-run that regresses the Miss rate and correctly holds autonomy despite a higher aggregate score, and an L1→L2 promotion granted only after the re-scored eval clears the derived gate — with cost-per-outcome falling $3.55 → $2.90/shift as the compounding proof.
+`examples/sample.md` — the post-launch flywheel for Foundry Signal's shift-handover machine-risk digest, picking up exactly where `eval-first-spec` shipped it at L1: tweak-time instrumented on the digests (clean-accept climbing 41% → 78%), a model-release re-run that regresses the Miss rate and correctly holds autonomy despite a higher aggregate score, and an L1→L2 promotion granted only after the re-scored eval clears the derived gate — with cost-per-outcome falling $3.55 → $2.90/shift as the compounding proof.
 
 ## Related skills
 
 `eval-first-spec` (07) — creates the golden set and the L0–L4 ladder that this skill re-runs and climbs. Upstream, once, before build. If it has not run, this skill has no inputs. They are two ends of one asset: that skill writes the eval, this one keeps it alive.
 
-`metrics-that-matter` (08, sibling) — owns the metric scorecard (AARRR, the retention curve that must flatten, the North Star, cost-per-outcome to the cent). This skill consumes cost-per-outcome and tweak-time; it does not choose the scorecard. Reference it for retention and North Star; do not restate the M9 retention pack.
+`metrics-that-matter` (08, sibling) — owns the metric scorecard (AARRR, the retention curve that must flatten, the North Star, cost-per-outcome to the cent). This skill consumes cost-per-outcome and tweak-time; it does not choose the scorecard. Reference it for retention and North Star; do not restate an external analytics pack.
 
 `trace-to-interview` (08, sibling) — turns one production trace into a discovery interview. Same raw feed as this skill's observe station, opposite question: it asks "what unmet need does this trace reveal", this asks "is the product earning autonomy". Route the qualitative discovery question there.
 

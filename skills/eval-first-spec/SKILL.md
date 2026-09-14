@@ -1,21 +1,30 @@
 ---
 name: eval-first-spec
-description: Turn a validated wedge into the scope you can SCORE — a one-sentence job, 20 pass/fail golden cases drawn from real artefacts, an L0–L4 autonomy level with a failure taxonomy and a derived acceptable failure rate per mode, and a cost-per-outcome budget to the cent. Fires on "spec the build", "define scope", "scope the v1", "write the spec", "how do we know it works". Not for the component pipeline or effort split (use compound-system-architecture), not for pilot price / terms / commercial success metrics (use pilot-six-term-sheet), not for whether the thing gets adopted at all (use wedge-five-questions).
-type: generator
-supersedes: none
+description: >-
+  Turn a validated wedge into the scope you can SCORE — a one-sentence job, 20 pass/fail golden
+  cases drawn from real artefacts, an L0–L4 autonomy level with a failure taxonomy and a derived
+  acceptable failure rate per mode, and a cost-per-outcome budget to the cent. Fires on "spec the
+  build", "define scope", "scope the v1", "write the spec", "how do we know it works". Not for the
+  component pipeline or effort split (use compound-system-architecture), not for pilot price /
+  terms / commercial success metrics (use pilot-six-term-sheet), not for whether the thing gets
+  adopted at all (use wedge-five-questions).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Converts a validated wedge into a v1 spec that a judge — human or harness — can run and score. It forces four parts, in order: (1) a one-sentence job with the clause that says how a single outcome is judged pass or fail; (2) 20 golden cases, each a real input paired with a binary pass/fail contract, composed to a fixed spread so the number is not gamed on happy paths; (3) one chosen autonomy level L0–L4, its failure taxonomy, and an acceptable failure rate per mode that is *derived* from the cost of one failure, not chosen to look safe; (4) a cost-per-outcome budget to the cent, checked against the value of one outcome. The artefact is the filled `template.md`. A spec that cannot be scored is not shipped; it is an opinion with a template around it.
 
-## The Icarus reframe
+## The reframe
 
 A generic PM spec writes one acceptance criterion per feature and calls it testable, which works for deterministic software and fails for an AI product, where the same input can pass Tuesday and fail Wednesday. So this skill reframes the two disciplines it absorbs from the user-story family: acceptance criteria become a scoreable **golden set** of 20 real-input pass/fail cases spanning the distribution, and vertical slicing becomes **autonomy slicing** — ship the lowest autonomy level L0–L4 that still delivers the job, then earn each level up with a measured pass rate. The number that turns a spec from a wish into a commitment is cost-per-outcome to the cent, checked against value-per-outcome; if cost meets or beats value, no eval score can save it.
 
 ## When to use / When NOT
 
-Use once a fellow has a validated wedge (adoption evidence in hand) and needs to define what building it means and what "working" means, before code. Trigger phrases: "spec the build", "define scope", "scope the v1", "write the spec", "how do we know it works".
+Use once a builder has a validated wedge (adoption evidence in hand) and needs to define what building it means and what "working" means, before code. Trigger phrases: "spec the build", "define scope", "scope the v1", "write the spec", "how do we know it works".
 
 Do not use when:
 
@@ -26,7 +35,7 @@ Do not use when:
 | "Is this even a wedge / will it get adopted / is it sharp enough" | `wedge-five-questions` (06). Run that first. This skill assumes the wedge already passed. |
 | "Score the whole idea / give me the so-what" | `problem-quality-scorecard` / `so-what-stress-test` (00–01). Those judge the idea; this specs the build. |
 
-Do not use it to invent a spec from nothing. If there are no real artefacts to draw golden cases from, the input is not ready. Say so and send the fellow back to probes and data sourcing. Never fabricate cases to reach 20.
+Do not use it to invent a spec from nothing. If there are no real artefacts to draw golden cases from, the input is not ready. Say so and send the builder back to probes and data sourcing. Never fabricate cases to reach 20.
 
 ## Method
 
@@ -34,7 +43,7 @@ Fill in `template.md`. Four parts, then the kill-line check.
 
 ### Part 1 — The job line
 
-One sentence, this shape: **who** gets **what single output**, on **what recurring trigger**, judged pass by **what observable condition**. The judged-by clause is the part fellows skip and the part that makes everything downstream scoreable.
+One sentence, this shape: **who** gets **what single output**, on **what recurring trigger**, judged pass by **what observable condition**. The judged-by clause is the part builders skip and the part that makes everything downstream scoreable.
 
 Good: "At each shift handover, the outgoing line supervisor gets a ranked list of the ≤5 machines most likely to cause an unplanned stop this shift — judged correct if the machine that actually caused a stop was in the list, or the shift was clean and the list said so."
 
@@ -119,7 +128,7 @@ This skill applies the ladder to the golden set. A case labelled from a real inp
 
 Twenty happy paths. The easiest way to fake this skill is 20 typical cases with a 100% pass rate and no case that can fail. The fixed spread (≥4 adversarial, ≥3 must-refuse) and the coverage rule exist to stop exactly that. A golden set with no failing cases has measured nothing.
 
-Acceptable rate chosen to look safe. "We'll accept a 1% error rate" with no derivation is theatre. The rate is `tolerable_cost_per_cycle ÷ cost_of_one_failure`. If a fellow states a rate without stating cost-of-one-failure, the rate is unfounded — name it.
+Acceptable rate chosen to look safe. "We'll accept a 1% error rate" with no derivation is theatre. The rate is `tolerable_cost_per_cycle ÷ cost_of_one_failure`. If a builder states a rate without stating cost-of-one-failure, the rate is unfounded — name it.
 
 Autonomy inflation. Picking L3/L4 because it demos better, when a Miss at that level is catastrophic and no golden pass rate has earned it yet. Ship the lowest level that delivers the job; the ladder is climbed with measured evidence, not ambition.
 
@@ -129,7 +138,7 @@ Cases invented to reach 20. If the reality floor can't be met, the honest output
 
 ## Examples
 
-`examples/sample.md` — a full worked eval-first spec for Mentix v1 (the shift-handover machine-risk digest): the job line with its judged-by clause, all 20 golden cases composed across the four bands and tagged for source, an L1 autonomy choice with a six-mode failure taxonomy and rates derived from cost-of-one-failure, and a cost-per-outcome budget of ~$3.55/shift checked against value-per-outcome — including one band that started under-real and forced a "go get more inputs" finding.
+`examples/sample.md` — a full worked eval-first spec for Foundry Signal v1 (the shift-handover machine-risk digest): the job line with its judged-by clause, all 20 golden cases composed across the four bands and tagged for source, an L1 autonomy choice with a six-mode failure taxonomy and rates derived from cost-of-one-failure, and a cost-per-outcome budget of ~$3.55/shift checked against value-per-outcome — including one band that started under-real and forced a "go get more inputs" finding.
 
 ## Related skills
 

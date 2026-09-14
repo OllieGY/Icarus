@@ -8,7 +8,7 @@ Peel the stated idea until the need underneath survives a 10x change in the unde
 
 | Layer | Statement | Tool/model/UI word in it? | Survives a 10x tech change? |
 |---|---|---|---|
-| 0 As stated | _[the idea in the fellow's words]_ | _[y/n]_ | _[y/n]_ |
+| 0 As stated | _[the idea in the builder's words]_ | _[y/n]_ | _[y/n]_ |
 | 1 The job | _[what work it does]_ | _[y/n]_ | _[y/n]_ |
 | 2 The decision | _[the choice the user makes]_ | _[y/n]_ | _[y/n]_ |
 | 3 Core need (invariant) | _[the need that does not move]_ | no | yes |
@@ -65,7 +65,7 @@ One concrete artefact for the surviving concept — one screen, one interaction,
 [ sketch / described screen / described interaction ]
 ```
 
-> Want a clickable prototype? That is `first-mocks` (section 05), not this step.
+> Want a clickable prototype? That is `first-mocks`, not this step.
 
 ## 6. The invented concept + rationale
 

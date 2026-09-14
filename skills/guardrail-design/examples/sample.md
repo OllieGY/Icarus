@@ -1,12 +1,14 @@
-# Guardrail Spec — Barrier Intelligence, gas-safety alerting
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Barrier Intelligence · **Date:** 2026-07 · **Stage:** commit-build v1 · **Autonomy level (from eval-first-spec):** L1 (system raises alerts; a control-room operator acts on the physical world)
+# Guardrail Spec — Halcyon Safety, gas-safety alerting
+
+**Builder:** Halcyon Safety · **Date:** 2026-07 · **Stage:** commit-build v1 · **Autonomy level (from eval-first-spec):** L1 (system raises alerts; a control-room operator acts on the physical world)
 
 > All numbers below are illustrative test-fixture values, tagged for source. None are
 > real client data. The point is the shape of the reasoning, not the magnitudes.
 
 The product ingests field sensor logs and permit data from a manned offshore platform and
-raises gas-safety alerts. The fellow arrived asking "where do we put a human in the loop,
+raises gas-safety alerts. The builder arrived asking "where do we put a human in the loop,
 and how do we stop it spamming the crew?" — two questions the matrix answers differently.
 
 ## The finding that reframes it
@@ -36,10 +38,10 @@ and it may auto-alert freely." That inverts where the sign-off goes.
 | Too slow | Catastrophic | High (every eval has a deadline) | ~4,000 evals/hr `[Assumption]` | Q2 |
 
 ```
-                Volume Low                        Volume High
-Catastrophic    Q1  Miss, Silent failure          Q2  Too slow
-High                                                Q4  False alarm
-Low             —                                  —
+ Volume Low Volume High
+Catastrophic Q1 Miss, Silent failure Q2 Too slow
+High Q4 False alarm
+Low — —
 ```
 
 Four modes, three distinct classes. A single uniform stack would either drown the crew
@@ -95,24 +97,24 @@ Sign-off is spent only on the one expensive, irreversible decision: closing a ha
 
 If flagged volume rose to hundreds/day, the fix is a better independent detector (fewer
 soft anomalies below τ), not a looser τ — loosening τ trades review cost for Miss risk,
-which for a Catastrophic mode is not a trade Barrier may make.
+which for a Catastrophic mode is not a trade Halcyon Safety may make.
 
 ## Kill line — self-check
 
 - [x] Not one-size — three classes across four modes.
 - [x] Every Catastrophic/High mode has a code block or a sign-off trigger; the Miss rests on
-      the LEL hard-limit, never on a score.
+ the LEL hard-limit, never on a score.
 - [x] Every Catastrophic/High mode fails safe; no high-cost path fails open.
 - [x] τ derived from the Miss acceptable rate against a labelled curve; would be `[Hypothesis]`
-      + human-routed without it.
+ + human-routed without it.
 - [x] No per-item human review on raising alerts (the cheap path).
 - [x] L2 score is an independent detector, not the alerting model self-grading.
 - [x] Guardrail cost written back to cost-per-outcome and fits.
-- [x] Every number tagged; none invented beyond what the fellow's field logs and permits imply.
+- [x] Every number tagged; none invented beyond what the builder's field logs and permits imply.
 
 ## What the skill pushed back on
 
-The fellow's opening ask — "have a human approve every alert" — is the uniform stack, and it
+The builder's opening ask — "have a human approve every alert" — is the uniform stack, and it
 fails twice: it is unaffordable at 4,000 evals/hr, so in practice the approval gets skipped,
 and it guards the wrong action (alerting is cheap; suppression is the risk). The skill declined
 the framing, moved the single human sign-off onto the dismissal decision, and put the Miss

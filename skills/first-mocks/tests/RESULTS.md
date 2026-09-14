@@ -1,5 +1,11 @@
 # Eval log — first-mocks
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -20,27 +26,27 @@ MUST NOT fire (3, name the sibling each belongs to):
 
 Auto-fail this skill if the output:
 - writes, or produces a plan whose deliverable is, product code (any "just build a
-  quick React/coded version") instead of a no-code clickable hybrid, OR
+ quick React/coded version") instead of a no-code clickable hybrid, OR
 - restates a design skill's visual craft — colour, type, layout, component styling —
-  instead of routing it to `impeccable` / `shape` / `design`, OR
+ instead of routing it to `impeccable` / `shape` / `design`, OR
 - treats the mock as evidence above 0.5 (claims "validated" / "they want it" from an
-  artefact no one used under stakes), OR
+ artefact no one used under stakes), OR
 - starts making anything before Step 0 names the ONE moment and its reaction.
 
 ## Notes for the judge
 
 - **Absorbs, does not supersede, `prototyping-pretotyping`.** `probe-matrix` already
-  supersedes that skill on the experiment-selection axis. first-mocks takes the other
-  half — the make-craft — and reframes the fidelity ladder around "the least you can
-  build and still get a real reaction, under a no-code afternoon ceiling." Check the
-  output does not drift into experiment-selection (that is probe-matrix's job).
+ supersedes that skill on the experiment-selection axis. first-mocks takes the other
+ half — the make-craft — and reframes the fidelity ladder around "the least you can
+ build and still get a real reaction, under a no-code afternoon ceiling." Check the
+ output does not drift into experiment-selection (that is probe-matrix's job).
 - **The two kill lines are the point.** (a) jumps to code; (b) restates a design
-  skill. Golden 04 tests (a); Adversarial 02 tests (a) as a solution-in-disguise;
-  Adversarial 03 tests (b). A passing skill refuses code and routes craft out.
+ skill. Golden 04 tests (a); Adversarial 02 tests (a) as a solution-in-disguise;
+ Adversarial 03 tests (b). A passing skill refuses code and routes craft out.
 - **Mundane case (G05)** is the thinnest on `challenge` — its value is restraint (do
-  not over-escalate a which-layout question to a full v0 hybrid). Handled by Step
-  1–4 band selection and the "over-escalate the mundane" logic; a rigid judge may
-  still dock one point.
+ not over-escalate a which-layout question to a full v0 hybrid). Handled by Step
+ 1–4 band selection and the "over-escalate the mundane" logic; a rigid judge may
+ still dock one point.
 
 ## Runs
 
@@ -57,17 +63,17 @@ Auto-fail this skill if the output:
 | 3 Adversarial | PASS (3/3) | Adv01 → asks the ONE question, invents nothing (Step 0 gate). Adv02 → names code-as-credibility trap, refuses "build the real app", reframes to clickable hybrid (kill line + Gotcha 1). Adv03 → declines visual craft, routes to impeccable/shape/design, produces no palette/type/components (Step 5 + When-NOT table). |
 | 4 Head-to-head | n/a | `supersedes: none`. Skill absorbs (not supersedes) prototyping-pretotyping; probe-matrix already supersedes that on the experiment axis. Correctly distinguished. |
 | 5 Anti-generic | PASS | Golden-01 output could not come from a generic PM prompt: no-code ceiling ("code converts a disposable question into a defended commitment"), evidence ladder (0.5 artefact-shown vs 0.7 behaviour), and "how little you can build" reframe are Icarus-specific. Guidance is tabular (band table + template form), not prose. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. Not executable here. |
+| 6 Real-use | pending | Requires 5+ real builder uses. Not executable here. |
 
 ### Gate 2 per-case scores (0–5 each; pass = total ≥21 AND no dim <4)
 
 | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| G01 Azraq (full sequence) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
-| G02 Barrier (permit flow, band 4 justified) | 5 | 5 | 4 | 5 | 5 | 24 | ✓ |
-| G03 Durian (afternoon, refuse whole-workflow) | 5 | 4 | 5 | 5 | 5 | 24 | ✓ |
-| G04 Mentix (hold no-code ceiling) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| G05 Mentix settings (mundane, low band) | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
+| G01 Meridian Grid (full sequence) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
+| G02 Halcyon Safety (permit flow, band 4 justified) | 5 | 5 | 4 | 5 | 5 | 24 | ✓ |
+| G03 Larder Labs (afternoon, refuse whole-workflow) | 5 | 4 | 5 | 5 | 5 | 24 | ✓ |
+| G04 Foundry Signal (hold no-code ceiling) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| G05 Foundry Signal settings (mundane, low band) | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
 

@@ -1,13 +1,15 @@
-# Worked example — Azraq post-launch data-centre risk product
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Azraq** (data-centre / infrastructure risk). The product ships operators a live risk feed: it raises alerts (cooling, power-feed, network) and generates the quarterly site risk report. All numbers are illustrative test fixtures, not client data.
+# Worked example — Meridian Grid post-launch data-centre risk product
 
-**Fellow's ask:** "We've been live 9 weeks. Mine the logs — what are operators actually telling us? Don't give me a dashboard."
+Builder: **Meridian Grid** (data-centre / infrastructure risk). The product ships operators a live risk feed: it raises alerts (cooling, power-feed, network) and generates the quarterly site risk report. All numbers are illustrative test fixtures, not client data.
+
+**Builder's ask:** "We've been live 9 weeks. Mine the logs — what are operators actually telling us? Don't give me a dashboard."
 
 ## Set definition
 - **One trace =** one operator session (login → logout), plus every alert-interaction and report-action inside it.
-- **Window:** 9 weeks, weeks 1–9 post-launch.  ·  **Volume:** 2,140 sessions, **31 distinct operators** across 12 sites.  `[Fact]`
-- **Source:** product event log + agent run archive.  `[Fact]`
+- **Window:** 9 weeks, weeks 1–9 post-launch. · **Volume:** 2,140 sessions, **31 distinct operators** across 12 sites. `[Fact]`
+- **Source:** product event log + agent run archive. `[Fact]`
 - **Active segment:** 31 operators active in window (the whole pilot cohort).
 
 The instinct was a funnel — alert open-rate, dwell, report accept-rate. That returns metrics. Regrouped by behaviour, three interviews fall out.
@@ -20,11 +22,11 @@ The instinct was a funnel — alert open-rate, dwell, report accept-rate. That r
 
 | Field | Fill |
 |---|---|
-| **Observed behaviour** | Operators dismiss ~80% of cooling alerts in < 5s without opening detail; median time-to-dismiss 3.1s.  `[Fact]` |
+| **Observed behaviour** | Operators dismiss ~80% of cooling alerts in < 5s without opening detail; median time-to-dismiss 3.1s. `[Fact]` |
 | **Behaviour rung** | 0.7 (behaviour observed) |
 | **Distinct users** | 27 of 31 active (87%) → **pattern** |
 | **Discovery question it answers** | Which alert class do operators treat as noise, and why? |
-| **Inferred JTBD / desired outcome** | "Tell me about risks I'd act on; don't make me triage false alarms." Cooling alerts are firing on normal thermal cycling.  `[Hypothesis]` |
+| **Inferred JTBD / desired outcome** | "Tell me about risks I'd act on; don't make me triage false alarms." Cooling alerts are firing on normal thermal cycling. `[Hypothesis]` |
 | **Satisfaction signal** | Dissatisfied on the cooling-alert sub-job — the alert costs attention and returns nothing. |
 | **Other honest reading** | Could be alert-fatigue from *volume* rather than *class* — operators tuning out everything. Tested below. |
 | **Confirm-the-why probe** | Pull the 5 cooling alerts that were *not* dismissed fast; if those coincide with real thermal events, the class is mostly noise (a threshold problem), not blanket fatigue. Cheap, from existing logs. → `probe-matrix` |
@@ -35,11 +37,11 @@ The instinct was a funnel — alert open-rate, dwell, report accept-rate. That r
 
 | Field | Fill |
 |---|---|
-| **Observed behaviour** | 100% of power-feed alerts opened; 73% exported to PDF/CSV within the session; export always precedes logout.  `[Fact]` |
+| **Observed behaviour** | 100% of power-feed alerts opened; 73% exported to PDF/CSV within the session; export always precedes logout. `[Fact]` |
 | **Behaviour rung** | 0.7 |
 | **Distinct users** | 29 of 31 (94%) → **pattern** |
 | **Discovery question it answers** | What does the operator do with a power-feed alert *after* our product, and what job do we not finish? |
-| **Inferred JTBD / desired outcome** | "This is the alert I escalate. I take it to the incident bridge / facilities ticket." The export is the seam to the next job.  `[Hypothesis]` |
+| **Inferred JTBD / desired outcome** | "This is the alert I escalate. I take it to the incident bridge / facilities ticket." The export is the seam to the next job. `[Hypothesis]` |
 | **Satisfaction signal** | Served on detection, unfinished on escalation — they leave our product to act. |
 | **Other honest reading** | Export could be archival/compliance, not escalation. Distinguished by the probe. |
 | **Confirm-the-why probe** | Watch 3 exports end-to-end (screen-share) or check whether an incident ticket follows each export within an hour. → `probe-matrix` |
@@ -50,7 +52,7 @@ The instinct was a funnel — alert open-rate, dwell, report accept-rate. That r
 
 | Field | Fill |
 |---|---|
-| **Observed behaviour** | 94% of generated quarterly reports accepted with zero edits before sign-off; median review dwell 40s on a 6-page report.  `[Fact]` |
+| **Observed behaviour** | 94% of generated quarterly reports accepted with zero edits before sign-off; median review dwell 40s on a 6-page report. `[Fact]` |
 | **Behaviour rung** | 0.7 on the *behaviour* (they accepted). **Not** 0.7 on "the product is trusted." |
 | **Distinct users** | 22 of 31 (the report-signers) → pattern-sized, but see reading |
 | **Discovery question it answers** | Did the report earn trust, or did signers stop checking? |

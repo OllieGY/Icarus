@@ -1,5 +1,11 @@
 # Eval log — explicit-vs-tacit-capture
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -31,18 +37,18 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 2 Golden | PASS (5/5) | Per-case totals below. |
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner: Method step 1 + template §0 force the ONE unblocking question, invent-nothing rule holds. 02 solution-in-disguise: Gotchas "we just need to write the SOP" names the trap (documenting = capturing the commodity) and reframes. 03 out-of-scope: description NOT-clause + When-NOT table decline and name `tacit-knowledge-interview`, confirm the row is a placeholder, do not design the watch session. No fabrication, no flattery, no scope-poach. |
 | 4 Head-to-head | n/a | `supersedes: none`. |
-| 5 Anti-generic | PASS | Golden 01 output reclassifies the artefact the fellow is proudest of (the rubric) as the commodity and names the buried clustering-override as the moat — driven by the evidence ladder (1.0/0.7/0.5/0.3/0.1), the ≥0.5 captured bar, and the pseudo-explicit split rule. A generic PM prompt produces none of these; the reframe is load-bearing, not decoration. No guidance that should be tabular is buried in prose (classifier, seams, ladder, ledger are all tables). |
-| 6 Real-use | pending | requires 5+ real fellow uses |
+| 5 Anti-generic | PASS | Golden 01 output reclassifies the artefact the builder is proudest of (the rubric) as the commodity and names the buried clustering-override as the moat — driven by the evidence ladder (1.0/0.7/0.5/0.3/0.1), the ≥0.5 captured bar, and the pseudo-explicit split rule. A generic PM prompt produces none of these; the reframe is load-bearing, not decoration. No guidance that should be tabular is buried in prose (classifier, seams, ladder, ledger are all tables). |
+| 6 Real-use | pending | requires 5+ real builder uses |
 
 ### Gate 2 per-case scores (rubric: /25, pass ≥21, no dim <4)
 
 | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| 01 Azraq risk assessor | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 02 Barrier permit sign-off | 5 | 5 | 5 | 4 | 4 | 23 | ✓ |
-| 03 Mentix copilot (captured tacit) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
-| 04 Durian triage (mundane) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| 05 Barrier field manual (kill-inverse) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 01 Meridian Grid risk assessor | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 02 Halcyon Safety permit sign-off | 5 | 5 | 5 | 4 | 4 | 23 | ✓ |
+| 03 Foundry Signal copilot (captured tacit) | 5 | 5 | 5 | 4 | 5 | 24 | ✓ |
+| 04 Larder Labs triage (mundane) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| 05 Halcyon Safety field manual (kill-inverse) | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
 
 Kill line checked on every case: **no judgment call filed in the explicit column**. Golden 01 splits the "sanity-check" step into 3a(E)/3b(T); Golden 05 splits the four soft steps ("consistent/concerning/appropriate/off") instead of accepting them as explicit; Golden 04 refuses to manufacture tacit forks for a genuinely thin-moat task. The tacit half is named as the moat in all five verdicts. No auto_fail triggered (no fabricated numbers beyond the fixtures' own material; challenges rather than flatters; stays in scope).
 

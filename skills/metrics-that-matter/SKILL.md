@@ -1,18 +1,20 @@
 ---
 name: metrics-that-matter
 description: >-
-  Fires when a fellow asks which numbers matter for a launched product —
-  "what metrics should we track", "what should our North Star be", "is our
-  retention any good / does the curve flatten", "our MAU is up-and-to-the-right,
-  is that real or vanity", "what's our cost per outcome". Returns a metric
-  scorecard: one customer-centric North Star, an AARRR one-metric skeleton, the
-  flattening-retention truth test that GATES the North Star, and cost-per-outcome
-  priced to the cent. Do NOT fire to design the post-launch improvement loop or
-  promote autonomy (use refine-flywheel), to turn production traces into discovery
-  interviews (use trace-to-interview), or to build the actual cohort dashboard,
-  SQL, or alert thresholds (use the M9 retention-dashboard / cohort-analysis skills).
-type: generator
-supersedes: none
+ Fires when a builder asks which numbers matter for a launched product —
+ "what metrics should we track", "what should our North Star be", "is our
+ retention any good / does the curve flatten", "our MAU is up-and-to-the-right,
+ is that real or vanity", "what's our cost per outcome". Returns a metric
+ scorecard: one customer-centric North Star, an AARRR one-metric skeleton, the
+ flattening-retention truth test that GATES the North Star, and cost-per-outcome
+ priced to the cent. Do NOT fire to design the post-launch improvement loop or
+ promote autonomy (use refine-flywheel), to turn production traces into discovery
+ interviews (use trace-to-interview), or to build the actual cohort dashboard,
+ SQL, or alert thresholds (use a retention-dashboard or cohort-analysis skill).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 # Metrics That Matter
@@ -22,15 +24,15 @@ supersedes: none
 Turns "what should we measure?" into a one-page scorecard with a single North Star, an
 AARRR skeleton, a retention curve that must flatten, and a cost-per-outcome to the cent.
 This is a thin wrapper: it does not re-teach the North Star framework, AARRR, cohorts, or
-unit economics — those live in the M9 retention pack and are routed to, not restated. Its
+unit economics — those live in an external analytics pack and are routed to, not restated. Its
 whole job is the two things the generic frameworks skip: it treats the **flattening
 retention curve as a gate** the North Star must pass before it counts, and it forces a
 **cost-per-outcome** because an AI product pays a variable cost per outcome that can invert
 the margin as volume grows.
 
-## The Icarus reframe
+## The reframe
 
-Most metric frameworks let a fellow name a North Star and stop. Icarus says the North Star
+Most metric frameworks let a builder name a North Star and stop. Icarus says the North Star
 is a lie until the retention curve flattens: a cohort curve that decays toward zero means
 no product-market fit, and any headline number rising above it is rising on acquisition
 spend, not on a product people come back to. Retention is the truth; everything else is
@@ -40,17 +42,17 @@ as volume scales, not just that the outcome count goes up.
 
 ## When to use / When NOT
 
-Use when: a product is live and the fellow needs to pick the few numbers that matter; a
-headline metric looks great and the fellow wants to know if it is real; a North Star has
+Use when: a product is live and the builder needs to pick the few numbers that matter; a
+headline metric looks great and the builder wants to know if it is real; a North Star has
 been proposed and needs the retention gate and a cost check before it is adopted.
 
 | Not this skill | Use instead | Why |
 |---|---|---|
 | "Design the after-launch loop — ship, observe, promote autonomy by eval" | `refine-flywheel` | That is the improvement cadence. This picks and validates the metrics the loop watches; it does not run the loop. |
 | "Mine our production traces / turn usage logs into discovery interviews" | `trace-to-interview` | That reads traces as discovery. This scores metrics; a trace is not a metric. |
-| "Build the cohort dashboard, write the SQL, set the alert thresholds" | `retention-dashboard`, `cohort-analysis`, `analytics-tracking` (M9) | Those render and instrument. This decides what to render and applies the truth test; route the build there. |
-| "Validate a North Star against the 7 NSM criteria / classify the business game" | `north-star-metric` (M9) | That is the framework. This calls it once, then adds the retention gate and cost-per-outcome it lacks. |
-| "Work out CAC, LTV, payback, contribution margin" | `financial-unit-economics` (M9) | That is full unit economics. This needs only cost-per-outcome and margin-per-outcome; route the rest there. |
+| "Build the cohort dashboard, write the SQL, set the alert thresholds" | `retention-dashboard`, `cohort-analysis`, `analytics-tracking` (external) | Those render and instrument. This decides what to render and applies the truth test; route the build there. |
+| "Validate a North Star against the 7 NSM criteria / classify the business game" | `north-star-metric` (external) | That is the framework. This calls it once, then adds the retention gate and cost-per-outcome it lacks. |
+| "Work out CAC, LTV, payback, contribution margin" | `financial-unit-economics` (external) | That is full unit economics. This needs only cost-per-outcome and margin-per-outcome; route the rest there. |
 
 If the input names no product and no outcome, do not invent metrics. Ask the one question
 that unblocks it — what single outcome does this product deliver for the customer? — or
@@ -62,7 +64,7 @@ Copy this checklist:
 
 ```
 Metrics That Matter progress:
-- [ ] Step 1: Name the business game and the one North Star (route the framework to M9)
+- [ ] Step 1: Name the business game and the one North Star (route the framework to an external analytics pack)
 - [ ] Step 2: Fill the AARRR skeleton — one metric per stage, retention load-bearing
 - [ ] Step 3: Run the retention truth test — classify the curve, gate the North Star
 - [ ] Step 4: Price cost-per-outcome to the cent and check margin direction at scale
@@ -72,7 +74,7 @@ Metrics That Matter progress:
 
 **Step 1 — game and North Star.** Classify Attention / Transaction / Productivity and pick
 ONE customer-centric outcome as the North Star. Do not restate the 7 criteria — route to
-`north-star-metric` (M9). This skill adds two hard rules: the North Star must be an
+`north-star-metric` (external). This skill adds two hard rules: the North Star must be an
 **outcome the customer receives** (a resolved hazard, an accepted draft), never an output
 you emit (alerts sent) or an activity total (logins); and it is provisional until Step 3.
 
@@ -146,29 +148,29 @@ a survey, an NPS, or "users say they love it" is **opinion (0.1)** and cannot pa
 no matter how high the number. The bar: the North Star is adopted only when a real cohort
 curve has flattened (≥ 0.7) and cost-per-outcome is a `[Fact]` computed from real usage,
 not an estimate. Tag every number `[Fact]`, `[Assumption]`, or `[Hypothesis]`; invent none
-the fellow did not give.
+the builder did not give.
 
 ## Gotchas
 
 - **The up-and-to-the-right lie.** MAU, cumulative users, and total outcomes almost always
-  rise — they are fed by acquisition and can climb while every cohort churns out. Without
-  the cohort curve you cannot tell growth from a leak. Always cut the headline into cohorts
-  before believing it.
+ rise — they are fed by acquisition and can climb while every cohort churns out. Without
+ the cohort curve you cannot tell growth from a leak. Always cut the headline into cohorts
+ before believing it.
 - **North Star as output, not outcome.** "Alerts sent", "documents generated", "messages
-  processed" measure what the machine emits, not what the customer got. They flatter the
-  team and can rise while the product helps no one. Reframe to the received outcome (hazard
-  resolved, draft accepted).
+ processed" measure what the machine emits, not what the customer got. They flatter the
+ team and can rise while the product helps no one. Reframe to the received outcome (hazard
+ resolved, draft accepted).
 - **The margin that inverts at scale.** Outcome count going up while cost-per-outcome
-  quietly overtakes value-per-outcome is the AI-native failure mode. A curve of value with
-  no curve of cost beside it hides it. Price the outcome to the cent and watch the
-  direction, not just the level.
+ quietly overtakes value-per-outcome is the AI-native failure mode. A curve of value with
+ no curve of cost beside it hides it. Price the outcome to the cent and watch the
+ direction, not just the level.
 - **Retention with no denominator of use.** "90% retention" of accounts that never
-  activated is meaningless. Retention must be of the cohort that reached the first outcome,
-  measured on the outcome itself — otherwise it is a billing artefact, not behaviour.
+ activated is meaningless. Retention must be of the cohort that reached the first outcome,
+ measured on the outcome itself — otherwise it is a billing artefact, not behaviour.
 
 ## Examples
 
-[examples/sample.md](examples/sample.md) — Durian Labs' shift-handover drafter: the
+[examples/sample.md](examples/sample.md) — Larder Labs' shift-handover drafter: the
 proposed North Star ("documents drafted", a vanity total) reframed to accepted handovers
 per active team per week, gated by a team-level retention curve that flattens at ~55% by
 week 8, with cost-per-outcome priced at $0.14 against a $2.00 price, margin holding as
@@ -177,17 +179,17 @@ volume grows.
 ## Related skills
 
 - `refine-flywheel` — the after-launch loop that acts on these metrics (observe → learn →
-  refine). This skill chooses and validates the numbers the loop watches; it does not run
-  the loop.
+ refine). This skill chooses and validates the numbers the loop watches; it does not run
+ the loop.
 - `trace-to-interview` — reads production traces as discovery. Composes with this: the
-  retention truth test says *whether* the product works; trace-mining says *why* users
-  churn out of the tail.
+ retention truth test says *whether* the product works; trace-mining says *why* users
+ churn out of the tail.
 - `north-star-metric`, `retention-dashboard`, `metrics-dashboard`, `cohort-analysis`,
-  `financial-unit-economics` (M9 retention pack) — the depth this wrapper routes to for the
-  NSM framework, the dashboard build, cohort mechanics, and unit economics. This skill's
-  net-new over all of them is the flattening-retention gate and cost-per-outcome to the cent.
+ `financial-unit-economics` (external) — the depth this wrapper routes to for the
+ NSM framework, the dashboard build, cohort mechanics, and unit economics. This skill's
+ net-new over all of them is the flattening-retention gate and cost-per-outcome to the cent.
 - `value-based-pricing` — sets price per outcome; this checks cost per outcome sits under it.
 - `guardrail-design` (07) — when a failure mode's cost-of-error is a safety or regulatory cost
-  (a missed hazard, a breach), that cost sizes the *guardrail*, not the scorecard. Route it there;
-  this skill stays on cost- and value-per-outcome (see golden 03: Barrier's cost-of-a-missed-hazard).
+ (a missed hazard, a breach), that cost sizes the *guardrail*, not the scorecard. Route it there;
+ this skill stays on cost- and value-per-outcome (see golden 03: Halcyon Safety's cost-of-a-missed-hazard).
 - Supersedes nothing. It is the truth-test gate at the metrics step of the refine stage.

@@ -1,30 +1,32 @@
 ---
 name: unserved-needs-finder
 description: >-
-  Ranks what a customer actually needs by onioning each stated need to a tech-invariant core,
-  sorting the survivors with Kano (must / performance / delighter), and returning the one durable,
-  under-served need that will still be a need after the technology turns over. Fires on "what do
-  they really need", "find the unmet need", "which need should we prioritise", "what's the real
-  need under this feature request", or when a fellow hands you a list of "needs" that are mostly
-  features and wants the durable one ranked out. Outputs a filled prioritised need map: candidate
-  needs → solution-strip → onion-to-core → tech-invariance gate → Kano bands → one ranked wedge
-  need with its unserved evidence. NOT for naming WHO holds the need or their budget (use
-  user-buyer-decider-map), NOT for reducing the whole job to its currencies (use
-  job-in-primitives), NOT for scoring whether the whole idea is worth building (use
-  so-what-stress-test).
-type: generator
-supersedes: none
+ Ranks what a customer actually needs by onioning each stated need to a tech-invariant core,
+ sorting the survivors with Kano (must / performance / delighter), and returning the one durable,
+ under-served need that will still be a need after the technology turns over. Fires on "what do
+ they really need", "find the unmet need", "which need should we prioritise", "what's the real
+ need under this feature request", or when a builder hands you a list of "needs" that are mostly
+ features and wants the durable one ranked out. Outputs a filled prioritised need map: candidate
+ needs → solution-strip → onion-to-core → tech-invariance gate → Kano bands → one ranked wedge
+ need with its unserved evidence. NOT for naming WHO holds the need or their budget (use
+ user-buyer-decider-map), NOT for reducing the whole job to its currencies (use
+ job-in-primitives), NOT for scoring whether the whole idea is worth building (use
+ so-what-stress-test).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Unserved Needs Finder
 
 ## What it does
-Takes a fellow's list of customer "needs" — usually a mix of real needs, disguised solutions, and tech capabilities — and returns one ranked map. It strips the solution and capability words off each entry, onions what remains down to a core that would still be a need if the technology were completely different, classifies the survivors with Kano (must-have / performance / delighter), and names the single durable, under-served **performance** need that is the wedge. The output is a filled prioritised need map ([template.md](template.md)) that also kills the disguised solutions, flags the unmet must-haves as table stakes, and marks any delighter as decaying. It finds the need that survives when the model does not.
+Takes a builder's list of customer "needs" — usually a mix of real needs, disguised solutions, and tech capabilities — and returns one ranked map. It strips the solution and capability words off each entry, onions what remains down to a core that would still be a need if the technology were completely different, classifies the survivors with Kano (must-have / performance / delighter), and names the single durable, under-served **performance** need that is the wedge. The output is a filled prioritised need map ([template.md](template.md)) that also kills the disguised solutions, flags the unmet must-haves as table stakes, and marks any delighter as decaying. It finds the need that survives when the model does not.
 
-## The Icarus reframe
-Generic JTBD produces a tidy nine-box of jobs, pains, and gains and stops. That list is not decisive, and it does not protect you from the two ways a "need" is fake. First, a stated need is often a pre-chosen solution ("they need a dashboard") — a dashboard is a thing you would build, not a thing they need. Second, and worse for a studio building on frontier models, a stated need is often a tech capability ("they need real-time anomaly detection", "they need a bigger context window"). A capability is a property of a solution, and it evaporates on the next model release — you cannot own a need that the platform commoditises in a quarter. So this skill adds two gates JTBD has no equivalent of: an onion that peels every solution and capability word off, and a tech-invariance test that keeps only needs still true if you solved them with paper, a clerk, or a model three generations away. Then Kano sorts the survivors — because the wedge is a specific band. Unmet must-haves are table stakes; you fix them but they never win. Delighters decay to must-haves as competitors copy them, and the ones built on a novel capability decay fastest. The wedge is the under-served performance need: the one customers already pay a workaround to half-meet, that gets better the more you meet it, and that will still be a need after the tech turns over.
+## The reframe
+Generic JTBD produces a tidy nine-box of jobs, pains, and gains and stops. That list is not decisive, and it does not protect you from the two ways a "need" is fake. First, a stated need is often a pre-chosen solution ("they need a dashboard") — a dashboard is a thing you would build, not a thing they need. Second, and worse for a team building on frontier models, a stated need is often a tech capability ("they need real-time anomaly detection", "they need a bigger context window"). A capability is a property of a solution, and it evaporates on the next model release — you cannot own a need that the platform commoditises in a quarter. So this skill adds two gates JTBD has no equivalent of: an onion that peels every solution and capability word off, and a tech-invariance test that keeps only needs still true if you solved them with paper, a clerk, or a model three generations away. Then Kano sorts the survivors — because the wedge is a specific band. Unmet must-haves are table stakes; you fix them but they never win. Delighters decay to must-haves as competitors copy them, and the ones built on a novel capability decay fastest. The wedge is the under-served performance need: the one customers already pay a workaround to half-meet, that gets better the more you meet it, and that will still be a need after the tech turns over.
 
 ## When to use / When NOT
-Use it once you have a segment and a handful of candidate needs (from interviews, observed workarounds, or the fellow's own list) and you need the durable one ranked out before anyone designs a solution.
+Use it once you have a segment and a handful of candidate needs (from interviews, observed workarounds, or the builder's own list) and you need the durable one ranked out before anyone designs a solution.
 
 | Situation | Use this? | Go to |
 |---|---|---|
@@ -84,7 +86,7 @@ A "no" is the KILL line for a tech-capability-as-need. Kano alone will not catch
 **Step 7 — Evidence the pick (§6).** The "unserved" claim on the top need is a claim about a gap, and it must sit at ≥ 0.5 to be actionable — a workaround you can point to, or money leaking to a substitute. If it sits below that, return the need as a `[Hypothesis]` plus the single cheapest observation that would confirm the gap is real.
 
 ## Evidence standard
-Icarus weights behaviour and money over opinion. "Unserved" is the load-bearing word here, and it is a claim about a gap — so it needs gap evidence, not agreement. The strongest proof a need is real AND unmet is money leaking to a workaround; the weakest is the fellow's belief that customers would like it.
+Icarus weights behaviour and money over opinion. "Unserved" is the load-bearing word here, and it is a claim about a gap — so it needs gap evidence, not agreement. The strongest proof a need is real AND unmet is money leaking to a workaround; the weakest is the builder's belief that customers would like it.
 
 | Proof the need is real and unserved | Ladder weight |
 |---|---|
@@ -92,19 +94,19 @@ Icarus weights behaviour and money over opinion. "Unserved" is the load-bearing 
 | They built a workaround you can watch them use (a spreadsheet, a whiteboard, a checklist) | 0.7 |
 | They show you the workaround artefact | 0.5 |
 | They say "yes, I would want that" | 0.3 |
-| The fellow believes they need it | 0.1 |
+| The builder believes they need it | 0.1 |
 
 A need supported only at 0.3 or below is not an unserved need — it is a hope. The skill returns it as a `[Hypothesis]` with the cheapest observation to move it up the ladder, and it never ranks a hope above a workaround. If the whole input sits at 0.1, the skill declares it **not ready** and names the fix: watch one customer do the job once, and find what they reach for when the current tool stops helping.
 
 ## Gotchas
-- **The comfortable need is a delighter.** Fellows fall for the surprising demo feature because it demos well. But delighters decay — competitors copy them and they slide to must-have — and delighters built on a novel capability decay in a quarter. If the wedge lands on a delighter, you are building on ground that erodes. Force the performance need out.
-- **"Unserved" is not the same as "unspoken".** A need can be loudly complained about and still served — they cope, the substitute is adequate, nobody switches. Unserved means the gap is evidenced by a workaround or a money leak, not that the fellow has not heard anyone mention it.
+- **The comfortable need is a delighter.** Builders fall for the surprising demo feature because it demos well. But delighters decay — competitors copy them and they slide to must-have — and delighters built on a novel capability decay in a quarter. If the wedge lands on a delighter, you are building on ground that erodes. Force the performance need out.
+- **"Unserved" is not the same as "unspoken".** A need can be loudly complained about and still served — they cope, the substitute is adequate, nobody switches. Unserved means the gap is evidenced by a workaround or a money leak, not that the builder has not heard anyone mention it.
 - **Over-peeling dissolves the need into a platitude.** "They need to feel safe / make money / save time" is true of every human and directs nothing. Stop the onion at the last layer that still discriminates this segment's job from another's. If the core need would fit any business on earth, you peeled one layer too far.
 - **A capability can pass Kano and still be a fake need.** "Faster processing" reads like a performance need (more is better, less is worse) and will sail through the Kano test. The tech-invariance gate is the only thing that catches it — run Step 4 before Step 5, always, or the disguised capability ranks as your wedge.
-- **Two stated needs often share one core.** Fellows list the same need twice in different solution costumes. Merge them at Step 6 or you will inflate a single need into a phantom pattern.
+- **Two stated needs often share one core.** Builders list the same need twice in different solution costumes. Merge them at Step 6 or you will inflate a single need into a phantom pattern.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Mentix's factory-manager needs, run end to end: "an AI copilot" and "real-time anomaly alerts" both peel away (one a solution, one a capability that fails tech-invariance), and the durable, under-served performance need surfaces — deciding which of several simultaneous emerging faults to send the one available technician to before a line stops — evidenced by the managers' manual tribal-knowledge whiteboard (behaviour, 0.7).
+- [examples/sample.md](examples/sample.md) — Foundry Signal's factory-manager needs, run end to end: "an AI copilot" and "real-time anomaly alerts" both peel away (one a solution, one a capability that fails tech-invariance), and the durable, under-served performance need surfaces — deciding which of several simultaneous emerging faults to send the one available technician to before a line stops — evidenced by the managers' manual tribal-knowledge whiteboard (behaviour, 0.7).
 
 ## Related skills
 - Absorbs `discovery/jobs-to-be-done`: it keeps that framework's one durable instinct — separate the job from the solution, and look past functional needs to social and emotional ones — and drops the unranked nine-box list. Where JTBD ends in a wishlist, this ends in one ranked map with a single wedge need, the disguised solutions and capabilities killed, and the musts and delighters labelled. It beats JTBD by being decisive (it returns the one need) and durable by construction (the tech-invariance gate JTBD has no analogue of).

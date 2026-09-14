@@ -1,7 +1,7 @@
-# Evidence ladder — <fellow / product>
+# Evidence ladder — <builder / product>
 
 **Core claim (the load-bearing one, mark exactly one):** <e.g. "target X will pay for Y">
-**Signals weighed:** <n>   **Date:** <yyyy-mm-dd>
+**Signals weighed:** <n> **Date:** <yyyy-mm-dd>
 
 ## The ladder (canonical — do not alter the weights)
 

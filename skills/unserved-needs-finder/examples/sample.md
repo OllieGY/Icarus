@@ -1,14 +1,16 @@
-# Worked example — Mentix, factory-manager needs
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Mentix** (industrial AI, factory/plant operations). All numbers and details are illustrative test fixtures, not client data.
+# Worked example — Foundry Signal, factory-manager needs
 
-**Fellow's question:** "Here's what plant managers need. Which one do we build first?"
+Builder: **Foundry Signal** (industrial AI, factory/plant operations). All numbers and details are illustrative test fixtures, not client data.
+
+**Builder's question:** "Here's what plant managers need. Which one do we build first?"
 
 ## 0. Candidate needs (as stated)
 | # | Need as stated | Source | Ladder weight | Tag |
 |---|---|---|---|---|
-| 1 | "An AI copilot on the floor they can ask anything" | fellow's pitch | 0.1 | `[Hypothesis]` |
-| 2 | "Real-time anomaly alerts on every machine" | fellow's pitch | 0.1 | `[Hypothesis]` |
+| 1 | "An AI copilot on the floor they can ask anything" | builder's pitch | 0.1 | `[Hypothesis]` |
+| 2 | "Real-time anomaly alerts on every machine" | builder's pitch | 0.1 | `[Hypothesis]` |
 | 3 | "To reduce unplanned downtime" | two shift managers, interview | 0.3 | `[Assumption]` |
 | 4 | "When three alarms fire at once, to know which machine gets the one technician on shift" | observed on a live floor; managers keep a hand-written 'which alarm matters' whiteboard | 0.7 | `[Fact]` |
 | 5 | "An auto-generated shift report for the plant director" | one manager | 0.3 | `[Assumption]` |
@@ -70,5 +72,5 @@ Merged: rows 2, 3, 4 → one performance need (noted). Killed: #1 "AI copilot" (
 - **Table stakes (unmet musts):** alerts accurate enough to trust — fix it, but it will not win the account.
 - **Do not anchor here (delighters):** the auto-generated shift report — pleasant, copied fast, decaying.
 - **Solutions/capabilities killed:** "an AI copilot" (an interface, not a need) and "real-time anomaly detection" (a capability the platform commoditises).
-- **The challenge to the fellow:** your two headline needs are the two fake kinds. "Copilot" is a solution and "real-time anomaly detection" is a capability that fails the durability test — build either and you have built something the next model release erodes. The need you can own is the one you did not pitch: the allocation call, evidenced by a whiteboard the managers built themselves. Build the ranked-by-cost allocation, not the copilot.
+- **The challenge to the builder:** your two headline needs are the two fake kinds. "Copilot" is a solution and "real-time anomaly detection" is a capability that fails the durability test — build either and you have built something the next model release erodes. The need you can own is the one you did not pitch: the allocation call, evidenced by a whiteboard the managers built themselves. Build the ranked-by-cost allocation, not the copilot.
 - **What would change this read:** if pricing the whiteboard shows wrong calls cost little (the faults are cheap, or the tech is rarely the bottleneck), the wedge is thin and the real need may be the trusted alert after all; if managers turn out to trust their gut over any ranking, the allocation need is served by habit and unserved-evidence drops below 0.5.

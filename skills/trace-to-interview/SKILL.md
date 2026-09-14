@@ -1,27 +1,26 @@
 ---
 name: trace-to-interview
 description: >-
-  Turns a set of production traces into discovery interviews — recovering, for each behaviour
-  pattern, the discovery question the user answered by acting instead of talking. Fires on "learn
-  from usage", "mine the logs", "what are our production traces telling us", "turn usage data into
-  discovery", "what are users saying in the logs". Outputs a trace-interview log: one card per
-  behaviour pattern with the observed behaviour [Fact, 0.7], the discovery question it answers,
-  the inferred JTBD/satisfaction signal [Hypothesis], distinct-user weight, the confirm-the-why
-  probe, and the cost of the scheduled interview it replaced — routed to
-  continuous-discovery-engine as a feed-2 signal. NOT the AARRR/retention/North-Star scorecard
-  (use metrics-that-matter — that keeps the number; this recovers the question behind it), NOT
-  structuring a recorded human interview transcript (use summarize-interview — that is words at
-  0.3; this is behaviour at 0.7), NOT standing up the whole three-feed discovery loop and its
-  cadence (use continuous-discovery-engine — this decodes one feed and hands the cards up).
-type: generator
-supersedes: none
+  Turns production traces into discovery interviews, recovering for each behaviour pattern the
+  question the user answered by acting instead of talking. Fires on "learn from usage", "mine the
+  logs", "what are our production traces telling us", "turn usage data into discovery", "what are
+  users saying in the logs". Outputs one card per pattern: the observed behaviour [Fact, 0.7], the
+  discovery question it answers, the inferred job [Hypothesis], distinct-user weight, the
+  confirm-the-why probe, and the cost of the scheduled interview it replaced. NOT the retention
+  scorecard (use `metrics-that-matter`), NOT a recorded transcript summary (use
+  `summarize-interview` — words are 0.3, this is behaviour at 0.7), NOT the whole three-feed loop
+  (use `continuous-discovery-engine`).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Trace to Interview
 
 ## What it does
 Reads production traces as interviews that already happened. For each pattern of what users actually did — retried, edited before accepting, exported and left, abandoned at step three — it recovers the discovery question the behaviour answers and the job behind it, then writes it up as an interview card ([template.md](template.md)). The output is a trace-interview log: one card per pattern carrying the observed behaviour `[Fact]` at behaviour-rung 0.7, the discovery question it answers, the inferred JTBD and satisfaction signal `[Hypothesis]`, how many distinct users produced it, the probe that confirms the why, and what the equivalent scheduled interview would have cost. Each card routes to `continuous-discovery-engine` as a feed-2 signal. It is not a funnel, not a metrics dashboard, and not a transcript summary.
 
-## The Icarus reframe
+## The reframe
 Generic log-mining counts events and draws a funnel: how many, how often, where they drop. That returns metrics, and a metric tells you *what* happened while hiding *why*. The Icarus move is that every production trace is a customer interview that already happened — the user answered a discovery question through behaviour instead of words, for free, with no calendar invite. A retry is the user saying "that wasn't what I meant." An edit-before-accept is "close, but wrong here." An export-then-leave is "I'll finish this elsewhere." The trace is both cheaper *and* more truthful than the interview it replaces: it sits at behaviour 0.7, a rung above what a person *says* they do (verbal 0.3), and its marginal cost is the triage minutes rather than a recruit, an incentive, and two weeks of lead time. That is the exact reason launch is when discovery gets cheap, not when it ends.
 
 ## When to use / When NOT
@@ -42,7 +41,7 @@ This skill decodes one feed — production traces — into interviews and stops.
 ## Method
 Fill `template.md` as you go. Do not narrate; fill the cards. Every claim carries a tag: `[Fact]` (what the trace literally shows — a behaviour, always 0.7 or higher), `[Assumption]` (a stated, defensible reading), `[Hypothesis]` (an inferred *why* not yet confirmed). The single discipline of this skill: separate what the user *did* (behaviour, 0.7) from what you think it *means* (inference, ≤ 0.3 until a probe lands).
 
-**Step 1 — Define one trace and pull the set.** State the unit: one session, one task attempt, one agent run, one document produced. State the window and the volume. If the fellow cannot hand over real traces (even ten pasted rows), stop and ask for them. Invent no patterns.
+**Step 1 — Define one trace and pull the set.** State the unit: one session, one task attempt, one agent run, one document produced. State the window and the volume. If the builder cannot hand over real traces (even ten pasted rows), stop and ask for them. Invent no patterns.
 
 **Step 2 — Segment by behaviour, not by event count.** Group traces by the *shape* of what the user did, not by raw counts. "Retries up 12%" is a metric; "users re-run the same input with reworded parameters until it passes" is a behaviour pattern. This regrouping is the anti-metric move — do it before anything else.
 
@@ -94,11 +93,11 @@ A trace is behaviour observed, so *what happened* sits at 0.7 the moment it is i
 - **Optimising the number instead of answering the question.** "Reduce the retry rate" can be achieved by hiding the retry button — which suppresses the interview without ever learning what the retries were telling you. Recover the question first; only then decide whether the behaviour is a defect to remove or a demand to serve.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Azraq's post-launch data-centre risk product: three trace patterns decoded into interview cards (cooling-alert dismissals in <5s = "this alert is noise"; power-feed alerts always opened and exported = "this one goes to my next job"; report accept-unedited at 94% = trust *or* rubber-stamp, ambiguity named with its probe), each weighted by distinct operators, priced against the interview it replaced, and routed as feed-2 signals — the same loop turn `continuous-discovery-engine`'s example consumes.
+- [examples/sample.md](examples/sample.md) — Meridian Grid's post-launch data-centre risk product: three trace patterns decoded into interview cards (cooling-alert dismissals in <5s = "this alert is noise"; power-feed alerts always opened and exported = "this one goes to my next job"; report accept-unedited at 94% = trust *or* rubber-stamp, ambiguity named with its probe), each weighted by distinct operators, priced against the interview it replaced, and routed as feed-2 signals — the same loop turn `continuous-discovery-engine`'s example consumes.
 
 ## Related skills
 - `continuous-discovery-engine` — consumes each card as its feed-2 (production-traces, behaviour 0.7) signal. That skill owns the tree, the three feeds, the synthesis owner, and the cadence; this one decodes the trace feed into interviews and hands the cards up. Run this to supply that.
-- `summarize-interview` — absorbed and reframed, not superseded. That skill structures a *recorded human interview* (words, verbal 0.3) into JTBD, satisfaction, and action items; this one applies the same JTBD/satisfaction spine to *behaviour* (0.7), reconstructing the interview a trace already is. If the fellow has an actual transcript, route there; if they have logs, use this.
+- `summarize-interview` — absorbed and reframed, not superseded. That skill structures a *recorded human interview* (words, verbal 0.3) into JTBD, satisfaction, and action items; this one applies the same JTBD/satisfaction spine to *behaviour* (0.7), reconstructing the interview a trace already is. If the builder has an actual transcript, route there; if they have logs, use this.
 - `metrics-that-matter` — the complement, not the overlap. That skill keeps the number (AARRR, the retention curve that must flatten, cost-per-outcome); this refuses to stop at the number and recovers the discovery question underneath it. Run both: one guards the scorecard, one mines the meaning.
 - `probe-matrix` — receives any card whose *why* is still `[Hypothesis]`, and routes it to the cheapest honest probe that would confirm the intent.
 - `refine-flywheel` — sets the post-launch cadence (ship behind sign-off → observe → learn → refine); this is the "observe" step's decoder, turning what you observe into questions.

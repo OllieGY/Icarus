@@ -1,24 +1,27 @@
 ---
 name: icarus-golden-rules
 description: >-
-  Loads the Icarus golden rules — the evidence ladder (money 1.0 / behaviour 0.7 /
-  artefact 0.5 / commitment 0.3 / opinion 0.1), the [Fact]/[Assumption]/[Hypothesis]
-  tag rule, the five challenge questions, the 21/25 rubric and its four auto-fails —
-  before any product judgement is made. Fires on "what are the rules", "how do we
-  score this", "is this up to standard", "review this against our method", "did this
-  skill do its job", and whenever an output is about to claim something is validated,
-  de-risked, or ready. NOT the router for which stage to run (use fellow-path-router),
-  NOT a weighting of one evidence pile (use evidence-ladder), NOT the whole-idea
-  five-question gate (use so-what-stress-test).
-type: component
-supersedes: none
+ Loads the Icarus golden rules — the evidence ladder (money 1.0 / behaviour 0.7 /
+ artefact 0.5 / commitment 0.3 / opinion 0.1), the [Fact]/[Assumption]/[Hypothesis]
+ tag rule, the five challenge questions, the 21/25 rubric and its four auto-fails —
+ before any product judgement is made. Fires on "what are the rules", "how do we
+ score this", "is this up to standard", "review this against our method", "did this
+ skill do its job", and whenever an output is about to claim something is validated,
+ de-risked, or ready. NOT the router for which stage to run (use start-here-router),
+ NOT a weighting of one evidence pile (use evidence-ladder), NOT the whole-idea
+ five-question gate (use so-what-stress-test).
+metadata:
+ supersedes: none
+ type: component
+allowed-tools: Read Glob Grep Write
+user-invocable: false
 ---
 
 # Icarus Golden Rules
 
 ## What it does
 
-Puts the studio's method in front of Claude before it judges anything. Read
+Puts this kit's method in front of Claude before it judges anything. Read
 [`GOLDEN_RULES.md`](../../GOLDEN_RULES.md) in full, then apply the ten rules to whatever is being
 produced or reviewed. This skill is a component: other skills and agents cite it, it
 produces no artifact of its own.
@@ -26,7 +29,7 @@ produces no artifact of its own.
 ## When it fires
 
 Any time an output is about to assert quality, validation, or readiness. Any time
-someone asks how the studio scores something. Any time a skill's own output needs
+someone asks how your team scores something. Any time a skill's own output needs
 grading before it leaves the room.
 
 ## The load-bearing four
@@ -64,4 +67,4 @@ A grade that says "looks good, minor notes" has failed the `challenge` dimension
 
 - Do not let a single payment launder a stack of opinion by averaging the pile.
 - A free one-click sign-up is 0.3, not 0.7. A reaction to a mockup you made is 0.1, not 0.5.
-- A fellow saying "we're de-risked" is itself an opinion (0.1) until the ladder says otherwise.
+- A builder saying "we're de-risked" is itself an opinion (0.1) until the ladder says otherwise.

@@ -1,15 +1,23 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "icarus",
-  "description": "Utopia Studio's Product Management hub. The 45 eval-gated Icarus skills, the golden rules they run on, starter agents, tools, and an append-only lessons log. Takes a raw idea from first-principles problem to a scored, pilot-ready v1.",
-  "version": "0.1.0",
+  "displayName": "Icarus",
+  "description": "An eval-gated method for building AI-native products. 52 skills that take a raw idea from first-principles problem to a scored, shipped v1 — evidence weighted by what people did, failure taxonomies mined from real traces, calibrated judges, context budgets that balance against cost, and a red-team gate before launch.",
+  "version": "1.0.0",
   "author": {
-    "name": "The Utopia Studio"
+    "name": "Ollie Graham-Yooll",
+    "url": "https://github.com/OllieGY"
   },
+  "homepage": "https://github.com/OllieGY/icarus",
+  "repository": "https://github.com/OllieGY/icarus",
+  "license": "Apache-2.0",
   "keywords": [
     "product",
     "discovery",
-    "icarus",
+    "evals",
+    "ai-native",
+    "agents",
     "evidence",
-    "venture-studio"
+    "product-management"
   ]
 }

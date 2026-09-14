@@ -1,5 +1,11 @@
 # Eval log — so-what-stress-test
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -31,16 +37,16 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner → asks one unblocking question, grades nothing, offers blank template (covered explicitly by "do not run the five on air" + Gotcha). 02 solution-in-disguise → reframes to the job because Q1 demands a countable event and "invent nothing" blocks grading "no mobile app"; behaviour reached, though the trap is only *implicitly* named (see Gotchas). 03 out-of-scope → declines, names problem-quality-scorecard, states one-line boundary (explicit in the When-NOT table). |
 | 4 Head-to-head | n/a | `supersedes: none`. |
 | 5 Anti-generic | PASS | Golden-01 output could not come from a generic PM prompt: numeric evidence ladder (money 1.0 → opinion 0.1), refusal to pass any opinion row, ordered fatal→pass→weak verdict logic, "user is not the payer" Q2 fail, Q5-denial-as-tell, and a rewrite that re-aims at a mandatory-filing buyer. Guidance is tabular where it should be (rubric, grade bands, verdict logic, template all tables); evidence ladder as a one-line scale is acceptable prose. |
-| 6 Real-use | pending | Requires 5+ real fellow uses. |
+| 6 Real-use | pending | Requires 5+ real builder uses. |
 
 ### Golden per-case scores (rubric: /25, pass ≥21, no dim <4)
 
 | Case | method | artifact | edge | challenge | evidence | Total | Verdict reached | Kill-line check |
 |---|---|---|---|---|---|---|---|---|
-| 01 Durian (REDESIGN) | 4 | 5 | 5 | 5 | 5 | 24 | REDESIGN (5 weak, no fatal) ✓ | All 5 answers opinion → all graded weak, none passed ✓ |
-| 02 Azraq (PASS) | 5 | 5 | 5 | 5 | 5 | 25 | PASS (5 pass on real behaviour/money) ✓ | Rows pass only on behaviour 0.7 / money; no opinion passed ✓ (control) |
-| 03 Mentix (KILL) | 5 | 5 | 5 | 5 | 5 | 25 | KILL (Q5 fatal overrides 3 pass) ✓ | Q4 opinion → weak; fatal not averaged away ✓ |
-| 04 Barrier (REDESIGN) | 5 | 5 | 5 | 5 | 5 | 25 | REDESIGN (Q3 weak, no fatal) ✓ | Advisory wedge "they'll find it useful" opinion → weak, not passed ✓ |
+| 01 Larder Labs (REDESIGN) | 4 | 5 | 5 | 5 | 5 | 24 | REDESIGN (5 weak, no fatal) ✓ | All 5 answers opinion → all graded weak, none passed ✓ |
+| 02 Meridian Grid (PASS) | 5 | 5 | 5 | 5 | 5 | 25 | PASS (5 pass on real behaviour/money) ✓ | Rows pass only on behaviour 0.7 / money; no opinion passed ✓ (control) |
+| 03 Foundry Signal (KILL) | 5 | 5 | 5 | 5 | 5 | 25 | KILL (Q5 fatal overrides 3 pass) ✓ | Q4 opinion → weak; fatal not averaged away ✓ |
+| 04 Halcyon Safety (REDESIGN) | 5 | 5 | 5 | 5 | 5 | 25 | REDESIGN (Q3 weak, no fatal) ✓ | Advisory wedge "they'll find it useful" opinion → weak, not passed ✓ |
 | 05 Mundane (REDESIGN) | 4 | 5 | 5 | 5 | 5 | 24 | REDESIGN → honest "script, not a venture" rewrite ✓ | All opinion → weak; not flattered into a PASS ✓ |
 
 Kill-line verdict: **enforced in every case.** No question answered on opinion (0.1) is ever graded `pass`; each opinion answer downgrades the idea to REDESIGN or KILL. Golden 02/03 confirm the inverse — genuinely behaviour-backed rows *do* clear, so the skill neither over-fires REDESIGN nor rubber-stamps. Method_fidelity docked 1 on cases 01 and 05 only for the tie-break gap (see Gotchas), not for any kill-line slip.

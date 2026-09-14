@@ -22,7 +22,7 @@ If any is N, stop. Name the earlier step. Do not fabricate readiness.
 
 **Outcome unit the stranger must reach:** _[from Step 0]_
 
-A stranger = matches the real user role, has never seen the product / deck / description. Disqualified: fellow, build/design team, champion, anyone briefed.
+A stranger = matches the real user role, has never seen the product / deck / description. Disqualified: builder, build/design team, champion, anyone briefed.
 
 | Stranger | Role (real user?) | Correct value ≤ 60 s, no rescue? | Restated job in 1 correct sentence? | Recording |
 |---|---|---|---|---|

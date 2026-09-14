@@ -4,9 +4,9 @@ Read production traces as interviews that already happened. One card per **behav
 
 ## Set definition (state and date it)
 - **One trace =** [one session / one task attempt / one agent run / one document produced]
-- **Window:** [from → to]  ·  **Volume:** [N traces, M distinct users]  `[Fact]`
-- **Source of traces:** [event log / agent run archive / product analytics export]  `[Fact]`
-- **Active segment size (for weighting):** [M distinct users active in window — state the number; if the input does not give it, write **"active segment unknown"** and do not compute a %]  `[Fact]`
+- **Window:** [from → to] · **Volume:** [N traces, M distinct users] `[Fact]`
+- **Source of traces:** [event log / agent run archive / product analytics export] `[Fact]`
+- **Active segment size (for weighting):** [M distinct users active in window — state the number; if the input does not give it, write **"active segment unknown"** and do not compute a %] `[Fact]`
 
 ---
 
@@ -31,11 +31,11 @@ Read production traces as interviews that already happened. One card per **behav
 
 | Field | Fill |
 |---|---|
-| **Observed behaviour** (what the trace literally shows) | [e.g. "re-ran the same permit check 3×, rewording inputs, before it passed"]  `[Fact]` |
+| **Observed behaviour** (what the trace literally shows) | [e.g. "re-ran the same permit check 3×, rewording inputs, before it passed"] `[Fact]` |
 | **Behaviour rung** | 0.7 behaviour / 1.0 if the trace is a spend event |
 | **Distinct users producing it** | [N of M active = __%] → anecdote (1) / candidate (2–4 or <5%) / pattern (≥5 and ≥~15%) |
 | **Discovery question it answers** | [the recovered question — this is the finding] |
-| **Inferred JTBD / desired outcome** | [the job behind the behaviour]  `[Hypothesis]` |
+| **Inferred JTBD / desired outcome** | [the job behind the behaviour] `[Hypothesis]` |
 | **Satisfaction signal the trace implies** | [dissatisfied / partially served / served — and on which sub-job] |
 | **The other honest reading (if ambiguous)** | [second interpretation, or "none — behaviour is unambiguous"] |
 | **Confirm-the-why probe** | [smallest observation that moves the why from `[Hypothesis]` toward 0.7 — inject a known error / watch 3 sessions / interview 5 who did it] → hand to `probe-matrix` |

@@ -1,5 +1,11 @@
 # Eval log — eval-first-spec
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -30,20 +36,20 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 vague one-liner: skill asks the single job-line question and requests real artefacts, invents nothing (Part 1 "Not a job line" + "do not invent a spec from nothing"). 02 solution-in-disguise: skill refuses feature-as-spec, names the vanity-metric trap (aggregate ≠ per-instance ground truth), routes DAU to pilot-six-term-sheet. 03 out-of-scope: skill declines, names compound-system-architecture, hands over job line + golden set + budget as constraints, produces no pipeline/40-20-30-10. No fabrication, flattery, or scope-poaching. |
 | 4 Head-to-head | n/a | `supersedes: none`. (Related-skills claims it "absorbs and beats" concept `user-story`/`user-story-splitting`, but that is not a formal pack supersede — Gate 4 correctly skipped.) |
 | 5 Anti-generic | PASS | Golden-01 output cannot come from a generic PM prompt: the load-bearing machinery is the fixed 6/7/4/3 band spread + 14-`[Fact]` reality floor + mode-coverage rule; per-mode acceptable_rate *derived* as tolerable_cost ÷ cost_of_one_failure; and cost_per_outcome to the cent = (C_attempt×A)+C_human+C_remediation, explicitly distinguished from cost-per-call and gated against value_per_outcome (with the Miss-lives-on-the-value-side separation). A generic "acceptance criteria + cost estimate" prompt produces none of these. No guidance that should be a table is left as prose — template.md and the method are fully tabular; formulas are explicit. |
-| 6 Real-use | pending | Not executable here (needs 5+ real fellow uses). |
+| 6 Real-use | pending | Not executable here (needs 5+ real builder uses). |
 
 ### Gate 2 — per-case scores (rubric: 5 dims ×0–5, pass ≥21 AND no dim <4)
 
 | # | Case | method_fidelity | artifact_complete | proprietary_edge | challenge | evidence_standard | Total | Pass? |
 |---|---|---|---|---|---|---|---|---|
-| 01 | Mentix shift-risk digest | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 02 | Azraq monthly DC risk report | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 03 | Barrier gas-safety (autonomy trap) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
-| 04 | Durian weekly stockout (mundane) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
+| 01 | Foundry Signal shift-risk digest | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 02 | Meridian Grid monthly DC risk report | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 03 | Halcyon Safety gas-safety (autonomy trap) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
+| 04 | Larder Labs weekly stockout (mundane) | 5 | 5 | 5 | 4 | 5 | 24 | PASS |
 | 05 | Under-evidenced spec (challenge) | 5 | 5 | 5 | 5 | 5 | 25 | PASS |
 
 Notes on the harder cases:
-- **03 (gas safety)** is the autonomy stress test and the skill passes it cleanly: the method text itself derives the near-zero Miss rate from an unbounded cost_of_one_failure and forbids autonomy inflation, so a faithful application refuses the fellow's explicit "auto-act" ask, holds L0/L1, treats silent failure as the worst mode (mandatory "could not assess" heartbeat), and states economics cannot buy up the safety-derived autonomy ceiling. No auto_fail.
+- **03 (gas safety)** is the autonomy stress test and the skill passes it cleanly: the method text itself derives the near-zero Miss rate from an unbounded cost_of_one_failure and forbids autonomy inflation, so a faithful application refuses the builder's explicit "auto-act" ask, holds L0/L1, treats silent failure as the worst mode (mandatory "could not assess" heartbeat), and states economics cannot buy up the safety-derived autonomy ceiling. No auto_fail.
 - **05 (under-evidenced)** correctly does NOT emit a filled template — the right deliverable is a refusal naming all four gaps with their quantified contrasts (8-vs-20, 0-vs-14 `[Fact]`, the acceptable_rate derivation rule, call-vs-outcome). `artifact_complete` scored on producing that correct deliverable, not a spec.
 - **04 (mundane)** scored challenge 4 (input is clean, not weak) — the discipline shown is refusing to hand-wave the number and naming the L2 earn-up gate; other dims full.
 
@@ -52,7 +58,7 @@ Notes on the harder cases:
 - Kill line + golden 05 confirm the skill **refuses** a spec missing either (fewer than 20 cases, or no cost-per-outcome number = auto-fail; report the gap, do not ship partial). Verified.
 
 ### Gotchas surfaced (for the author to fold into SKILL.md ## Gotchas)
-- **Sub-case counting against the 14-`[Fact]` floor is under-specified.** Golden 02 (only 14 real report-months) leans on drawing *multiple distinct risk-cases from one report* to clear the reality floor — the golden expectation blesses this, but the SKILL.md method defines a case as "one real input" without stating whether distinct sub-inputs from a single artefact each count as `[Fact]`. A fellow could inflate the floor by slicing one artefact into many weakly-independent cases. Suggest a one-line rule: a sub-input counts `[Fact]` only if it is *independently checkable against its own ground truth*. (Not a gate failure — the ground-truth requirement partially guards it.)
+- **Sub-case counting against the 14-`[Fact]` floor is under-specified.** Golden 02 (only 14 real report-months) leans on drawing *multiple distinct risk-cases from one report* to clear the reality floor — the golden expectation blesses this, but the SKILL.md method defines a case as "one real input" without stating whether distinct sub-inputs from a single artefact each count as `[Fact]`. A builder could inflate the floor by slicing one artefact into many weakly-independent cases. Suggest a one-line rule: a sub-input counts `[Fact]` only if it is *independently checkable against its own ground truth*. (Not a gate failure — the ground-truth requirement partially guards it.)
 - **Minor:** the "absorbs and beats `user-story`/`user-story-splitting`" line coexists with `supersedes: none`; harmless, but a reader may expect a head-to-head that the frontmatter does not declare. Consider phrasing it as "reframes" to avoid the supersede connotation.
 
 ## Refine run 2 — applied judge fixes: added Part-2 rule that a sub-input sliced from one artefact counts toward the 14-`[Fact]` floor only if independently checkable against its own ground truth (no slicing one artefact into many to inflate the floor).

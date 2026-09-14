@@ -12,7 +12,7 @@ Fill top to bottom. Watch first, ask second. Log only what you saw; tag what you
 | Real task watched | [who is doing what, where the outcome depends on a call they make] |
 | Access | [live shadow / recording of real work / ONLY a talk-through] |
 
-> If access is "only a talk-through", stop. You can capture the explicit procedure but not the judgment. Say so and get watchable access, or write the one unblocking question here: [ ... ]
+> If access is "only a talk-through", stop. You can capture the explicit procedure but not the judgment. Say so and get watchable access, or write the one unblocking question here: [... ]
 
 ---
 

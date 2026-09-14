@@ -12,7 +12,7 @@ Fill top to bottom. One test decides every row: could a stranger execute it from
 | Recurring decision | _[the call this expertise produces — one a new hire gets wrong]_ |
 | Material in hand | _[SOP / manual / rubric / transcript / correction log / completed tacit capture]_ |
 
-> If you can only name a domain with no material and no specific decision, stop. Answer first: *name one recurring decision your expert gets right that a new hire gets wrong, and show me the material — or say there is none.* Do not invent the procedure. If the fellow wants to go and watch the call live, that is `tacit-knowledge-interview`, not this.
+> If you can only name a domain with no material and no specific decision, stop. Answer first: *name one recurring decision your expert gets right that a new hire gets wrong, and show me the material — or say there is none.* Do not invent the procedure. If the builder wants to go and watch the call live, that is `tacit-knowledge-interview`, not this.
 
 ---
 

@@ -1,13 +1,15 @@
-# Worked example — Barrier Intelligence gas permit-to-work
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Barrier Intelligence** (oil & gas safety). All numbers and details are illustrative test fixtures, not client data.
+# Worked example — Halcyon Safety gas permit-to-work
 
-**Fellow's question:** "We want to build a product around the permit-to-work. What's the actual job under it?"
+Builder: **Halcyon Safety** (oil & gas safety). All numbers and details are illustrative test fixtures, not client data.
+
+**Builder's question:** "We want to build a product around the permit-to-work. What's the actual job under it?"
 
 ## 0. The job in the customer's words (raw)
 > "Before anyone opens a gas line, a field technician checks the isolation valves and takes gas readings, fills out a permit-to-work in our app, and the site's authorised gas engineer reviews it and signs it off. Only then can work start. If it's wrong and there's a release, the engineer who signed is the one the HSE comes for."
 
-- Source: one observed permit run on a live site, plus the completed permit artefact.  `[Fact]`
+- Source: one observed permit run on a live site, plus the completed permit artefact. `[Fact]`
 - Evidence-ladder weight: 0.7 (observed instance) reinforced by 0.5 (artefact shown). Above the 0.1 floor → input is ready.
 
 ## 1. Kill-list
@@ -49,11 +51,11 @@ All three survive the tools vanishing. Reduction holds.
 ## 6. Evidence on the liability line
 - Who is on the hook: the accredited signer (an individual, not the firm).
 - Mechanism: statutory duty under gas-safety regulation; the observed run showed the sign-off gates whether work starts.
-- Evidence it is real: observed sign-off gating work (behaviour, 0.7).  `[Fact]` Barrier's next step is to cite the specific regulation and confirm the accountability sits on the individual signer, which moves this toward `[Fact]` at 1.0.
+- Evidence it is real: observed sign-off gating work (behaviour, 0.7). `[Fact]` Halcyon Safety's next step is to cite the specific regulation and confirm the accountability sits on the individual signer, which moves this toward `[Fact]` at 1.0.
 
 ## Read-out
 - **The primitive job is:** move the hazard state of a task to a point where someone can decide it is safe to start, where an accredited signer is personally on the hook if that decision is wrong.
 - **AI eats:** capturing the hazard state, populating the record, and pre-clearing the routine go.
 - **Stays human / stays yours:** the ambiguous go/no-go tail, and the accredited signature — which AI cannot take.
-- **The challenge to the fellow:** the instinct is "automate the permit". But the information-movement is table stakes and the signature is a primitive AI cannot move. So the product cannot be "the app replaces the signer". The defensible product is "make the accredited signer faster and give them a defensible trail, and pre-clear only the routine gos" — building anything that tries to automate away the signature attacks the one primitive that can never leave a human.
+- **The challenge to the builder:** the instinct is "automate the permit". But the information-movement is table stakes and the signature is a primitive AI cannot move. So the product cannot be "the app replaces the signer". The defensible product is "make the accredited signer faster and give them a defensible trail, and pre-clear only the routine gos" — building anything that tries to automate away the signature attacks the one primitive that can never leave a human.
 - **What would change this read:** if observation shows the ambiguous tail is rare (say <5% of permits), the wedge is thin and the product is mostly the trail; if the accountability turns out to sit on the firm, not the individual, the moat weakens and the liability line must be rewritten.

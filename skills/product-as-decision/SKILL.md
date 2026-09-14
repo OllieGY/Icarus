@@ -1,30 +1,32 @@
 ---
 name: product-as-decision
 description: >-
-  Restates a product idea as ONE decision a named human makes, then quantifies how
-  that decision is compressed — before→after on a single axis of time, effort, or
-  autonomy (e.g. six minutes → thirty seconds). Fires on "what's the product here",
-  "frame the problem", "what decision are we changing", "state this as a decision",
-  "what are we actually changing for the user". Output is a filled Compressed-Decision
-  Statement: the decision (never a feature), its one owner, the before→after
-  compression with a source, and the autonomy-ladder move, every claim tagged
-  [Fact]/[Assumption]/[Hypothesis]. NOT for stripping the job to primitives (use
-  job-in-primitives), NOT for mapping and pricing the whole workflow (use
-  current-state-map), NOT for the 8-dimension go/no-go (use problem-quality-scorecard),
-  NOT for the per-unit prize ratio (use physics-floor-gap).
-type: generator
-supersedes: none
+ Restates a product idea as ONE decision a named human makes, then quantifies how
+ that decision is compressed — before→after on a single axis of time, effort, or
+ autonomy (e.g. six minutes → thirty seconds). Fires on "what's the product here",
+ "frame the problem", "what decision are we changing", "state this as a decision",
+ "what are we actually changing for the user". Output is a filled Compressed-Decision
+ Statement: the decision (never a feature), its one owner, the before→after
+ compression with a source, and the autonomy-ladder move, every claim tagged
+ [Fact]/[Assumption]/[Hypothesis]. NOT for stripping the job to primitives (use
+ job-in-primitives), NOT for mapping and pricing the whole workflow (use
+ current-state-map), NOT for the 8-dimension go/no-go (use problem-quality-scorecard),
+ NOT for the per-unit prize ratio (use physics-floor-gap).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Product as Decision
 
 ## What it does
 Forces one sentence: this product makes ONE decision, made by one named human, go from a costly before to a cheap after. It refuses feature language ("a copilot", "a dashboard", "a platform") and refuses problem-narrative ("users feel frustrated"). It names the decision as a verb a person performs, names the single owner who stakes something on it, and quantifies the compression on one axis — time, effort, or autonomy — with the before number sourced and the after claim flagged as a hypothesis the build must earn. The output is a filled Compressed-Decision Statement ([template.md](template.md)). If there is no before→after compression, there is no product yet.
 
-## The Icarus reframe
-A generic prompt frames a product as a problem narrative — persona, pain, feeling — or as a feature list. Both let the fellow smuggle in the answer before locating the question. Icarus says a product is neither: it is a single decision that a human makes today, made easier, faster, or automatic. So the artefact is not a story and not a spec — it is the decision itself plus its compression: what used to take six minutes now takes thirty seconds, or what a person decided unaided a machine now drafts for approval. Name the decision with a verb, quantify the before→after on one axis, and you have stated the product. If you cannot name the decision without a product noun, or cannot show a before→after, you have a feature in search of a problem, and the skill says so instead of dressing it up.
+## The reframe
+A generic prompt frames a product as a problem narrative — persona, pain, feeling — or as a feature list. Both let the builder smuggle in the answer before locating the question. Icarus says a product is neither: it is a single decision that a human makes today, made easier, faster, or automatic. So the artefact is not a story and not a spec — it is the decision itself plus its compression: what used to take six minutes now takes thirty seconds, or what a person decided unaided a machine now drafts for approval. Name the decision with a verb, quantify the before→after on one axis, and you have stated the product. If you cannot name the decision without a product noun, or cannot show a before→after, you have a feature in search of a problem, and the skill says so instead of dressing it up.
 
 ## When to use / When NOT
-Use it when a fellow has an idea and needs it stated as the one decision it changes, with the compression made explicit.
+Use it when a builder has an idea and needs it stated as the one decision it changes, with the compression made explicit.
 
 | Situation | Use this? | Go to |
 |---|---|---|
@@ -43,7 +45,7 @@ This skill states and compresses exactly one decision. It does not reduce the jo
 Fill the sheet in [template.md](template.md). Do not narrate; fill the lines. Tag every empirical claim `[Fact]` (priced artefact or observed behaviour), `[Assumption]` (a stated, defensible estimate), `[Hypothesis]` (a guess or a not-yet-observed claim).
 
 **Step 1 — Name the decision, not the feature.**
-State it with a judgment verb the human performs: *decides whether, picks which, approves, prioritises, sizes, diagnoses, releases.* Strike any product noun — dashboard, copilot, platform, tool, app, assistant, system, "AI". A copilot is not a decision; ask which decision the copilot would change. If the fellow cannot name the decision, stop and ask. Invent none.
+State it with a judgment verb the human performs: *decides whether, picks which, approves, prioritises, sizes, diagnoses, releases.* Strike any product noun — dashboard, copilot, platform, tool, app, assistant, system, "AI". A copilot is not a decision; ask which decision the copilot would change. If the builder cannot name the decision, stop and ask. Invent none.
 
 **Step 2 — Name the one owner.**
 One title, who makes this call today and stakes something on being wrong (budget, a safety sign-off, an SLA, their name). Not the user of the software — the owner of the call. Two owners means two products.
@@ -52,7 +54,7 @@ One title, who makes this call today and stakes something on being wrong (budget
 Exactly one. Time (same decision, faster), effort (same decision, less human work to reach it), or autonomy (the call moves up the ladder). If two axes seem to move, the dominant one is the product; note the other and drop it from the statement.
 
 **Step 4 — State before → after, quantified, sourced.**
-Before is the cost of the decision today — minutes, pages read, or a rung on the autonomy ladder — and it must sit on behaviour or money, not opinion (see Evidence standard). The after is what the product claims, and its value comes from the fellow's own stated target ("we think we can cut it to X"); where the fellow gives none, label it an illustrative target and never silently mint a specific figure a careless reader could mistake for a commitment. Mark the after `[Hypothesis]`: it is a claim the build must earn, never a fact at framing time.
+Before is the cost of the decision today — minutes, pages read, or a rung on the autonomy ladder — and it must sit on behaviour or money, not opinion (see Evidence standard). The after is what the product claims, and its value comes from the builder's own stated target ("we think we can cut it to X"); where the builder gives none, label it an illustrative target and never silently mint a specific figure a careless reader could mistake for a commitment. Mark the after `[Hypothesis]`: it is a claim the build must earn, never a fact at framing time.
 
 **Step 5 — Place before and after on the autonomy ladder.**
 
@@ -82,7 +84,7 @@ Name before-L and after-L. State any liability or regulatory reason the after ca
 **Kill line: a statement that names a feature where a decision belongs, or shows no quantified before→after on a single named axis, is an auto-fail.** The decision plus its compression is the product. No compression, no product.
 
 ## Evidence standard
-The before number is where fellows flatter themselves. It must sit on behaviour or money, weighted by the evidence ladder:
+The before number is where builders flatter themselves. It must sit on behaviour or money, weighted by the evidence ladder:
 
 | Signal for the "before" cost | Ladder weight |
 |---|---|
@@ -90,7 +92,7 @@ The before number is where fellows flatter themselves. It must sit on behaviour 
 | The decision step timed directly in a real workflow (behaviour observed) | 0.7 |
 | A priced artefact the decision produces, shown but not transacted | 0.5 |
 | "It takes about six minutes" (verbal commitment) | 0.3 |
-| The fellow's opinion of how long it takes | 0.1 |
+| The builder's opinion of how long it takes | 0.1 |
 
 If the only input for the before is opinion (0.1), the skill declares the input **not ready** and names the cheapest way to get the real number: time the decision step once, or pull one artefact. The after is always a `[Hypothesis]` — you cannot mark the compression `[Fact]` before a probe shows a human reaching the same or better call in the claimed after-time. Promoting the after to a fact is the auto-fail this standard exists to catch.
 
@@ -102,7 +104,7 @@ If the only input for the before is opinion (0.1), the skill declares the input 
 - **Interface change dressed as compression.** A new UI over the same decision at the same speed is 1× — no compression. Prettier is not faster. The band exists to catch this.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Mentix, worked end to end: a shift supervisor's alert-triage decision compressed from ~6 min to ~30 s (12×, autonomy held at L1 because the supervisor still owns every intervention), with the after flagged as the hypothesis the probe must earn.
+- [examples/sample.md](examples/sample.md) — Foundry Signal, worked end to end: a shift supervisor's alert-triage decision compressed from ~6 min to ~30 s (12×, autonomy held at L1 because the supervisor still owns every intervention), with the after flagged as the hypothesis the probe must earn.
 
 ## Related skills
 - `job-in-primitives` — reduces the job to information moved / decisions made / liability transferred, deleting every tool and role name. Run it to find the primitive; run this to pick and compress the one decision. Different altitude, not a substitute.

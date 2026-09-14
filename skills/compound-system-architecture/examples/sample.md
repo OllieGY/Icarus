@@ -1,6 +1,8 @@
-# Compound-System Architecture — Mentix factory-manager copilot
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Mentix · **Date:** 2026-07-21 · **Stage:** commit-build v1
+# Compound-System Architecture — Foundry Signal factory-manager copilot
+
+**Builder:** Foundry Signal · **Date:** 2026-07-21 · **Stage:** commit-build v1
 
 Illustrative fixtures. Numbers are plausible, not real client data.
 
@@ -31,9 +33,9 @@ flagged so no one mistakes it for the compounding asset.
 ## C. Component pipeline
 
 ```
-          ┌──────────── plant data layer (SCADA · CMMS · handover · SOP) ────────────┐
-          │                                                                            │
-input → router →  ⟨ retrieve ∥ reason ∥ act ⟩  → validate & guardrails → output
+ ┌──────────── plant data layer (SCADA · CMMS · handover · SOP) ────────────┐
+ │ │
+input → router → ⟨ retrieve ∥ reason ∥ act ⟩ → validate & guardrails → output
 ```
 
 | # | Component | Its one job here | Input | Output | Failure mode | Model call? |
@@ -60,7 +62,7 @@ the judge catches the safety class that matters (to be proven on the guardrail g
 | Interface | 10% | 10% | Chat inside the existing shift-handover tool — no new app | Meets the manager where the workflow already lives |
 | **Total** | **100%** | **100%** | | |
 
-The surprise for Mentix: they arrived planning to fine-tune a model on plant data (Model
+The surprise for Foundry Signal: they arrived planning to fine-tune a model on plant data (Model
 ~50%). The reframe — niche jargon is a glossary in the data layer, accuracy is a
 retrieval-and-validate problem — moved the work to Data and Orchestration and kept Model
 at 18%. Fine-tuning stays a later option, gated by the reason-model swap eval.
@@ -84,12 +86,12 @@ not drawn here.
 ## Kill line — self-check
 
 - [x] Not a monolith. Real router, retrieve, independent validate, an act step with a
-      real side effect (CMMS ticket).
-- [x] Model 18% ≤ 20%. The fellow's fine-tune instinct was reframed, not rubber-stamped.
+ real side effect (CMMS ticket).
+- [x] Model 18% ≤ 20%. The builder's fine-tune instinct was reframed, not rubber-stamped.
 - [x] Data 42% ≥ Model 18%.
 - [x] Data layer clears 0.7 — live exhaust on a read replica, confirmed by the design
-      partner. SOP corpus flagged at 0.5 so it is not mistaken for the moat.
+ partner. SOP corpus flagged at 0.5 so it is not mistaken for the moat.
 - [x] Component 4 (validate) is a rules engine + separate judge, independent of 3b.
 - [x] All three swap points name a gating eval; none blank.
 - [x] Every empirical claim tagged; no invented number — the 18-month history, the two
-      request types, and the access all trace to Mentix's input and the design partner.
+ request types, and the access all trace to Foundry Signal's input and the design partner.

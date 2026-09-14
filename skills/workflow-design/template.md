@@ -1,6 +1,6 @@
 # Workflow + Fleet Map — <product / workflow name>
 
-**Fellow:** <name> · **Date:** <date> · **Stage:** build-craft
+**Builder:** <name> · **Date:** <date> · **Stage:** build-craft
 
 ## Step 0 — Fleet-or-solo gate
 
@@ -88,16 +88,16 @@ monitor the running fleet.
 ## Kill line — self-check before returning
 
 - [ ] A fleet is actually warranted (Step 0 has ≥1 hard yes). If not, this is a SOLO design —
-      route to `agent-design`, do not ship a fleet. A single-agent job dressed as a fleet is a KILL.
+ route to `agent-design`, do not ship a fleet. A single-agent job dressed as a fleet is a KILL.
 - [ ] Conversely, if Step 0 has ≥1 hard yes but the design still runs on one agent, the fleet is
-      under-built — a lone agent doing fleet-sized work is a KILL. Build out the fleet here; do not
-      cram fleet-sized work into a single `agent-design` spec.
+ under-built — a lone agent doing fleet-sized work is a KILL. Build out the fleet here; do not
+ cram fleet-sized work into a single `agent-design` spec.
 - [ ] Every fleet agent used has a spawn trigger that reads as an observable if-condition. No
-      blank or vibes triggers. A trigger with no observable event is a KILL.
+ blank or vibes triggers. A trigger with no observable event is a KILL.
 - [ ] Every spawn trigger clears 0.5 on the ladder (pointable to an artefact state).
 - [ ] The critic is a different agent from the drafter (Section F).
 - [ ] Every loop names an exit (max iterations or escalate-to-human).
 - [ ] Every step in B emits an artefact and gates the next.
 - [ ] Every step in E has a surface, chosen by mode not habit.
 - [ ] Every empirical claim (volume, cadence, cost) is tagged `[Fact]`/`[Assumption]`/
-      `[Hypothesis]`. No number invented that the fellow did not provide.
+ `[Hypothesis]`. No number invented that the builder did not provide.

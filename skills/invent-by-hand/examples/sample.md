@@ -1,14 +1,16 @@
-# Worked example — Mentix, "AI copilot for factory managers"
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Mentix builds industrial AI for plant operations. This is a test fixture: numbers and quotes are illustrative, not real client data.
+# Worked example — Foundry Signal, "AI copilot for factory managers"
 
-## Input the fellow brought
+Foundry Signal builds industrial AI for plant operations. This is a test fixture: numbers and quotes are illustrative, not real client data.
+
+## Input the builder brought
 
 "Our idea is an AI copilot for factory managers — they can ask it anything about the plant and it answers. What should we actually build?"
 
 Corpus already mapped by a prior `yoda-data-sourcing` run:
-- The plant's alarm-acknowledgement logs: every alarm, who acknowledged it, how long it sat. [Fact] — already flows into Mentix's system. Band P, 0.7.
-- The shadow WhatsApp thread where the senior night-shift lead tells the two junior managers which alarms to ignore and which line to walk first ("leave the 9 on line 2, that sensor's been noisy since Tuesday; go to line 4"). [Fact] — Mentix holds 300 exported messages. Band P, 0.5, and it compounds every shift.
+- The plant's alarm-acknowledgement logs: every alarm, who acknowledged it, how long it sat. [Fact] — already flows into Foundry Signal's system. Band P, 0.7.
+- The shadow WhatsApp thread where the senior night-shift lead tells the two junior managers which alarms to ignore and which line to walk first ("leave the 9 on line 2, that sensor's been noisy since Tuesday; go to line 4"). [Fact] — Foundry Signal holds 300 exported messages. Band P, 0.5, and it compounds every shift.
 
 ## 1. Onion to the invariant core need
 
@@ -49,9 +51,9 @@ Concept 6 inverts the obvious. Every other concept *adds* information (more answ
 |---|---|---|---|---|---|
 | 1 Chatbot | "Design an AI copilot for factory managers" | A Q&A chatbot over manuals + telemetry | **D0** | — the machine returns exactly this | no |
 | 5 Handover summary | "Summarise overnight plant alarms for the next shift" | A severity-sorted summary from the logs | **D1** | the logs alone are structured data a model summarises for anyone; no tacit signal | no |
-| 6 Walk order | "Design an AI copilot for factory managers" / "rank plant alarms" | A chatbot, or a severity ranking | **D2** | the walk order encodes *which alarms the senior lead ignores* — a judgment that lives only in the shadow-thread corrections. No public prompt reaches "skip these nine, they're known-noise"; that pattern is in Mentix's 300 messages and nowhere a model can see. | **yes** |
+| 6 Walk order | "Design an AI copilot for factory managers" / "rank plant alarms" | A chatbot, or a severity ranking | **D2** | the walk order encodes *which alarms the senior lead ignores* — a judgment that lives only in the shadow-thread corrections. No public prompt reaches "skip these nine, they're known-noise"; that pattern is in Foundry Signal's 300 messages and nowhere a model can see. | **yes** |
 
-The chatbot the fellow started with is the model's default answer — D0, dead. The walk order survives at D2 for a nameable reason: the senior's ignore-list is tacit, corpus-trapped, and a generic prompt cannot produce "leave the 9 on line 2."
+The chatbot the builder started with is the model's default answer — D0, dead. The walk order survives at D2 for a nameable reason: the senior's ignore-list is tacit, corpus-trapped, and a generic prompt cannot produce "leave the 9 on line 2."
 
 ## 5. Sketch by hand
 
@@ -60,10 +62,10 @@ One phone screen at 06:00, before the manager reaches the floor:
 ```
 SHIFT START · Line walk (2 min read)
 
-1 → LINE 4     2 alarms the night lead would act on
-2 → LINE 7     1 alarm — bearing temp climbing since 03:00
-   SKIP LINE 2  9 alarms, known-noise (sensor flagged Tue)
-   SKIP LINE 5  3 alarms, auto-cleared
+1 → LINE 4 2 alarms the night lead would act on
+2 → LINE 7 1 alarm — bearing temp climbing since 03:00
+ SKIP LINE 2 9 alarms, known-noise (sensor flagged Tue)
+ SKIP LINE 5 3 alarms, auto-cleared
 
 Tap a line to see why.
 ```
@@ -75,11 +77,11 @@ The manager does not ask a question. They read a route and start walking. The va
 - **Concept:** at shift start, a manager gets a ranked walk order — which lines to walk first and which alarms to ignore — encoding the best night lead's tacit triage, learned from the shadow-thread corrections.
 - **Invariant core need:** spend the first 30 minutes on the right line, before the plant falls behind.
 - **Corpus row:** shadow WhatsApp corrections (band P, 0.7, compounds every shift).
-- **Why a generic prompt cannot produce it:** the ignore-list is tacit judgment held only in Mentix's 300-message corpus; a competitor's prompt reaches a chatbot (D0) or a severity ranking (D1), never "skip the 9 known-noise alarms on line 2."
+- **Why a generic prompt cannot produce it:** the ignore-list is tacit judgment held only in Foundry Signal's 300-message corpus; a competitor's prompt reaches a chatbot (D0) or a severity ranking (D1), never "skip the 9 known-noise alarms on line 2."
 - **Status:** `[Hypothesis]`. Unreachable by a competitor's prompt, not yet proven wanted.
 - **What would change the view:** if, in a concierge run, junior managers do not change their first-30-minutes route on the walk order — or walk the SKIP lines anyway — the concept is wrong however non-obvious it is.
 - **Next:** run `wedge-five-questions` on the smallest adopted slice (the shift-start walk order for one plant's night shift). The shadow-thread corpus is the moat seed for `moat-design-canvas`.
 
 ## The lesson the skill enforces
 
-The fellow arrived with the model's default answer — a copilot — and the model would hand the same answer to every competitor. The invention was not more cleverness; it was refusing the D0 concept and mining the one corpus a competitor cannot prompt for. "If a generic prompt could produce it, it isn't yours yet" killed the copilot and kept the strange child.
+The builder arrived with the model's default answer — a copilot — and the model would hand the same answer to every competitor. The invention was not more cleverness; it was refusing the D0 concept and mining the one corpus a competitor cannot prompt for. "If a generic prompt could produce it, it isn't yours yet" killed the copilot and kept the strange child.

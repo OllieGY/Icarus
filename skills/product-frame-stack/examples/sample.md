@@ -1,6 +1,8 @@
-# Worked example — Barrier Intelligence, hot-work permit safety
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Barrier Intelligence** (oil & gas safety). All numbers are illustrative test fixtures, not client data.
+# Worked example — Halcyon Safety, hot-work permit safety
+
+Builder: **Halcyon Safety** (oil & gas safety). All numbers are illustrative test fixtures, not client data.
 
 **What arrives:** the hot-work-permit problem has already cleared `problem-quality-scorecard` at **34/40**, resting on behaviour-grade evidence (permit logs + timed reviews from two beachhead rigs, ladder 0.7). A compressed-decision statement from `product-as-decision` also exists: *a permit officer decides whether a hot-work permit is safe to sign, in ~5 min against verified hazard controls instead of ~40 min re-reading isolation certs and gas logs.* This skill builds the frame on that floor.
 
@@ -13,31 +15,31 @@ Fellow: **Barrier Intelligence** (oil & gas safety). All numbers are illustrativ
 - **Verdict:** **BUILD @ rung 0.7.** Ceiling for the whole stack is `[Fact]`/`[Hypothesis]` for observed/future claims; nothing above gets tagged higher than the problem.
 
 ## Layer 1 — Vision
-> On every rig we serve, no hot-work job starts on a permit whose hazard controls were not verified — the "cleared but unsafe" permit stops existing.  `[Hypothesis]`
+> On every rig we serve, no hot-work job starts on a permit whose hazard controls were not verified — the "cleared but unsafe" permit stops existing. `[Hypothesis]`
 
 (Outcome for the rig, not "a great safety copilot". Product noun struck.)
 
 ## Layer 2 — Strategy
-- **Beachhead:** the two offshore drilling rigs already running Barrier's pilot under one operator's HSE lead — not "offshore oil & gas".
+- **Beachhead:** the two offshore drilling rigs already running Halcyon Safety's pilot under one operator's HSE lead — not "offshore oil & gas".
 - **Wedge:** hot-work permits specifically (the highest-consequence, most-checked permit class), not all permit-to-work at once.
 - **Won't-do:** we refuse to build the general permit-to-work platform (cold work, working-at-height, confined space) until hot-work retention is proven. A generic team would chase permit breadth first; we refuse it.
-- **Does the wedge pay?** price per rig ≈ [illustrative $X/rig-month] − cost to serve one rig (hosting + hazard-model upkeep + support) ≈ [$Y] → **pays** at 2 rigs if [X > Y].  `[Assumption]` — grounded in the pilot's stated pricing, not yet an invoice, so flagged.
+- **Does the wedge pay?** price per rig ≈ [illustrative $X/rig-month] − cost to serve one rig (hosting + hazard-model upkeep + support) ≈ [$Y] → **pays** at 2 rigs if [X > Y]. `[Assumption]` — grounded in the pilot's stated pricing, not yet an invoice, so flagged.
 
 ## Layer 3 — Product vision
-> Barrier is the safety check a permit officer runs before signing a hot-work permit: it verifies every required gas and isolation control against live rig data and flags any unverified hazard before sign-off, compressing the officer's ~40-min manual cross-check to ~5 min while catching the controls a tired reader misses.  `[Hypothesis]`
+> Halcyon Safety is the safety check a permit officer runs before signing a hot-work permit: it verifies every required gas and isolation control against live rig data and flags any unverified hazard before sign-off, compressing the officer's ~40-min manual cross-check to ~5 min while catching the controls a tired reader misses. `[Hypothesis]`
 
 (The decision compressed, at scale for the beachhead — reused from `product-as-decision`, not a feature list.)
 
 ## Layer 4 — North Star
 - **The metric:** **verified hot-work permits per rig-week** — permits the tool checked control-by-control and the officer then signed.
 - Bar check: single ✓ · leading (predicts the rig keeps trusting and using it) ✓ · per-unit value (each is one safely-enabled job) ✓ · measurable from the permit system now ✓.
-- **Guardrail:** **false-clear rate must stay at 0** — a permit the tool cleared that later proved to have an unverified control. Without this guard, the North Star could be gamed by rubber-stamping; the guard makes "more verified permits" mean "more genuinely safe permits".  `[Hypothesis]` until the first month of data.
+- **Guardrail:** **false-clear rate must stay at 0** — a permit the tool cleared that later proved to have an unverified control. Without this guard, the North Star could be gamed by rubber-stamping; the guard makes "more verified permits" mean "more genuinely safe permits". `[Hypothesis]` until the first month of data.
 
 ## Layer 5 — OKRs
-- **Objective:** make Barrier the default safety check for hot-work permits on both beachhead rigs.
-- **KR1 (moves North Star):** verified hot-work permits/rig-week rises from [pilot baseline] to [target] across both rigs.  `[Hypothesis]`
-- **KR2 (behaviour):** officers accept the tool's hazard flags without override on ≥[X]% of permits (a trust/tweak-time proxy).  `[Hypothesis]`
-- **KR3 (money):** both pilot rigs convert to a paid contract at [illustrative value].  `[Hypothesis]`
+- **Objective:** make Halcyon Safety the default safety check for hot-work permits on both beachhead rigs.
+- **KR1 (moves North Star):** verified hot-work permits/rig-week rises from [pilot baseline] to [target] across both rigs. `[Hypothesis]`
+- **KR2 (behaviour):** officers accept the tool's hazard flags without override on ≥[X]% of permits (a trust/tweak-time proxy). `[Hypothesis]`
+- **KR3 (money):** both pilot rigs convert to a paid contract at [illustrative value]. `[Hypothesis]`
 - Guard held: false-clear rate = 0 (KR2/KR3 are void if the guard breaks).
 - At least one KR moves the North Star directly → KR1. ✓ None is a shipped-feature output.
 

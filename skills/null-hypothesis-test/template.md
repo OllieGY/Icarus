@@ -1,6 +1,6 @@
 # Null-Hypothesis Test — disproof table
 
-**Fellow / venture:** _______________
+**Builder / venture:** _______________
 **Plan / wedge under test:** _______________
 **Date:** _______________
 
@@ -53,6 +53,6 @@ evidence.
 
 For the top one or two beliefs:
 
-- **Belief #_ :** result that makes you ABANDON it = _______________ ;
-  result that lets it climb one evidence rung = _______________
-- **Belief #_ :** abandon if = _______________ ; climbs a rung if = _______________
+- **Belief #_ :** result that makes you ABANDON it = _______________;
+ result that lets it climb one evidence rung = _______________
+- **Belief #_ :** abandon if = _______________; climbs a rung if = _______________

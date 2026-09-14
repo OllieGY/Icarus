@@ -1,8 +1,10 @@
-# Worked example — Barrier Intelligence
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Fellow: **Barrier Intelligence** (oil & gas safety). Numbers are illustrative test fixtures, not client data.
+# Worked example — Halcyon Safety
 
-The pitch is an automated gas-safety alert from rig field logs. Before writing any of it, the fellow delivers the alert by hand to one operator for two weeks and charges for it.
+Builder: **Halcyon Safety** (oil & gas safety). Numbers are illustrative test fixtures, not client data.
+
+The pitch is an automated gas-safety alert from rig field logs. Before writing any of it, the builder delivers the alert by hand to one operator for two weeks and charges for it.
 
 ## 0. Scope (set before delivery)
 

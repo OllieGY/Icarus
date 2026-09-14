@@ -1,6 +1,8 @@
-# Workflow + Fleet Map — Barrier Intelligence: alert-rule build fleet
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow:** Barrier Intelligence · **Date:** 2026-07-22 · **Stage:** build-craft
+# Workflow + Fleet Map — Halcyon Safety: alert-rule build fleet
+
+**Builder:** Halcyon Safety · **Date:** 2026-07-22 · **Stage:** build-craft
 
 Illustrative fixtures. Numbers are plausible, not real client data.
 
@@ -17,9 +19,9 @@ to `agent-design`.
 
 ## A. The workflow job (one sentence)
 
-> Turn Barrier's rig field logs and permit data into a set of gas-safety alert rules that
+> Turn Halcyon Safety's rig field logs and permit data into a set of gas-safety alert rules that
 > fire before an incident, each rule falsified against known past incidents. `[Fact]` on the
-> two inputs — both are exhaust Barrier already collects.
+> two inputs — both are exhaust Halcyon Safety already collects.
 
 One workflow, one artefact class (validated alert rules). Not two products.
 
@@ -74,7 +76,7 @@ a completed template, a non-empty defect list). None is a mood.
 | 5 Falsify rules | Build — Claude Code | runs the spec against the golden incident set (the eval-first-spec cases) |
 | Daily log fan-out + fleet monitor | Admin — Cowork | scheduled 06:00 pull across 4 rigs, parallel dispatch, watch the running loop |
 
-The surprise for Barrier: they planned to run the whole build inside one Claude Code session.
+The surprise for Halcyon Safety: they planned to run the whole build inside one Claude Code session.
 Mining unstructured logs is divergent Think work that Claude Code over-tools; the daily
 4-rig fan-out is scheduled Admin work Cowork does natively. Moving those two off Claude Code
 cut the build to the parts that actually need a repo.
@@ -95,4 +97,4 @@ cut the build to the parts that actually need a repo.
 - [x] Every step in B emits an artefact and gates the next.
 - [x] Every step has a surface chosen by mode, not habit — two moved off Claude Code.
 - [x] Empirical claims tagged; the loop count and the base-rate numbers are `[Assumption]`,
-      the two inputs and the incident set are `[Fact]` from Barrier's own data. No number invented.
+ the two inputs and the incident set are `[Fact]` from Halcyon Safety's own data. No number invented.

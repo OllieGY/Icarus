@@ -1,8 +1,10 @@
-# Worked example — Barrier Intelligence permit-hazard reviewer agent
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Barrier Intelligence builds gas-safety software for oil & gas fields. This specs the single agent behind its first workflow: reviewing a permit-to-work against live gas readings and field logs. It picks up after `eval-first-spec` set the autonomy level (L1) and cost-per-outcome. This is a test fixture — numbers are illustrative, not real client data. Every claim is tagged `[Fact]` (measured on real traces / logs), `[Assumption]` (projected), or `[Hypothesis]` (unbuilt).
+# Worked example — Halcyon Safety permit-hazard reviewer agent
 
-## Input the fellow brought
+Halcyon Safety builds gas-safety software for oil & gas fields. This specs the single agent behind its first workflow: reviewing a permit-to-work against live gas readings and field logs. It picks up after `eval-first-spec` set the autonomy level (L1) and cost-per-outcome. This is a test fixture — numbers are illustrative, not real client data. Every claim is tagged `[Fact]` (measured on real traces / logs), `[Assumption]` (projected), or `[Hypothesis]` (unbuilt).
+
+## Input the builder brought
 
 "We've run permit reviews by hand alongside the safety officer on Rig 7 for six weeks — every permit, the gas grid readings, the officer's decision, and what actually happened are logged. We want to turn this into an agent. What does it need to be built from?"
 
@@ -55,9 +57,9 @@ The tool section is short on purpose. These four are commodity; a competitor cou
 | Base model | Rented from a lab | Yes — a rival rents the same one |
 | The four tools | Commodity APIs | Yes — an afternoon |
 | Role / prompt | One screenshot | Yes |
-| **Memory layer** | Rig 7's own overrides + traces | **No — this rig's exhaust, unique to Barrier** |
+| **Memory layer** | Rig 7's own overrides + traces | **No — this rig's exhaust, unique to Halcyon Safety** |
 
-The model that reads gas readings improves for every safety-software vendor at once. Rig 7's lessons.md — the specific ways *this field's* geometry fools a sensor grid — improves only for Barrier. That is the moat (argued fully in `moat-design-canvas`).
+The model that reads gas readings improves for every safety-software vendor at once. Rig 7's lessons.md — the specific ways *this field's* geometry fools a sensor grid — improves only for Halcyon Safety. That is the moat (argued fully in `moat-design-canvas`).
 
 ### Compounding mechanism (named)
 
@@ -94,8 +96,8 @@ The eval is not restated here. It is `eval-first-spec`'s artefact; this spec poi
 - [x] Compounding mechanism named (week-2 Zone-4 override → case #17 fail→pass)
 - [x] Eval exists (`eval-first-spec`) and gates model-swap, autonomy, and compounding
 
-Ships. Had Barrier arrived before running the workflow by hand, the trace archive would be `[Hypothesis]` and the honest answer would have been: "run it manually for a few weeks to seed real traces, then design the agent" — not this spec.
+Ships. Had Halcyon Safety arrived before running the workflow by hand, the trace archive would be `[Hypothesis]` and the honest answer would have been: "run it manually for a few weeks to seed real traces, then design the agent" — not this spec.
 
 ## What a generic prompt would have gotten wrong here
 
-It would have written a longer tool list (adding a `commit_permit` tool that violates L1), designed a "personality," and described the memory as "the agent remembers past permits" with no store, no writer, no load trigger, and no named run that got better. This spec inverted that: four tools and no commit, no persona, and a memory layer whose one logged override is traced to a specific scored case flipping — the only part Barrier owns, and the only part that compounds.
+It would have written a longer tool list (adding a `commit_permit` tool that violates L1), designed a "personality," and described the memory as "the agent remembers past permits" with no store, no writer, no load trigger, and no named run that got better. This spec inverted that: four tools and no commit, no persona, and a memory layer whose one logged override is traced to a specific scored case flipping — the only part Halcyon Safety owns, and the only part that compounds.

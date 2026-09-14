@@ -1,21 +1,31 @@
 ---
 name: v1-launch-bar
-description: Gate a built v1 to go / no-go on two recorded tests — a true stranger reaches first correct value in ≤60 seconds unaided, AND the learn-from-corrections mechanism is wired and proven to compound (the thing 95% of enterprise pilots never deliver). Output is a recorded-evidence go / no-go checklist. Fires on "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go on v1", "should we ship this pilot". Not the ongoing post-launch loop or cadence (use refine-flywheel), not pilot price / terms / commercial success metric (use pilot-six-term-sheet), not defining what "working" means or the golden-set + cost spec before code (use eval-first-spec).
-type: generator
-supersedes: none
+description: >-
+  Gate a built v1 to go / no-go on two recorded tests — a true stranger reaches first correct
+  value in ≤60 seconds unaided, AND the learn-from-corrections mechanism is wired and proven to
+  compound (the thing 95% of enterprise pilots never deliver). Output is a recorded-evidence go /
+  no-go checklist. Fires on "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go
+  on v1", "should we ship this pilot". Not the ongoing post-launch loop or cadence (use
+  refine-flywheel), not pilot price / terms / commercial success metric (use
+  pilot-six-term-sheet), not defining what "working" means or the golden-set + cost spec before
+  code (use eval-first-spec).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
 
 Turns "I think we're ready" into a go / no-go decision made on recorded evidence, not opinion. It runs a built v1 against exactly two gates and passes only if both are green on tape. Gate A: a person with zero context reaches the one correct outcome in ≤60 seconds with no rescue. Gate B: the product has a wired mechanism that captures the customer's corrections and turns them into better output — proven to close at least once before launch, with a numeric week-1 → week-4 delta committed as the pilot's exit proof. The artefact is the filled `template.md`: a checklist where every row carries a recorded-evidence citation and an evidence-ladder tier. A v1 that is polished, feature-complete, and loved by everyone who has seen it still fails if a true stranger stalls or the corrections loop is not wired. Feature-completeness is not a gate here. The two tests are.
 
-## The Icarus reframe
+## The reframe
 
-95% of enterprise pilots ship a static tool: it does the same thing in week 4 as in week 1, and every edit the customer makes vanishes into a log nobody reads. That is the death shape, and it passes most launch reviews because the review scores polish and demos, not learning. This skill absorbs `evidence-driven-testing` — proof over prose, one recorded assertion per state change, show the old failure beside the new success — and points it at the launch decision itself, not at a single UI test. The 60-second test is a recorded session with a real stranger (behaviour observed, 0.7 on the ladder), never the fellow's "it's obvious" (opinion, 0.1). The corrections test reuses that skill's strongest move — the before/after that shows the old wrong output next to the new corrected one — and applies it to the whole product's ability to learn: seed one real correction, show the same input now yields the corrected output, on tape. A launch decision made on the fellow's confidence has measured nothing.
+95% of enterprise pilots ship a static tool: it does the same thing in week 4 as in week 1, and every edit the customer makes vanishes into a log nobody reads. That is the death shape, and it passes most launch reviews because the review scores polish and demos, not learning. This skill absorbs `evidence-driven-testing` — proof over prose, one recorded assertion per state change, show the old failure beside the new success — and points it at the launch decision itself, not at a single UI test. The 60-second test is a recorded session with a real stranger (behaviour observed, 0.7 on the ladder), never the builder's "it's obvious" (opinion, 0.1). The corrections test reuses that skill's strongest move — the before/after that shows the old wrong output next to the new corrected one — and applies it to the whole product's ability to learn: seed one real correction, show the same input now yields the corrected output, on tape. A launch decision made on the builder's confidence has measured nothing.
 
 ## When to use / When NOT
 
-Use when a v1 is built, real users are lined up, and its eval pass rate at the chosen autonomy level (from `eval-first-spec`) is already met — and the fellow needs to decide go or no-go on the pilot. Trigger phrases: "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go on v1", "should we ship this pilot".
+Use when a v1 is built, real users are lined up, and its eval pass rate at the chosen autonomy level (from `eval-first-spec`) is already met — and the builder needs to decide go or no-go on the pilot. Trigger phrases: "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go on v1", "should we ship this pilot".
 
 Do not use when:
 
@@ -50,9 +60,9 @@ A stranger reaches first correct value in ≤60 seconds, unaided, and can restat
 
 Rules that make it real, not a friendly demo:
 
-- **Who counts as a stranger.** Matches the real user role; has never seen the product, the deck, or a description of it. Disqualified: the fellow, anyone on the build/design team, the champion, anyone briefed. A friendly who already knows the answer is not a stranger, and their success is opinion (0.1), not behaviour.
+- **Who counts as a stranger.** Matches the real user role; has never seen the product, the deck, or a description of it. Disqualified: the builder, anyone on the build/design team, the champion, anyone briefed. A friendly who already knows the answer is not a stranger, and their success is opinion (0.1), not behaviour.
 - **The clock.** Start at first contact with the artefact. Stop at first *correct* outcome — the outcome unit from Step 0, not "clicked around" — or at 60 seconds, whichever comes first. Record the session.
-- **No rescue.** The fellow may not explain, hint, or drive. If the stranger needs narration to proceed, the run is a fail, recorded as such. Route the observation discipline (no leading, observe the artefact not the person) to `usability-test-protocol`; do not restate it here.
+- **No rescue.** The builder may not explain, hint, or drive. If the stranger needs narration to proceed, the run is a fail, recorded as such. Route the observation discipline (no leading, observe the artefact not the person) to `usability-test-protocol`; do not restate it here.
 - **Two separate checks per stranger:** (1) *comprehension* — one correct sentence on what it does; (2) *first value* — reached the correct outcome in time. A stranger can stumble into value without understanding, or understand without valuing; both must be true.
 
 | Metric | Bar |
@@ -107,9 +117,9 @@ The launch bar refuses to pass a gate on anything below behaviour observed (0.7)
 
 ## Gotchas
 
-The friendly stranger. The most common cheat is running the "stranger" test on a colleague, an advisor, or the champion — someone already carrying context. Their instant success is worthless as evidence and disqualified as input. If the fellow cannot name three people who have genuinely never seen it, Gate A has not been run.
+The friendly stranger. The most common cheat is running the "stranger" test on a colleague, an advisor, or the champion — someone already carrying context. Their instant success is worthless as evidence and disqualified as input. If the builder cannot name three people who have genuinely never seen it, Gate A has not been run.
 
-The static tool that demos beautifully. A v1 can pass every polish check, win the room, and still be the 95% death shape — because nothing in it learns from a correction. Gate B is the only defence, and it is the gate fellows most want to skip because it is invisible in a demo. No B1–B4 wired, no launch, regardless of Gate A.
+The static tool that demos beautifully. A v1 can pass every polish check, win the room, and still be the 95% death shape — because nothing in it learns from a correction. Gate B is the only defence, and it is the gate builders most want to skip because it is invisible in a demo. No B1–B4 wired, no launch, regardless of Gate A.
 
 Delta that cannot be judged. "It'll get better over the pilot" is not a B5 commitment. Without a named metric and a number, week 4 cannot tell success from drift, and `refine-flywheel` inherits a promise it cannot check. Force the number now.
 
@@ -121,7 +131,7 @@ Launching under the eval gate. This skill sits on top of `eval-first-spec`'s pas
 
 ## Examples
 
-`examples/sample.md` — a full worked launch bar for Azraq's data-centre risk product: Gate A run on three operations engineers who had never seen it (2 of 3 reached the correct top-risk read in ≤60 s), and Gate B initially RED because the monthly report was a static PDF with no correction capture — the classic 95% trap — forcing a NO-GO, the one wired fix (log the client's markups as diffs and feed them to the golden set + retrieval), a seeded before/after proving the loop closed, and a committed week-1 → week-4 delta before the decision flipped to GO.
+`examples/sample.md` — a full worked launch bar for Meridian Grid's data-centre risk product: Gate A run on three operations engineers who had never seen it (2 of 3 reached the correct top-risk read in ≤60 s), and Gate B initially RED because the monthly report was a static PDF with no correction capture — the classic 95% trap — forcing a NO-GO, the one wired fix (log the client's markups as diffs and feed them to the golden set + retrieval), a seeded before/after proving the loop closed, and a committed week-1 → week-4 delta before the decision flipped to GO.
 
 ## Related skills
 

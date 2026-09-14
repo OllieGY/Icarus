@@ -29,19 +29,19 @@ Two auto-fails: (a) any layer built on a problem the gate did not pass; (b) a ro
 ## Layer 1 — Vision
 > The customer's world once this problem is gone at scale (3–5 yrs). No product nouns, no features. An outcome for the target.
 
-- [__________]  `[Hypothesis]`
+- [__________] `[Hypothesis]`
 
 ## Layer 2 — Strategy (the one hard choice)
 - **Beachhead (one named who, not "the market"):** [__________]
-- **Wedge (narrow slice where you're unambiguously best):** [__________]  → soft? hand to `wedge-five-questions`
+- **Wedge (narrow slice where you're unambiguously best):** [__________] → soft? hand to `wedge-five-questions`
 - **Won't-do (what a generic team would chase and you refuse):** [__________]
-- **Does the wedge pay?** price of the metric ___ − cost to serve one unit ___ = [pays / does not pay]  `[Fact | Assumption]`
+- **Does the wedge pay?** price of the metric ___ − cost to serve one unit ___ = [pays / does not pay] `[Fact | Assumption]`
   - If it does not pay at the wedge → the strategy is unviable; stop and reframe.
 
 ## Layer 3 — Product vision
 > What the product IS when the strategy is executed: the decision it compresses, at scale, for the beachhead. Reuse `product-as-decision` if a compressed-decision statement exists. Not a feature list.
 
-- [__________]  `[Hypothesis]`
+- [__________] `[Hypothesis]`
 
 ## Layer 4 — North Star (mandatory)
 - **The metric (one, leading, per-unit value, tied to the compressed decision):** [__________]
@@ -54,7 +54,7 @@ Two auto-fails: (a) any layer built on a problem the gate did not pass; (b) a ro
 
 ## Layer 5 — OKRs
 - **Objective (straight from strategy):** [__________]
-- **KR1 (outcome — behaviour/money/North-Star move, NOT a shipped thing):** [__________]  `[Fact | Assumption | Hypothesis]`
+- **KR1 (outcome — behaviour/money/North-Star move, NOT a shipped thing):** [__________] `[Fact | Assumption | Hypothesis]`
 - **KR2 (outcome):** [__________]
 - **KR3 (outcome, optional):** [__________]
 - Check: at least one KR moves the North Star directly → [which: ___]

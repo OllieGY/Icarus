@@ -1,6 +1,8 @@
-# Worked example — Azraq (post-launch data-centre risk product)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow input:** "We shipped the Azraq risk product to four data-centre operators three months ago. Set up continuous discovery so we keep learning instead of guessing. Here's what we have: interviews with two ops leads, usage logs from the product, and the risk model's eval dashboard."
+# Worked example — Meridian Grid (post-launch data-centre risk product)
+
+**Builder input:** "We shipped the Meridian Grid risk product to four data-centre operators three months ago. Set up continuous discovery so we keep learning instead of guessing. Here's what we have: interviews with two ops leads, usage logs from the product, and the risk model's eval dashboard."
 
 All numbers below are illustrative test-fixture values, tagged. Nothing here is real client data.
 
@@ -32,7 +34,7 @@ All numbers below are illustrative test-fixture values, tagged. Nothing here is 
 
 | Feed | What it contributes | Cadence | Synthesis owner |
 |---|---|---|---|
-| Interviews | why operators trust or ignore alerts; the judgment calls behind a dismiss | 2 rolling / week | Dana (fellow) |
+| Interviews | why operators trust or ignore alerts; the judgment calls behind a dismiss | 2 rolling / week | Dana (builder) |
 | Production traces | which reports open, which alerts get acted on vs. dismissed, what gets exported | continuous, triaged Thursday | Dana + Priya (eng) |
 | Eval telemetry | risk-model precision/recall, false-alert rate, cost per report | per-release + on-alert | Dana + Sam (eval owner) |
 
@@ -42,13 +44,13 @@ All numbers below are illustrative test-fixture values, tagged. Nothing here is 
 
 ```
 Outcome: seat renewal 3/4 → 4/4 + 1 expand
-  └─ Opportunity A: operators can't tell which alerts are worth acting on   [interviews] [0.3] [wk 6]
-       ├─ Solution A1: add more cooling-anomaly alert types                 [interviews] [0.3] [wk 6]
-       ├─ Solution A2: confidence score on every alert                       [interviews] [0.3] [wk 8]
-       └─ Solution A3: one-tap "why did you dismiss this?" capture           [traces]     [0.7] [wk 10]
-  └─ Opportunity B: risk reports don't survive the operator's own tooling   [traces]     [0.7] [wk 9]
-       ├─ Solution B1: native export to the operator's incident system       [traces]     [0.7] [wk 9]
-       └─ Solution B2: power-feed deep-dive report                           [interviews] [0.3] [wk 7]
+ └─ Opportunity A: operators can't tell which alerts are worth acting on [interviews] [0.3] [wk 6]
+ ├─ Solution A1: add more cooling-anomaly alert types [interviews] [0.3] [wk 6]
+ ├─ Solution A2: confidence score on every alert [interviews] [0.3] [wk 8]
+ └─ Solution A3: one-tap "why did you dismiss this?" capture [traces] [0.7] [wk 10]
+ └─ Opportunity B: risk reports don't survive the operator's own tooling [traces] [0.7] [wk 9]
+ ├─ Solution B1: native export to the operator's incident system [traces] [0.7] [wk 9]
+ └─ Solution B2: power-feed deep-dive report [interviews] [0.3] [wk 7]
 ```
 
 Un-provenanced nodes: none this cycle.
@@ -114,4 +116,4 @@ Un-provenanced nodes: none this cycle.
 
 ## Why this beats a static OST
 
-A static tree drawn at week 6 would still list "add more cooling-anomaly alerts" as a live solution, because interviews at 0.3 said operators wanted clarity. The loop killed it with a 0.7 trace three months later — for free, because Azraq had shipped. The static tree would have shipped the wrong feature; the engine let the product's own behaviour retire it.
+A static tree drawn at week 6 would still list "add more cooling-anomaly alerts" as a live solution, because interviews at 0.3 said operators wanted clarity. The loop killed it with a 0.7 trace three months later — for free, because Meridian Grid had shipped. The static tree would have shipped the wrong feature; the engine let the product's own behaviour retire it.

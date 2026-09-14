@@ -1,6 +1,8 @@
-# Problem Quality Scorecard — Barrier Intelligence (worked)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-**Fellow / venture:** Barrier Intelligence (oil & gas safety)
+# Problem Quality Scorecard — Halcyon Safety (worked)
+
+**Builder / venture:** Halcyon Safety (oil & gas safety)
 **Date:** 2026-07-20
 
 > All numbers here are synthetic, domain-plausible test fixtures — not real client
@@ -27,7 +29,7 @@ This is a pain (missed indicators, escalations), not a feature. It scores.
 | 5 | Structural persistence | **4** | `[Fact]` Offshore gas-detection duty rooted in physics + safety regs in force 20+ years (rung: behaviour-of-the-world; forward-looking, so caps at 4) | H | Structural cap; no test raises past 4 honestly |
 | 6 | Buyer clarity | **5** | `[Fact]` Named offshore HSE manager holds the budget and signed the pilot PO (rung: money) | H | Already at ceiling; add a second signed buyer to lift confidence |
 | 7 | Wedge sharpness | **4** | `[Fact]` First slice = permit-to-work gas conflicts on one operator's 3 rigs, a workflow incumbents ignore; pilot is live on that slice (rung: behaviour) | M | Win the same slice on a second operator → defends the wedge |
-| 8 | Founder asymmetry | **3** | `[Fact]` Signed data-rights clause granting Barrier exclusive use of the pilot operator's rig logs (rung: artefact — signed, unproven as durable) | M | Convert exclusivity into observed switching cost or a second operator signing → behaviour, ceiling 4 |
+| 8 | Founder asymmetry | **3** | `[Fact]` Signed data-rights clause granting Halcyon Safety exclusive use of the pilot operator's rig logs (rung: artefact — signed, unproven as durable) | M | Convert exclusivity into observed switching cost or a second operator signing → behaviour, ceiling 4 |
 
 **Opinion-capped dimensions (flagged):** none.
 **Total: 34 / 40**

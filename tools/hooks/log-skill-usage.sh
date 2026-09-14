@@ -15,7 +15,7 @@
 #         {
 #           "matcher": "Skill",
 #           "hooks": [
-#             { "type": "command", "command": "~/.claude/skills/hooks/log-skill-usage.sh" }
+#             { "type": "command", "command": "~/.claude/hooks/log-skill-usage.sh" }
 #           ]
 #         }
 #       ]

@@ -1,5 +1,11 @@
 # Eval log — evidence-ladder
 
+> **Graduation is stale.** The runs below were scored against the pre-release text. On
+> 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
+> replaced, the example companies were changed to fictional ones, and cross-references by
+> stage number became skill names. Trigger phrasings were preserved, but a judge's verdict
+> does not carry over to text it did not read. Re-run before claiming any gate below.
+
 Author agent seeds the trigger phrasings; the judge agent (separate) runs and scores.
 
 ## Gate 1 — Trigger precision
@@ -19,7 +25,7 @@ MUST NOT fire (3, name the sibling each belongs to):
 ## Kill-line check (auto-fail if violated)
 
 - Any run that scores an opinion above 0.1 fails outright. Golden 05 and Golden 02
-  are the primary traps (enthusiasm and a reaction-to-mockup must land at 0.1).
+ are the primary traps (enthusiasm and a reaction-to-mockup must land at 0.1).
 
 ## Runs
 
@@ -36,17 +42,17 @@ MUST NOT fire (3, name the sibling each belongs to):
 | 3 Adversarial | PASS (3/3) | 01 empty pile: applying Step 1 (one placed signal per row) forces a request for the pile + no headline — no fabrication. 02 "need a mobile app": "When NOT" table routes to `problem-statement`; feature-request weighs as Opinion 0.1, trap named. 03 go/no-go + which-test: both siblings named (`problem-quality-scorecard`, `probe-matrix`), in-scope service offered. No fabrication, flattery, or scope-poaching. |
 | 4 Head-to-head | n-a | `supersedes: none`. |
 | 5 Anti-generic | PASS | Golden 01: a generic PM prompt would call "three warm buyers" promising and stop there. It would not fix the signal at 0.3 on a five-rung ladder, state the anti-stacking rule, refuse to round "buyers" up to money, prescribe "skip the middle rungs, go straight to cash", or replace the average with a coverage tally. Reframe is load-bearing, not decoration. All lookup guidance (ladder, impostor downgrades, probe map) is tabular; prose is reserved for rationale. |
-| 6 Real-use | pending | requires 5+ real fellow uses |
+| 6 Real-use | pending | requires 5+ real builder uses |
 
 ### Gate 2 per-case scores (MF / AC / PE / CH / ES, total /25; pass ≥21 & no dim <4)
 
 | Case | MF | AC | PE | CH | ES | Total | Pass |
 |---|---|---|---|---|---|---|---|
-| G01 Durian — 3 "they'd buy it" | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| G02 Barrier — mixed 4-signal pile | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| G03 Mentix — single self-report quote | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
-| G04 Azraq — 3 signed LOIs / $600k | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
-| G05 Mentix — mockup "4 of 5 loved it" | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| G01 Larder Labs — 3 "they'd buy it" | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| G02 Halcyon Safety — mixed 4-signal pile | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| G03 Foundry Signal — single self-report quote | 5 | 5 | 4 | 4 | 5 | 23 | ✓ |
+| G04 Meridian Grid — 3 signed LOIs / $600k | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
+| G05 Foundry Signal — mockup "4 of 5 loved it" | 5 | 5 | 5 | 5 | 5 | 25 | ✓ |
 
 - **Anti-stacking check:** PASS. G01 (3 verbal yeses → 0.3, not 0.9) and G04 (3 LOIs → 0.3) both hold the rung flat; Step 3 + reframe ("fifty people saying yes is still 0.3") enforce it.
 - **Kill-line check:** PASS. G05 lands the mockup reaction + "would roll it out" prediction at Opinion 0.1; enthusiasm ("4 of 5") does not lift. No opinion scored above 0.1 in any case. G02 supervisors' praise also correctly at 0.1.

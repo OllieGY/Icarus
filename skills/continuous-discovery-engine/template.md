@@ -43,14 +43,14 @@ Fill top to bottom. One measurable outcome. Every node stamped with feed + rung 
 
 ```
 Outcome: [metric]
-  └─ Opportunity A  [feed] [rung] [date]
-       ├─ Solution A1  [feed] [rung] [date]
-       │    └─ Test → probe-matrix: [which probe]
-       ├─ Solution A2  [feed] [rung] [date]
-       └─ Solution A3  [feed] [rung] [date]
-  └─ Opportunity B  [feed] [rung] [date]
-       ├─ Solution B1 ...
-       └─ Solution B2 ...
+ └─ Opportunity A [feed] [rung] [date]
+ ├─ Solution A1 [feed] [rung] [date]
+ │ └─ Test → probe-matrix: [which probe]
+ ├─ Solution A2 [feed] [rung] [date]
+ └─ Solution A3 [feed] [rung] [date]
+ └─ Opportunity B [feed] [rung] [date]
+ ├─ Solution B1...
+ └─ Solution B2...
 ```
 
 Un-provenanced nodes (no feed, no rung): [list — these are beliefs, tag [Hypothesis], schedule to test or prune].

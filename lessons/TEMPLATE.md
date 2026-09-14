@@ -5,7 +5,7 @@ Copy this block to the top of `LOG.md`. Newest first. Keep it to ten lines.
 ```markdown
 ### YYYY-MM-DD — <one line, names the thing that happened>
 
-**What happened.** Two sentences. Fellow or system named. In their words, not studio jargon.
+**What happened.** Two sentences. Builder or system named. In their words, not studio jargon.
 
 **Evidence.** What was actually observed, with its ladder rung. `[Fact]` / `[Assumption]` / `[Hypothesis]`.
 

@@ -1,14 +1,16 @@
-# Worked example — Azraq v1 launch bar (data-centre risk product)
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Azraq builds static risk reports and a data-rights position for data-centre operators. This is a test fixture: numbers and sessions are illustrative, not real client data. The launch bar was run to decide go / no-go on the first paid pilot.
+# Worked example — Meridian Grid v1 launch bar (data-centre risk product)
 
-## Input the fellow brought
+Meridian Grid builds static risk reports and a data-rights position for data-centre operators. This is a test fixture: numbers and sessions are illustrative, not real client data. The launch bar was run to decide go / no-go on the first paid pilot.
+
+## Input the builder brought
 
 "The v1 is built and it looks great. It's a monthly data-centre risk report — uptime, incident history, and a ranked list of the operator's top risks with the evidence behind each. Everyone we've demoed it to loves it. Two operators are ready to start. Are we ready to launch?"
 
-Version tested: `azraq-v1 @ 3f9c1a2`. Eval pass rate at L0 (informs) already met on the golden set from `eval-first-spec`. [Fact]
+Version tested: `meridian-v1 @ 3f9c1a2`. Eval pass rate at L0 (informs) already met on the golden set from `eval-first-spec`. [Fact]
 
-The fellow's stated readiness rested on "the demo lands and people love it" — opinion (0.1). The launch bar does not accept that. It runs the two gates.
+The builder's stated readiness rested on "the demo lands and people love it" — opinion (0.1). The launch bar does not accept that. It runs the two gates.
 
 ---
 
@@ -16,7 +18,7 @@ The fellow's stated readiness rested on "the demo lands and people love it" — 
 
 | Precondition | Present? | Evidence |
 |---|---|---|
-| Built, running v1 | Yes | `azraq-v1 @ 3f9c1a2`, generates a live report [Fact] |
+| Built, running v1 | Yes | `meridian-v1 @ 3f9c1a2`, generates a live report [Fact] |
 | Outcome unit | Yes | "One operator reads the monthly report and correctly identifies their single top risk to act on" (from the job line) [Fact] |
 | Eval pass rate at L0 met | Yes | Golden-set run logged, passes at L0 [Fact] |
 
@@ -28,7 +30,7 @@ Cleared. There is a real thing to gate.
 
 **Outcome unit:** the reader lands on their correct top risk and can act on it.
 
-Three strangers recruited — operations engineers at non-client data centres, matched to the real reader role, none briefed. The fellow and the design lead were disqualified as "strangers"; so was the champion at one of the two waiting operators (already sold, already briefed).
+Three strangers recruited — operations engineers at non-client data centres, matched to the real reader role, none briefed. The builder and the design lead were disqualified as "strangers"; so was the champion at one of the two waiting operators (already sold, already briefed).
 
 | Stranger | Role | Correct value ≤ 60 s, no rescue? | Restated job in 1 sentence? | Recording |
 |---|---|---|---|---|
@@ -42,7 +44,7 @@ Three strangers recruited — operations engineers at non-client data centres, m
 | Correct first value ≤ 60 s, no rescue | ≥ 2/3 | 2/3 |
 | Restated the job | ≥ 2/3 | 2/3 |
 
-**Gate A: GREEN.** Two of three reached the correct top risk in time and named the job, on tape. Stranger 3's fail is a real signal (the raw tables above the ranking bury the lede) and is logged for the design skills — but Gate A's bar is met. Behaviour observed (0.7), not the fellow's "everyone loves it" (0.1).
+**Gate A: GREEN.** Two of three reached the correct top risk in time and named the job, on tape. Stranger 3's fail is a real signal (the raw tables above the ranking bury the lede) and is logged for the design skills — but Gate A's bar is met. Behaviour observed (0.7), not the builder's "everyone loves it" (0.1).
 
 ---
 
@@ -67,7 +69,7 @@ First-pass score:
 2. B2: captured corrections feed two paths — appended to the golden set as new labelled cases, and into retrieval so the operator's own redundancy facts (N+2 on power) weight future rankings. Trigger: any correction is reviewed and merged before the next monthly run.
 3. B4: instrument tweak-distance = number of risks the client re-ranks before acting, captured per report.
 
-The fellow built that over four days. Re-scored:
+The builder built that over four days. Re-scored:
 
 | # | Row | State | Gate-time evidence |
 |---|---|---|---|
@@ -91,15 +93,15 @@ The fellow built that over four days. Re-scored:
 | A — 60-second stranger | GREEN | 2/3 recorded strangers |
 | B — learn-from-corrections | GREEN | B1–B5, before/after recorded |
 
-**Decision: GO.** Both gates green on recorded evidence. The demo-love that the fellow arrived with never entered the decision; the two tests did.
+**Decision: GO.** Both gates green on recorded evidence. The demo-love that the builder arrived with never entered the decision; the two tests did.
 
 ---
 
 ## Step 4 — Handoff
 
-- The correction loop wired in Gate B is handed to `refine-flywheel` (08): it reads the re-rank instrument (B4), re-runs the golden set on every model release, and only raises Azraq toward L1 (drafting the ranking the operator commits) once the eval earns it.
-- The B5 delta is the week-4 checkpoint. Owner: the fellow. Week-4 review date set.
+- The correction loop wired in Gate B is handed to `refine-flywheel` (08): it reads the re-rank instrument (B4), re-runs the golden set on every model release, and only raises Meridian Grid toward L1 (drafting the ranking the operator commits) once the eval earns it.
+- The B5 delta is the week-4 checkpoint. Owner: the builder. Week-4 review date set.
 
 ## The lesson this enforces
 
-The launch the fellow wanted: ship the beautiful static PDF because the demo lands. The launch bar blocked it — not on taste, but because a static report cannot learn from a correction, and a v1 that does the same thing in week 4 as week 1 is the pilot that 95% of enterprises quietly kill. Gate A was already green; the work was Gate B, and it took four days to turn a NO-GO into a GO by wiring the one mechanism that makes the product compound. That mechanism, not the polish, is what the pilot was allowed to launch on.
+The launch the builder wanted: ship the beautiful static PDF because the demo lands. The launch bar blocked it — not on taste, but because a static report cannot learn from a correction, and a v1 that does the same thing in week 4 as week 1 is the pilot that 95% of enterprises quietly kill. Gate A was already green; the work was Gate B, and it took four days to turn a NO-GO into a GO by wiring the one mechanism that makes the product compound. That mechanism, not the polish, is what the pilot was allowed to launch on.

@@ -1,14 +1,16 @@
-# Sample run — Mentix
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
+
+# Sample run — Foundry Signal
 
 Illustrative fixture. Numbers are plausible and clearly synthetic, not real client data.
 
-**Fellow input (verbatim):** "Here's my idea — an AI copilot for factory managers. Tear it apart. What should I build first?"
+**Builder input (verbatim):** "Here's my idea — an AI copilot for factory managers. Tear it apart. What should I build first?"
 
 ---
 
 ## 0. Concept in one sentence
 
-> Mentix wants factory plant managers to run their shift by asking an AI copilot what to do next, instead of reading dashboards and radioing the floor.
+> Foundry Signal wants factory plant managers to run their shift by asking an AI copilot what to do next, instead of reading dashboards and radioing the floor.
 
 Named user (plant manager), job (decide the next shift action), change (ask an AI instead of reading dashboards). Clear enough to attack.
 
@@ -20,7 +22,7 @@ Named user (plant manager), job (decide the next shift action), change (ask an A
 |---|---|---|---|---|---|
 | Skeptic | Managers already know the next action from twenty years on the floor; the copilot answers a question they don't ask. | 0.6 | 0.7 | 0.42 | [Assumption] |
 | Buyer | Plant budget buys machines and maintenance contracts, not manager software; the copilot has no line item. | 0.5 | 0.6 | 0.30 | [Assumption] |
-| Incumbent | The MES/SCADA vendor already sitting on the plant data bolts a chat box onto its console and Mentix is a feature, not a product. | 0.5 | 0.7 | 0.35 | [Hypothesis] |
+| Incumbent | The MES/SCADA vendor already sitting on the plant data bolts a chat box onto its console and Foundry Signal is a feature, not a product. | 0.5 | 0.7 | 0.35 | [Hypothesis] |
 | Engineer | Every plant's tag names, PLCs, and line layout differ; each install is a bespoke data-integration project, not a signup. | 0.7 | 0.6 | 0.42 | [Assumption] |
 | Regulator | A wrong copilot instruction during a hazardous process is a safety-liability event; plants gate any advice system through slow HSE sign-off. | 0.4 | 0.7 | 0.28 | [Hypothesis] |
 
@@ -37,7 +39,7 @@ Tie-break: the Skeptic attack is cheaper to test in a week (watch behaviour) tha
 > This idea dies if **plant managers will not change their next shift action based on an AI recommendation delivered mid-shift** is false — i.e. if they ignore it, the whole copilot is decoration.
 
 - Highest score: Skeptic, 0.42 (tie broken on testability)
-- Today's basis: [Assumption] — no observed manager has yet acted on a Mentix suggestion
+- Today's basis: [Assumption] — no observed manager has yet acted on a Foundry Signal suggestion
 - Everything else waits until this clears
 
 ---
@@ -47,7 +49,7 @@ Tie-break: the Skeptic attack is cheaper to test in a week (watch behaviour) tha
 | Field | Fill |
 |---|---|
 | What it tests | Will a plant manager take a floor action they would not otherwise have taken, because a recommendation told them to? |
-| Method | Concierge Wizard-of-Oz. For three shifts at one friendly plant, a Mentix operator watches the same live data feed and sends the manager 3–5 plain-text "next action" suggestions per shift by the tool they already use (radio/WhatsApp). No product built. |
+| Method | Concierge Wizard-of-Oz. For three shifts at one friendly plant, a Foundry Signal operator watches the same live data feed and sends the manager 3–5 plain-text "next action" suggestions per shift by the tool they already use (radio/WhatsApp). No product built. |
 | Cost | 3 shifts, one operator shadowing, ~0 dollars. Under one week. |
 | Ladder rung it reaches | Behaviour (0.7) — we watch what the manager actually does, not what they say about the idea. |
 | Pass looks like | Manager acts on ≥ 1 suggestion per shift that they confirm they would not have taken on their own. |

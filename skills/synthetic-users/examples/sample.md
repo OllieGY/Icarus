@@ -1,10 +1,12 @@
-# Worked example — Mentix's copilot positioning
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Mentix builds an AI copilot for factory managers. This is a test fixture: numbers and quotes are illustrative, not real client data.
+# Worked example — Foundry Signal's copilot positioning
 
-## Input the fellow brought
+Foundry Signal builds an AI copilot for factory managers. This is a test fixture: numbers and quotes are illustrative, not real client data.
 
-"We're about to book six plant-manager interviews to test our positioning. Before we spend that, dry-run the message on a synthetic panel. The message is: *'Mentix tells you which alarm to trust, so you never shut the line down for a false alarm again.'* We've got the data — pull a panel and see if it lands."
+## Input the builder brought
+
+"We're about to book six plant-manager interviews to test our positioning. Before we spend that, dry-run the message on a synthetic panel. The message is: *'Foundry Signal tells you which alarm to trust, so you never shut the line down for a false alarm again.'* We've got the data — pull a panel and see if it lands."
 
 Corpus on the table (from earlier YODA + tacit work):
 - Field-log write-ups from 3 plants, 5 weeks: what managers did when an alarm fired and what happened after. [Fact]
@@ -18,7 +20,7 @@ Real corpus present: field logs, shadow threads, one tacit capture. Panel can be
 ## 1. Target and kill question
 
 **Pre-testing:** Message.
-**The message:** "Mentix tells you which alarm to trust, so you never shut the line down for a false alarm again."
+**The message:** "Foundry Signal tells you which alarm to trust, so you never shut the line down for a false alarm again."
 **Kill question:** *A synthetic "no" here would revise the message if a grounded manager can't say back what it does, or reads "trust which alarm" as conflicting with how they already decide.*
 
 ## 2. The panel (4, each grounded in a different slice)
@@ -52,11 +54,11 @@ The two enthusiastic panellists produced nothing. That is expected, and it is wh
 
 ## 5. Verdict — REVISE, then PROMOTE
 
-**REVISE.** Panellist C, the one grounded in the tacit capture, is the signal. The message says "trust which alarm to trust" as if trust is the manager's problem. For the experienced judgment holder, trust is not scalar — it is a rise-rate read with a hard exception. A copilot that tells them to *trust* an alarm they'd override reads as a tool that doesn't know their rule. The message frames Mentix as overriding the manager's judgment, when the corpus says the value is in *confirming the rise-rate read faster*, not replacing it.
+**REVISE.** Panellist C, the one grounded in the tacit capture, is the signal. The message says "trust which alarm to trust" as if trust is the manager's problem. For the experienced judgment holder, trust is not scalar — it is a rise-rate read with a hard exception. A copilot that tells them to *trust* an alarm they'd override reads as a tool that doesn't know their rule. The message frames Foundry Signal as overriding the manager's judgment, when the corpus says the value is in *confirming the rise-rate read faster*, not replacing it.
 
-Proposed revision: "Mentix reads the alarm's rise rate the way your best supervisor does — so the line stays up when it should, and stops when it must." Re-run the panel on the revised copy (cheap).
+Proposed revision: "Foundry Signal reads the alarm's rise rate the way your best supervisor does — so the line stays up when it should, and stops when it must." Re-run the panel on the revised copy (cheap).
 
-**Then PROMOTE.** The rise-rate-vs-level distinction and the bearing-change exception are exactly what a real interview must probe. Book the six interviews via `interview-script`, but now with a sharper question: does the manager experience the copilot as confirming their read or overriding it? That is the load-bearing question the synthetic screen surfaced — and it would have been invisible if the fellow had read the two "I'd use it every shift" responses as a green light.
+**Then PROMOTE.** The rise-rate-vs-level distinction and the bearing-change exception are exactly what a real interview must probe. Book the six interviews via `interview-script`, but now with a sharper question: does the manager experience the copilot as confirming their read or overriding it? That is the load-bearing question the synthetic screen surfaced — and it would have been invisible if the builder had read the two "I'd use it every shift" responses as a green light.
 
 ## 6. Honesty check
 
@@ -68,4 +70,4 @@ Proposed revision: "Mentix reads the alarm's rise rate the way your best supervi
 
 ## The correction this skill forced
 
-The fellow wanted a green light before spending on six interviews. Two synthetic managers gave an emphatic one, and a generic "role-play a persona" run would have reported "the panel loved it — go." This skill discarded both, because a synthetic yes is over-agree plus never-pay stacked on nothing. The single useful output came from the panellist grounded in the tacit capture: the message collides with how the real judgment is made. The interviews still happen — but now they test the right thing, and the money spent on them buys an answer instead of confirming a machine's flattery.
+The builder wanted a green light before spending on six interviews. Two synthetic managers gave an emphatic one, and a generic "role-play a persona" run would have reported "the panel loved it — go." This skill discarded both, because a synthetic yes is over-agree plus never-pay stacked on nothing. The single useful output came from the panellist grounded in the tacit capture: the message collides with how the real judgment is made. The interviews still happen — but now they test the right thing, and the money spent on them buys an answer instead of confirming a machine's flattery.

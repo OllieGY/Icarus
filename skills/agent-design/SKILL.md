@@ -1,33 +1,35 @@
 ---
 name: agent-design
 description: >-
-  Fires when a fellow is designing ONE production agent and asks what it should be built from —
-  "design an agent for X", "what tools and memory does this agent need", "spec the agent",
-  "our agent isn't getting smarter / never remembers corrections — how do we build its memory".
-  Returns a four-part agent spec — role (one owned decision) · tools (the commodity shell) ·
-  memory layer (CLAUDE.md · skills · lessons.md · trace archive, loaded at birth) · eval — where the
-  memory layer is the only part the fellow owns and therefore the only part that compounds. Do NOT
-  fire for the agent's voice / persona / signature phrases (use meta/agent-persona-builder), the
-  multi-agent fleet or hand-offs (use workflow-design), writing its golden cases / autonomy level /
-  cost budget (use eval-first-spec — this skill routes there and carries the number), or the
-  post-launch ship-observe-learn-refine loop and autonomy-raise (use refine-flywheel).
-type: generator
-supersedes: none
+ Fires when a builder is designing ONE production agent and asks what it should be built from —
+ "design an agent for X", "what tools and memory does this agent need", "spec the agent",
+ "our agent isn't getting smarter / never remembers corrections — how do we build its memory".
+ Returns a four-part agent spec — role (one owned decision) · tools (the commodity shell) ·
+ memory layer (CLAUDE.md · skills · lessons.md · trace archive, loaded at birth) · eval — where the
+ memory layer is the only part the builder owns and therefore the only part that compounds. Do NOT
+ fire for the agent's voice / persona / signature phrases (use meta/agent-persona-builder), the
+ multi-agent fleet or hand-offs (use workflow-design), writing its golden cases / autonomy level /
+ cost budget (use eval-first-spec — this skill routes there and carries the number), or the
+ post-launch ship-observe-learn-refine loop and autonomy-raise (use refine-flywheel).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 
 # Agent Design
 
 ## What it does
 
-Turns "we want an agent for this" into a spec built from four parts, in order of how much of it the fellow actually owns: a **role** stated as one decision the agent owns at a chosen autonomy level; the **minimum tool set**, each tool with its blast radius and guardrail; the **memory layer** — CLAUDE.md, skills, an append-only lessons.md, and a trace archive, each with a load trigger and a writer — which is the owned, compounding part and gets most of the design budget; and the **eval** that proves the whole thing works and is getting better, which is `eval-first-spec`'s golden set, routed there, not restated. The artefact is the filled `template.md`. An agent with no memory layer or no eval is not an agent; it is a prompt with tools, and it does not compound.
+Turns "we want an agent for this" into a spec built from four parts, in order of how much of it the builder actually owns: a **role** stated as one decision the agent owns at a chosen autonomy level; the **minimum tool set**, each tool with its blast radius and guardrail; the **memory layer** — CLAUDE.md, skills, an append-only lessons.md, and a trace archive, each with a load trigger and a writer — which is the owned, compounding part and gets most of the design budget; and the **eval** that proves the whole thing works and is getting better, which is `eval-first-spec`'s golden set, routed there, not restated. The artefact is the filled `template.md`. An agent with no memory layer or no eval is not an agent; it is a prompt with tools, and it does not compound.
 
-## The Icarus reframe
+## The reframe
 
 A generic agent design is a prompt, a tool list, and a model — and a competitor can rent the same model, wire the same tools, and copy the prompt from one screenshot in an afternoon. The one part that is yours and gets better only for you is the **memory layer**: CLAUDE.md for durable context, skills for tell-able procedure, an append-only lessons.md for the corrections that are the tacit half of the expertise, and a trace archive of every real run — all loaded into context at birth so run N starts smarter than run N−1. So this skill spends its effort on what gets written, by whom, and when it loads, treats role and tools as the cheap swappable shell around it, and makes an eval prove the memory is compounding rather than merely accumulating.
 
 ## When to use / When NOT
 
-Use when a fellow has a validated workflow and needs to spec the single agent that runs it: the role, the tools, what it remembers, and how they will know it works. Trigger phrases: "design an agent for…", "what tools and memory should it have", "spec the agent", "our agent repeats the same mistakes — what's wrong with its memory layer".
+Use when a builder has a validated workflow and needs to spec the single agent that runs it: the role, the tools, what it remembers, and how they will know it works. Trigger phrases: "design an agent for…", "what tools and memory should it have", "spec the agent", "our agent repeats the same mistakes — what's wrong with its memory layer".
 
 | Not this skill | Use instead | Why |
 |---|---|---|
@@ -129,7 +131,7 @@ Here the ladder scores the **memory layer's compounding claim** — the same dis
 
 Memory as a filing cabinet, not a flywheel. The stores exist on disk but never load at birth, or nobody writes lessons.md, so run 100 is no smarter than run 1. A store with no load trigger and no writer is decoration. The compounding mechanism in Step 3 is the test: name the run that got better because of what memory captured, or the layer is not a memory layer.
 
-Over-designing the tools, under-designing the memory. Fellows spend the whole design budget on the tool list — the commodity part — and hand-wave the memory ("it'll remember things"). Invert it. Tools are the shell; the memory layer is where the moat lives. If the tool section is longer than the memory section, the priorities are backwards.
+Over-designing the tools, under-designing the memory. Builders spend the whole design budget on the tool list — the commodity part — and hand-wave the memory ("it'll remember things"). Invert it. Tools are the shell; the memory layer is where the moat lives. If the tool section is longer than the memory section, the priorities are backwards.
 
 Confusing the spine with the persona. SOUL.md, voice, and signature phrases are `agent-persona-builder`'s job. Designing a personality here and filing it under "memory" is a category error: a voice is style, not a compounding asset. The two skills compose — persona for how it sounds, this for what it decides, remembers, and is scored on.
 
@@ -139,7 +141,7 @@ Skipping the eval because "we'll know if it's working." Without the eval you can
 
 ## Examples
 
-[examples/sample.md](examples/sample.md) — a worked agent spec for **Barrier Intelligence** (oil & gas safety): a permit-to-work gas-hazard reviewer at autonomy L1, four read/draft tools each tied to an eval case (and no commit tool, by design), a four-store memory layer whose lessons.md logs every safety-officer override, and the named compounding mechanism where one logged override turns an adversarial golden case from fail to pass on the next re-run. The eval is pointed at `eval-first-spec`, not restated.
+[examples/sample.md](examples/sample.md) — a worked agent spec for **Halcyon Safety** (oil & gas safety): a permit-to-work gas-hazard reviewer at autonomy L1, four read/draft tools each tied to an eval case (and no commit tool, by design), a four-store memory layer whose lessons.md logs every safety-officer override, and the named compounding mechanism where one logged override turns an adversarial golden case from fail to pass on the next re-run. The eval is pointed at `eval-first-spec`, not restated.
 
 ## Related skills
 

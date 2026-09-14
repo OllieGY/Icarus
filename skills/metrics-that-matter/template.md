@@ -1,6 +1,6 @@
 # Metric Scorecard — <product name>
 
-**Fellow:** <name> · **Date:** <date> · **Stage:** refine / metrics
+**Builder:** <name> · **Date:** <date> · **Stage:** refine / metrics
 
 Route depth, do not restate it here: the NSM framework → `north-star-metric`; AARRR →
 its resource; cohort mechanics → `cohort-analysis`; the dashboard build → `retention-dashboard`;
@@ -80,7 +80,7 @@ review) faster than price, the product loses money the more it runs. Name it if 
 |---|---|---|
 | <total drafts all-time> | vanity | <accepted drafts per active team / week> |
 | <MAU> | vanity | <cohort retention curve> |
-| ... | ... | ... |
+|... |... |... |
 
 Any cumulative total is vanity by construction — it can only rise. A scorecard whose
 headline is a total is a KILL.
@@ -88,17 +88,17 @@ headline is a total is a KILL.
 ## Kill line — self-check before returning
 
 - [ ] Exactly ONE North Star, and it is a customer-received outcome — not an emitted output
-      ("alerts sent") or a cumulative total. A vanity-total headline is an automatic KILL.
+ ("alerts sent") or a cumulative total. A vanity-total headline is an automatic KILL.
 - [ ] The retention truth test (C) was run. The North Star is marked VALID only if a real
-      cohort curve has flattened (or smiled); INVALID if it still decays. No North Star
-      passes without this check.
+ cohort curve has flattened (or smiled); INVALID if it still decays. No North Star
+ passes without this check.
 - [ ] Cost-per-outcome (D) is computed to the cent, with margin-per-outcome and its
-      direction at scale. Inversion risk named if present.
+ direction at scale. Inversion risk named if present.
 - [ ] Retention is measured on the North Star outcome, over the cohort that reached the
-      first outcome — not raw account logins, not billing.
+ first outcome — not raw account logins, not billing.
 - [ ] Every metric tagged vanity / actionable; totals killed or converted.
 - [ ] Every number tagged `[Fact]`/`[Assumption]`/`[Hypothesis]`; retention and revenue
-      rest on ≥ 0.7 (behaviour / money), never on opinion; no number invented that the
-      fellow did not provide.
+ rest on ≥ 0.7 (behaviour / money), never on opinion; no number invented that the
+ builder did not provide.
 - [ ] Depth routed, not restated: NSM framework, cohort mechanics, dashboard build, and
-      unit economics point to the M9 skills, not copied in.
+ unit economics point to the an external analytics pack skills, not copied in.

@@ -1,19 +1,21 @@
 ---
 name: first-mocks
 description: >-
-  Turns a concept into the cheapest concrete artefact a human can react to, via
-  the no-code make-sequence: Crazy 8s → paper/Miro flow → digital mock →
-  clickable hybrid in v0 or Figma Make, built in one afternoon. Fires on "mock it
-  up", "run Crazy 8s", "clickable prototype", "turn this idea into something I can
-  click", "get from a rough idea to a prototype in an afternoon". Output is a
-  Clickable-Prototype Plan: the ONE thing the mock must provoke a reaction to, the
-  fidelity band, the no-code ceiling, and the hand-off to a real reaction. NOT
-  which experiment to run (probe-matrix), NOT running the test session
-  (usability-test-protocol), NOT the visual / UI craft — colour, type, distinctive
-  components — which it ROUTES to impeccable / shape / design and never restates.
-  Bans jumping to code.
-type: interactive
-supersedes: none
+ Turns a concept into the cheapest concrete artefact a human can react to, via
+ the no-code make-sequence: Crazy 8s → paper/Miro flow → digital mock →
+ clickable hybrid in v0 or Figma Make, built in one afternoon. Fires on "mock it
+ up", "run Crazy 8s", "clickable prototype", "turn this idea into something I can
+ click", "get from a rough idea to a prototype in an afternoon". Output is a
+ Clickable-Prototype Plan: the ONE thing the mock must provoke a reaction to, the
+ fidelity band, the no-code ceiling, and the hand-off to a real reaction. NOT
+ which experiment to run (probe-matrix), NOT running the test session
+ (usability-test-protocol), NOT the visual / UI craft — colour, type, distinctive
+ components — which it ROUTES to impeccable / shape / design and never restates.
+ Bans jumping to code.
+metadata:
+  supersedes: none
+  type: interactive
+allowed-tools: Read Glob Grep Write
 ---
 
 ## What it does
@@ -28,7 +30,7 @@ gets routed, and the hand-off to a real reaction. It does not draw the pixels an
 it does not run the test. Its job is to convert an abstraction into something
 concrete, fast, and disposable — then get out of the way.
 
-## The Icarus reframe
+## The reframe
 
 A mock is not a small version of the product. It is the cheapest concrete thing a
 human can react to, because people give useless feedback on a description and
@@ -49,7 +51,7 @@ before anyone watches a user or ships a line.
 
 Do not use it for these — hand off instead:
 
-| If the fellow wants… | Use instead | Why not this skill |
+| If the builder wants… | Use instead | Why not this skill |
 |---|---|---|
 | Which cheap experiment answers their ONE learning question (paper / WoZ / concierge / agent) | `probe-matrix` | That selects the experiment and its honesty; this MAKES an artefact. Route there first if the question is "which test." |
 | The paper sketch run as an evidence-gathering probe | `paper-sketch-probe` | That runs a sketch as a probe with a read-out; the paper step here is one rung in a make-sequence, not the probe. |
@@ -140,29 +142,29 @@ it has failed.**
 ## Gotchas
 
 - **Code is the seductive shortcut and the trap.** v0 and Figma Make blur into a
-  real app, and "I'll just wire the backend" turns a disposable mock into a defended
-  commitment you now argue for instead of about. The ceiling — no backend, no data,
-  no auth, one afternoon — is the whole discipline. If you would be sad to delete it,
-  you built too much.
+ real app, and "I'll just wire the backend" turns a disposable mock into a defended
+ commitment you now argue for instead of about. The ceiling — no backend, no data,
+ no auth, one afternoon — is the whole discipline. If you would be sad to delete it,
+ you built too much.
 - **Skipping the Crazy 8s to the idea you already had.** The 8 frames exist to kill
-  your first reflex. One or two variations is decoration, not divergence; if every
-  frame is a tweak of the first, you diverged nothing. Redo cold, and force yourself
-  past the obvious to the strange frames where the non-generic idea lives.
+ your first reflex. One or two variations is decoration, not divergence; if every
+ frame is a tweak of the first, you diverged nothing. Redo cold, and force yourself
+ past the obvious to the strange frames where the non-generic idea lives.
 - **Polishing pixels inside first-mocks.** The pull to make it pretty here is
-  strong, and it is `impeccable`'s job, done better. Writing colour, type, or layout
-  guidance into this output is the kill line — route it out. Keep first-mocks about
-  the sequence and the concrete-reaction logic.
+ strong, and it is `impeccable`'s job, done better. Writing colour, type, or layout
+ guidance into this output is the kill line — route it out. Keep first-mocks about
+ the sequence and the concrete-reaction logic.
 - **Reacting to the mock as if it were evidence.** A polished clickable prototype
-  feels like validation. It is 0.5, an artefact shown; no one used it under stakes
-  and no one paid. When a fellow says "people loved the prototype," ask what they
-  DID, not what they said — the mock is the setup for the test, not the test.
-- **A mock aimed at everything.** With Step 0 blank the fellow builds a demo of the
-  whole product and learns nothing clean, because no single reaction is isolated.
-  One moment, one unknown, one mock.
+ feels like validation. It is 0.5, an artefact shown; no one used it under stakes
+ and no one paid. When a builder says "people loved the prototype," ask what they
+ DID, not what they said — the mock is the setup for the test, not the test.
+- **A mock aimed at everything.** With Step 0 blank the builder builds a demo of the
+ whole product and learns nothing clean, because no single reaction is isolated.
+ One moment, one unknown, one mock.
 
 ## Examples
 
-`examples/sample.md` — Mentix mocks the copilot's shift-handover card. The ONE thing
+`examples/sample.md` — Foundry Signal mocks the copilot's shift-handover card. The ONE thing
 is whether a plant manager, mid-shift, can read the card cold and act on the flagged
 line. The run diverges with Crazy 8s (keeping the odd "one sentence + expand"
 frame), converges on paper, wires four frames into a clickable hybrid in v0 in an
@@ -183,6 +185,6 @@ Composes with: `probe-matrix` (selects the experiment; run it first if the quest
 is "which test," and return here to make the artefact a paper-sketch probe needs),
 `usability-test-protocol` (runs the session that turns this 0.5 mock into a 0.7
 read-out), `impeccable` / `shape` / `design/*` (own the visual craft this skill
-routes to and never restates), and the build skills in section 07
+routes to and never restates), and the build-and-sell-v1 skills
 (`compound-system-architecture`, `eval-first-spec`, gated by `v1-launch-bar`) that
 own the product code this skill bans.

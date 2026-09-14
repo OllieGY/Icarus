@@ -1,26 +1,28 @@
 ---
 name: current-state-map
 description: >-
-  Maps a workflow exactly as it happens today and puts a sourced price on every step — touch time,
-  handoffs, delay, and failure/rework — then totals it into the current priced practice per unit.
-  Fires on "how is this done today", "map the workflow", "what does it cost now", "walk the as-is
-  process and price it", "where does the time and money go in this workflow". Outputs a filled
-  priced step ledger: per-step cost + cited source + evidence-ladder weight + the four hidden-cost
-  lines + grand total per unit + the step that holds the most cost, every number tagged
-  [Fact]/[Assumption]/[Hypothesis]. NOT the theoretical floor or the build/walk gap verdict (use
-  physics-floor-gap — this builds the current-cost side that skill divides against), NOT the
-  primitive job with tool and role names stripped (use job-in-primitives), NOT total market size
-  (use bottoms-up-quantification), NOT qualitative problem-space framing / HMW (use
-  problem-framing-canvas).
-type: generator
-supersedes: none
+ Maps a workflow exactly as it happens today and puts a sourced price on every step — touch time,
+ handoffs, delay, and failure/rework — then totals it into the current priced practice per unit.
+ Fires on "how is this done today", "map the workflow", "what does it cost now", "walk the as-is
+ process and price it", "where does the time and money go in this workflow". Outputs a filled
+ priced step ledger: per-step cost + cited source + evidence-ladder weight + the four hidden-cost
+ lines + grand total per unit + the step that holds the most cost, every number tagged
+ [Fact]/[Assumption]/[Hypothesis]. NOT the theoretical floor or the build/walk gap verdict (use
+ physics-floor-gap — this builds the current-cost side that skill divides against), NOT the
+ primitive job with tool and role names stripped (use job-in-primitives), NOT total market size
+ (use bottoms-up-quantification), NOT qualitative problem-space framing / HMW (use
+ problem-framing-canvas).
+metadata:
+  supersedes: none
+  type: generator
+allowed-tools: Read Glob Grep Write
 ---
 # Current State Map
 
 ## What it does
 Turns "how is this done today?" into an invoice. It walks the workflow as it actually happens — one row per step — and puts a sourced price on each: touch labour, the handoff tax between steps, the cost of delay, and the cost of failure and rework. The lines total into the current priced practice per unit ([template.md](template.md)), and the map names the single step that holds the most money. That total is the number `physics-floor-gap` divides against the theoretical floor. This is not a swim-lane diagram and not a problem-space frame. It is a priced ledger of today's work, sourced to artefacts, tagged on the evidence ladder.
 
-## The Icarus reframe
+## The reframe
 A generic workflow map is a swim-lane: boxes and arrows that show what happens and price nothing. When it does price, it prices only the touch labour you can see — the minutes a person spends hands-on — and misses the three costs that usually dominate: the handoff tax in the seams, the delay while the clock runs, and the failure tail when a bad output escapes. Icarus refuses an unpriced box. Every step carries a number, and every number cites the artefact it came from — a timesheet, an invoice, a ticket log, one timed run — or it is marked an opinion and the map is declared not ready. The reframe of MITRE's "who benefits when the problem exists?" is blunt here: the beneficiary of the status quo is the priced line item automation deletes, and the map shows you exactly which one.
 
 ## When to use / When NOT
@@ -36,12 +38,12 @@ Use it when you have a real workflow that happens today and you want to know wha
 | "What's the TAM / total market for this?" | No | `bottoms-up-quantification` |
 | "Frame the problem space — biases, who's affected, How Might We." | No | `problem-framing-canvas` |
 
-This skill prices today's workflow and stops. It does not compute a floor, a gap, or a market. If the fellow wants those, name the sibling and hand off.
+This skill prices today's workflow and stops. It does not compute a floor, a gap, or a market. If the builder wants those, name the sibling and hand off.
 
 ## Method
 Work the ledger in [template.md](template.md). Do not narrate the process; fill the rows. Every number carries a tag: `[Fact]` (from a cited priced artefact or a directly observed run), `[Assumption]` (a stated, defensible estimate), `[Hypothesis]` (a guess flagged as needing evidence). Every number carries a source cell.
 
-**Step 1 — Name the unit and its trigger.** One pass through the workflow that produces one output (one report, one permit, one reconciled invoice) and what kicks it off. State frequency. If the fellow cannot name a discrete unit, stop and ask for it. Invent nothing.
+**Step 1 — Name the unit and its trigger.** One pass through the workflow that produces one output (one report, one permit, one reconciled invoice) and what kicks it off. State frequency. If the builder cannot name a discrete unit, stop and ask for it. Invent nothing.
 
 **Step 2 — Walk the as-is steps in order.** How the work *actually* happens, not the written SOP and not the future with your product in it. One row per step: actor/role, the artefact it consumes or produces, and touch minutes.
 
@@ -68,10 +70,10 @@ Work the ledger in [template.md](template.md). Do not narrate the process; fill 
 | Unpriced `[Hypothesis]` tail whose plausible magnitude could exceed the priced total — *dominant-suspect* | NOT READY — an unpriced line that could be the biggest one means the total may be the small half; price the tail (failure rate × £/failure) before trusting the figure |
 | Unpriced `[Hypothesis]` tail that sits outside an otherwise-sourced holding total and cannot plausibly exceed it — *upside-risk* | READY — the total holds; carry the tail flagged as an upside-risk number to price before scaling |
 
-**Kill line: an unpriced step, or a price with no cited source, fails the map.** The priced ledger is the product. A swim-lane with no money on it, or numbers invented rather than sourced from the fellow's artefacts, is not this skill's output.
+**Kill line: an unpriced step, or a price with no cited source, fails the map.** The priced ledger is the product. A swim-lane with no money on it, or numbers invented rather than sourced from the builder's artefacts, is not this skill's output.
 
 ## Evidence standard
-The prices are where fellows guess. Each must sit on money or behaviour, not opinion. Weight every line by the evidence ladder.
+The prices are where builders guess. Each must sit on money or behaviour, not opinion. Weight every line by the evidence ladder.
 
 | Source for a priced line | Ladder weight |
 |---|---|
@@ -79,7 +81,7 @@ The prices are where fellows guess. Each must sit on money or behaviour, not opi
 | A directly timed run or a ticket/system log (behaviour observed) | 0.7 |
 | A process doc or template that implies the step but not its cost (artefact shown) | 0.5 |
 | "The team says it's about a day" (verbal commitment) | 0.3 |
-| The fellow's opinion of what it costs | 0.1 |
+| The builder's opinion of what it costs | 0.1 |
 
 A confident aggregate — "it takes two weeks and costs a fortune" — is a 0.1 opinion, not a total. The skill decomposes it into steps and demands a source per step; it never accepts the lump sum and never floors it downstream. The dominant cost line sets the map's confidence: a £/unit total whose biggest term is a guess is a hypothesis wearing a decimal point. When a line is weak, name the cheapest artefact that lifts it: pull one timesheet week, time one run with a stopwatch, export one month of the ticket log.
 
@@ -91,7 +93,7 @@ A confident aggregate — "it takes two weeks and costs a fortune" — is a 0.1 
 - **A tidy total hiding a guessed dominant line.** A per-unit number feels solid the moment it has a decimal point. If its largest term rests on a 0.1 opinion, the concentration gate must catch it and hold the verdict at NOT READY.
 
 ## Examples
-- [examples/sample.md](examples/sample.md) — Azraq's static site risk report, decomposed and priced: five touch steps + rework loop + handoff tax reconcile to the £960 analyst-day, delay priced at £0 (and why), the failure tail flagged `[Hypothesis]`, drafting named as the dominant £300 line. Feeds `physics-floor-gap` directly.
+- [examples/sample.md](examples/sample.md) — Meridian Grid's static site risk report, decomposed and priced: five touch steps + rework loop + handoff tax reconcile to the £960 analyst-day, delay priced at £0 (and why), the failure tail flagged `[Hypothesis]`, drafting named as the dominant £300 line. Feeds `physics-floor-gap` directly.
 
 ## Related skills
 - `physics-floor-gap` — divides this map's total (the current cost) against the theoretical floor to return the build/walk gap verdict. Run this first; it produces the number that skill needs. This skill never computes a floor or a gap.

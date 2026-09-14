@@ -1,8 +1,10 @@
-# Worked example — Azraq's data-centre risk assessor
+> Illustrative fixture. Companies are fictional; numbers are plausible, not real client data.
 
-Azraq builds static risk reports on data-centre operators. This is a test fixture: numbers are illustrative, not real client data.
+# Worked example — Meridian Grid's data-centre risk assessor
 
-## Input the fellow brought
+Meridian Grid builds static risk reports on data-centre operators. This is a test fixture: numbers are illustrative, not real client data.
+
+## Input the builder brought
 
 "We want to product-ise our senior assessor's work. She grades an operator's outage risk from their incident history and site data. We have her scoring rubric written down, and a transcript where she talked through three past assessments. Which part of this is actually our product, and which part could anyone build?"
 
@@ -67,4 +69,4 @@ The fatal error here would have been filing "sanity-check the grade" as a tell-a
 
 ## The correction this skill forced
 
-The fellow assumed the rubric was the product — it is the artefact they were proudest of. The rubric is the commodity: a model plus the published rubric grades operators as well as a junior does. The product is the three judgment calls the rubric cannot hold, and only one of them (the clustering override) is captured today. The other two are the reason two juniors disagree, and they are still trapped in the senior's head. The split moved Azraq's attention from documenting the rubric to observing the three overrides — and told them which one is already theirs and which two they still have to go and watch.
+The builder assumed the rubric was the product — it is the artefact they were proudest of. The rubric is the commodity: a model plus the published rubric grades operators as well as a junior does. The product is the three judgment calls the rubric cannot hold, and only one of them (the clustering override) is captured today. The other two are the reason two juniors disagree, and they are still trapped in the senior's head. The split moved Meridian Grid's attention from documenting the rubric to observing the three overrides — and told them which one is already theirs and which two they still have to go and watch.
