@@ -1,0 +1,7 @@
+{
+  "name": "daedalus-kit",
+  "description": "Utopia Studio's Product Management hub. The 45 eval-gated Icarus skills, the golden rules they run on, starter agents, tools, and an append-only lessons log. Takes a raw idea from first-principles problem to a scored, pilot-ready v1.",
+  "version": "0.1.0",
+  "author": { "name": "The Utopia Studio" },
+  "keywords": ["product", "discovery", "icarus", "evidence", "venture-studio"]
+}
