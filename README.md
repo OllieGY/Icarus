@@ -32,6 +32,10 @@ session, including ones working on your own product in your own repo.
 There is also an `icarus-critic` agent: an adversarial reviewer that grades a claim, a PRD,
 a deck or a pilot plan against the rules and refuses to pass anything carried by opinion.
 
+[`rebuilds/`](./rebuilds/) holds candidate agent-ops drafts, inspired by
+[BuilderIO/skills](https://github.com/BuilderIO/skills) (MIT). Nothing there is graduated,
+and the plugin does not load it — a skill enters folded or it does not enter.
+
 ## The flow
 
 Eleven stages. `start-here-router` decides which are yours, because the biggest waste is not
