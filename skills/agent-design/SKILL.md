@@ -139,6 +139,42 @@ lessons.md that logs praise, not corrections. A memory that only records wins te
 
 Skipping the eval because "we'll know if it's working." Without the eval you cannot swap the model safely, promote autonomy, or prove the memory compounds. "We'll feel it" is opinion (0.1). Route to `eval-first-spec` and carry the number.
 
+## Step 5 — Tool ergonomics
+
+The tool list is a prompt. Most agent failures blamed on reasoning are a tool the model could
+not tell apart from its neighbour, or a result it could not read. Specify each tool:
+
+| Field | The bar |
+|---|---|
+| name and namespace | prefixed by domain, so two tools from different systems never collide |
+| the one situation it wins | if you cannot state a situation where this tool and no other applies, merge or delete it |
+| return shape | human-readable context, not raw IDs — the model cannot join a foreign key |
+| token ceiling | what the result is truncated or paginated to, and how the model asks for more |
+| error affordance | the message tells the model what to do next, not just what failed |
+| blast radius | what a wrong call touches, carried from Step 2 |
+
+**The disambiguation test.** Put the tool list in front of an engineer who knows the system
+and give them five real requests. If they cannot say which tool applies, the model cannot
+either. This test deletes tools more often than it renames them; deleting is the fix.
+
+## Step 6 — Memory governance
+
+Step 4 named four stores and who writes to each. Left there, memory becomes the leak. Give
+every store:
+
+| Field | Why it matters |
+|---|---|
+| write criteria | what earns a place. "Anything interesting" fills the store with noise in a week |
+| writer | the agent, a human, or a job — and whether a write needs approval |
+| expiry or decay | what goes stale, and what happens to it. A correction from a deprecated workflow is worse than no memory |
+| audit trail | who wrote what, when. Without it you cannot explain a behaviour change |
+| tenant isolation | the rule that one customer's corrections never reach another customer's agent |
+
+The isolation rule is the one that ends companies. A shared corrections store is the fastest
+path to a compounding advantage and also to leaking one customer's operational detail into a
+competitor's answers. Decide explicitly, write it down, and route the contractual half to
+`data-rights-clause`.
+
 ## Examples
 
 [examples/sample.md](examples/sample.md) — a worked agent spec for **Halcyon Safety** (oil & gas safety): a permit-to-work gas-hazard reviewer at autonomy L1, four read/draft tools each tied to an eval case (and no commit tool, by design), a four-store memory layer whose lessons.md logs every safety-officer override, and the named compounding mechanism where one logged override turns an adversarial golden case from fail to pass on the next re-run. The eval is pointed at `eval-first-spec`, not restated.

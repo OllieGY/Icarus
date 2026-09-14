@@ -163,6 +163,27 @@ if-condition, not a hope.
 - **Loops with no exit.** A critic → drafter loop with no max-iteration or escalate condition
  runs until someone notices. Every loop names its exit.
 
+## Fleet-level evals
+
+`eval-first-spec` scores one agent on one case, including how it got there. A fleet fails in
+ways no single-agent grader sees: two agents that each pass while the handoff drops the
+context, a supervisor that spawns nine workers for a job worth one, a loop between two agents
+that both believe they are waiting.
+
+Score the orchestration itself:
+
+| Grader | Passes when | Catches |
+|---|---|---|
+| spawn correctness | the agents that ran are the ones the rule names | over-spawning, and the missing specialist |
+| handoff integrity | what agent B received contains what agent A was required to pass | silent context loss at the boundary |
+| termination | every agent hit a stated done condition | the fleet that never finishes |
+| fleet turn ceiling | total turns across all agents stayed under budget | thrash that a per-agent ceiling misses |
+| fleet cost ceiling | total cost per outcome, all agents summed | the fleet that is correct and unaffordable |
+
+Run these on the same golden cases as the single-agent set, so a fleet change can be compared
+against the simpler design it replaced. If the fleet does not beat one agent on the same
+cases, the honest result is to collapse it — and this is the check that tells you.
+
 ## Examples
 
 [examples/sample.md](examples/sample.md) — Halcyon Safety's discovery-to-v1 build run

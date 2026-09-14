@@ -136,6 +136,55 @@ Cost-per-call smuggled in for cost-per-outcome. "$0.02 per call" is not the budg
 
 Cases invented to reach 20. If the reality floor can't be met, the honest output is "you have 9 real inputs; go get 5 more from the next probe cycle," not 11 fabricated ones. Fabricated cases score a `[Assumption]` and, worse, teach the build to pass tests that describe no real user.
 
+## Part 5 — The bare-model baseline (Δ)
+
+A high score proves nothing on its own. If a frontier model with no corpus, no tools and no
+scaffolding scores the same on your golden set, the score belongs to the model and you built
+a wrapper. Run the ablation before you ship.
+
+| Arm | What runs | What it tells you |
+|---|---|---|
+| WITH | your full system | the number you were going to quote |
+| WITHOUT | the same golden cases, same prompt, bare frontier model, no data or tools | what the model already does for free |
+| Δ | WITH minus WITHOUT, per case and as a mean | what you actually added |
+
+Report Δ per case, not just the mean — a mean hides the shape. Then attribute: for each case
+with a real Δ, name the component that produced it (the corpus, a tool, a guardrail, the
+orchestration). A component that produces no Δ on any case is a deletion candidate; hand it
+to `compound-system-architecture` with the effort budget it frees.
+
+**The ship line.** Mean Δ ≤ 0 is a refusal, not a caveat. Say plainly that a bare model
+matches the product on its own golden set, and stop. Δ ≈ 0 with a proprietary corpus in the
+system usually means the corpus is model-reachable; route to `yoda-data-sourcing`.
+
+Contamination matters here more than anywhere: if the cases leaked into training, WITHOUT is
+inflated and Δ is understated. Use the cannot-narrate gate from `dataset-builder`.
+
+## Part 6 — Trajectory graders: was it produced the right way
+
+A binary check on the final answer passes a run that looped twelve times, called the wrong
+tool first, and got there by luck. For an agent, the path is part of the outcome. Give every
+golden case a second grader class:
+
+| Grader | Passes when | Catches |
+|---|---|---|
+| required calls | the named tools were called | an answer asserted without looking |
+| forbidden calls | a named tool was never called | reaching past the blast radius |
+| step order | calls happened in the stated order | acting before checking |
+| turn ceiling | the run finished within N turns | loops and thrash |
+| cost ceiling | the run stayed under the per-outcome budget | a right answer at 8× the price |
+
+A case passes only when both classes pass. Score them separately so a regression tells you
+which half moved. Fleet-level versions of the same graders belong to `workflow-design`.
+
+## Part 7 — Handoff: cases as acceptance criteria
+
+The build agent should be scored on the same set as the product. Emit each golden case twice:
+once as a case, once as an acceptance line in `WHEN <condition> THE SYSTEM SHALL <behaviour>`
+form, with the case ID attached. Emit each pipeline component from
+`compound-system-architecture` as a task carrying the case IDs it must satisfy. A component
+with no case attached is unspecified work — send it back rather than building it.
+
 ## Examples
 
 `examples/sample.md` — a full worked eval-first spec for Foundry Signal v1 (the shift-handover machine-risk digest): the job line with its judged-by clause, all 20 golden cases composed across the four bands and tagged for source, an L1 autonomy choice with a six-mode failure taxonomy and rates derived from cost-of-one-failure, and a cost-per-outcome budget of ~$3.55/shift checked against value-per-outcome — including one band that started under-real and forced a "go get more inputs" finding.

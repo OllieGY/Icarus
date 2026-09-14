@@ -121,6 +121,29 @@ Data-rights left for the production contract. "We'll sort out data rights when w
 
 Unbounded scope becomes free consulting. "Pilot the whole platform" with no end date and no OUT-of-scope list has no pass bar; it drifts into months of unpaid customization. Term 1 must name what is out and a hard end date, or the pilot funds the customer, not the other way round.
 
+## The seventh thing — what their security team will ask
+
+The pilot rarely dies at the product review. It dies six weeks later in a security
+questionnaire nobody priced. Run this before the term sheet is signed, so the cost of
+selling to this buyer is visible while the terms are still open.
+
+| They will ask | Answer honestly | If you do not have it |
+|---|---|---|
+| Deployment model — their cloud, yours, on-prem? | which you support today | what it costs to add, in weeks |
+| Data residency | the regions you can actually run in | the work to add one |
+| A signed DPA | yours, or can you sign theirs | counsel time |
+| Subprocessor list | every vendor touching their data, including the model provider | assemble it now; it takes an hour and blocks deals for weeks |
+| Retention and deletion | how long, and how deletion is proven | the engineering to prove it |
+| SOC 2 or equivalent | have it, in progress, or no | the honest date |
+| Model training on their data | what you do, matching the clause in `data-rights-clause` | resolve the contradiction before they find it |
+
+Mark each **have / would have to build / will not do**, and price the middle column in weeks.
+Then decide whether this buyer is worth that build. Sometimes the answer is no, and finding
+that out before signature is the whole point.
+
+A gap here is not a reason to promise. An intention stated in a questionnaire is a verbal
+commitment at 0.3 that you will be held to as though it were 1.0.
+
 ## Examples
 
 `examples/sample.md` — a full six-term sheet for Foundry Signal's first paid pilot (factory-manager copilot on one plant line), including the builder's first draft (a free 8-week POC with pricing "TBD") and the two-term upgrade that turns it into a real pilot. Numbers are illustrative test fixtures.

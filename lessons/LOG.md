@@ -5,6 +5,65 @@ Append-only. Newest first. Format in [`TEMPLATE.md`](./TEMPLATE.md); the bar for
 
 ---
 
+### 2026-09-14 — Every skill in the kit carried frontmatter that breaks plugin packaging
+
+**What happened.** All 46 skills declared `type:` and `supersedes:` as top-level frontmatter
+keys. Claude Code permits no unknown top-level keys and rejects them at packaging time. The
+set had shipped, been installed and been used in that state.
+
+**Evidence.** The documented frontmatter reference, checked directly against the files.
+`[Fact]`
+
+**Cost.** None realised yet, and that is the point: it was a latent failure that only bites
+on packaging or upload, so nothing surfaced it during ordinary use.
+
+**Lesson.** Authoring conventions drift from the platform's schema silently, because the
+failure is at a boundary you cross rarely. A convention that is never machine-checked is a
+convention you are no longer following.
+
+**Changes.** `validate-skills.mjs` gates the allowed top-level key set and runs in CI. Custom
+fields live under `metadata:`.
+
+---
+
+### 2026-09-14 — The rules the kit is built on never loaded for the people using it
+
+**What happened.** Everything in the kit says "read the golden rules first", but they lived
+in `CLAUDE.md` and a repo-root file. Both only load when this repo is the working directory.
+Installed as a plugin into someone's own product repo — the entire purpose — neither was ever
+in scope, and the relative paths in the commands resolved against the wrong repo.
+
+**Evidence.** Path resolution traced through the plugin loading model. `[Fact]`
+
+**Cost.** Unknown and probably large: every session that used a skill without the rules got
+the method's shape without its discipline, silently.
+
+**Lesson.** A rule that depends on a file being read is not in force until you can show the
+mechanism that reads it. "The instructions say to read it" is an intention, 0.3.
+
+**Changes.** A `SessionStart` hook injects the rules as context on every session, and every
+cross-file path in commands, agents and hooks resolves through `${CLAUDE_PLUGIN_ROOT}`.
+
+---
+
+### 2026-09-14 — A rewrite script that reformatted files it had not changed
+
+**What happened.** The public rewrite ran a whitespace-repair pass after its substitutions.
+The repair was meant to fix damage from removed parentheticals, but it ran unconditionally,
+so it also reformatted the 102 files no substitution touched. The idempotency check caught it.
+
+**Evidence.** `rewrite-public.py --check` reporting 102 changed files on a second run. `[Fact]`
+
+**Cost.** Would have put pure whitespace churn across a third of the repo in the release diff,
+hiding the real changes from anyone reviewing it.
+
+**Lesson.** A repair pass belongs inside the branch that caused the damage. A transformation
+you cannot run twice for the same result is not a transformation, it is a drift.
+
+**Changes.** Cleanup runs only when a substitution fired. CI runs `--check` on every push.
+
+---
+
 ### 2026-09-14 — Eleven graduated skills shipped with frontmatter that will not parse
 
 **What happened.** Copying the 45 Icarus skills into this hub, a strict YAML check found 11

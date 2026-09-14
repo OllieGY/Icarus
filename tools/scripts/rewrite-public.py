@@ -103,13 +103,22 @@ ALL = COMPANIES + RENAMES + PEOPLE + FRAMING + SECTIONS + MODULE
 
 
 def rewrite(text: str) -> str:
+    """Apply every substitution, then repair only what the substitutions damaged.
+
+    The cleanup pass runs ONLY when a substitution actually fired. Running it
+    unconditionally would reformat files the rewrite never touched — which makes the
+    script non-idempotent and produces pure whitespace churn in the diff.
+    """
+    out = text
     for pat, rep in ALL:
-        text = re.sub(pat, rep, text)
+        out = re.sub(pat, rep, out)
+    if out == text:
+        return text
     # collapse damage from removed parentheticals
-    text = re.sub(r"[ \t]+([.,;)])", r"\1", text)
-    text = re.sub(r"\(\s+", "(", text)
-    text = re.sub(r"[ \t]{2,}(?![-|])", " ", text)
-    return text
+    out = re.sub(r"[ \t]+([.,;)])", r"\1", out)
+    out = re.sub(r"\(\s+", "(", out)
+    out = re.sub(r"[ \t]{2,}(?![-|])", " ", out)
+    return out
 
 
 def needs_disclaimer(path: str) -> bool:

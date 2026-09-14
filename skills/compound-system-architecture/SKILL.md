@@ -152,6 +152,29 @@ one.
  step is legitimate for a small tool. Writing the node as "n/a — rules" is honest;
  omitting it so the diagram looks clean hides a decision.
 
+## The cost ledger — the levers, not just the number
+
+`metrics-that-matter` forces you to know cost per outcome. This is where you move it. AI
+margins land well below software's because cost of goods scales with usage, so the levers are
+architecture decisions, not a procurement exercise.
+
+| Lever | What it does | Measure |
+|---|---|---|
+| prompt caching | stops re-sending the stable prefix on every call | Δ cost per outcome |
+| model routing | a small model handles the common case, a large one handles escalation, with the escalation rule stated | Δ cost, and Δ quality on the golden set |
+| batching | groups work that does not need to be interactive | Δ cost, Δ latency |
+| output truncation | caps generated tokens where length adds nothing | Δ cost, Δ task success |
+| retrieval narrowing | fewer, better chunks instead of more | Δ cost, Δ accuracy |
+
+Two rules. **Measure each lever separately, on the golden set**: a cost saving that drops
+task success is a price cut, not an efficiency gain, and you will find out from customers.
+**State the target margin band** before you optimise, so you know when to stop. Without a
+band, cost work expands until it damages the product.
+
+A lever that cannot be measured because the traces do not carry cost per call is blocked on
+`trace-instrumentation-spec`. Do not estimate it — an estimated saving is an `[Assumption]`
+and cannot be reported as a result.
+
 ## Examples
 
 [examples/sample.md](examples/sample.md) — Foundry Signal's factory-manager AI copilot built as

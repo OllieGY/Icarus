@@ -125,6 +125,32 @@ The unattributable outcome quietly downgraded to usage. When per-outcome attribu
 
 The priceless outcome. When one outcome is a prevented fatality or an unbounded loss, you cannot capture 10–20% of it — the percentage is meaningless and taking it is grotesque. Anchor instead on a *bounded, money-backed proxy* the customer already pays: the regulatory fine avoided, the insurance-premium delta, the documented downtime cost. Price a percentage of the bounded proxy, never of the incident.
 
+## Step 6 — Verifying the outcome, and what happens when it fails
+
+Pricing on an outcome is easy to announce and hard to run. The two questions that decide
+whether it survives contact with a customer are how the outcome is proven and who pays when
+it does not happen.
+
+**Verification.** Name the exact trace field that marks an outcome as delivered, and who
+adjudicates a dispute. If the field does not exist yet, this is a spec for
+`trace-instrumentation-spec`, not a pricing decision you can close today.
+
+| Question | Acceptable answer | Not acceptable |
+|---|---|---|
+| What marks it delivered? | a field emitted at the moment it happens | a monthly report reconciled by hand |
+| Who adjudicates? | a named role, with the customer's right of review | "we'll sort it out" |
+| Contested outcome? | the rule, written before signature | a renegotiation |
+
+**Non-delivery.** Decide in advance: no charge, a credit, or a floor with a true-up. Any of
+the three works. Discovering you had no rule works badly, at the exact moment a customer is
+already unhappy.
+
+**The margin check at the real failure rate.** Model the margin at the failure rate you
+measured in `eval-first-spec`, not the one you hope for. An outcome price is revenue only on
+successes but your inference cost is spent on every attempt, including the ones you do not
+bill. If margin is negative at the measured rate, the price is wrong or the product is not
+ready — say which.
+
 ## Examples
 
 `examples/sample.md` — a full value-priced model for Meridian Grid (data-centre risk), built from a real $220k SLA-breach penalty the design partner paid (money 1.0). Includes the builder's first draft — a competitor-anchored per-seat price — and the correction that shows per-seat was wrong on the axis, not just the number. Figures are illustrative test fixtures.

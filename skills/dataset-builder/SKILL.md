@@ -120,6 +120,25 @@ Padding to 20 with synthetic cases. If you have 12 real labelled cases, the hone
 
 Volume mistaken for a dataset. Ten thousand rows a model labelled in an afternoon is not a golden set; twenty real artefacts with ground-truth labels a model cannot reproduce is. The value is in the unreachable label, not the row count. A bigger synthetic pile is a bigger mirror.
 
+## The synthetic tier
+
+Real artefacts run out before the rare, expensive failure modes are covered. A synthetic case
+can fill that hole, and it can also quietly poison the set. The rules that keep it useful:
+
+| Rule | Why |
+|---|---|
+| It may only fill a **named uncovered mode** | from `failure-mode-mining` or `guardrail-design`. "More coverage" is not a reason |
+| Tagged `[Hypothesis]`, never `[Fact]` | nobody did this; you imagined it |
+| Capped as a share of the set | past roughly a quarter you are scoring your own imagination |
+| Still passes the cannot-narrate gate | if a foundation model can produce the case and its label unaided, it tests the model, not you |
+| Scored separately | report real-case and synthetic-case pass rates apart, always |
+
+A synthetic case never promotes a claim on the ladder. It tests coverage of a mode; it is not
+evidence that the mode occurs. The frequency claim still has to come from real traces.
+
+When the synthetic tier starts outperforming the real one, that is the signal to go and get
+more real artefacts, not to write more synthetic cases.
+
 ## Examples
 
 `examples/sample.md` — a full labelled dataset and golden seed for Foundry Signal's operator-correction data: each artefact is one copilot suggestion plus the operator's accept/edit/override and what the line did afterwards, labelled with the correct first action and ground-truthed on the outcome. It scores every label on the ladder, discards a case pulled from a public predictive-maintenance tutorial (input-leak), holds a case whose only label is an engineer's opinion, retires a case the team had already few-shotted against, lands at 22 golden cases, and hands the seed to `eval-first-spec` without composing the bands.

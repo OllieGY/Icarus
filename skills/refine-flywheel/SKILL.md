@@ -139,6 +139,47 @@ Clean-accept gamed by emptier output. If the model learns to hedge — vaguer, s
 
 Vanity loop. Usage up, edits still 100%, is a product people are forced to use, not one they trust. If tweak-time and cost-per-outcome are flat, "engagement is growing" is noise.
 
+## Station 5 — The set grows or it decays
+
+A fixed golden set is a decaying asset. The moment you ship, production starts generating
+the cases you could not imagine at spec time, and the only version of this loop that
+compounds is the one that captures them.
+
+Every failure found in production, in a red-team pass, or by a user correction becomes a
+permanent case:
+
+1. Label it against the ground truth, on the ladder — what actually should have happened,
+   and how you know.
+2. Run the four gates from `dataset-builder`: cites a real artefact, the label is ground
+   truth, a foundation model cannot narrate it, held out from the build.
+3. Append it with the date it entered and the incident that produced it.
+4. Re-run the whole set, not just the new case. A fix that breaks two old cases is not a fix.
+
+Report **set growth per month** beside the pass rate. A flat set with a rising score usually
+means the score is drifting toward the cases you already solved. A growing set with a stable
+score is the shape you want: the bar is rising and you are keeping up.
+
+This is the same asset `moat-design-canvas` counts in the data-advantage gate. It is not a
+QA artefact; it is the thing a competitor with your model cannot copy.
+
+## Release gates — how a change actually reaches users
+
+Re-running the set on every model release is necessary and not sufficient: you also need a
+way to ship that does not bet the whole user base on the re-run being right. Each station
+carries a release row:
+
+| Field | What it fixes |
+|---|---|
+| pinned model ID | so a score move is attributable to your change, not a silent rollout |
+| shadow window | the change runs on live traffic, produces no user-visible output, and its results are scored against what actually shipped |
+| canary share | the percentage of real traffic exposed first, and for how long |
+| rollback trigger | the specific eval or production number that reverts it, decided before launch |
+| owner | the one person who can pull it, named |
+
+Shadow before canary before full. A rollback trigger written after a bad launch is a
+post-mortem, not a gate. And a model release you did not choose is still a change: pin the
+version, and treat an unpinned dependency as an `[Assumption]` about someone else's roadmap.
+
 ## Examples
 
 `examples/sample.md` — the post-launch flywheel for Foundry Signal's shift-handover machine-risk digest, picking up exactly where `eval-first-spec` shipped it at L1: tweak-time instrumented on the digests (clean-accept climbing 41% → 78%), a model-release re-run that regresses the Miss rate and correctly holds autonomy despite a higher aggregate score, and an L1→L2 promotion granted only after the re-scored eval clears the derived gate — with cost-per-outcome falling $3.55 → $2.90/shift as the compounding proof.

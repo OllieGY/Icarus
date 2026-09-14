@@ -9,7 +9,7 @@ description: >-
   the loop design", "should we show confidence". Kills any irreversible action
   specified without an in-surface diff and an undo, and refuses to design a level
   the cost of one failure does not support. Do NOT fire to derive the threshold
-  itself or place failure modes on the cost x volume matrix (use
+  itself or place failure modes on the cost × volume matrix (use
   `guardrail-design` — it decides WHERE the gate goes, this designs what the human
   sees at it), to draw the screens (use `first-mocks`), to run the moderated
   session (use `usability-test-protocol`), or to list the fields a trace writes

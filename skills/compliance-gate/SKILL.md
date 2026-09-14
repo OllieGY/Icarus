@@ -23,11 +23,11 @@ allowed-tools: Read Glob Grep Write
 ## What it does
 
 You answer six scoping questions. You get back one artefact: a **classification** and an
-**obligations-to-artefacts map**. The map has one row per obligation that actually attaches to *your* classification. Each row
-names the artefact that already satisfies it — a file, a recorded run, a scored set — and is
-marked **HELD**, **PARTIAL**, or **GAP**. Below the map sit only the genuine gaps, each with
-the smallest artefact that would close it and the person who must make it. Below that sit the
-questions this skill will not answer, addressed to counsel by name.
+**obligations-to-artefacts map**. The map has one row per obligation that actually attaches to *your*
+classification. Each row names the artefact that already satisfies it — a file, a recorded run, a
+scored set — and is marked **HELD**, **PARTIAL**, or **GAP**. Below the map sit only the genuine gaps,
+each with the smallest artefact that would close it and the person who must make it. Below that sit
+the questions this skill will not answer, addressed to counsel by name.
 
 It refuses three things, always: it does not draft legal text, it does not certify or declare
 conformity, and it does not answer a jurisdiction-specific question — it writes that one down and stops.
@@ -102,7 +102,9 @@ Not the whole act. Transparency-only is three rows and you are done in a page. F
 high-risk-provider route, the nine that matter:
 risk management · data and data governance · technical documentation · record-keeping and logging ·
 transparency and instructions for use · human oversight · accuracy and robustness · cybersecurity and
-adversarial robustness · post-market monitoring. Article numbers (Art. 9–15, 17, 72; Art. 50 transparency; Art. 53/55 general-purpose models) are
+adversarial robustness · post-market monitoring.
+
+Article numbers (Art. 9–15, 17, 72; Art. 50 transparency; Art. 53/55 general-purpose models) are
 orientation pointers only. Do not quote operative text and do not state an applicable date — phase-in
 is a counsel question (Step 6).
 
