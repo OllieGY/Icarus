@@ -179,7 +179,9 @@ PUBLICATION and NOTHING._
 A NO here is not a reason to stop; it is a reason to price filing afresh alongside converting. Which
 one is a counsel question (Part H). Naming the gap is not.
 
-**Route chosen:** _[US provisional only / US only / provisional → PCT → national phases / + GCCPO / other]_
+**Route chosen:** _[US provisional only / US only / provisional → PCT → national phases / + national
+filings in Bahrain, Kuwait and Qatar centrally examined by the GCC Patent Office (Paris priority,
+12 months — not reachable through the PCT window) / other]_
 **Because:** _[which doors are open, which markets matter]_
 
 | Step | Target date | Cost | Source row + checked date | Tag |
