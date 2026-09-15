@@ -114,6 +114,7 @@ wrong — once by stopping when there was a decision to make, once by carrying o
 |---|---|
 | **No contribution sentence exists** — a product name, a category, a hunch | **Stop.** Ask the one question and nothing else. There is no decision to make yet |
 | **The sentence exists and is well formed**, so the gate clears here — but when you reach Step 2, all three eligibility tests return NO (a standard model on standard features, no recited improvement) | **Do not come back here and stop.** The patent branch is closed, but the decision is live: go straight to Step 4, where the usual outcome is DEFENSIVE PUBLICATION or NOTHING. Skip the route and ledger — there is nothing to file |
+| **The sentence is in the right shape but the effect is not technical** — the advantage is timing, distribution, or reach ("it arrives Monday morning, and the incumbent's dashboard does not") | Same exit as the row above, and worth saying out loud: a real advantage that is not a technical effect is a wedge-and-moat question, not an IP one. Run Step 4 for the publish-or-nothing call, then route the advantage to `moat-design-canvas` |
 
 The second exit is the one builders most need and most rarely get. "You cannot patent this" is not
 the end of the conversation; the question of whether someone else can patent it against you is still
@@ -189,7 +190,8 @@ you as much as in the ones where it did not.
 Marking a no-grace jurisdiction OPEN when the log shows an un-NDA'd disclosure is the kill line.
 Say BURNED. It is unwelcome and it is the most valuable sentence this skill produces — it stops a
 builder spending the $10,500–$19,000 an EPO entry costs on a route that closed eight months ago
-`[Fact]` — jurisdictions reference, checked 2026-09-15.
+`[Assumption]` — the band is built from attorney and translation estimates, so by the Step 5 rule it
+is an assumption even though every input to it is cited.
 
 When everything is burned except the US, the remaining decision is a real one: file in the US
 inside the window, or accept that the protect branch is gone and run the secret or publish branch.

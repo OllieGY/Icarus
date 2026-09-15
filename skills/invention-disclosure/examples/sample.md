@@ -125,7 +125,7 @@ fact that would change the plan if counsel disagrees.**
 | 2 | Secret-ability | No. The cohort membership appears in the customer-facing report; a determined competitor reads the approach off the output | 0.5 | `[Fact]` | PATENT or PUBLISH |
 | 3 | Where the value sits | Exclusion. The corpus is the compounding asset, and the alignment method is the only way to use a cross-operator corpus at all — blocking it blocks the category | 0.5 | `[Assumption]` | PATENT |
 | 4 | Core or peripheral | Core. It is the wedge | 0.7, behaviour: three of four operators changed a maintenance decision on the output | `[Fact]` | protect |
-| 5 | Cost against runway | $33k–$72k over five years on the PCT route against an 18-month runway and a raise in progress. Fits if the raise closes; the provisional alone is $2.3k–$5.3k and fits regardless | — | `[Assumption]` | proceed, staged |
+| 5 | Cost against runway | $37.6k–$84.1k over five years on the PCT route (Part E) against an 18-month runway and a raise in progress. Fits if the raise closes; the provisional alone is $2.3k–$5.3k and fits regardless | — | `[Assumption]` | proceed, staged |
 
 **Outcome: PATENT** — because the method is visible in the product's own output, so it cannot be
 kept secret, and it sits on the category's only route.

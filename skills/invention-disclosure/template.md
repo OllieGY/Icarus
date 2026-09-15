@@ -22,7 +22,21 @@ this differently], which [measurable effect]*.
 - [ ] At least one artefact scores ≥ 0.5.
 
 If either box is empty: **STOP.** Ask only *what does the system do differently from the ordinary
-way, and what measurable effect does that have?* Invent nothing.
+way, and what measurable effect does that have?* Invent nothing — no fees, no grace periods, no
+jurisdictions, and at most one sentence noting that if anything has already been shown publicly the
+answer is time-sensitive.
+
+**If both boxes tick, the gate has cleared — and it stays cleared.** Two later findings look like
+gate failures and are not. If Part B2's eligibility checks all come back NO, or if the effect turns
+out to be real but not technical (timing, distribution, reach), **do not come back here and stop.**
+The patent branch is closed; the decision is not. Go to Part D, skip Part E, and expect
+DEFENSIVE PUBLICATION or NOTHING. A non-technical advantage also belongs in `moat-design-canvas`.
+
+| Where you ended up | Continue at |
+|---|---|
+| Gate did not clear — no contribution sentence | Nowhere. Ask the one question and stop |
+| Gate cleared, eligibility all NO, or the effect is non-technical | **Part D**, then Part G and Part H. Skip Parts B3–B6 detail and Part E |
+| Gate cleared, eligibility survivable | Part B in full, then C, D, E, F |
 
 ---
 
@@ -62,7 +76,11 @@ A NO is not fatal; it is a rewrite instruction. Say what would have to be recite
 
 - [ ] No AI system, company, or "the team" appears in the inventor table.
 - [ ] Every named inventor has a specific conceptual contribution written next to them.
-- [ ] Every named inventor has signed an assignment. **Any NO is a blocking gap.**
+- [ ] Every named inventor has either signed an assignment, **or** is named with the reason they
+      cannot sign and the counsel question that follows. **Either way an unsigned inventor is a
+      blocking gap** — but the two need different actions: a contractor signs, whereas a customer's
+      engineer may be unable to, because their employer may own the share. Route that one to counsel
+      in Part H; do not treat silence as a signature, and do not drop them from the table.
 
 ### B4. Dates and evidence
 

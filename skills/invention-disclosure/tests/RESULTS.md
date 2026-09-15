@@ -125,14 +125,54 @@ entry, validation and annuities are still outside the total.
 something or keep it secret", closing a boundary that previously ran one way only. That edit
 re-stales its own graduation, which its `tests/RESULTS.md` already records.
 
-A third judge was launched against the refined text on 2026-09-15 and had not returned when the
-session closed, so **no gate verdict stands on the current text**. The four fixes were instead
-verified directly by the author against `GOLDEN_RULES.md` and the reference files: the IP-value
-ladder row now puts cash at 1.0, an unfunded term sheet at 0.3 and a prediction at 0.1; every dollar
-figure in `SKILL.md` carries a source or an `[Assumption]`; the Step 1 gate has two exits; and Route
-C's rows sum to its stated total ($37,590 and $84,090 against a quoted ≈$37,600–$84,100). That is
-mechanical verification of specific claims, **not a gate** — a judge separate from the author still
-has to score the current text.
+## Judge C — 2026-09-15, scored against the refined text
+
+A third judge, again separate from the author, scored the post-refine text and confirmed all four
+earlier fixes landed: the IP-value ladder is Rule 1 compliant on both cells, the untraceable dollar
+figure is gone and every remaining one traces, the gate has a real second exit that reaches golden
+04's output, and Route C's rows sum to its stated total (verified at $37,590 and $84,090 against a
+quoted ≈$37,600–$84,100).
+
+| Gate | Judge C |
+|---|---|
+| 1 Trigger precision | PASS 5/5 fire, 0/3 misfire |
+| 2 Golden set | PASS — 24 / 23 / 24 / 23 / 24, no dimension below 4 |
+| 3 Adversarial | PASS 3/3, each fail condition traced to a blocking line |
+| 4 Head-to-head | n/a — supersedes none |
+| 5 Anti-generic | PASS |
+| 6 Five real uses | not run |
+
+Overall 22/25: `method_fidelity` 4, `artifact_complete` 4, `proprietary_edge` 5, `challenge` 5,
+`evidence_standard` 4. No auto-fail triggered.
+
+**This verdict is also stale**, because the skill was edited again on its findings — three of which
+were real and two of which the previous refine had introduced:
+
+1. `examples/sample.md` Part D still carried the pre-refine ledger total, contradicting its own
+   Part E twelve lines below. The earlier refine updated the table and missed the prose.
+2. Step 3 tagged the EPO entry band `[Fact]` while Step 5's newly added rule classifies a total
+   built from an attorney band as `[Assumption]` — the skill broke its own rule one section above
+   where it states it.
+3. **`template.md` Part A still had a single exit.** The previous refine fixed the gate in
+   `SKILL.md` and left the template, which is where the method is actually executed, carrying the
+   exact defect the refine existed to remove. The sharpest finding of the three runs.
+
+Also applied: a third gate shape (a well-formed sentence whose effect is real but not technical,
+which is what golden 04 actually turns on, routed to `moat-design-canvas`); and a template
+assignment checkbox that distinguishes a contractor who can sign from a customer's engineer who may
+not, since the two are the same class of blocking gap needing different actions.
+
+Judge C's `method_fidelity` and `artifact_complete` 4s rested partly on golden 02 reaching its
+answer through the reference files rather than through a method step — specifically re-dating new
+matter against an existing provisional, and pricing a filing under a SIGNAL ONLY verdict when Step 5
+gates the ledger on PATENT. **Both are open and neither has been fixed.** They are the first things
+a fourth judge should look at.
+
+**Test-design change from judge C.** Goldens 02, 04 and 05 stated the ladder rung in the *input*
+("[Fact], behaviour 0.7"), which hands the scorer the rung the skill is supposed to derive and
+weakens the `evidence_standard` signal on three of five cases. The rung is now removed from those
+inputs and the evidence described instead (mail logs, CRM entries, a measured run), leaving the
+`[Fact]` tag in place as the kit's convention requires.
 
 **Not adopted:** judge A's reading that `references/jurisdictions.md` inverts its own Saudi grace
 periods. Checked against the sources: Saudi national law and the GCC Patent Regulation genuinely
