@@ -42,6 +42,11 @@ percentage and no total.
 | Cost of failure stated | Every mode has a cost with evidence better than opinion | Some modes costed | None costed, or all opinion |
 | Demand rung | Field 5 rung ≥ 0.3 with a cited instance | Rung ≥ 0.3 with no citation | Opinion, or empty |
 
+One rule the form cannot compute: a decision the fellow has not confirmed in their own words is
+OWED, whatever the filled fields show. The form reads fields; the researcher reads provenance.
+Added 2026-09-15 after the first intake run (industrial sensors), where the proposed decision came
+from a hub fixture, not from the fellow.
+
 Next action rule: the read names exactly one next step, the skill that runs it, and the gate it
 would move. Priority order when several are OWED or BLOCKED: decision, seed, expert, cost, demand.
 A brief with all five PASS is "ready for the researcher"; it is never "validated".

@@ -534,41 +534,41 @@
     };
   }
 
-  // Example: the Barrier Intelligence shape already worked in the Icarus skill examples.
-  // Marked as an example on screen. Numbers are illustrative, not measured.
+  // Example: the first ledger row, industrial sensors (Mentix). Shape drawn from labelled hub
+  // fixtures, not fellow data. Marked as an example on screen. Empty fields are questions.
   function example() {
     var b = blank();
     b.author = 'Example';
-    b.domain = { name: 'Permit-to-work gas hazard review', pod: 'National Resilience', fellow: 'Satheesh / Barrier Intelligence' };
-    b.decision = { statement: 'At each permit request on the rig, hold or proceed on the gas hazard, and draft the reason for the duty safety officer.', real_instance: 'Duty officer overrode a soft LEL alarm on a night shift and held the permit; logged in the shift field log.', tag: 'Fact' };
-    b.job_line = { who: 'The duty safety officer', output: 'A hold-or-proceed draft with the reason', trigger: 'Each permit request on the rig', judged_by: 'The committed decision matched the draft, or the override was logged with a cue' };
-    b.current_state = { who_does_it: 'Duty safety officer, per shift', frequency_per_week: null, minutes_per_instance: null, tag: 'Assumption' };
-    b.demand = { rung: 0.5, instance: 'The operator showed their own permit log and the alarm-override cheat sheet the officers keep.' };
+    b.domain = { name: 'Industrial sensors: shift-handover machine-risk call', pod: 'Infrastructure Intelligence', fellow: 'Amyn / Mentix' };
+    b.decision = { statement: 'At each shift handover, decide which \u22645 machines the outgoing supervisor should flag for inspection this shift, and which sensor reading justifies each flag.', real_instance: '', tag: 'Assumption' };
+    b.job_line = { who: 'The outgoing line supervisor', output: 'A ranked list of \u22645 machines most likely to cause an unplanned stop this shift, each with the triggering reading', trigger: 'Each shift handover', judged_by: 'The machine that stopped was in the list with the correct reading, or the shift was clean and the list said so' };
+    b.current_state = { who_does_it: 'A line supervisor, by walking the floor and reading trends', frequency_per_week: null, minutes_per_instance: null, tag: 'Assumption' };
+    b.demand = { rung: null, instance: '' };
     b.sources = [
-      { name: 'Shift field logs', holds: 'Permit decisions, overrides, outcomes', band_guess: 'P', access_path: 'Operator hands over exports each week', artefacts_held: 40, compounds_with_use: true },
-      { name: 'Shadow operator threads', holds: 'Prompts and corrections officers already run', band_guess: 'P', access_path: 'Officers share threads', artefacts_held: 0, compounds_with_use: true },
-      { name: 'Rig permits', holds: 'Issued permits, conditions, sign-offs', band_guess: 'G', access_path: 'Records request', artefacts_held: 0, compounds_with_use: false },
-      { name: 'Detector telemetry', holds: 'Gas readings by zone', band_guess: 'P', access_path: 'Vendor-owned; needs a data-rights clause', artefacts_held: 0, compounds_with_use: true },
-      { name: 'Public gas-safety standards', holds: 'Thresholds, procedures', band_guess: 'R', access_path: 'Public', artefacts_held: 0, compounds_with_use: false }
+      { name: 'Plant sensor logs', holds: 'Bearing temp, vibration, hydraulic pressure', band_guess: 'P', access_path: '', artefacts_held: 0, compounds_with_use: true },
+      { name: 'Operator-correction stream', holds: 'Accept / edit / override per suggestion, plus what the line did next', band_guess: 'P', access_path: '', artefacts_held: 0, compounds_with_use: true },
+      { name: 'Maintenance log', holds: 'Unplanned stops and causes: the ground truth', band_guess: 'P', access_path: '', artefacts_held: 0, compounds_with_use: true },
+      { name: 'Supervisor shadow session', holds: 'The override cues', band_guess: 'P', access_path: 'Needs a watchable shift', artefacts_held: 0, compounds_with_use: false },
+      { name: 'Public predictive-maintenance datasets', holds: 'Generic sensor traces', band_guess: 'R', access_path: 'Public', artefacts_held: 0, compounds_with_use: false }
     ];
-    b.artefacts_this_week = 40;
-    b.expert = { watchable: true, hours_per_week: null, adjudicator: '', tag: 'Assumption' };
+    b.artefacts_this_week = 0;
+    b.expert = { watchable: null, hours_per_week: null, adjudicator: '', tag: 'Assumption' };
     b.failure_modes = [
-      { mode: 'Miss', cost_of_one: 'A gas hazard proceeds. Injury or fatality.', cost_band: 'Catastrophic', evidence: 'regulation' },
-      { mode: 'False alarm', cost_of_one: 'A permit held on sensor noise; delay to the job.', cost_band: 'High', evidence: 'opinion' },
-      { mode: 'Confidently wrong', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' },
-      { mode: 'Wrong format', cost_of_one: 'Draft unusable; officer rewrites.', cost_band: 'Low', evidence: 'opinion' },
-      { mode: 'Too slow', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' },
-      { mode: 'Silent failure', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' }
+      { mode: 'Miss', cost_of_one: 'An unplanned stop flagged nowhere.', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'False alarm', cost_of_one: 'An inspection on a machine that was fine.', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Confidently wrong', cost_of_one: 'Right machine, wrong line or wrong reading cited.', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Wrong format', cost_of_one: '', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Too slow', cost_of_one: 'Digest lands after handover.', cost_band: 'Unknown', evidence: 'none' },
+      { mode: 'Silent failure', cost_of_one: 'Empty digest read as all-clear. Tightest at L1.', cost_band: 'Unknown', evidence: 'none' }
     ];
-    b.deployment = { qatar: { regulator: '', data_residency: 'In-country', languages_text: 'English, Arabic', stakeholder: '' }, global: { equivalent_regulation: '', first_market: '' } };
+    b.deployment = { qatar: { regulator: '', data_residency: '', languages_text: '', stakeholder: '' }, global: { equivalent_regulation: '', first_market: '' } };
     b.first_tasks = [
-      { task: 'Draft hold-or-proceed for one permit request', done_looks_like: 'Officer commits with zero edits, or edits are logged' },
-      { task: 'Flag a permit whose conditions conflict with the zone reading', done_looks_like: 'Flag matches the officer\'s call on record' },
-      { task: 'Refuse when the reading is missing', done_looks_like: 'Output says not enough signal, no draft' }
+      { task: 'Draft the shift-handover machine-risk digest for one shift', done_looks_like: 'Supervisor commits with zero edits, or every edit is logged with the cue' },
+      { task: 'Triage one maintenance work order to fault, priority, crew', done_looks_like: 'Matches the crew lead\'s call on record; null sensor reads go to a human by rule' },
+      { task: 'Refuse when a line\'s sensor feeds are all down', done_looks_like: 'Output says no signal, cannot assess; no fabricated cause' }
     ];
     b.economics = { value_per_outcome: null, value_source: '', cost_ceiling_per_outcome: null, currency: 'QAR', tag: 'Assumption' };
-    b.kill_criteria = 'If the operator will not share field logs under a signed clause within one quarter.';
+    b.kill_criteria = 'No plant will share sensor logs and operator corrections under a signed clause within one quarter.';
     return b;
   }
 

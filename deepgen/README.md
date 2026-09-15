@@ -40,6 +40,8 @@ Synthetic data trains and screens. It never validates. See [`DATA.md`](./DATA.md
 | [`EVALS.md`](./EVALS.md) | Three eval tiers (task, domain, management), the four loops, self-improvement mechanics, kill switches. |
 | [`schemas/domain-brief.schema.json`](./schemas/domain-brief.schema.json) | The JSON the intake emits. |
 | [`ui/index.html`](./ui/index.html) | The intake UI. Utopia brand system. Emits a Domain Brief and a readiness read. |
+| [`LEDGER.md`](./LEDGER.md) | The Domain Ledger. Row 1: industrial sensors. Predicted columns frozen before the build. |
+| [`domains/industrial-sensors/`](./domains/industrial-sensors/) | The first domain. Intake run, brief JSON, eight-week compile plan, Linear-ready tasks. |
 
 ## How to run the intake today
 

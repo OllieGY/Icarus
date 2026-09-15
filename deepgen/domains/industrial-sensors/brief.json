@@ -1,0 +1,52 @@
+{
+  "id": "b_20260915_industrial_sensors",
+  "created_at": "2026-09-15T00:00:00Z",
+  "author": "Ollie (intake drafted by Claude from hub fixtures; fellow not yet consulted)",
+  "example": false,
+  "domain": { "name": "Industrial sensors: shift-handover machine-risk call", "pod": "Infrastructure Intelligence", "fellow": "Amyn / Mentix" },
+  "decision": {
+    "statement": "PROPOSED, not yet in the fellow's words: at each shift handover, decide which ≤5 machines the outgoing supervisor should flag for inspection this shift, and which sensor reading justifies each flag.",
+    "real_instance": "",
+    "tag": "Assumption"
+  },
+  "job_line": {
+    "who": "The outgoing line supervisor",
+    "output": "A ranked list of ≤5 machines most likely to cause an unplanned stop this shift, each with the triggering sensor reading",
+    "trigger": "Each shift handover",
+    "judged_by": "The machine that actually stopped was in the list with the correct reading cited, or the shift was clean and the list said no elevated risk"
+  },
+  "current_state": { "who_does_it": "A line supervisor, by walking the floor and reading trends", "frequency_per_week": null, "minutes_per_instance": null, "tag": "Assumption" },
+  "demand": { "rung": null, "instance": "" },
+  "sources": [
+    { "name": "Plant sensor logs", "holds": "Bearing temp, vibration, hydraulic pressure: the precursor signal", "band_guess": "P", "access_path": "", "artefacts_held": 0, "compounds_with_use": true },
+    { "name": "Operator-correction stream on the copilot", "holds": "Accept / edit / override per suggestion, plus what the line did after", "band_guess": "P", "access_path": "", "artefacts_held": 0, "compounds_with_use": true },
+    { "name": "Maintenance log", "holds": "Unplanned stops and causes: the ground truth for the label", "band_guess": "P", "access_path": "", "artefacts_held": 0, "compounds_with_use": true },
+    { "name": "Supervisor shadow session", "holds": "The override cues", "band_guess": "P", "access_path": "Needs a watchable shift", "artefacts_held": 0, "compounds_with_use": false },
+    { "name": "Detector telemetry (Barrier)", "holds": "Gas readings by zone", "band_guess": "P", "access_path": "Vendor-owned; clause-gated", "artefacts_held": 0, "compounds_with_use": true },
+    { "name": "Public predictive-maintenance datasets", "holds": "Generic sensor traces", "band_guess": "R", "access_path": "Public", "artefacts_held": 0, "compounds_with_use": false }
+  ],
+  "artefacts_this_week": 0,
+  "expert": { "watchable": null, "hours_per_week": null, "adjudicator": "", "tag": "Assumption" },
+  "failure_modes": [
+    { "mode": "Miss", "cost_of_one": "An unplanned stop that was flagged nowhere. Cost unknown; fixture treats it as the dear one.", "cost_band": "Unknown", "evidence": "none" },
+    { "mode": "False alarm", "cost_of_one": "An inspection on a machine that was fine.", "cost_band": "Unknown", "evidence": "none" },
+    { "mode": "Confidently wrong", "cost_of_one": "Right machine, wrong line or wrong reading cited.", "cost_band": "Unknown", "evidence": "none" },
+    { "mode": "Wrong format", "cost_of_one": "Digest unreadable at handover.", "cost_band": "Unknown", "evidence": "none" },
+    { "mode": "Too slow", "cost_of_one": "Digest lands after handover.", "cost_band": "Unknown", "evidence": "none" },
+    { "mode": "Silent failure", "cost_of_one": "Empty digest read as all-clear. Tightest mode at L1.", "cost_band": "Unknown", "evidence": "none" }
+  ],
+  "deployment": { "qatar": { "regulator": "", "data_residency": "", "languages": [], "stakeholder": "" }, "global": { "equivalent_regulation": "", "first_market": "" } },
+  "first_tasks": [
+    { "task": "Draft the shift-handover machine-risk digest for one shift", "done_looks_like": "Supervisor commits with zero edits, or every edit is logged with the cue" },
+    { "task": "Triage one maintenance work order to fault type, priority, crew", "done_looks_like": "Matches the crew lead's call on record; null sensor reads routed to a human by rule" },
+    { "task": "Refuse when a line's sensor feeds are all down", "done_looks_like": "Output says no signal, cannot assess; no fabricated cause" }
+  ],
+  "economics": { "value_per_outcome": null, "value_source": "", "cost_ceiling_per_outcome": null, "currency": "QAR", "tag": "Assumption" },
+  "kill_criteria": "No plant will share sensor logs and operator corrections under a signed clause within one quarter.",
+  "gates": { "decision": "OWED", "seed": "OWED", "expert": "BLOCKED", "cost": "BLOCKED", "demand": "BLOCKED" },
+  "next_action": {
+    "step": "Amyn states the one decision in his own words with one real instance, and names the plant where it happens.",
+    "skill": "agent-design · step 1",
+    "moves_gate": "decision"
+  }
+}
