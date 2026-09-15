@@ -163,7 +163,21 @@ Note plainly: this destroys your own novelty everywhere, permanently.
 
 ## Part E — Route and five-year ledger
 
-_Only if the outcome is PATENT._
+_Run for **PATENT**, and for a **SIGNAL ONLY** verdict you intend to act on — a filing made for
+financing reasons costs the same as one made for exclusion. Skip only for TRADE SECRET, DEFENSIVE
+PUBLICATION and NOTHING._
+
+**If something is already on file:**
+
+| Question | Answer |
+|---|---|
+| What is already filed, and when? | _[provisional / application, date, jurisdiction]_ |
+| Does the filed text enable what you would claim **today**? | _[YES / NO — what changed since]_ |
+| If NO: what is the consequence? | _[matter added later takes its own date; the old filing covers the old disclosure only]_ |
+| Conversion deadline | _[YYYY-MM-DD — does not extend]_ |
+
+A NO here is not a reason to stop; it is a reason to price filing afresh alongside converting. Which
+one is a counsel question (Part H). Naming the gap is not.
 
 **Route chosen:** _[US provisional only / US only / provisional → PCT → national phases / + GCCPO / other]_
 **Because:** _[which doors are open, which markets matter]_

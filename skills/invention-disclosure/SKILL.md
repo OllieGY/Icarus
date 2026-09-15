@@ -221,8 +221,28 @@ permanently — so it comes after the protect question, never instead of it.
 
 ### Step 5 — Route and ledger
 
-Only for PATENT. Build the route from the door states in Step 3, then price it from
+Run this for **PATENT, and also for a SIGNAL ONLY verdict you intend to act on**. A filing made for
+financing reasons costs exactly as much as one made for exclusion, and pricing it is how the builder
+decides whether the signal is worth its price. Skipping the ledger because the verdict was not
+PATENT is how a "cheap" diligence filing turns into a five-year commitment nobody costed. Skip it
+only for TRADE SECRET, DEFENSIVE PUBLICATION and NOTHING, where there is nothing to file.
+
+Build the route from the door states in Step 3, then price it from
 [`references/decision-tables.md`](references/decision-tables.md).
+
+**If something is already on file, check what it actually covers before spending on it.** A
+common input is "we filed a provisional N months ago, now what", and the wrong answer is to convert
+it on schedule.
+
+| Question | Why it decides the spend |
+|---|---|
+| Does the filed text **enable what you would claim today**? | A provisional supports only what it disclosed. Matter added later takes the date it was added, not the provisional's — so the priority date you think you hold may cover the old version and nothing else |
+| Has the method materially changed since? | If the load-bearing element post-dates the filing, converting buys the old date for the old disclosure. That may still be worth it, or may not — but it is a different decision from the one the builder thinks they are making |
+| Is the 12-month conversion deadline near? | It does not extend. Missing it drops the priority date entirely |
+
+Where the filed text does not enable today's method, say so plainly: the options are to file afresh
+on the current method, accept the narrower old claim, or both. Which one is a counsel question
+(Step 7), but naming the gap is not.
 
 | Sequence | When |
 |---|---|

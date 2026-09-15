@@ -165,8 +165,19 @@ not, since the two are the same class of blocking gap needing different actions.
 Judge C's `method_fidelity` and `artifact_complete` 4s rested partly on golden 02 reaching its
 answer through the reference files rather than through a method step — specifically re-dating new
 matter against an existing provisional, and pricing a filing under a SIGNAL ONLY verdict when Step 5
-gates the ledger on PATENT. **Both are open and neither has been fixed.** They are the first things
-a fourth judge should look at.
+gates the ledger on PATENT. **Both have since been closed**, in `SKILL.md` and mirrored in `template.md`: Step 5 now runs for a
+SIGNAL ONLY verdict as well as PATENT, on the ground that a filing made for financing reasons costs
+the same as one made for exclusion and skipping the ledger is how a "cheap" diligence filing becomes
+an uncosted five-year commitment; and Step 5 gained an already-filed check that asks whether the
+filed text enables what would be claimed today, because matter added later takes its own date. That
+makes golden 02's two hardest elements reachable from method steps rather than from a Gotcha and a
+reference file.
+
+**Standing position.** Three independent judge runs, each finding fewer and smaller defects than the
+last: two Rule 1 breaches and an arithmetic error in the first round, three internal contradictions
+in the second, two method-vs-reference gaps in the third. That is convergence, not completion. Every
+recorded verdict is stale by the edit that followed it, so **no gate currently stands**, and the
+next judge scores a text no judge has seen. Gate 6 needs five real uses whatever that judge finds.
 
 **Test-design change from judge C.** Goldens 02, 04 and 05 stated the ladder rung in the *input*
 ("[Fact], behaviour 0.7"), which hands the scorer the rung the skill is supposed to derive and
