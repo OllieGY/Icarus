@@ -26,7 +26,9 @@ patent a moat: the veto sentence goes to `moat-design-canvas`, which decides whe
 filing that fails the copy-path or detectability test is named a financing signal rather than
 defensibility.
 
-Not graduated. Written and judged in one session, never used in real product work.
+Not graduated. Two judge agents scored it and disagreed on the golden set; both runs were against
+the pre-refine text and neither stands after the fixes, which is recorded in the skill's
+`tests/RESULTS.md` rather than smoothed into a pass. Never used in real product work.
 
 ### Added — the `references/` convention
 

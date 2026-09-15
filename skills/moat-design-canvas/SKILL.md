@@ -7,7 +7,8 @@ description: >-
   defensible", "will this compound", "design the moat", "will competitors just copy this / how do
   we stay defensible as they show up". Not for whether one wedge gets adopted now (use
   wedge-five-questions — run it first), not for drafting the pilot data-rights clause itself (use
-  data-rights-clause), not for scoring the whole idea across dimensions (use
+  data-rights-clause), not for whether to patent something or keep it secret (use
+  invention-disclosure), not for scoring the whole idea across dimensions (use
   problem-quality-scorecard).
 metadata:
   supersedes: none

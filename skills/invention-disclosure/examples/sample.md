@@ -140,13 +140,20 @@ Qatar. Chosen because every door is open, the operators are in three jurisdictio
 
 | Step | Target | Cost | Source, checked 2026-09-15 | Tag |
 |---|---|---|---|---|
-| US provisional, official | 2026-10 | $325 (undiscounted) | USPTO fee schedule, rev. 2026-08-14 | `[Fact]` |
-| Provisional drafting, enabling | 2026-10 | $2,000–$5,000 | Attorney band, decision-tables Route A | `[Fact]` |
-| PCT international phase, all in | 2027-10 | $5,500–$10,000 | WIPO fee tables 2026-08-01; filing fee CHF 1,330 less e-filing reduction | `[Fact]` |
-| US national phase | 2029-04 | $12,000–$32,000 | Route B less the provisional | `[Fact]` |
-| EPO entry incl. translation | 2029-04 | $10,500–$19,000 | decision-tables Route C | `[Fact]` |
-| Qatar national phase | 2029-04 | $3,000–$6,000 | **`[Assumption]` — local agent quote required; agent fees are not published** | `[Assumption]` |
-| **Five-year total** | | **$33,000–$72,000** | | `[Assumption]` |
+| US provisional, official fee | 2026-10 | $325 (undiscounted) | USPTO fee schedule, rev. 2026-08-14 | `[Fact]` |
+| Provisional drafting, enabling | 2026-10 | $2,000–$5,000 | Attorney band, decision-tables Route A — a market band, not a tariff | `[Assumption]` |
+| PCT international phase, all in | 2027-10 | $5,500–$10,000 | WIPO fee tables 2026-08-01; filing fee CHF 1,330 less e-filing reduction | `[Assumption]` — official fee `[Fact]`, attorney portion a band |
+| US national phase, drafting and filing | 2029-04 | $12,000–$32,000 | decision-tables Route C | `[Assumption]` |
+| US office-action responses, 2–3 | 2030–2031 | $3,000–$10,500 | decision-tables Route C | `[Assumption]` |
+| US issue fee | 2031 | $1,290 | USPTO fee schedule, rev. 2026-08-14 | `[Fact]` at today's rate |
+| EPO entry incl. translation | 2029-04 | $10,500–$19,000 | decision-tables Route C | `[Assumption]` |
+| Qatar national phase | 2029-04 | $3,000–$6,000 | **local agent quote required; agent fees are not published** | `[Assumption]` |
+| **Five-year total** | | **$37,600–$84,100** | | `[Assumption]` |
+
+Tagging follows the Step 5 rule: a published official fee quoted at today's rate is `[Fact]` with
+its source; an attorney band, and any total built from one, is `[Assumption]`. **EPO and Qatari
+prosecution after entry, European validation, and all annuities are not in this total** — they are
+real money and no one has quoted them yet.
 
 **Timing reality.** US standard pendency ~26 months, first action 20–24; Track One would target final
 disposition 12 months from petition grant at $4,515 undiscounted. Qatar's published figures conflict:

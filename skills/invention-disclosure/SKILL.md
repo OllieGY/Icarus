@@ -41,7 +41,8 @@ addressed to counsel by name.
 **A patent is a clock that started when you first showed the thing, not a decision you make when
 you are ready.** The United States gives an inventor twelve months after their own disclosure. The
 EPO gives six, and only for evident abuse or a recognised international exhibition — an ordinary
-demo is not covered. Qatar's law states no grace period at all. So the sequence most teams run —
+demo is not covered. Qatari legislation stipulates none, so treat Qatar as absolute novelty.
+`[Fact]` — [`references/jurisdictions.md`](references/jurisdictions.md), checked 2026-09-15. So the sequence most teams run —
 build, demo, pitch, win a pilot, then ask the IP question — has usually closed Europe and the Gulf
 before the question is asked. The first step of this skill is therefore not "is it patentable" but
 **"what have you already shown, to whom, and on what date"**. That single table is the work. Everything
@@ -81,7 +82,7 @@ Step 1 and stop.
 
 ## Method
 
-Fill in [`template.md`](template.md). Six steps. Steps 1 and 3 gate; the rest decide.
+Fill in [`template.md`](template.md). Seven steps. Steps 1 and 3 gate; the rest decide.
 
 ```
 Invention disclosure progress:
@@ -106,9 +107,23 @@ one artefact at 0.5** — code, a notebook, a design document, a lab record, a r
 | "We fine-tuned an open model on our data" | A build step, not yet an invention. What is done differently? |
 | "Instead of re-embedding the whole corpus nightly, we diff the sensor log and re-embed only changed segments, cutting index cost 80% at equal recall" | A contribution. Proceed. |
 
+**Two exits, and they are not the same.** Confusing them is the commonest way to run this skill
+wrong — once by stopping when there was a decision to make, once by carrying on over nothing.
+
+| Situation | Exit |
+|---|---|
+| **No contribution sentence exists** — a product name, a category, a hunch | **Stop.** Ask the one question and nothing else. There is no decision to make yet |
+| **The sentence exists and is well formed, but all three eligibility tests in Step 2 return NO** — a standard model on standard features, no recited improvement | **Do not stop.** The patent branch is closed, but the decision is live: go straight to Step 4, where the usual outcome is DEFENSIVE PUBLICATION or NOTHING. Skip the route and ledger — there is nothing to file |
+
+The second exit is the one builders most need and most rarely get. "You cannot patent this" is not
+the end of the conversation; the question of whether someone else can patent it against you is still
+open, and it is answered in Step 4.
+
 If the sentence does not exist, ask exactly one question — *what does the system do differently
 from the ordinary way, and what measurable effect does that have?* — and stop. Do not invent the
 contribution, the inventors, or the dates. An empty input is a request for evidence, not a zero.
+Stopping means stopping: no fees, no grace periods, no jurisdiction table, and at most one sentence
+noting that if anything has already been shown publicly the answer is time-sensitive.
 
 ### Step 2 — Fill the disclosure
 
@@ -120,7 +135,7 @@ contribution, the inventors, or the dates. An empty input is a request for evide
 | **Inventors** | Named natural persons, each with the specific conceptual contribution they made. Someone who only implemented instructions is not an inventor. **An AI system is never an inventor** — it is a tool, like a simulator or CAD. |
 | Conception date | When the idea was complete enough to be carried out, with what evidence fixes it (commit, notebook, dated document). |
 | Reduction to practice | What exists and works, scored on the ladder. |
-| Prior art known to the team | What you already know about. Naming it is protective; concealing what you know is not. This is not a prior-art search. |
+| Prior art known to the team | What you already know about, **including anything you published yourself**. Naming it is protective; concealing what you know is not. This is not a prior-art search. |
 | Dependencies | Open-weight model licences, third-party libraries, customer data, collaborator contributions. Data rights → `data-rights-clause`. |
 | Assignment | Signed by every named inventor. |
 
@@ -142,6 +157,7 @@ named set, throughput, energy. "Better results" clears none of the three.
 | Employees | Qatar's patent law gives the employer the invention where it results from performing a contract or commitment devoted to creative effort, or where the employer proves the worker used facilities, aids or data provided by the work — subject to the worker's right to **fair reward**. A worker may file during service or within two years of leaving `[Fact]` | Confirm the employment contract carries an assignment clause; do not assume the statute does all the work |
 | Contractors and agencies | The law is written about employees. A contractor's default position is not the employee default | **Get a signed assignment before filing.** An unassigned contractor is the commonest and most expensive gap |
 | University or research collaborators | Institutional IP policy usually claims something, and publication rights often run alongside it | Counsel question, written down, before filing |
+| **A customer's own engineer** | If they contributed to conception — not just to testing or requirements — they may be a joint inventor, and their employer may own their share. Common in exactly the plant-and-operator settings where this work happens | Name them in the inventor table honestly, then send the ownership consequence to counsel. Do not quietly leave a customer's engineer off because it is inconvenient |
 
 A named inventor who has not signed an assignment is a **blocking gap**, not a footnote. Say so in
 the verdict.
@@ -159,6 +175,11 @@ table in [`references/jurisdictions.md`](references/jurisdictions.md).
 | Under NDA? | A signed NDA or a confidentiality clause in a pilot agreement. "They're friendly" is not an NDA |
 | Evidence | The deck, the commit, the recording, the event page |
 
+**Your own public disclosure is prior art against you.** Every non-NDA row in this log also belongs
+in the prior-art field of Step 2, not just in the clock. A conference talk does not merely start a
+grace period — it caps what can ever be claimed, in the jurisdiction where the grace period saved
+you as much as in the ones where it did not.
+
 | Door state | Means |
 |---|---|
 | **OPEN** | No qualifying disclosure, or every disclosure was under NDA |
@@ -167,7 +188,8 @@ table in [`references/jurisdictions.md`](references/jurisdictions.md).
 
 Marking a no-grace jurisdiction OPEN when the log shows an un-NDA'd disclosure is the kill line.
 Say BURNED. It is unwelcome and it is the most valuable sentence this skill produces — it stops a
-builder spending $30,000 on a European route that closed eight months ago.
+builder spending the $10,500–$19,000 an EPO entry costs on a route that closed eight months ago
+`[Fact]` — jurisdictions reference, checked 2026-09-15.
 
 When everything is burned except the US, the remaining decision is a real one: file in the US
 inside the window, or accept that the protect branch is gone and run the secret or publish branch.
@@ -205,12 +227,24 @@ Only for PATENT. Build the route from the door states in Step 3, then price it f
 | US provisional now | Any door is still open and the contribution is stable enough to enable later claims |
 | Provisional → non-provisional at month 12 | The US alone is the market, or everything else is burned |
 | Provisional → PCT at month 12 → national phases at month 30 | More than one market matters and the doors are open. Buys 18 further months to decide where |
-| GCCPO filing within 12 months of first filing | Bahrain, Kuwait and Qatar wanted. **Paris priority only — it is not reachable through the PCT's 30-month window** `[Fact]` |
+| National filings in Bahrain, Kuwait and Qatar, centrally examined by the GCC Patent Office, within 12 months of the first filing | Those three states wanted. **Paris priority only — the route is not reachable through the PCT's 30-month window** `[Fact]`. The filing venue itself is `[Assumption]`: published sources describe it both as a single application designating the three states and as national filings forwarded for central examination. The deadline is the actionable part; confirm the venue with a local agent |
 | Saudi Arabia and the UAE | Separate national filings; they sit outside the GCCPO's current arrangement `[Fact]` |
 
 Every figure in the ledger cites its source row and its checked date. A figure that is not in the
 reference file is written `[Assumption] — counsel to quote` and left unresolved. Do not smooth a
 range into a single number to make a ledger look decisive.
+
+**Tag each row by what kind of number it is.** This is the rule, and the ledger's exemplars must
+obey it or they teach the opposite of the standard:
+
+| Kind of figure | Tag | Why |
+|---|---|---|
+| An official fee on a published schedule, quoted at today's rate | `[Fact]` + source + checked date | It is published and verifiable now |
+| An attorney band, a translation estimate, any market rate | `[Assumption]` | The reference calls these market bands, not tariffs; no one is bound by them |
+| Any total built from a band, and any figure at a future date | `[Assumption]` | A forward-looking cost is a target, never a fact — official fees move too |
+
+So "$4,515 Track One" is `[Fact]`; "$10,000–$30,000 drafting" and "five-year total $18,600–$49,000"
+are `[Assumption]`, even though every input to them is cited.
 
 Two timing facts belong in every ledger, because they change what the filing is for. USPTO standard
 pendency runs around 26 months with first action at 20–24; Track One targets final disposition
@@ -270,7 +304,18 @@ rung, never the sum. Two claims get scored here.
 | Claim | 1.0 | 0.7 | 0.5 | 0.3 | 0.1 |
 |---|---|---|---|---|---|
 | **The invention exists and works** | A customer paid for the outcome it produces | A measured run on real data with a recorded delta against the ordinary way | Code, notebook, design document, lab record | "We plan to build it" | "It's novel" |
-| **The IP is worth money** | A licence fee paid, or an investor priced it into a signed term sheet | A buyer or investor asked for the filing in diligence, logged | A prior-art search report or a written opinion | "Investors will love it" | "Patents are a moat" |
+| **The IP is worth money** | A licence fee actually paid, or a round that closed with the IP priced into it | A buyer or investor asked for the filing in diligence, logged | A prior-art search report or a written opinion | An investor said they want the filing in the data room; a signed but unfunded term sheet naming it | "Investors will love it", "patents are a moat" |
+
+Two impostors to catch, because both are common in this territory. A **signed term sheet that
+names the IP but has moved no cash** is a promise about the future, so it is 0.3 — the ladder's
+money rung needs cash or budget actually to have changed hands. And **"investors will love it"** is
+the builder's own prediction, which is opinion at 0.1 and can never be scored higher; scoring an
+opinion above 0.1 fails the skill outright.
+
+One note on reading the ladder here. For claim 1 the 0.7 rung is **the system's** observed
+behaviour, evidenced by logs or a recorded run, not a counterparty's — an unrun plan is 0.3 however
+confident the team is. That is a narrower reading of "behaviour observed" than the discovery skills
+use, and it is stated rather than smuggled.
 
 The bar: **do not file on a contribution below 0.5.** A patent application must enable someone
 skilled in the field to carry the invention out; an idea at 0.3 cannot be enabled, so the filing is
@@ -313,9 +358,10 @@ Foundry Signal, factory copilot. The builder asks whether to patent "our AI sche
 > the behaviour is observable in the product. Core: yes. → PATENT branch, US only, because the
 > European and Gulf doors are shut.
 >
-> **Route and ledger.** US provisional now ($325 official + $2,000–$5,000 drafting), non-provisional
-> by 2027-04-18. Five-year US-only band $18,600–$49,000. Track One at $4,515 if the Series A timeline
-> needs a grant. `[Fact]` — USPTO schedule, revised 2026-08-14.
+> **Route and ledger.** US provisional now: $325 official `[Fact]` — USPTO schedule, revised
+> 2026-08-14 — plus $2,000–$5,000 drafting `[Assumption]`, a market band. Non-provisional by
+> 2027-04-18. Five-year US-only band $18,600–$49,000 `[Assumption]`. Track One is $4,515 `[Fact]` if
+> the Series A timeline needs a grant.
 >
 > **Veto sentence.** "The MES incumbent won't copy this because the claim covers their only economic
 > path to sub-5s rescheduling." Copy path: PASS. Detectable: **FAIL** — proving they partition
@@ -360,7 +406,9 @@ and Oman sit outside it. And it runs on Paris priority, so the 12-month deadline
 30-month window does not reach it `[Fact]`.
 
 **Patent pending as protection in a deck.** A pending application confers no right to exclude. It
-is a priority date and a queue position. Write it as that.
+is a priority date and a queue position. Write it as that. And the twenty-year term runs from the
+**filing** date, not from grant — so roughly 26 months of US pendency is spent inside the term with
+nothing enforceable, and a deck promising "protected for 20 years" is wrong at both ends.
 
 **A patent portfolio as a moat by count.** Five peripheral filings are a burn rate. One filing on
 the copy path is a veto candidate. The three tests care about position, never about number.

@@ -86,13 +86,25 @@ Maintenance starts at year 3.5: $2,150 / $860 / $430.
 |---|---|---|
 | Route A | 0 | $2,300–$5,300 |
 | PCT international phase, all in | 1 | $5,500–$10,000 |
-| US national phase (as Route B from drafting) | 2.5 | $12,000–$32,000 |
+| US national phase — drafting and filing package | 2.5 | $12,000–$32,000 |
+| US office-action responses, 2–3 | 3–4 | $3,000–$10,500 |
+| US issue fee | 4 | $1,290 |
 | EPO entry, incl. translation | 2.5 | $10,500–$19,000 |
 | Qatar national phase, agent + official + Arabic translation | 2.5 | $3,000–$6,000 `[Assumption]` — agent quote required |
-| **Five-year total** | | **≈ $33,000–$72,000** |
+| **Five-year total** | | **≈ $37,600–$84,100** |
 
-The Qatar row is the least certain number in this file. Local agent fees are not published; get a
-quote before the ledger goes in front of anyone.
+Two warnings about this ledger, both learned by getting it wrong.
+
+**It counts US prosecution, and earlier drafts did not.** The office-action responses and the issue
+fee sit inside a five-year window that starts national phases at year 2.5, and Route B counts them.
+A Route C total that omits them is not a cheaper route, it is the same route measured with a shorter
+ruler — and comparing it against Route B compares different scopes.
+
+**It still stops at entry for the EPO and Qatar.** European and Qatari prosecution, translation at
+grant, validation in individual European states, and all annuities are **not** in the total. They
+are real and they are `[Assumption]` until an agent quotes them. The Qatar row is the least certain
+number in this file; local agent fees are not published. Get quotes before this goes in front of
+anyone who will make a decision on it.
 
 ### Route D — GCC coverage
 

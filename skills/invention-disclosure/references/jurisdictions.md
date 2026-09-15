@@ -311,6 +311,19 @@ The single table the disclosure log is scored against.
 Source: Pinepat grace-period table (as above), cross-checked against the AGIP and ip-coster Qatar
 guides, which both state no grace period is stipulated in Qatari legislation.
 
+**Two things in that table look like errors and are not.** The Saudi row and the GCC row assign the
+six and twelve months to opposite causes — Saudi national law gives six for an abusive disclosure
+and twelve for a recognised exhibition, while the GCC Patent Regulation does the reverse. They are
+different instruments and they genuinely differ; do not "correct" one against the other.
+
+**And one thing is genuinely unresolved.** Qatar has been examined against the GCC harmonised
+standard since 2023-07-01, while Qatari national law stipulates no grace period and the GCC
+Regulation allows six or twelve months in narrow cases. Which governs a Qatari application examined
+centrally is not settled by any source in this file. `[Assumption]` — **the conservative reading
+governs until counsel says otherwise: treat Qatar as absolute novelty.** A BURNED verdict that turns
+out to have been recoverable costs a filing; an OPEN verdict that turns out to be wrong costs the
+right itself.
+
 **Operational rule.** For a Qatar-first builder, the first non-NDA disclosure is the filing
 deadline for Qatar and Europe, not a countdown to one. A US priority filing before that disclosure
 is what keeps every other door open.
