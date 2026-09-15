@@ -8,6 +8,7 @@
  *    eval harness: tests/rubric.json, 5 tests/golden, 3 tests/adversarial
  *  - every rubric keeps the shared bar: 21/25, min 4 per dimension,
  *    the five Icarus dimensions, the four auto-fails
+ *  - every manifest skill sits in exactly one skills/ICARUS.md stage
  *  - agents/*.md and commands/*.md have frontmatter descriptions
  *  - .claude-plugin/plugin.json parses and names every top-level field
  *
@@ -18,6 +19,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { frontmatter, plainScalarErrors } from "./lib/frontmatter.mjs";
+import { checkStages } from "./lib/stages.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const errors = [];
@@ -40,36 +43,7 @@ const AUTO_FAILS = 4;
  * 11 of the 45 source skills shipped this way; see skills/SOURCES.md.
  */
 function checkPlainScalars(file, label) {
-  const raw = fs.readFileSync(file, "utf8");
-  if (!raw.startsWith("---")) return;
-  const end = raw.indexOf("\n---", 3);
-  if (end === -1) return;
-  for (const line of raw.slice(4, end).split("\n")) {
-    const m = /^([A-Za-z][\w-]*):[ \t]+([^>|"'\s].*)$/.exec(line);
-    if (m && /:\s/.test(m[2]))
-      err(`${label}: '${m[1]}' is a plain scalar containing ": " — invalid YAML. Use a >- block.`);
-  }
-}
-
-/** Minimal YAML-ish frontmatter reader: top-level `key:` pairs only. */
-function frontmatter(file) {
-  const raw = fs.readFileSync(file, "utf8");
-  if (!raw.startsWith("---")) return null;
-  const end = raw.indexOf("\n---", 3);
-  if (end === -1) return null;
-  const block = raw.slice(4, end);
-  const out = {};
-  let key = null;
-  for (const line of block.split("\n")) {
-    const m = /^([A-Za-z][\w-]*):\s*(.*)$/.exec(line);
-    if (m) {
-      key = m[1];
-      out[key] = m[2].trim();
-    } else if (key && line.trim()) {
-      out[key] = `${out[key]} ${line.trim()}`.trim();
-    }
-  }
-  return out;
+  for (const message of plainScalarErrors(fs.readFileSync(file, "utf8"))) err(`${label}: ${message}`);
 }
 
 function checkSkill(name) {
@@ -150,6 +124,10 @@ for (const name of manifest) {
 }
 const extra = onDisk.filter((n) => !manifest.includes(n));
 
+const stages = checkStages(ROOT, manifest, onDisk);
+for (const m of stages.errors) err(m);
+for (const m of stages.warnings) warn(m);
+
 let plugin;
 try {
   plugin = JSON.parse(fs.readFileSync(path.join(ROOT, ".claude-plugin", "plugin.json"), "utf8"));
@@ -173,6 +151,7 @@ const agentCount = checkMarkdownDir("agents", "description");
 const commandCount = checkMarkdownDir("commands", "description");
 
 console.log(`skills:   ${onDisk.length} (${manifest.length} Icarus + ${extra.length} hub: ${extra.join(", ")})`);
+console.log(`stages:   ${stages.stages.length} (${stages.index.size} skills placed, ${extra.length} hub: unplaced by design)`);
 console.log(`agents:   ${agentCount}`);
 console.log(`commands: ${commandCount}`);
 for (const w of warnings) console.log(`warn  ${w}`);

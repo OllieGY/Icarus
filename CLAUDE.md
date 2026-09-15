@@ -12,6 +12,7 @@ the Icarus method.
 7. **Compose the Icarus skills, do not restate them.** A new file that reimplements `evidence-ladder` will drift from it.
 8. **Copied skills stay verbatim.** Editing a skill in `skills/` breaks its eval harness. Re-run its `tests/` or leave it alone. Provenance is in [`skills/SOURCES.md`](./skills/SOURCES.md).
 9. **Nothing enters folded or it does not enter.** No external skill gets vendored wholesale (Rule 9).
-10. **Run `node tools/scripts/validate-skills.mjs` before every commit.**
+10. **Run `node tools/scripts/validate-skills.mjs && node tools/scripts/build-site.mjs` before every commit.**
+    The first catches rubric drift, the second rebuilds [`site/`](./site/). A stale `site/data` fails CI.
 
 A rule change in `GOLDEN_RULES.md` is Ollie's call. Propose it, do not make it quietly.

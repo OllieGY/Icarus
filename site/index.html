@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icarus — Utopia Studio</title>
+<meta name="description" content="Utopia Studio's Product Management hub. Find what to build and why, from first-principles problem to a pilot-ready v1.">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">MENU</button>
+
+<aside class="nav" id="nav">
+  <div class="nav-scroll">
+    <a class="nav-mark" href="#/">
+      <span class="mark-dot"></span>
+      <span class="mark-name">ICARUS</span>
+    </a>
+
+    <form class="search" id="search-form" role="search">
+      <label class="sr-only" for="search-input">Search the hub</label>
+      <input id="search-input" type="search" placeholder="SEARCH  /" autocomplete="off" spellcheck="false">
+    </form>
+
+    <nav class="nav-groups" id="nav-groups" aria-label="Hub"></nav>
+  </div>
+
+  <div class="nav-foot">
+    <span class="foot-bar"></span>
+    <span class="foot-name">UTOPIA<br>STUDIO</span>
+    <span class="foot-meta" id="foot-meta"></span>
+  </div>
+</aside>
+
+<main id="main" tabindex="-1"></main>
+
+<script src="data/index.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

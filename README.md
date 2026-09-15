@@ -34,6 +34,7 @@ Update later with `/plugin marketplace update icarus`.
 | **[Tools](./tools/)** | Skill-usage hook, the Icarus manifest, and a validator that catches rubric drift. |
 | **[Lessons](./lessons/LOG.md)** | Append-only. What the studio learned the hard way, and which rule it changed. |
 | **[Rebuilds](./rebuilds/)** | Candidate agent-ops skill drafts (inspired by BuilderIO/skills, MIT). Not graduated, not loaded by the plugin. |
+| **[Site](./site/)** | The hub as a browsable front end — the flow, every skill with its method, template, example and eval harness, and a prompt composer. Generated from the files above. |
 
 ## Commands
 
@@ -80,6 +81,22 @@ load costs context on every session for every fellow.
 ```bash
 node tools/scripts/validate-skills.mjs
 ```
+
+## The site
+
+A static front end over everything in this repo: browse the eleven stages, read any
+skill's method, template, worked example and eval harness, and copy a paste-ready prompt
+that invokes it. No dependencies, no build step beyond one Node script.
+
+```bash
+node tools/scripts/build-site.mjs   # regenerate site/data from the markdown
+open site/index.html                # or serve site/ anywhere static
+```
+
+Published to GitHub Pages from `main` at
+[olliegy.github.io/icarus](https://olliegy.github.io/icarus/). The page renders only what
+is in the repo — add a skill folder, an agent, a command or a lesson entry, rebuild, and it
+appears. CI fails if `site/data` is older than the markdown it came from.
 
 ## Sources
 

@@ -8,6 +8,9 @@ What the hub runs on, and what it leans on.
 |---|---|
 | [`scripts/validate-skills.mjs`](./scripts/validate-skills.mjs) | Checks every skill's frontmatter, that folder names match, that all 45 Icarus skills still carry a full eval harness, and that no rubric has drifted from 21/25 with the five dimensions and four auto-fails. Run it before every commit: `node tools/scripts/validate-skills.mjs`. |
 | [`scripts/icarus-skills.json`](./scripts/icarus-skills.json) | The manifest of the 45. Adding a skill here means the validator will demand its eval harness. |
+| [`scripts/build-site.mjs`](./scripts/build-site.mjs) | Reads the whole repo and writes `site/data` — the catalogue plus one file per skill. `--check` fails when what is committed no longer matches the markdown. Run it before every commit, with the validator. |
+| [`scripts/lib/`](./scripts/lib/) | Shared by both: `frontmatter.mjs` (the frontmatter reader and the plain-scalar check), `markdown.mjs` (markdown → HTML, section splitting, table parsing), `stages.mjs` (stage membership, read from `skills/ICARUS.md`). `node --test tools/scripts/lib/markdown.test.mjs` runs the renderer over every markdown file in the repo. |
+| [`scripts/smoke-site.mjs`](./scripts/smoke-site.mjs) | Opens the built site in Chromium, visits every route, checks every internal link resolves, and lints the page against the brand rules at 1440px and 400px. Needs Playwright; skips cleanly without it. |
 | [`hooks/log-skill-usage.sh`](./hooks/log-skill-usage.sh) | PreToolUse hook that appends every skill invocation to `~/.claude/skill-usage.log` as JSONL. Tells you which skills actually fire. |
 
 ### Wiring the usage hook
