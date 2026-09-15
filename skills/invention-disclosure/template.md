@@ -35,8 +35,12 @@ DEFENSIVE PUBLICATION or NOTHING. A non-technical advantage also belongs in `moa
 | Where you ended up | Continue at |
 |---|---|
 | Gate did not clear — no contribution sentence | Nowhere. Ask the one question and stop |
-| Gate cleared, eligibility all NO, or the effect is non-technical | **Part D**, then Part G and Part H. Skip Parts B3–B6 detail and Part E |
-| Gate cleared, eligibility survivable | Part B in full, then C, D, E, F |
+| Gate cleared, eligibility all NO, or the effect is non-technical | Parts B and C still matter — who invented it, who owns it, and what has been disclosed decide a publication as much as a filing. Then **Part D**, and skip only **Part E**, because there is nothing to file |
+| Gate cleared, eligibility survivable | Parts B, C, D, E, F in order |
+
+**Parts G and H are never skipped.** The kill-line self-check and the counsel questions run on every
+path, including the ones that end in NOTHING. A verdict that never met the kill line is not a
+verdict, and a path with no counsel questions has usually just answered one silently.
 
 ---
 
@@ -167,6 +171,11 @@ _Run for **PATENT**, and for a **SIGNAL ONLY** verdict you intend to act on — 
 financing reasons costs the same as one made for exclusion. Skip only for TRADE SECRET, DEFENSIVE
 PUBLICATION and NOTHING._
 
+_On ordering: Part D names the outcome, and Part F later decides whether the right is a veto or only
+a signal. Price this part on Part D's outcome, then revisit it if Part F downgrades a PATENT to
+SIGNAL ONLY — the route rarely changes, but what the spend is **for** does, and that belongs in the
+record._
+
 **If something is already on file:**
 
 | Question | Answer |
@@ -194,7 +203,9 @@ Any figure not in `references/jurisdictions.md` is written `[Assumption] — cou
 smooth a range into one number to make the ledger look decisive.
 
 **Timing reality:** _[US standard ~26 months; Track One ~12 from petition grant at $4,515 / $1,806 /
-$903; Qatar 2–3 years per agent guides vs 60–72 months ministry indicative — plan on the slower]_
+$903 `[Fact]` — published schedule at today's rate; Qatar 2–3 years per agent guides vs 60–72 months
+ministry indicative `[Fact]` for both published figures — plan on the slower and tag the plan
+`[Assumption]`]_
 
 **What the asset actually is by the horizon that matters:** _[the filing and the priority date, or
 the grant — say which, and why]_

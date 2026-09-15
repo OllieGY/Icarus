@@ -173,6 +173,18 @@ filed text enables what would be claimed today, because matter added later takes
 makes golden 02's two hardest elements reachable from method steps rather than from a Gotcha and a
 reference file.
 
+**Consistency check — 2026-09-15.** After three judge runs had twice turned up `SKILL.md` and
+`template.md` drifting apart, the pair was checked directly against each other. Five of six areas
+matched. Two defects were found, both introduced by the previous round's template edit: the exit
+table's clean path routed a builder through Parts B to F and **omitted the kill-line self-check and
+the counsel questions**, which Step 7 states unconditionally; and an invented instruction to "skip
+Parts B3–B6" would have made Part G's inventor checkboxes untickable. Both are fixed, and both
+files now say the same thing — the kill line and the counsel questions run on every path, including
+the ones ending in NOTHING.
+
+That drift is this skill's characteristic failure: the method gets fixed and the artifact does not.
+Any future edit to one of the two files should be followed by a read of the other.
+
 **Standing position.** Three independent judge runs, each finding fewer and smaller defects than the
 last: two Rule 1 breaches and an arithmetic error in the first round, three internal contradictions
 in the second, two method-vs-reference gaps in the third. That is convergence, not completion. Every

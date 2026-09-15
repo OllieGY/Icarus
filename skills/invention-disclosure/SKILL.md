@@ -92,7 +92,7 @@ Invention disclosure progress:
 - [ ] Step 4: Protect / publish / secret / nothing — five scored rows
 - [ ] Step 5: Route and the five-year ledger, every figure cited
 - [ ] Step 6: Defensibility verdict — the veto sentence, three tests, hand off
-- [ ] Step 7: Kill-line self-check and the counsel questions
+- [ ] Step 7: Kill-line self-check and the counsel questions — runs on every path
 ```
 
 ### Step 1 — Gate: is there an invention?
@@ -298,7 +298,11 @@ two thirds of venture-backed ones; cost is the reason most often given for skipp
 major innovation — the 2008 Berkeley Patent Survey, 1,332 US startups `[Fact]`. A skill that returns
 PATENT every time has not been thinking.
 
-### Step 7 — Kill-line self-check
+### Step 7 — Kill-line self-check and the counsel questions
+
+**This step runs on every path**, including the ones that end in NOTHING. A verdict that never met
+the kill line is not a verdict, and a run with no counsel questions has usually just answered one
+silently.
 
 **Kill line.** The output is auto-failed if any of these is true:
 
