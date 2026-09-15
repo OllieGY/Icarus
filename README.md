@@ -7,7 +7,7 @@ Evidence is weighted the same way everywhere: money moved 1.0, behaviour observe
 artefact shown 0.5, verbal commitment 0.3, opinion 0.1. Rungs never stack. A probe's job is
 to move a claim up that ladder, and a skill's job is to refuse the claim until it does.
 
-52 skills, each shipping its own eval harness.
+53 skills, each shipping its own eval harness.
 
 ## Install
 
@@ -58,6 +58,7 @@ make sense if your product is a model in a loop:
 | **Instrumented from the start** | `trace-instrumentation-spec` fixes what every run must emit, including the human edit delta that the improvement loop cannot be computed without. |
 | **Launch gates that are recorded, not asserted** | `v1-launch-bar` plus `adversarial-launch-pass`: a private attack set built from your own corpus and your own thresholds, because a model's claim that it "would refuse" is opinion 0.1 and only a transcript is behaviour. |
 | **Priced on outcomes** | `value-based-pricing` sets one price between two measured walls, then specifies how an outcome is verified and what happens when it fails. |
+| **IP as a dated clock** | `invention-disclosure` runs the disclosure log before the patent question, because most jurisdictions give no grace period and the first unprotected demo already closed them. It separates an exclusion right from a financing signal instead of selling both as a moat. |
 | **Distribution to agents** | `agent-surface-design` treats the buyer's agent as a user: an MCP server, a shipped skill, an AGENTS.md fragment, with adoption scored on tool-call logs rather than on a launch post. |
 
 ## How a skill earns its place

@@ -139,6 +139,8 @@ Lock-in counted from your side. Switching cost is what the *customer* loses by l
 
 `data-rights-clause` — the sibling that owns Gate 4's legal reality. This canvas names the data-advantage gate and requires a signed clause to clear it; that skill drafts the clause and flags the jurisdiction specifics. This canvas does not write contract language.
 
+`invention-disclosure` — the sibling that owns patents, trade secrets and the filing clock. When a builder holds a granted or filed claim, that skill scores it on three tests and hands this canvas **one candidate veto sentence**; this canvas decides whether that veto holds against the incumbent's wider structure. A patent is never the moat on its own, and that skill does not sequence these gates.
+
 `problem-quality-scorecard` — scores the whole idea across dimensions; defensibility is one. When a builder wants the wide read, send them there. This is the deep read on the moat alone.
 
 Supersedes: none. This is a new skill. It beats the generic VRIO / Porter's-five-forces treatment of defensibility not by adding dimensions but by refusing adjectives: dated gates, a structural veto sentence, and monthly falsifiers, where the generic frameworks stop at a checklist of qualities.

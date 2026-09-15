@@ -40,8 +40,9 @@ so it cannot come back. Worth fixing upstream.
 
 ## Per-skill harness
 
-Written for this kit, not copied: `icarus-golden-rules`, `lessons`, and the 8 new skills
-listed in the changelog.
+Written for this kit, not copied: `icarus-golden-rules`, `lessons`, the 8 new skills
+listed in the changelog, and `invention-disclosure` (added in 1.1.0 — the first skill to
+carry a `references/` folder, whose jurisdiction figures each cite a source and a checked date).
 
 | Skill | Type | Golden | Adversarial |
 |---|---|---|---|
@@ -77,6 +78,7 @@ listed in the changelog.
 | `wedge-five-questions` | generator | 5 | 3 |
 | `moat-design-canvas` | generator | 5 | 3 |
 | `data-rights-clause` | generator | 5 | 3 |
+| `invention-disclosure` | generator | 5 | 3 |
 | `eval-first-spec` | generator | 5 | 3 |
 | `compound-system-architecture` | generator | 5 | 3 |
 | `guardrail-design` | generator | 5 | 3 |

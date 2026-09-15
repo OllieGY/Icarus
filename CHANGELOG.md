@@ -1,5 +1,53 @@
 # Changelog
 
+## 1.1.0 — 2026-09-15
+
+One skill, and the first `references/` folder in the kit.
+
+### Added — `invention-disclosure`
+
+Stage 06, beside `moat-design-canvas` and `data-rights-clause`. Nothing in the kit touched patents,
+trade secrets, prior art or invention capture, so a builder asking "should we patent this" got either
+nothing or a generic answer from a neighbouring skill.
+
+It returns four things in one form: a complete invention disclosure (named natural-person inventors
+with each one's conceptual contribution, conception date, reduction to practice scored on the ladder,
+prior art, dependencies, assignment block); a **disclosure log** that computes, per jurisdiction,
+whether the filing door is OPEN, CLOSING on a date, or BURNED; the protect / publish / secret /
+nothing decision with a filing route and a five-year cost ledger; and a defensibility verdict —
+one candidate incumbent-veto sentence scored on three tests, returning VETO CANDIDATE, SIGNAL ONLY,
+or DO NOT FILE.
+
+Two things make it more than a form. It runs the clock **first**, because the United States gives an
+inventor twelve months after their own disclosure, the EPO gives six and only for abuse or a
+recognised exhibition, and Qatar's law states none — so the usual sequence of build, demo, pitch,
+then ask has often closed Europe and the Gulf before the question is asked. And it refuses to call a
+patent a moat: the veto sentence goes to `moat-design-canvas`, which decides whether it holds, and a
+filing that fails the copy-path or detectability test is named a financing signal rather than
+defensibility.
+
+Not graduated. Written and judged in one session, never used in real product work.
+
+### Added — the `references/` convention
+
+`skills/invention-disclosure/references/` holds `jurisdictions.md` (US, EPO/UK, PCT, Qatar, the GCC
+Patent Office, Saudi Arabia, the UAE — fees, grace periods, timelines, software eligibility, AI
+inventorship, trade secrets, defensive publication) and `decision-tables.md` (the four outcomes, the
+scorecard, cost and time ledgers by route, the three defensibility tests).
+
+Every figure carries a source and a checked date, and the skill's kill line fails any output that
+cites a fee or a deadline not traceable to those files and not tagged `[Assumption]`. This is the
+first skill in the kit to use a `references/` folder; it exists because a jurisdiction table goes
+stale on a schedule the method does not, and because loading it into every session is waste.
+
+### Changed
+
+- `docs/FLOW.md` and `GOLDEN_RULES.md` stage 06 rows, the skill counts in `README.md`, `docs/FLOW.md`
+  and both manifests, and a new row in the README's AI-native table.
+- `skills/moat-design-canvas/SKILL.md` gains one handoff line naming the new sibling. That edit
+  invalidates its graduation, which its `tests/RESULTS.md` already records as stale.
+- `docs/SOURCES.md` records the new skill and the `references/` convention.
+
 ## 1.0.0 — 2026-09-14
 
 First public release. The kit was extracted from a venture studio's internal product set,

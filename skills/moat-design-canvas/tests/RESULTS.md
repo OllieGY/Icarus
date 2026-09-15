@@ -55,3 +55,7 @@ Special-check confirmed on every golden: four DATED gates (wedge→usage→lock-
 - Challenge dimension runs slightly lighter on genuinely strong inputs (02, 05) because there is less to push back on — still ≥4 via forced `[Assumption]` tagging on incumbent internals + three live falsifiers. No fix needed; noted for calibration.
 
 ## Refine run 2 — applied judge fixes: added a one-line Step-5 "size it honestly" nudge — do not inflate the trajectory; a modest but real moat with dated gates beats an ambitious one built on unfalsifiable claims.
+
+## Edit 2026-09-15 — graduation still stale
+
+One line was added to `## Related skills` naming the new sibling `invention-disclosure` and the candidate-veto-sentence handoff. No method step, threshold, trigger phrasing or kill line changed. The staleness notice at the top of this file already stands; this edit does not narrow it.

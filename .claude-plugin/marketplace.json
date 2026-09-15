@@ -10,8 +10,8 @@
       "name": "icarus",
       "displayName": "Icarus",
       "source": "./",
-      "description": "52 skills that take a raw idea from first-principles problem to a scored, shipped v1. Evidence weighted by what people did, not what they said.",
-      "version": "1.0.0",
+      "description": "53 skills that take a raw idea from first-principles problem to a scored, shipped v1. Evidence weighted by what people did, not what they said.",
+      "version": "1.1.0",
       "category": "productivity",
       "tags": [
         "product",

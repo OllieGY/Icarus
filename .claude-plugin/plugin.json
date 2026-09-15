@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "icarus",
   "displayName": "Icarus",
-  "description": "An eval-gated method for building AI-native products. 52 skills that take a raw idea from first-principles problem to a scored, shipped v1 — evidence weighted by what people did, failure taxonomies mined from real traces, calibrated judges, context budgets that balance against cost, and a red-team gate before launch.",
-  "version": "1.0.0",
+  "description": "An eval-gated method for building AI-native products. 53 skills that take a raw idea from first-principles problem to a scored, shipped v1 — evidence weighted by what people did, failure taxonomies mined from real traces, calibrated judges, context budgets that balance against cost, and a red-team gate before launch.",
+  "version": "1.1.0",
   "author": {
     "name": "Ollie Graham-Yooll",
     "url": "https://github.com/OllieGY"

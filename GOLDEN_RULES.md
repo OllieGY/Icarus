@@ -112,7 +112,7 @@ Entry point is `start-here-router` — it decides which of these stages are your
 | 03 | YODA — your own data | `yoda-data-sourcing`, `explicit-vs-tacit-capture`, `dataset-builder` |
 | 04 | Probes — build to learn | `probe-matrix`, `paper-sketch-probe`, `wizard-of-oz-probe`, `concierge-probe`, `agent-concierge-probe` |
 | 05 | Frame the business & product | `product-frame-stack`, `four-lenses-test`, `first-mocks`, `usability-test-protocol` |
-| 06 | Invent — wedge & moat | `invent-by-hand`, `wedge-five-questions`, `moat-design-canvas`, `data-rights-clause` |
+| 06 | Invent — wedge & moat | `invent-by-hand`, `wedge-five-questions`, `moat-design-canvas`, `data-rights-clause`, `invention-disclosure` |
 | 07 | Commit — build & sell v1 | `eval-first-spec`, `compound-system-architecture`, `guardrail-design`, `pilot-six-term-sheet`, `value-based-pricing`, `v1-launch-bar` |
 | 08 | Refine flywheel | `refine-flywheel`, `trace-to-interview`, `metrics-that-matter` |
 | 09 | Build craft | `agent-design`, `workflow-design` |
