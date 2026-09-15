@@ -113,7 +113,7 @@ wrong — once by stopping when there was a decision to make, once by carrying o
 | Situation | Exit |
 |---|---|
 | **No contribution sentence exists** — a product name, a category, a hunch | **Stop.** Ask the one question and nothing else. There is no decision to make yet |
-| **The sentence exists and is well formed, but all three eligibility tests in Step 2 return NO** — a standard model on standard features, no recited improvement | **Do not stop.** The patent branch is closed, but the decision is live: go straight to Step 4, where the usual outcome is DEFENSIVE PUBLICATION or NOTHING. Skip the route and ledger — there is nothing to file |
+| **The sentence exists and is well formed**, so the gate clears here — but when you reach Step 2, all three eligibility tests return NO (a standard model on standard features, no recited improvement) | **Do not come back here and stop.** The patent branch is closed, but the decision is live: go straight to Step 4, where the usual outcome is DEFENSIVE PUBLICATION or NOTHING. Skip the route and ledger — there is nothing to file |
 
 The second exit is the one builders most need and most rarely get. "You cannot patent this" is not
 the end of the conversation; the question of whether someone else can patent it against you is still

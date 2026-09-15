@@ -125,6 +125,15 @@ entry, validation and annuities are still outside the total.
 something or keep it secret", closing a boundary that previously ran one way only. That edit
 re-stales its own graduation, which its `tests/RESULTS.md` already records.
 
+A third judge was launched against the refined text on 2026-09-15 and had not returned when the
+session closed, so **no gate verdict stands on the current text**. The four fixes were instead
+verified directly by the author against `GOLDEN_RULES.md` and the reference files: the IP-value
+ladder row now puts cash at 1.0, an unfunded term sheet at 0.3 and a prediction at 0.1; every dollar
+figure in `SKILL.md` carries a source or an `[Assumption]`; the Step 1 gate has two exits; and Route
+C's rows sum to its stated total ($37,590 and $84,090 against a quoted ≈$37,600–$84,100). That is
+mechanical verification of specific claims, **not a gate** — a judge separate from the author still
+has to score the current text.
+
 **Not adopted:** judge A's reading that `references/jurisdictions.md` inverts its own Saudi grace
 periods. Checked against the sources: Saudi national law and the GCC Patent Regulation genuinely
 differ on which disclosure gets six months and which gets twelve, so the rows are correct as
