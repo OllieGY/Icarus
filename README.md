@@ -7,7 +7,7 @@ Evidence is weighted the same way everywhere: money moved 1.0, behaviour observe
 artefact shown 0.5, verbal commitment 0.3, opinion 0.1. Rungs never stack. A probe's job is
 to move a claim up that ladder, and a skill's job is to refuse the claim until it does.
 
-52 skills, each shipping its own eval harness.
+53 skills, each shipping its own eval harness.
 
 ## Install
 

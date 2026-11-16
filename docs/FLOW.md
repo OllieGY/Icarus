@@ -1,7 +1,7 @@
 # The Icarus flow
 
 An eval-gated method that takes a raw idea from first-principles problem to a scored,
-shipped v1. 52 skills. The rules they all run on are in [`GOLDEN_RULES.md`](../GOLDEN_RULES.md).
+shipped v1. 53 skills. The rules they all run on are in [`GOLDEN_RULES.md`](../GOLDEN_RULES.md).
 
 ## The method, in one line
 
@@ -27,7 +27,7 @@ whose answer you already hold in behaviour or money.
 | 06 | **Invent — wedge and moat** | `invent-by-hand`, `wedge-five-questions`, `moat-design-canvas`, `data-rights-clause` |
 | 07 | **Commit — build and sell v1** | `eval-first-spec`, `judge-calibration`, `compound-system-architecture`, `context-budget`, `guardrail-design`, `adversarial-launch-pass`, `compliance-gate`, `pilot-six-term-sheet`, `value-based-pricing`, `v1-launch-bar` |
 | 08 | **Refine flywheel** | `refine-flywheel`, `failure-mode-mining`, `trace-to-interview`, `metrics-that-matter` |
-| 09 | **Build craft** | `agent-design`, `workflow-design` |
+| 09 | **Build craft** | `agent-design`, `workflow-design`, `experience-wrapper` |
 | 10 | **Scale and distribution** | `agent-surface-design`, `build-vs-buy-boundary` |
 
 Three skills supersede a weaker generic incumbent and beat it head-to-head:
