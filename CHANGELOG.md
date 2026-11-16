@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+### Added: one skill
+
+| Skill | What it returns |
+|---|---|
+| `experience-wrapper` | Any reply wrapped in two thin layers, a plain storyteller layer and an optional voice pack, ending in a fixed Substance Ledger so facts, numbers, the decision and the next owner can be compared character for character across modes. No extra model call or tool. Ships four archetype packs and a ledger check script. |
+
+**Not yet graduated**: written and specified, never scored by a separate judge. Marked
+`"graduated": false` in `tools/scripts/icarus-skills.json`. Listed under Build craft in
+`docs/FLOW.md`; that placement is a proposal.
+
 ## 1.0.0 — 2026-09-14
 
 First public release. The kit was extracted from a venture studio's internal product set,
