@@ -1,16 +1,11 @@
 ---
 name: problem-quality-scorecard
 description: >-
- Numeric go/no-go gate that scores ONE product problem 1-5 on eight
- evidence-backed dimensions (frequency, budgeted pain, severity, data exhaust,
- structural persistence, buyer clarity, wedge sharpness, founder asymmetry),
- sums to /40, and returns pass (>=32) / redesign (28-31) / kill (<28). Fires on
- "should I build this", "score this problem", "go or no-go", "is this problem
- good enough", "rate this problem". Output is a filled 8-row scorecard with a
- money-or-behaviour citation on every row. NOT for broad risk mapping across
- GTM/strategy/team (use identify-assumptions-new), NOT the five qualitative
- whole-idea questions (so-what-stress-test), NOT the per-unit size ratio
- (physics-floor-gap), NOT the wedge-only deep dive (wedge-five-questions).
+  Use when asked "should I build this", "score this problem", "go or no-go", "is this problem
+  good enough", "rate this problem". Scores ONE problem 1 to 5 on eight evidence-backed
+  dimensions, out of 40: pass at 32, redesign 28 to 31, kill below 28. Not for the five
+  whole-idea questions (so-what-stress-test), the size ratio (physics-floor-gap) or the wedge
+  deep dive (wedge-five-questions).
 metadata:
   supersedes: skills/discovery/identify-assumptions-new
   type: generator

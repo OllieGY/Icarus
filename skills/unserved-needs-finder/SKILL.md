@@ -1,17 +1,11 @@
 ---
 name: unserved-needs-finder
 description: >-
- Ranks what a customer actually needs by onioning each stated need to a tech-invariant core,
- sorting the survivors with Kano (must / performance / delighter), and returning the one durable,
- under-served need that will still be a need after the technology turns over. Fires on "what do
- they really need", "find the unmet need", "which need should we prioritise", "what's the real
- need under this feature request", or when a builder hands you a list of "needs" that are mostly
- features and wants the durable one ranked out. Outputs a filled prioritised need map: candidate
- needs → solution-strip → onion-to-core → tech-invariance gate → Kano bands → one ranked wedge
- need with its unserved evidence. NOT for naming WHO holds the need or their budget (use
- user-buyer-decider-map), NOT for reducing the whole job to its currencies (use
- job-in-primitives), NOT for scoring whether the whole idea is worth building (use
- so-what-stress-test).
+  Use when asked "what do they really need", "find the unmet need", "which need should we
+  prioritise", "what's the real need under this feature request". Peels each stated need to a
+  core that outlasts the technology, sorts survivors with Kano, and returns the one durable
+  under-served need. Not for who holds the need (user-buyer-decider-map), the whole job
+  (job-in-primitives) or idea scoring (so-what-stress-test).
 metadata:
   supersedes: none
   type: generator

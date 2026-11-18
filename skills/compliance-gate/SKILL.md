@@ -1,17 +1,11 @@
 ---
 name: compliance-gate
 description: >-
-  Turns a regulatory panic into a mapping exercise. Returns a classification (in scope or
-  not, provider or deployer, high-risk / GPAI / transparency-only) plus an
-  obligations-to-artefacts map: one row per obligation, each marked HELD / PARTIAL / GAP
-  against a file you can open today, then only the genuine gaps with an owner, then the
-  questions that go to counsel. Fires on "are we compliant", "does the EU AI Act apply to
-  us", "the buyer is asking for documentation", "what do we need before an enterprise
-  deal", "is this high-risk". Refuses to draft legal text and refuses to certify anything.
-  NOT for the commercial data-rights terms (use `data-rights-clause`), NOT for the buyer's
-  security checklist inside a pilot (use `pilot-six-term-sheet`), NOT for running the
-  attacks (use `adversarial-launch-pass`), NOT for designing the oversight surface
-  (use `agent-interaction-design`).
+  Use when asked "are we compliant", "does the EU AI Act apply to us", "is this high-risk", or
+  a buyer wants documentation before an enterprise deal. Returns a classification and an
+  obligations-to-artefacts map marked HELD, PARTIAL or GAP, with owners and questions for
+  counsel. Drafts no legal text. Not for data-rights terms (data-rights-clause), attacks
+  (adversarial-launch-pass) or oversight design (agent-interaction-design).
 metadata:
   type: interactive
   supersedes: none

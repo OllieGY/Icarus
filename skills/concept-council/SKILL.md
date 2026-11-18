@@ -1,12 +1,11 @@
 ---
 name: concept-council
 description: >-
-  First-contact teardown of a raw product idea. Fires when a builder says "here's my idea", "tear
-  this apart", "rip this concept apart", "what am I missing", or "what should I build first".
-  Convenes five adversarial lenses, names the one load-bearing gap, and returns a Gap Map plus one
-  First-Probe Brief costing under a week. NOT for an already-scoped concept you want stress-tested
-  against the five so-whats (use so-what-stress-test) or scored numerically across eight
-  dimensions (use problem-quality-scorecard).
+  Use when a builder brings a raw idea: "here's my idea", "tear this apart", "what am I
+  missing", "what should I build first". Runs five adversarial lenses, names the one
+  load-bearing gap, and returns a Gap Map and one First-Probe Brief costing under a week. Not
+  for an already-scoped concept (so-what-stress-test) or numeric scoring
+  (problem-quality-scorecard).
 metadata:
   supersedes: none
   type: interactive

@@ -1,17 +1,11 @@
 ---
 name: user-buyer-decider-map
 description: >-
- Splits a buying situation into four distinct people — user (feels the pain,
- touches the product), buyer (owns the budget line), decision-maker (final
- signature / veto), champion (spends internal capital to push it) — each pinned
- to ONE title, ONE budget (or an explicit none), ONE why-now. Fires on "who's
- the actual buyer", "who decides", "map the stakeholders", "map the buying
- committee", "the user loves it but who signs the cheque", "who's our champion
- and who can veto us". Output is a filled Stakeholder-Role Map that feeds the
- buyer-clarity row of problem-quality-scorecard. NOT the 8-dimension go/no-go
- (problem-quality-scorecard), NOT ranking which unmet need to build first
- (unserved-needs-finder), NOT a demographic day-in-the-life persona
- (proto-persona), NOT simulating users before interviews (synthetic-users).
+  Use when asked "who's the actual buyer", "who decides", "map the buying committee", "the
+  user loves it but who signs the cheque". Splits the deal into user, buyer, decision-maker
+  and champion, each with one title, one budget and one why-now. Not the go/no-go
+  (problem-quality-scorecard), ranking needs (unserved-needs-finder) or simulating users
+  (synthetic-users).
 metadata:
   supersedes: none
   type: generator

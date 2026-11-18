@@ -1,16 +1,12 @@
 ---
 name: judge-calibration
 description: >-
-  Build an LLM judge you can defend — the rubric decomposed into binary atomic criteria, a
-  stratified 30+ item calibration set humans label blind and FIRST, an agreement report using
-  TPR and TNR separately (never bare accuracy), a hard gate at 0.85 on BOTH, the pinned judge
-  model ID and calibration date, the bias controls run (position swap, length control,
-  self-preference), and the re-calibration trigger. Fires on "can we trust the judge", "set up
-  an LLM judge", "our eval scores don't match reality", "how do we score this automatically",
-  "calibrate the grader". Not for writing the golden cases or labelling the data (use
-  `dataset-builder`), not for the spec and its pass/fail job line (use `eval-first-spec`), not
-  for deciding which failures matter (use `failure-mode-mining`), not for re-running the set
-  after a model release (use `refine-flywheel`).
+  Use when asked "can we trust the judge", "set up an LLM judge", "our eval scores don't match
+  reality", "calibrate the grader". Returns a defensible judge: binary criteria, a 30+ item
+  set humans label blind first, true-positive and true-negative rates gated at 0.85 each, a
+  pinned model, bias controls and a re-calibration trigger. Not for golden cases
+  (dataset-builder), the spec (eval-first-spec) or re-runs after a model release
+  (refine-flywheel).
 metadata:
   type: generator
   supersedes: none

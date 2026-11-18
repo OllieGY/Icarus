@@ -1,17 +1,11 @@
 ---
 name: current-state-map
 description: >-
- Maps a workflow exactly as it happens today and puts a sourced price on every step — touch time,
- handoffs, delay, and failure/rework — then totals it into the current priced practice per unit.
- Fires on "how is this done today", "map the workflow", "what does it cost now", "walk the as-is
- process and price it", "where does the time and money go in this workflow". Outputs a filled
- priced step ledger: per-step cost + cited source + evidence-ladder weight + the four hidden-cost
- lines + grand total per unit + the step that holds the most cost, every number tagged
- [Fact]/[Assumption]/[Hypothesis]. NOT the theoretical floor or the build/walk gap verdict (use
- physics-floor-gap — this builds the current-cost side that skill divides against), NOT the
- primitive job with tool and role names stripped (use job-in-primitives), NOT total market size
- (use bottoms-up-quantification), NOT qualitative problem-space framing / HMW (use
- problem-framing-canvas).
+  Use when asked "how is this done today", "map the workflow", "what does it cost now", "where
+  does the time and money go in this workflow". Returns a priced step ledger: per-step cost
+  with source and ladder weight, hidden-cost lines, total per unit and the costliest step. Not
+  for the floor or gap verdict (physics-floor-gap), the primitive job (job-in-primitives) or
+  market size (bottoms-up-quantification).
 metadata:
   supersedes: none
   type: generator

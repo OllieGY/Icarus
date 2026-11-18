@@ -1,17 +1,11 @@
 ---
 name: product-as-decision
 description: >-
- Restates a product idea as ONE decision a named human makes, then quantifies how
- that decision is compressed — before→after on a single axis of time, effort, or
- autonomy (e.g. six minutes → thirty seconds). Fires on "what's the product here",
- "frame the problem", "what decision are we changing", "state this as a decision",
- "what are we actually changing for the user". Output is a filled Compressed-Decision
- Statement: the decision (never a feature), its one owner, the before→after
- compression with a source, and the autonomy-ladder move, every claim tagged
- [Fact]/[Assumption]/[Hypothesis]. NOT for stripping the job to primitives (use
- job-in-primitives), NOT for mapping and pricing the whole workflow (use
- current-state-map), NOT for the 8-dimension go/no-go (use problem-quality-scorecard),
- NOT for the per-unit prize ratio (use physics-floor-gap).
+  Use when asked "what's the product here", "frame the problem", "what decision are we
+  changing", "state this as a decision". Restates the idea as ONE decision a named person
+  makes, then quantifies its before-to-after compression on time, effort or autonomy. Not for
+  the primitive job (job-in-primitives), pricing the workflow (current-state-map) or the
+  go/no-go (problem-quality-scorecard).
 metadata:
   supersedes: none
   type: generator

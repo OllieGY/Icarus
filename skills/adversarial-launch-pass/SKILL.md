@@ -1,19 +1,11 @@
 ---
 name: adversarial-launch-pass
 description: >-
-  Fires on "is it safe to launch", "red team this", "can someone make it do something
-  bad", "what about prompt injection", "the buyer's security team is asking". Gate C of
-  launch. Returns a private attack set built from YOUR corpus and YOUR derived
-  thresholds: attempts across five classes — indirect prompt injection per
-  ingestion path, tool-argument tampering past the named blast radius, corpus
-  exfiltration, permission over-scope, guardrail bypass at the exact threshold — each
-  run and recorded BLOCKED / PARTIAL / SUCCEEDED, plus coverage against the enumerated
-  failure modes and a go-live blocker per SUCCEEDED. A model's claim that it
-  "would refuse" is opinion, 0.1; only recorded attempts clear the gate. NOT for
-  designing the guardrails in the first place (use `guardrail-design`), NOT for the
-  stranger and corrections-loop gates (use `v1-launch-bar`), NOT for classifying
-  regulatory obligations (use `compliance-gate`), NOT for mining production defects
-  (use `failure-mode-mining`).
+  Use when asked "is it safe to launch", "red team this", "what about prompt injection", or a
+  buyer's security team is asking. Returns a private attack set built from your corpus and
+  thresholds, each attempt recorded BLOCKED, PARTIAL or SUCCEEDED, with a go-live blocker per
+  success. Not for designing guardrails (guardrail-design), launch gates (v1-launch-bar) or
+  regulation (compliance-gate).
 metadata:
   type: interactive
   supersedes: none

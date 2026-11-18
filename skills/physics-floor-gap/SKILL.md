@@ -1,15 +1,11 @@
 ---
 name: physics-floor-gap
 description: >-
- Sizes the per-unit prize of a piece of work from first principles by comparing what it is priced
- at today against its theoretical floor once AI does the automatable part. Fires on "is this a
- big enough problem", "how big is the prize", "size the opportunity from first principles",
- "what's the physics floor", "is the gap big enough", or when a builder has a unit of work and its
- current per-unit cost and wants a build/walk verdict. Outputs a filled floor/gap calc sheet:
- token-cost line + judgment-minutes line + current priced number + gap ratio + band verdict,
- every number tagged [Fact]/[Assumption]/[Hypothesis]. NOT for total market size (use
- bottoms-up-quantification), NOT for the 8-dimension problem gate (use
- problem-quality-scorecard), NOT for scoring the whole idea (use so-what-stress-test).
+  Use when asked "is this a big enough problem", "how big is the prize", "what's the physics
+  floor", "is the gap big enough". Compares today's price for one unit of work with its
+  theoretical floor once AI does the automatable part. Returns a floor/gap calc sheet with a
+  build or walk verdict. Not for market size (bottoms-up-quantification), the problem gate
+  (problem-quality-scorecard) or whole-idea scoring (so-what-stress-test).
 metadata:
   supersedes: none
   type: generator
@@ -44,7 +40,7 @@ Work the sheet in [template.md](template.md). Do not narrate; fill the lines. Ev
 One report? One permit review? One invoice reconciled? State it, and how often it happens. If the builder cannot name the unit, stop and ask for it. Do not invent one.
 
 **Step 2 — Floor part A: token/compute cost of the automatable portion.**
-What does one unit cost in 2026 inference to do the part a model can do (retrieval, drafting, matching, formatting)? State the token assumption. Default assumption block: ~$5 / 1M input tokens, ~$15 / 1M output tokens; FX ~£1 = $1.25. Tag `[Assumption]` and date it.
+What does one unit cost in 2026 inference to do the part a model can do (retrieval, drafting, matching, formatting)? State the token assumption. Default assumption block: ~USD 5 / 1M input tokens, ~USD 15 / 1M output tokens; FX ~£1 = USD 1.25. Tag `[Assumption]` and date it.
 
 **Step 3 — Floor part B: irreducible human-judgment minutes × loaded labour.**
 Which minutes cannot be removed — the call a human must stake their name on, the exception only a person can adjudicate? Count only those minutes. Multiply by the loaded rate (salary + overhead + benefits, not base salary). If judgment is exception-based, amortise it across the unit. Be honest: over-counting B hides a dead idea; under-counting B manufactures a fake prize.

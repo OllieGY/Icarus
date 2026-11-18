@@ -1,13 +1,11 @@
 ---
 name: wedge-five-questions
 description: >-
-  Pressure-test ONE proposed wedge against five pass/fail thresholds (standalone value, forced
-  cadence, travel, structural expansion, scoreable adoption) and return a 5-row verdict that calls
-  it a real wedge only on 5/5. Fires on "is this a wedge", "is my wedge sharp enough", "what's my
-  wedge", "the smallest thing that forces adoption", "will this actually get adopted". Not for
-  defensibility over years (use moat-design-canvas), not for scoring the whole idea across eight
-  dimensions (use problem-quality-scorecard), not for the one-glance so-what gut check (use
-  so-what-stress-test).
+  Use when asked "is this a wedge", "is my wedge sharp enough", "what's my wedge", "will this
+  actually get adopted". Tests ONE wedge against five pass/fail thresholds (standalone value,
+  forced cadence, travel, structural expansion, scoreable adoption). A real wedge only on 5 of
+  5. Not for defensibility over years (moat-design-canvas) or whole-idea scoring
+  (problem-quality-scorecard, so-what-stress-test).
 metadata:
   supersedes: none
   type: generator

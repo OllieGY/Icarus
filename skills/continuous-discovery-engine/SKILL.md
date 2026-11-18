@@ -1,14 +1,11 @@
 ---
 name: continuous-discovery-engine
 description: >-
-  Stands up ONE living opportunity tree fed by three live inputs and keeps it current after
-  launch. Fires when a builder says "set up discovery", "continuous discovery", "opportunity
-  tree", "keep learning after launch", or "discovery after launch". Returns an opportunity tree
-  (outcome → opportunities → solutions → tests) wired to customer interviews, production traces,
-  and eval telemetry — each feed stamped with its evidence rung, its cadence, and a named
-  synthesis owner. NOT for scoring one signal's rung (use evidence-ladder), picking which probe
-  tests one question (use probe-matrix), or running a single customer interview (use
-  tacit-knowledge-interview).
+  Use when asked to "set up discovery", "continuous discovery", "opportunity tree", "keep
+  learning after launch". Returns one living opportunity tree fed by interviews, production
+  traces and eval telemetry, each feed with its evidence rung, cadence and owner. Not for
+  scoring one signal (evidence-ladder), picking a probe (probe-matrix) or one interview
+  (tacit-knowledge-interview).
 metadata:
   supersedes: skills/discovery/opportunity-solution-tree
   type: interactive

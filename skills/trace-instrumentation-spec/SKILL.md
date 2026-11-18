@@ -1,18 +1,11 @@
 ---
 name: trace-instrumentation-spec
 description: >-
-  Returns the trace instrumentation spec you sign off BEFORE launch: every span and
-  attribute the product must emit, mapped to the OpenTelemetry GenAI semantic conventions
-  so it is vendor-neutral, each row naming the decision it informs and the sibling skill
-  that consumes it — inputs/outputs with write-time redaction, per-tool-call name, args,
-  result, latency and error, tokens in/out/cached, latency per step and end to end, a
-  pinned prompt-version hash and model ID, the human-edit delta, outcome verdict and
-  adjudicator, tenant-isolated session and actor IDs, and cost computed at write time.
-  Fires on "what should we log", "set up observability", "we can't measure what happened",
-  "what traces do we need", "instrument the agent". NOT for reading traces you already
-  have (use trace-to-interview), NOT for choosing which metric matters (use
-  metrics-that-matter), NOT for the post-launch loop itself (use refine-flywheel), NOT for
-  the contractual right to the exhaust (use data-rights-clause).
+  Use when asked "what should we log", "set up observability", "what traces do we need",
+  "instrument the agent", "we can't measure what happened". Returns the spec to sign off
+  before launch: every span and attribute, mapped to OpenTelemetry GenAI conventions, each row
+  naming the decision it informs. Not for reading existing traces (trace-to-interview),
+  choosing metrics (metrics-that-matter) or the loop (refine-flywheel).
 metadata:
   type: generator
   supersedes: none
@@ -167,7 +160,7 @@ Foundry Signal, factory copilot, about to start a paid pilot. Extract of the reg
 | `cost.amount` + `cost.price_sheet_version` | pilot price floor | `metrics-that-matter` | none | every run |
 | operator note on the exception | which unmet need to build next | `trace-to-interview` | redaction profile `plant-pii-v2` pre-export, 30-day text retention | 100% of exceptions, 5% of clean |
 
-Dry-run: cost per accepted outcome $0.41 `[Fact, 1.0 — metered charge]`; clean-accept 62% on a denominator of 418 reviewed of 511 total `[Fact, 0.7]`, with the 93 auto-committed runs excluded and said so. Deleted in step 1: a thumbs-up widget — no decision moved on it, and at 0.1 none could have.
+Dry-run: cost per accepted outcome USD 0.41 `[Fact, 1.0 — metered charge]`; clean-accept 62% on a denominator of 418 reviewed of 511 total `[Fact, 0.7]`, with the 93 auto-committed runs excluded and said so. Deleted in step 1: a thumbs-up widget — no decision moved on it, and at 0.1 none could have.
 
 ## Gotchas
 

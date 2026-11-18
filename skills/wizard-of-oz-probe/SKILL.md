@@ -1,13 +1,11 @@
 ---
 name: wizard-of-oz-probe
 description: >-
-  Fires when a builder wants a human to run the machine behind the curtain for a day to test usage
-  — "fake the backend", "wizard of oz", "woz test", "human behind the curtain", "have a person
-  answer the requests and see if they act on it". Output is a WoZ setup plus a result read-out
-  that reports usage behaviour and an explicit "what this does NOT prove" section for feasibility,
-  unit cost, and scale. NOT for choosing which probe to run (that is `probe-matrix`), NOT for
-  testing whether a workflow reads on paper (that is `paper-sketch-probe`), and NOT for finding
-  real cost-per-task (that is `agent-concierge-probe`).
+  Use when asked to "fake the backend", "wizard of oz", "woz test", "human behind the
+  curtain", to test whether people would use it. Returns a setup and a read-out of usage
+  behaviour, with what this does not prove about feasibility, unit cost and scale. Not for
+  choosing the probe (probe-matrix), paper legibility (paper-sketch-probe) or real cost per
+  task (agent-concierge-probe).
 metadata:
   supersedes: none
   type: generator

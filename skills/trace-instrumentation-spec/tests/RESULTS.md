@@ -1,5 +1,11 @@
 # Eval log — trace-instrumentation-spec
 
+> **Description changed on 2026-11-18.** The frontmatter description was rewritten
+> trigger-first and shortened so the trigger survives skill-list truncation in Claude Code,
+> Cursor, Grok Build, Codex and OpenCode. Some trigger phrasings were dropped. Dollar amounts
+> in the body now read `USD n` so they are not parsed as argument placeholders. Gate 1
+> (trigger precision) has not been re-run against the new text. Re-run before claiming it.
+
 Status: **not yet graduated.** Written 2026-09-14. Gates below are specified, not yet run
 by a judge agent separate from the author.
 

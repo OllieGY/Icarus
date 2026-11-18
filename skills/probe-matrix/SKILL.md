@@ -1,19 +1,11 @@
 ---
 name: probe-matrix
 description: >-
- Routes the ONE question a builder needs answered to the cheapest probe that is
- HONEST about that question, using the probe honesty contract (paper/sketch,
- Wizard-of-Oz, concierge, agent-concierge — each honest about some things and
- lying about others). Fires on "how do I test this cheaply", "which experiment",
- "what's the cheapest way to learn X", "which probe", "how do I validate this".
- Output is a probe selection + plan: the question, the chosen probe, why it is
- honest about this question, what it will still lie about, cost, and a
- pre-registered pass/fail read-out — and it REFUSES a probe that lies about the
- very thing being tested, naming the honest one instead. NOT the how-to for
- running a probe (use the runbooks paper-sketch-probe / wizard-of-oz-probe /
- concierge-probe / agent-concierge-probe), NOT the build/no-build gate on the
- problem itself (problem-quality-scorecard), NOT how to score a signal you
- already hold (evidence-ladder).
+  Use when asked "how do I test this cheaply", "which experiment", "which probe", "what's the
+  cheapest way to learn X", "how do I validate this". Routes ONE question to the cheapest
+  probe that is honest about it, states what that probe will still lie about, and sets
+  pass/fail in advance. Not for running a probe (use its runbook), the problem gate
+  (problem-quality-scorecard) or scoring a signal (evidence-ladder).
 metadata:
   supersedes: skills/discovery/prototyping-pretotyping
   type: interactive
@@ -96,10 +88,10 @@ lies about any claim that needs a rung higher than it can produce.
 
 | Probe | Cost | Honest about | Lies about | Top rung it can produce |
 |---|---|---|---|---|
-| paper / sketch | ~$0, 30 min | workflow legibility; where the decision sits | how it feels to use; real demand; trust | comprehension / verbal (0.5 / 0.3) |
-| Wizard-of-Oz | ~$200, 1 day | would-they-use-it-if-it-worked | feasibility; unit cost; scale | behaviour toward a faked backend (0.7) |
+| paper / sketch | ~USD 0, 30 min | workflow legibility; where the decision sits | how it feels to use; real demand; trust | comprehension / verbal (0.5 / 0.3) |
+| Wizard-of-Oz | ~USD 200, 1 day | would-they-use-it-if-it-worked | feasibility; unit cost; scale | behaviour toward a faked backend (0.7) |
 | concierge (founder does it by hand) | founder time | willingness to pay; the real workflow incl. exceptions; trust under real stakes | scale; self-serve UX | money + real-stakes behaviour (1.0) |
-| agent-concierge (an agent runs the task) | ~$0.50–5 / task | automation frontier; cost-per-outcome to the cent | self-serve UX; trust / adoption | cost, money-grade (1.0 on cost) |
+| agent-concierge (an agent runs the task) | ~USD 0.50–5 / task | automation frontier; cost-per-outcome to the cent | self-serve UX; trust / adoption | cost, money-grade (1.0 on cost) |
 
 Map target → cheapest honest probe:
 
@@ -153,7 +145,7 @@ F), say that; do not launder a dishonest probe into a false green light.
  adopt it," route to concierge or a field pilot, never a paper or landing probe,
  no matter how cheap.
 - **Cheapest ≠ honest.** The router picks the cheapest *honest* probe, not the
- cheapest probe. If paper is $0 but lies about the target, its real cost is a wrong
+ cheapest probe. If paper is USD 0 but lies about the target, its real cost is a wrong
  answer you will act on. Do not let the price column win Step 3.
 - **Wizard-of-Oz feasibility trap.** A WoZ that "works" tempts the builder to claim
  the thing is buildable. It is not evidence of that — the backend was human. WoZ is

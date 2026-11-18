@@ -1,15 +1,12 @@
 ---
 name: pilot-six-term-sheet
 description: >-
-  Turn a would-be pilot into a six-term paid-pilot sheet — scope, price (paid or prepaid), the
-  signed data-rights clause, success metrics, kill criteria, and conversion terms priced now — and
-  refuse to call anything a pilot unless all six terms are non-empty. Fires on "pilot terms",
-  "structure the deal", "paid pilot", "pilot term sheet", "structure the pilot so it isn't a free
-  trial". Not for brainstorming or validating which revenue model to bet on (that is
-  `monetization-strategy`, exploratory; this commits one basis to price the conversion term now),
-  not for drafting the data-rights legal language (that is `data-rights-clause`; this carries the
-  clause as term 3 and routes there), not for testing whether the thing will get adopted at all
-  (that is `wedge-five-questions`).
+  Use when asked for "pilot terms", "structure the deal", "paid pilot", "pilot term sheet", or
+  to stop a pilot becoming a free trial. Returns a six-term sheet: scope, price, signed
+  data-rights clause, success metrics, kill criteria and conversion terms priced now. Refuses
+  the word pilot unless all six are filled. Not for choosing a revenue model
+  (monetization-strategy), drafting the clause (data-rights-clause) or adoption
+  (wedge-five-questions).
 metadata:
   supersedes: none
   type: generator
@@ -111,7 +108,7 @@ The pilot is the instrument that moves a claim to 1.0. A "successful" free pilot
 
 ## Gotchas
 
-The success-contingent "price." "They'll pay $80k if incidents drop 20%" reads like a price but is a bet the builder funds — if it misses, the vendor ate the cost of the pilot and the buyer risked nothing. It is 0.3, not 1.0, and it fails term 2. A real price has a floor that moves regardless of outcome; put the outcome bonus on top of the floor, never in place of it.
+The success-contingent "price." "They'll pay USD 80k if incidents drop 20%" reads like a price but is a bet the builder funds — if it misses, the vendor ate the cost of the pilot and the buyer risked nothing. It is 0.3, not 1.0, and it fails term 2. A real price has a floor that moves regardless of outcome; put the outcome bonus on top of the floor, never in place of it.
 
 Conversion deferred to "after we prove value." This is term 6 left empty, dressed as reasonable. The buyer with real intent will price production at pilot signing because the pilot is how they justify the spend internally; the buyer who insists on deciding later is telling you they have not decided to buy. Price it now or read the deferral as the answer.
 
