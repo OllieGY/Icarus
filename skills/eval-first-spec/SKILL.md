@@ -1,13 +1,11 @@
 ---
 name: eval-first-spec
 description: >-
-  Turn a validated wedge into the scope you can SCORE — a one-sentence job, 20 pass/fail golden
-  cases drawn from real artefacts, an L0–L4 autonomy level with a failure taxonomy and a derived
-  acceptable failure rate per mode, and a cost-per-outcome budget to the cent. Fires on "spec the
-  build", "define scope", "scope the v1", "write the spec", "how do we know it works". Not for the
-  component pipeline or effort split (use compound-system-architecture), not for pilot price /
-  terms / commercial success metrics (use pilot-six-term-sheet), not for whether the thing gets
-  adopted at all (use wedge-five-questions).
+  Use when asked to "spec the build", "define scope", "scope the v1", "write the spec", "how
+  do we know it works". Returns a scoreable spec: a one-sentence job, 20 pass/fail golden
+  cases, an L0 to L4 autonomy level with failure rates per mode, and a cost-per-outcome budget
+  to the cent. Not for the pipeline (compound-system-architecture), pilot terms
+  (pilot-six-term-sheet) or adoption (wedge-five-questions).
 metadata:
   supersedes: none
   type: generator
@@ -132,7 +130,7 @@ Acceptable rate chosen to look safe. "We'll accept a 1% error rate" with no deri
 
 Autonomy inflation. Picking L3/L4 because it demos better, when a Miss at that level is catastrophic and no golden pass rate has earned it yet. Ship the lowest level that delivers the job; the ladder is climbed with measured evidence, not ambition.
 
-Cost-per-call smuggled in for cost-per-outcome. "$0.02 per call" is not the budget. One outcome may take several attempts plus human review minutes plus remediation of the accepted failure rate. If the number ignores human time and retries, it is not cost-per-outcome and the kill line is not cleared.
+Cost-per-call smuggled in for cost-per-outcome. "USD 0.02 per call" is not the budget. One outcome may take several attempts plus human review minutes plus remediation of the accepted failure rate. If the number ignores human time and retries, it is not cost-per-outcome and the kill line is not cleared.
 
 Cases invented to reach 20. If the reality floor can't be met, the honest output is "you have 9 real inputs; go get 5 more from the next probe cycle," not 11 fabricated ones. Fabricated cases score a `[Assumption]` and, worse, teach the build to pass tests that describe no real user.
 
@@ -187,7 +185,7 @@ with no case attached is unspecified work — send it back rather than building 
 
 ## Examples
 
-`examples/sample.md` — a full worked eval-first spec for Foundry Signal v1 (the shift-handover machine-risk digest): the job line with its judged-by clause, all 20 golden cases composed across the four bands and tagged for source, an L1 autonomy choice with a six-mode failure taxonomy and rates derived from cost-of-one-failure, and a cost-per-outcome budget of ~$3.55/shift checked against value-per-outcome — including one band that started under-real and forced a "go get more inputs" finding.
+`examples/sample.md` — a full worked eval-first spec for Foundry Signal v1 (the shift-handover machine-risk digest): the job line with its judged-by clause, all 20 golden cases composed across the four bands and tagged for source, an L1 autonomy choice with a six-mode failure taxonomy and rates derived from cost-of-one-failure, and a cost-per-outcome budget of ~USD 3.55/shift checked against value-per-outcome — including one band that started under-real and forced a "go get more inputs" finding.
 
 ## Related skills
 

@@ -1,15 +1,11 @@
 ---
 name: trace-to-interview
 description: >-
-  Turns production traces into discovery interviews, recovering for each behaviour pattern the
-  question the user answered by acting instead of talking. Fires on "learn from usage", "mine the
-  logs", "what are our production traces telling us", "turn usage data into discovery", "what are
-  users saying in the logs". Outputs one card per pattern: the observed behaviour [Fact, 0.7], the
-  discovery question it answers, the inferred job [Hypothesis], distinct-user weight, the
-  confirm-the-why probe, and the cost of the scheduled interview it replaced. NOT the retention
-  scorecard (use `metrics-that-matter`), NOT a recorded transcript summary (use
-  `summarize-interview` — words are 0.3, this is behaviour at 0.7), NOT the whole three-feed loop
-  (use `continuous-discovery-engine`).
+  Use when asked to "learn from usage", "mine the logs", "what are our production traces
+  telling us", "turn usage data into discovery". Returns one card per behaviour pattern: the
+  observed behaviour, the question it answers, the inferred job, and the probe that confirms
+  why. Not the retention scorecard (metrics-that-matter), a transcript summary
+  (summarize-interview) or the three-feed loop (continuous-discovery-engine).
 metadata:
   supersedes: none
   type: generator

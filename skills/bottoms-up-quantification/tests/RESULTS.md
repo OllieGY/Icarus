@@ -1,5 +1,11 @@
 # Eval log — bottoms-up-quantification
 
+> **Description changed on 2026-11-18.** The frontmatter description was rewritten
+> trigger-first and shortened so the trigger survives skill-list truncation in Claude Code,
+> Cursor, Grok Build, Codex and OpenCode. Some trigger phrasings were dropped. Dollar amounts
+> in the body now read `USD n` so they are not parsed as argument placeholders. Gate 1
+> (trigger precision) has not been re-run against the new text. Re-run before claiming it.
+
 > **Graduation is stale.** The runs below were scored against the pre-release text. On
 > 2026-09-14 this skill was rewritten for public release: the internal vocabulary was
 > replaced, the example companies were changed to fictional ones, and cross-references by

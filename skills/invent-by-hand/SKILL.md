@@ -1,16 +1,11 @@
 ---
 name: invent-by-hand
 description: >-
-  Invent an original product concept before the machine hands you the generic one — onion the
-  stated idea to its invariant core need, diverge and keep the strange child, anchor every concept
-  to your proprietary YODA corpus, then run the generic-prompt test (if the one-line prompt a
-  competitor would type reaches your concept, it isn't yours yet). Returns an invented concept +
-  rationale. Fires on "what should we actually build", "invent the solution", "make it
-  non-obvious", "give me a concept a competitor couldn't just prompt for", "what's the product
-  idea here". Not for carving and adoption-testing the first slice (use wedge-five-questions, run
-  it next), not for finding the proprietary data the concept stands on (use yoda-data-sourcing,
-  run it first), not for designing a cheap experiment to validate an already-chosen idea (use
-  concierge-probe / probe-matrix).
+  Use when asked "what should we actually build", "invent the solution", "make it
+  non-obvious", "give me a concept a competitor couldn't just prompt for". Peels the idea to
+  its core need, diverges, anchors each concept to your proprietary corpus, then runs the
+  generic-prompt test. Returns an invented concept with rationale. Not for testing the first
+  slice (wedge-five-questions) or finding the data (yoda-data-sourcing).
 metadata:
   supersedes: none
   type: interactive

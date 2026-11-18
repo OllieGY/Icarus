@@ -1,16 +1,11 @@
 ---
 name: synthetic-users
 description: >-
- Build a synthetic user panel grounded in your YODA corpus and pre-test a concept, message, or
- flow against it — cheaply, before you spend real interview time. Returns a Synthetic Panel +
- Pre-Test Transcript carrying a lie ledger (what synthetic users systematically get wrong: they
- never pay, never no-show, over-rationalise, over-agree) and a kill / revise /
- promote-to-real-interview verdict. Fires on "test this before real interviews", "simulate a
- user", "dry-run the pitch", "pre-test the message/flow", "which of these should I even bother
- interviewing about". NOT for running the real interview that captures an expert's judgment (use
- tacit-knowledge-interview), scripting a Mom-Test discovery interview (use interview-script) or
- planning one (use discovery-interview-prep), or sourcing the corpus the panel is built from (use
- yoda-data-sourcing). Never treats a synthetic response as validation.
+  Use when asked to "test this before real interviews", "simulate a user", "dry-run the
+  pitch", "pre-test the message". Builds a synthetic panel from your own corpus and returns a
+  pre-test transcript, a ledger of what synthetic users get wrong, and a kill, revise or
+  take-to-real-interview verdict. Never counts as validation. Not for real expert interviews
+  (tacit-knowledge-interview) or sourcing the corpus (yoda-data-sourcing).
 metadata:
   supersedes: none
   type: interactive

@@ -1,16 +1,11 @@
 ---
 name: product-frame-stack
 description: >-
- Walks one validated problem up a load-bearing stack — validated problem → vision
- → strategy → product vision → North Star → OKRs → dual-track roadmap — and BLOCKS
- any layer from resting on an unvalidated problem below it. Fires on "frame the
- business", "vision to roadmap", "what's the strategy", "turn this validated problem
- into a roadmap", "give me the vision, North Star and OKRs". Output is a filled frame
- stack where every layer inherits the problem's evidence rung and every roadmap item
- ladders to a North Star. NOT the go/no-go that validates the problem in the first
- place (use problem-quality-scorecard / so-what-stress-test — this consumes their
- verdict), NOT the desirable/feasible/viable score (four-lenses-test), NOT the
- post-launch metric-tree and retention check (metrics-that-matter).
+  Use when asked to "frame the business", "vision to roadmap", "what's the strategy", or for
+  the vision, North Star and OKRs from a validated problem. Returns a frame stack (problem,
+  vision, strategy, product vision, North Star, OKRs, dual-track roadmap) and blocks any layer
+  resting on an unvalidated problem. Not for validating the problem
+  (problem-quality-scorecard) or the four-lens score (four-lenses-test).
 metadata:
   supersedes: none
   type: generator

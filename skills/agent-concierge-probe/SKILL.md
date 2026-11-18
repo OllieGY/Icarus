@@ -1,15 +1,10 @@
 ---
 name: agent-concierge-probe
 description: >-
- Runbook for having an AGENT run a real task end to end, to measure the automation frontier
- (which steps it does unaided vs which need a human) and the cost-per-outcome to the cent
- (input+output tokens + tool calls + human-fix minutes, all priced). Fires on "agent does the
- task", "measure cost per outcome", "agent concierge", "automation frontier", "price it to the
- cent", "what can the agent not do unaided". Output: a cost-per-outcome read with the full
- breakdown, plus a frontier map. Not probe-matrix (that picks the probe); not concierge-probe
- (the founder, not an agent, runs it, and it tests willingness to pay); not wizard-of-oz-probe;
- not paper-sketch-probe (that tests whether a workflow reads on paper). It is honest about cost
- and frontier and says nothing about self-serve UX or trust/adoption — it lies about those.
+  Use when an agent should run a real task end to end: "measure cost per outcome", "agent
+  concierge", "automation frontier", "what can the agent not do unaided". Returns cost per
+  outcome priced to the cent with a full breakdown, plus a frontier map. Not for picking the
+  probe (probe-matrix) or founder-delivered willingness-to-pay tests (concierge-probe).
 metadata:
   supersedes: none
   type: generator
@@ -22,7 +17,7 @@ allowed-tools: Read Glob Grep Write
 You hand a real, already-mapped task to an agent, let it run the task end to end across several outcomes, and instrument every run. Output is two things: the cost-per-outcome priced to the cent, and a frontier map showing which steps the agent does unaided and which a human has to take over. It compresses "is this automatable, and what does one outcome cost" into measured numbers instead of a hunch.
 
 ## The reframe
-A generic "can an agent do it?" demo shows one happy-path run and a vibe. This runbook refuses a cost claim without its parts: the read-out must show input tokens, output tokens, tool calls, and human-fix minutes separately, each priced, before it states a cost-per-outcome — a bare "$2/task" is not a result. And it treats the red steps (where a human had to intervene) as the actual finding: those steps *are* the automation frontier, the line the product cannot yet cross. The probe is honest about cost-per-outcome and the frontier. It lies about self-serve UX and about trust/adoption, and it says so in every read-out.
+A generic "can an agent do it?" demo shows one happy-path run and a vibe. This runbook refuses a cost claim without its parts: the read-out must show input tokens, output tokens, tool calls, and human-fix minutes separately, each priced, before it states a cost-per-outcome — a bare "USD 2/task" is not a result. And it treats the red steps (where a human had to intervene) as the actual finding: those steps *are* the automation frontier, the line the product cannot yet cross. The probe is honest about cost-per-outcome and the frontier. It lies about self-serve UX and about trust/adoption, and it says so in every read-out.
 
 ## When to use / When NOT
 Use it when the workflow is already mapped (ideally by a concierge run, so you know the exceptions) and you need to know what an agent can do unaided and what one outcome costs.
@@ -60,7 +55,7 @@ CPO = [ (in_tokens × rate_in) + (out_tokens × rate_out)
  + (human_fix_min × human_rate) ] ÷ successful_outcomes
 ```
 
-Reporting a cost-per-outcome without the token / tool / human-fix breakdown is the kill line. Expected band from the honesty contract is ~$0.50–5 / task; if your CPO exceeds what a concierge customer paid, flag the inverted economics.
+Reporting a cost-per-outcome without the token / tool / human-fix breakdown is the kill line. Expected band from the honesty contract is ~USD 0.50–5 / task; if your CPO exceeds what a concierge customer paid, flag the inverted economics.
 
 **Step 5 — Map the frontier.** Colour every step:
 
@@ -85,7 +80,7 @@ Done means: ≥5 logged runs, a cost-per-outcome with all four cost components s
 ## Gotchas
 - **The invisible human.** The founder quietly re-runs, edits the output, or fixes a tool call and does not log the minutes. That erases the true cost and paints a red step green. Log every intervention.
 - **N=1 costing.** Pricing off one lucky clean run. Failed and retried runs spend real tokens; exclude them and the CPO is fiction.
-- **Bare-number costing.** "About $2 a task" with no breakdown is the kill line — it hides where the cost lives and cannot be acted on.
+- **Bare-number costing.** "About USD 2 a task" with no breakdown is the kill line — it hides where the cost lives and cannot be acted on.
 - **Frontier drift into adoption.** "The agent handled 8/10 steps, so operators will trust it." This probe says nothing about trust. Report the frontier; send trust to a concierge or field probe.
 
 ## Examples

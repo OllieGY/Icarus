@@ -1,14 +1,11 @@
 ---
 name: v1-launch-bar
 description: >-
-  Gate a built v1 to go / no-go on two recorded tests — a true stranger reaches first correct
-  value in ≤60 seconds unaided, AND the learn-from-corrections mechanism is wired and proven to
-  compound (the thing 95% of enterprise pilots never deliver). Output is a recorded-evidence go /
-  no-go checklist. Fires on "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go
-  on v1", "should we ship this pilot". Not the ongoing post-launch loop or cadence (use
-  refine-flywheel), not pilot price / terms / commercial success metric (use
-  pilot-six-term-sheet), not defining what "working" means or the golden-set + cost spec before
-  code (use eval-first-spec).
+  Use when asked "are we ready to launch", "is v1 good enough", "launch bar", "go/no-go on
+  v1", "should we ship this pilot". Gates on two recorded tests: a stranger reaches first
+  correct value in 60 seconds unaided, and the learn-from-corrections loop is proven to
+  compound. Not the post-launch loop (refine-flywheel), pilot terms (pilot-six-term-sheet) or
+  defining "working" (eval-first-spec).
 metadata:
   supersedes: none
   type: generator

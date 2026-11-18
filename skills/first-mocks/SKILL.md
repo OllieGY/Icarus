@@ -1,17 +1,11 @@
 ---
 name: first-mocks
 description: >-
- Turns a concept into the cheapest concrete artefact a human can react to, via
- the no-code make-sequence: Crazy 8s → paper/Miro flow → digital mock →
- clickable hybrid in v0 or Figma Make, built in one afternoon. Fires on "mock it
- up", "run Crazy 8s", "clickable prototype", "turn this idea into something I can
- click", "get from a rough idea to a prototype in an afternoon". Output is a
- Clickable-Prototype Plan: the ONE thing the mock must provoke a reaction to, the
- fidelity band, the no-code ceiling, and the hand-off to a real reaction. NOT
- which experiment to run (probe-matrix), NOT running the test session
- (usability-test-protocol), NOT the visual / UI craft — colour, type, distinctive
- components — which it ROUTES to impeccable / shape / design and never restates.
- Bans jumping to code.
+  Use when asked to "mock it up", "run Crazy 8s", "clickable prototype", "turn this idea into
+  something I can click". Returns a Clickable-Prototype Plan built in one afternoon: Crazy 8s,
+  paper flow, digital mock, clickable hybrid, and the one reaction the mock must provoke. No
+  code. Not for choosing the experiment (probe-matrix) or running the session
+  (usability-test-protocol).
 metadata:
   supersedes: none
   type: interactive

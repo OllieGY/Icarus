@@ -1,14 +1,11 @@
 ---
 name: yoda-data-sourcing
 description: >-
-  Assemble a sourced proprietary-data corpus map — sort every candidate data source by one test
-  (can a foundation model already reach it?) and keep only the workflow-trapped, permission-gated
-  signal (shadow AI threads, operational logs, permits, vendor-locked sensor feeds, workflow
-  exhaust) as the moat seed. Fires on "get our own data", "what data do we own", "where's our
-  proprietary data", "build the moat's seed", "what data can't a competitor get". Not for drafting
-  the contract that unlocks a gated source (use data-rights-clause), not for scoring whether one
-  signal counts as real evidence (use evidence-ladder), not for running the interview that
-  captures tacit judgment (use tacit-knowledge-interview).
+  Use when asked to "get our own data", "what data do we own", "where's our proprietary data",
+  "what data can't a competitor get". Sorts every candidate source by one test (can a
+  foundation model already reach it?) and keeps only workflow-trapped, permission-gated signal
+  as the moat seed. Not for the contract that unlocks a source (data-rights-clause) or scoring
+  one signal (evidence-ladder).
 metadata:
   supersedes: none
   type: interactive

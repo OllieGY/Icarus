@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased
+
+### Changed — cross-tool loading
+
+Target tools: Claude Code and the Claude apps, Cursor, Grok Build, Codex and OpenCode.
+
+- All 54 skill descriptions rewritten trigger-first ("Use when ..."), then the output, then
+  the sibling hand-off. Total description text fell from 43,007 to 21,756 characters, longest
+  451. Tools that shorten the skill list cut the end of a description, so the trigger now
+  survives the cut.
+- 41 dollar amounts in 11 skill bodies now read `USD n`. Claude Code and OpenCode parse `$4`
+  as an argument placeholder and replace or blank it when the skill is called with arguments.
+- Every `tests/RESULTS.md` records that Gate 1 (trigger precision) has not been re-run
+  against the new descriptions.
+
+Checked with NVIDIA SkillEvaluator 0.9.0 `harness-check` (static, no model run). It still
+reports the skill list as over budget for Claude Code and Codex when the context window is
+unknown. Shorter descriptions do not fix that with 54 skills in one folder. The open choice
+is to split the kit into stage packs or to make most skills invoke-by-name behind
+`start-here-router`.
+
 ## 1.0.0 — 2026-09-14
 
 First public release. The kit was extracted from a venture studio's internal product set,

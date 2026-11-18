@@ -1,15 +1,11 @@
 ---
 name: icarus-golden-rules
 description: >-
- Loads the Icarus golden rules — the evidence ladder (money 1.0 / behaviour 0.7 /
- artefact 0.5 / commitment 0.3 / opinion 0.1), the [Fact]/[Assumption]/[Hypothesis]
- tag rule, the five challenge questions, the 21/25 rubric and its four auto-fails —
- before any product judgement is made. Fires on "what are the rules", "how do we
- score this", "is this up to standard", "review this against our method", "did this
- skill do its job", and whenever an output is about to claim something is validated,
- de-risked, or ready. NOT the router for which stage to run (use start-here-router),
- NOT a weighting of one evidence pile (use evidence-ladder), NOT the whole-idea
- five-question gate (use so-what-stress-test).
+  Use before any product judgement, and when asked "what are the rules", "how do we score
+  this", "is this up to standard", "review this against our method". Loads the evidence
+  ladder, the [Fact]/[Assumption]/[Hypothesis] tag rule, the five challenge questions, the
+  21/25 rubric and its four auto-fails. Not the stage router (start-here-router) or a
+  weighting of one evidence pile (evidence-ladder).
 metadata:
  supersedes: none
  type: component

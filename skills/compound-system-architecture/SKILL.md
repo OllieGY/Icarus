@@ -1,15 +1,11 @@
 ---
 name: compound-system-architecture
 description: >-
- Fires when a builder is ready to design how the AI product is actually built —
- "architect the product", "how do we build the AI system", "design the AI system",
- "what's the system architecture", "what does the stack look like". Returns a
- compound-system architecture (input → router → retrieve/reason/act → validate &
- guardrails → output over a data layer), a 40/20/30/10 effort-allocation plan, and
- named model-swap points, then kills any monolithic one-big-prompt design. Do NOT
- fire to write the pass/fail scope (use eval-first-spec), to render the HTML/SVG
- picture (use design/architecture-diagram), or to argue defensibility (use
- moat-design-canvas).
+  Use when asked to "architect the product", "design the AI system", "how do we build the AI
+  system", "what does the stack look like". Returns a compound-system architecture (input,
+  router, retrieve/reason/act, validate, output over a data layer), a 40/20/30/10 effort split
+  and model-swap points. Not for pass/fail scope (eval-first-spec) or defensibility
+  (moat-design-canvas).
 metadata:
   supersedes: none
   type: generator

@@ -1,18 +1,11 @@
 ---
 name: context-budget
 description: >-
-  Returns a per-call context ledger that must BALANCE against money — rows for the system prompt
-  and its altitude, the curated tool set, just-in-time vs preloaded retrieval, the compaction
-  trigger and survival list, the note-file schema, and sub-agent fork boundaries — each row
-  token-costed, multiplied by measured calls per outcome, and reconciled against the
-  cost-per-outcome budget committed in `eval-first-spec`. If the ledger does not clear, the skill
-  refuses to pass and names the row to cut. Fires on "the agent
-  forgets halfway through", "it degrades on long tasks", "we have 40 tools and it picks the wrong
-  one", "design the prompt architecture", "context window keeps filling". NOT for which agent owns
-  which decision (use `agent-design`), NOT for whether you need a fleet at all (use
-  `workflow-design`), NOT for the pipeline and model-swap points (use
-  `compound-system-architecture`), NOT for setting the cost-per-outcome budget itself (use
-  `eval-first-spec`).
+  Use when "the agent forgets halfway through", "it degrades on long tasks", "we have 40 tools
+  and it picks the wrong one", "context window keeps filling", or to design the prompt
+  architecture. Returns a per-call context ledger, token-costed and reconciled against the
+  cost-per-outcome budget, naming the row to cut if it fails. Not for agent ownership
+  (agent-design), fleets (workflow-design) or setting the budget (eval-first-spec).
 metadata:
   type: generator
   supersedes: none
@@ -187,17 +180,17 @@ on nothing — report it as unbalanced and name the measurement to run. Tag ever
 Foundry Signal's line-stoppage copilot, at the point the ledger first totalled (illustrative
 fixture, not client data):
 
-- Ceiling carried in: **$1.90** per resolved alarm, of which $1.05 human review and $0.30
-  remediation are already committed → **$0.55** left for model calls. `A = 11` calls per resolved
+- Ceiling carried in: **USD 1.90** per resolved alarm, of which USD 1.05 human review and USD 0.30
+  remediation are already committed → **USD 0.55** left for model calls. `A = 11` calls per resolved
   alarm, counted over 200 logged runs [Fact, 0.7].
 - Ledger v0: system prompt 1,800 + 41 tool schemas 9,020 + note file 900 = 11,720 fixed per call;
   history growing 2,400 per call; JIT retrieval 1,400 hitting on 4 of 11 calls. Total 266,520
-  input + 4,180 output → **$0.86. Does not clear, over by 56%.**
+  input + 4,180 output → **USD 0.86. Does not clear, over by 56%.**
 - Cut 1 — disambiguation test: `get_machine_status` / `read_sensor_snapshot` / `fetch_line_state`
   all answer "why did line 3 stop?"; twelve tools had zero invocations in 200 runs [Fact, 0.7].
-  41 → 9 tools, 7,040 tokens released per call → **$0.63. Still does not clear.**
+  41 → 9 tools, 7,040 tokens released per call → **USD 0.63. Still does not clear.**
 - Cut 2 — compaction at 14,400 carried tokens with a 1,100-token survival list, its own call
-  costed at $0.07 → **$0.50 against $0.55. Clears, headroom $0.05 (9%).**
+  costed at USD 0.07 → **USD 0.50 against USD 0.55. Clears, headroom USD 0.05 (9%).**
 
 The output that would be wrong here: "trimmed the prompt, should be much cheaper now." No row,
 no total, nothing that can fail.
@@ -213,7 +206,7 @@ a self-assessment — 0.1, and it cannot hold a row. Read the `usage` field.
 **Renaming ambiguous tools and calling it a cut.** A rename releases zero tokens. If the
 before/after token count did not move, step 3 did not happen.
 
-**Cost-per-call smuggled in for cost-per-outcome.** "$0.04 a call" is not a budget. Multiply by
+**Cost-per-call smuggled in for cost-per-outcome.** "USD 0.04 a call" is not a budget. Multiply by
 the `A` you measured, not the `A` you hope for after the fix.
 
 **Preloading the corpus that made the demo look smart.** "Useful background" is not a reason.

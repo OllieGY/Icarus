@@ -1,13 +1,11 @@
 ---
 name: lessons
 description: >-
- Reads and writes the hub's append-only lessons log — what your team learned the hard
- way, and what rule it changed. Fires on "log a lesson", "what did we learn", "we got
- this wrong", "add this to lessons", "have we hit this before", "post-mortem this", and
- at the end of any working session worth remembering. Also fires BEFORE product work to
- check whether a known lesson already applies. NOT a retro facilitation format, NOT a
- meeting-notes summariser, NOT the graduation eval log (that lives in each skill's
- tests/RESULTS.md).
+  Use when asked to "log a lesson", "what did we learn", "we got this wrong", "have we hit
+  this before", "post-mortem this", and before product work to check for a known lesson. Reads
+  and writes the append-only lessons log: what the team learned the hard way and the rule it
+  changed. Not a retro format, a meeting summary or the graduation log in each skill's
+  tests/RESULTS.md.
 metadata:
  supersedes: none
  type: interactive

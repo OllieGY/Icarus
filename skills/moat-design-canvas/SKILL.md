@@ -1,14 +1,11 @@
 ---
 name: moat-design-canvas
 description: >-
-  Sequence a validated wedge into a defensible moat as four DATED gates (wedge → usage → lock-in →
-  data advantage), forced through an incumbent-veto sentence ("X won't copy this because ___") and
-  three monthly falsifiers; returns a filled moat canvas. Fires on "what's the moat", "how is this
-  defensible", "will this compound", "design the moat", "will competitors just copy this / how do
-  we stay defensible as they show up". Not for whether one wedge gets adopted now (use
-  wedge-five-questions — run it first), not for drafting the pilot data-rights clause itself (use
-  data-rights-clause), not for scoring the whole idea across dimensions (use
-  problem-quality-scorecard).
+  Use when asked "what's the moat", "how is this defensible", "will this compound", "will
+  competitors just copy this". Returns a moat canvas: four dated gates (wedge, usage, lock-in,
+  data advantage), an incumbent-veto sentence and three monthly falsifiers. Not for whether
+  the wedge is adopted now (wedge-five-questions), the clause itself (data-rights-clause) or
+  whole-idea scoring (problem-quality-scorecard).
 metadata:
   supersedes: none
   type: generator

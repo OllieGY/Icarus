@@ -1,16 +1,11 @@
 ---
 name: agent-design
 description: >-
- Fires when a builder is designing ONE production agent and asks what it should be built from —
- "design an agent for X", "what tools and memory does this agent need", "spec the agent",
- "our agent isn't getting smarter / never remembers corrections — how do we build its memory".
- Returns a four-part agent spec — role (one owned decision) · tools (the commodity shell) ·
- memory layer (CLAUDE.md · skills · lessons.md · trace archive, loaded at birth) · eval — where the
- memory layer is the only part the builder owns and therefore the only part that compounds. Do NOT
- fire for the agent's voice / persona / signature phrases (use meta/agent-persona-builder), the
- multi-agent fleet or hand-offs (use workflow-design), writing its golden cases / autonomy level /
- cost budget (use eval-first-spec — this skill routes there and carries the number), or the
- post-launch ship-observe-learn-refine loop and autonomy-raise (use refine-flywheel).
+  Use when designing ONE production agent: "design an agent for X", "what tools and memory
+  does this agent need", "spec the agent", "our agent never remembers corrections". Returns a
+  four-part spec: role, tools, memory layer, eval. Not for persona (agent-persona-builder),
+  multi-agent fleets (workflow-design), golden cases (eval-first-spec) or the post-launch loop
+  (refine-flywheel).
 metadata:
   supersedes: none
   type: generator

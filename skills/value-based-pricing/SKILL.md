@@ -1,15 +1,11 @@
 ---
 name: value-based-pricing
 description: >-
-  Set the price and the charging metric for a validated product — anchor the number at 10–20% of
-  the MEASURED incremental value, and charge on the outcome / asset / decision the customer gets,
-  never on seats or tiers. Emits a value-priced model. Fires on "how should we price this", "what
-  do we charge", "per seat or per outcome", "set the price", "what's the number". Not for
-  brainstorming which revenue model to bet on across the product (that is `monetization-strategy`,
-  exploratory; this commits ONE value-anchored number on ONE metric), not for structuring the
-  whole pilot deal — scope, success metrics, kill criteria (that is `pilot-six-term-sheet`; this
-  produces the price and metric that become its term 2 and term 6), not for measuring the value in
-  the first place (that is `current-state-map`, which prices the status quo this consumes).
+  Use when asked "how should we price this", "what do we charge", "per seat or per outcome",
+  "set the price". Anchors one price at 10 to 20 percent of measured incremental value and
+  charges on the outcome, never seats or tiers. Not for choosing a revenue model
+  (monetization-strategy), the whole pilot deal (pilot-six-term-sheet) or measuring the value
+  (current-state-map).
 metadata:
   supersedes: none
   type: generator
@@ -115,9 +111,9 @@ This skill enforces the ladder on the *value denominator*, which is where pricin
 
 ## Gotchas
 
-The willingness-to-pay survey dressed as data. "We asked 20 prospects and they'd pay about $500/month." Stated WTP is opinion (0.1) — hypothetical, anchored to whatever number you said first, and it is a *level* ($/month) not a metric. It cannot back a value price. Measure what one outcome is worth instead.
+The willingness-to-pay survey dressed as data. "We asked 20 prospects and they'd pay about USD 500/month." Stated WTP is opinion (0.1) — hypothetical, anchored to whatever number you said first, and it is a *level* ($/month) not a metric. It cannot back a value price. Measure what one outcome is worth instead.
 
-Charging gross when the status quo already captures value. Pricing 15% of a full $8,000 avoided stop when the plant's manual process already prevents half of them bills the customer for value you did not create, and the buyer's own numbers will expose it at renewal. Price the delta over status quo (Step 2), not the headline figure.
+Charging gross when the status quo already captures value. Pricing 15% of a full USD 8,000 avoided stop when the plant's manual process already prevents half of them bills the customer for value you did not create, and the buyer's own numbers will expose it at renewal. Price the delta over status quo (Step 2), not the headline figure.
 
 Per-seat because "that's how SaaS is sold." The most common decoupling trap, and it is wrong on the *axis*, not just the number: it is simultaneously overpriced for a one-facility buyer and underpriced for a ten-facility one, because seats have nothing to do with the outcome. As the agent improves and does five analysts' work from one seat, per-seat caps your revenue at one seat while you deliver five. Price the outcome.
 
@@ -153,7 +149,7 @@ ready — say which.
 
 ## Examples
 
-`examples/sample.md` — a full value-priced model for Meridian Grid (data-centre risk), built from a real $220k SLA-breach penalty the design partner paid (money 1.0). Includes the builder's first draft — a competitor-anchored per-seat price — and the correction that shows per-seat was wrong on the axis, not just the number. Figures are illustrative test fixtures.
+`examples/sample.md` — a full value-priced model for Meridian Grid (data-centre risk), built from a real USD 220k SLA-breach penalty the design partner paid (money 1.0). Includes the builder's first draft — a competitor-anchored per-seat price — and the correction that shows per-seat was wrong on the axis, not just the number. Figures are illustrative test fixtures.
 
 ## Related skills
 

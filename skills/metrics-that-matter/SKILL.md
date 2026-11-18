@@ -1,16 +1,11 @@
 ---
 name: metrics-that-matter
 description: >-
- Fires when a builder asks which numbers matter for a launched product —
- "what metrics should we track", "what should our North Star be", "is our
- retention any good / does the curve flatten", "our MAU is up-and-to-the-right,
- is that real or vanity", "what's our cost per outcome". Returns a metric
- scorecard: one customer-centric North Star, an AARRR one-metric skeleton, the
- flattening-retention truth test that GATES the North Star, and cost-per-outcome
- priced to the cent. Do NOT fire to design the post-launch improvement loop or
- promote autonomy (use refine-flywheel), to turn production traces into discovery
- interviews (use trace-to-interview), or to build the actual cohort dashboard,
- SQL, or alert thresholds (use a retention-dashboard or cohort-analysis skill).
+  Use when asked "what metrics should we track", "what should our North Star be", "is our
+  retention any good", "is this growth real or vanity", "what's our cost per outcome". Returns
+  a metric scorecard: one North Star, an AARRR skeleton, a flattening-retention test that
+  gates the North Star, and cost per outcome to the cent. Not for the post-launch loop
+  (refine-flywheel) or mining traces (trace-to-interview).
 metadata:
   supersedes: none
   type: generator
@@ -116,10 +111,10 @@ resolves it. Then check its direction as volume grows.
 
 | Line | How to get it | Example |
 |---|---|---|
-| Inference / API per outcome | tokens × rate, all model calls in the pipeline | $0.__ |
-| Human-in-loop per outcome | review minutes × loaded rate | $0.__ |
-| Infra / retrieval per outcome | vector + compute allocated per outcome | $0.__ |
-| **Cost per outcome** | sum above, to the cent | **$0.__** |
+| Inference / API per outcome | tokens × rate, all model calls in the pipeline | USD 0.__ |
+| Human-in-loop per outcome | review minutes × loaded rate | USD 0.__ |
+| Infra / retrieval per outcome | vector + compute allocated per outcome | USD 0.__ |
+| **Cost per outcome** | sum above, to the cent | **USD 0.__** |
 | Price per outcome | what the customer pays per outcome | $_.__ |
 | **Margin per outcome** | price − cost | **$_.__** |
 
@@ -173,7 +168,7 @@ the builder did not give.
 [examples/sample.md](examples/sample.md) — Larder Labs' shift-handover drafter: the
 proposed North Star ("documents drafted", a vanity total) reframed to accepted handovers
 per active team per week, gated by a team-level retention curve that flattens at ~55% by
-week 8, with cost-per-outcome priced at $0.14 against a $2.00 price, margin holding as
+week 8, with cost-per-outcome priced at USD 0.14 against a USD 2.00 price, margin holding as
 volume grows.
 
 ## Related skills

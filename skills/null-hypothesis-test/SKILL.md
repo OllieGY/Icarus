@@ -1,17 +1,11 @@
 ---
 name: null-hypothesis-test
 description: >-
- Falsification pass for the load-bearing beliefs under a chosen plan or wedge.
- Restates each assumption as a null hypothesis (the belief is FALSE), designs the
- single cheapest observation whose failure would disprove it, and ranks every
- assumption by P(wrong) x impact-if-wrong so the builder shoots at the most-likely-
- fatal belief first. Fires on "what has to be true", "how would I disprove this",
- "what's the riskiest assumption", "what could kill this", "which belief do I test
- first". Output is an Assumption -> Null -> Disproof table with a pre-committed kill
- signal on every row. NOT the go/no-go on whether the problem is worth building at
- all (problem-quality-scorecard), NOT bottom-up sizing (bottoms-up-quantification),
- NOT the priced workflow map (current-state-map), NOT a narrative failure story
- (pre-mortem).
+  Use when asked "what has to be true", "how would I disprove this", "what's the riskiest
+  assumption", "what could kill this", "which belief do I test first". Restates each belief as
+  a null hypothesis, designs the cheapest disproof, ranks by chance of being wrong times
+  impact, and sets a kill signal in advance. Not the go/no-go on the problem
+  (problem-quality-scorecard) or sizing (bottoms-up-quantification).
 metadata:
   supersedes: none
   type: generator

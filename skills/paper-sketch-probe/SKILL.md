@@ -1,12 +1,11 @@
 ---
 name: paper-sketch-probe
 description: >-
-  Fires when a builder wants to test a workflow on paper before building it — "paper test",
-  "sketch it", "paper prototype", "sketch probe", "draw the flow and check they can follow it".
-  Output is a hand-drawn workflow sketch plus a structured read-out naming what was legible and
-  where the decision lived. NOT for choosing which probe to run (that is `probe-matrix`), and NOT
-  for testing demand, trust, or willingness to pay — a sketch lies about all three; route those to
-  `wizard-of-oz-probe` or `concierge-probe`.
+  Use when asked for a "paper test", "sketch it", "paper prototype", or to draw the flow and
+  check people can follow it before building. Returns a hand-drawn workflow sketch and a
+  read-out of what was legible and where the decision sat. Not for choosing the probe
+  (probe-matrix) or testing demand, trust or willingness to pay (wizard-of-oz-probe,
+  concierge-probe).
 metadata:
   supersedes: none
   type: generator

@@ -1,19 +1,11 @@
 ---
 name: four-lenses-test
 description: >-
- Scores a specific concept across the four build-risk lenses — Desirability,
- Usability, Feasibility, Viability — where each lens is graded ONLY by its named
- tool (onion+JTBD+Kano for Desirability, a watched usability observation for
- Usability, a dev spike for Feasibility, ICE anchored to measured value for
- Viability) and run by its dual-track owner (Product/Design discovery beside
- Engineering delivery). Fires on "is this desirable / usable / feasible / viable",
- "should we build it", "run the four lenses", "go or no-go on this concept",
- "is this worth building". Output is a filled Four-Lens Scorecard: per-lens tool,
- owner, evidence + ladder weight, score, and an AND gate that KILLS the go if any
- single lens fails, every claim tagged [Fact]/[Assumption]/[Hypothesis]. NOT for
- the full problem→vision→strategy→roadmap spine (use product-frame-stack), NOT for
- scoring the PROBLEM on 8 dimensions (use problem-quality-scorecard), NOT for the
- five-question so-what gut check on the whole idea (use so-what-stress-test).
+  Use when asked "is this desirable, usable, feasible, viable", "should we build it", "run the
+  four lenses", "go or no-go on this concept". Returns a Four-Lens Scorecard, each lens graded
+  only by its named tool, with a gate that kills the go if any lens fails. Not for the
+  vision-to-roadmap stack (product-frame-stack), scoring the problem
+  (problem-quality-scorecard) or the five-question check (so-what-stress-test).
 metadata:
   supersedes: none
   type: generator

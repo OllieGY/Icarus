@@ -1,16 +1,11 @@
 ---
 name: workflow-design
 description: >-
- Fires when a builder needs to coordinate MORE THAN ONE agent to get the work done —
- "design the workflow", "orchestrate the agents", "set up the fleet", "how do the agents
- work together", "which agents do I need and when do they spawn", "multi-agent setup".
- Returns a workflow + fleet map: the multi-step orchestration, a spawn-by-rule fleet
- (researcher, analyst, prototyper, drafter, critic) each with an observable spawn trigger,
- and a Think/Build/Admin surface assignment (Claude.ai / Claude Code / Cowork), then kills
- a single-agent design where a fleet is needed and any spawn rule with no trigger. Do NOT
- fire to spec ONE agent's role/tools/memory (use agent-design), to design the product's
- internal request-time pipeline of input→router→reason→validate (use
- compound-system-architecture), or to write the pass/fail eval (use eval-first-spec).
+  Use when MORE THAN ONE agent must be coordinated: "design the workflow", "orchestrate the
+  agents", "set up the fleet", "which agents do I need and when do they spawn". Returns a
+  workflow and fleet map: the orchestration, a spawn-by-rule fleet with an observable trigger
+  each, and a surface per agent. Not for ONE agent's spec (agent-design), the request-time
+  pipeline (compound-system-architecture) or the eval (eval-first-spec).
 metadata:
   supersedes: none
   type: generator

@@ -1,17 +1,11 @@
 ---
 name: failure-mode-mining
 description: >-
-  Turns a pile of production traces into a COUNTED failure taxonomy: traces sampled to
-  saturation, open-coded blind one line each, axial-coded into 8 or fewer mutually exclusive
-  modes, each carrying frequency (count and % of sample), cost per occurrence, a frequency ×
-  cost rank, one exemplar trace ID, and a NEW / INSTANCE-OF-GUESSED / NOT-A-DEFECT verdict —
-  then sends you backwards to re-derive the acceptable failure rates the guessed taxonomy got
-  wrong. Fires on "why is it failing", "our agent keeps getting X wrong", "what's actually
-  going wrong in production", "which failure do we fix first", "run error analysis on these
-  traces". NOT for mining traces for jobs-to-be-done (use `trace-to-interview`), NOT for
-  picking which probe to run (use `probe-matrix`), NOT for designing the guardrail once the
-  modes are known (use `guardrail-design`), NOT for building the golden set (use
-  `dataset-builder`).
+  Use when asked "why is it failing", "what's actually going wrong in production", "which
+  failure do we fix first", "run error analysis on these traces". Returns a counted failure
+  taxonomy from sampled traces: up to 8 modes with frequency, cost per occurrence, rank and an
+  exemplar trace. Not for jobs-to-be-done from traces (trace-to-interview), guardrails
+  (guardrail-design) or the golden set (dataset-builder).
 metadata:
   type: interactive
   supersedes: none
@@ -228,8 +222,8 @@ lines, saturation declared at batch 5:
 
 | Mode | n (% of 50) | Cost / occurrence | Freq × cost | Exemplar | Verdict |
 |---|---|---|---|---|---|
-| Missed rare stop | 4 (8%) | $3,100 — plant downtime ledger, money 1.0 `[Fact]` | **$12,400** | FS-2411-0087 | INSTANCE-OF-GUESSED (Miss) |
-| Stale-shift attribution | 14 (28%) | $19.80 — 22 min tech time × $54/h loaded, behaviour 0.7 `[Fact]` | $277.20 | FS-2411-0112 | **NEW** |
+| Missed rare stop | 4 (8%) | USD 3,100 — plant downtime ledger, money 1.0 `[Fact]` | **USD 12,400** | FS-2411-0087 | INSTANCE-OF-GUESSED (Miss) |
+| Stale-shift attribution | 14 (28%) | USD 19.80 — 22 min tech time × USD 54/h loaded, behaviour 0.7 `[Fact]` | USD 277.20 | FS-2411-0112 | **NEW** |
 | Operator asked for a parts requisition | 5 (10%) | n/a | — | FS-2411-0141 | NOT-A-DEFECT → `trace-to-interview` |
 
 What makes this output, and not a summary: the most **frequent** mode is not the top-ranked one

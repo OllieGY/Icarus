@@ -1,14 +1,11 @@
 ---
 name: build-vs-buy-boundary
 description: >-
-  Assigns every component of an AI build to one of three lanes — Inherit (your existing
-  platform, framework or an open-source substrate already provides it), Build (it carries
-  your domain signal and is the moat) or Buy (a rented commodity) — by asking what stays
-  defensible if a competitor had it, not what is cheapest to own. Fires on "build vs buy",
-  "build or inherit this", "what do we already have", "should we build our own RAG
-  pipeline", "what's worth building ourselves". NOT for sequencing the moat over time (use
-  `moat-design-canvas`), NOT for writing the guardrail rules themselves (use
-  `guardrail-design`), NOT for routing which stages apply to you (use `start-here-router`).
+  Use when asked "build vs buy", "build or inherit this", "what do we already have", "should
+  we build our own RAG pipeline". Assigns every component of an AI build to Inherit, Build or
+  Buy by what stays defensible if a competitor had it. Not for sequencing the moat
+  (moat-design-canvas), guardrail rules (guardrail-design) or stage routing
+  (start-here-router).
 metadata:
   supersedes: none
   type: generator

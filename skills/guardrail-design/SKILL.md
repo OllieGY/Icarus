@@ -1,17 +1,12 @@
 ---
 name: guardrail-design
 description: >-
- Fires when a builder needs to decide how an AI product is stopped from doing the
- wrong thing — "design the guardrails", "when does a human sign off", "how do we
- handle failures / bad outputs", "what confidence threshold should we auto-approve
- at", "where do we put the human in the loop". Returns a guardrail spec: every
- failure mode placed on a cost-of-error × volume matrix, a three-layer stack (rules
- in code → confidence threshold → human sign-off) sized per mode, a derived
- confidence threshold, and a human-sign-off trigger for every high-cost / low-
- confidence path. Do NOT fire to derive the acceptable failure rate or pick the
- autonomy level (use eval-first-spec), to lay out the whole component pipeline (use
- compound-system-architecture), or to decide whether a human can now be REMOVED
- because accuracy has held (use refine-flywheel).
+  Use when asked to "design the guardrails", "when does a human sign off", "how do we handle
+  bad outputs", "what confidence threshold should we auto-approve at". Returns a guardrail
+  spec: failure modes on a cost-of-error by volume matrix, a three-layer stack per mode, a
+  derived threshold and sign-off triggers. Not for failure rates or autonomy level
+  (eval-first-spec), the pipeline (compound-system-architecture) or removing a human
+  (refine-flywheel).
 metadata:
   supersedes: none
   type: generator

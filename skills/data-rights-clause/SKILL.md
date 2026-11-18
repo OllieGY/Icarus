@@ -1,15 +1,11 @@
 ---
 name: data-rights-clause
 description: >-
-  Draft the data-rights clause for your first paid pilot. Runs the three-part test — the data must
-  be workflow exhaust, must compound with use, and must be covered by a clause signed at pilot #1
-  — then produces the actual clause language: data covered, retention, derived-data rights,
-  training rights, survival on termination. Jurisdiction points (residency, government-entity
-  data, worker consent) are marked [Assumption] for counsel. Fires on "data rights", "what to sign
-  at the pilot", "who owns the data", "can we keep and train on the pilot data", "change their
-  standard agreement so the data stays ours". NOT for deciding whether a source is a moat seed
-  (use `yoda-data-sourcing`), NOT for the whole pilot structure (use `pilot-six-term-sheet`). Not
-  a substitute for counsel.
+  Use when asked about "data rights", "what to sign at the pilot", "who owns the data", "can
+  we keep and train on the pilot data". Runs a three-part test, then drafts the clause: data
+  covered, retention, derived-data and training rights, survival on termination. Jurisdiction
+  points are marked for counsel. Not for choosing a moat source (yoda-data-sourcing) or the
+  whole pilot deal (pilot-six-term-sheet).
 metadata:
   supersedes: none
   type: generator

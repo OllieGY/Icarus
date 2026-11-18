@@ -1,15 +1,11 @@
 ---
 name: tacit-knowledge-interview
 description: >-
- Shadow an expert doing real work and extract the judgment calls they make without noticing.
- Fires when a builder says "interview an expert", "capture how they decide", "watch them work",
- "shadow an operator", "capture the judgment", or "encode when they override the rule". Runs a
- watch-30 / replay-20 / edge-cases-10 session and returns a Tacit-Knowledge Capture: the explicit
- procedure split from the tacit judgment, each fork tagged with the cue read and the exception
- that overrides it. NOT for scripting a Mom-Test customer discovery interview (use
- interview-script), planning discovery interviews about a problem or churn (use
- discovery-interview-prep), or condensing a transcript you already have (use
- summarize-interview).
+  Use when asked to "interview an expert", "capture how they decide", "shadow an operator",
+  "encode when they override the rule". Runs a watch-30, replay-20, edge-cases-10 session and
+  returns the explicit procedure split from the tacit judgment, each fork tagged with its cue
+  and its exception. Not for customer discovery interviews (interview-script,
+  discovery-interview-prep) or transcript summaries (summarize-interview).
 metadata:
   supersedes: none
   type: interactive

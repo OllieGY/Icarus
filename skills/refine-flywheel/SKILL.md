@@ -1,15 +1,11 @@
 ---
 name: refine-flywheel
 description: >-
-  Stands up the post-launch loop for a shipped AI product — ship behind sign-off → observe
-  tweak-time (how much the customer edits before accepting) → learn by re-running the WHOLE eval
-  set on every model release → refine by promoting autonomy only as a scored eval result, never by
-  feel. Fires on "what happens after launch", "improve the product", "set up the loop", "a new
-  model dropped, should we upgrade", "can we raise the autonomy / drop the sign-off yet". Returns
-  a filled flywheel cadence doc. NOT for which metrics/North Star/retention to track (use
-  metrics-that-matter), NOT for turning one trace into a discovery interview (use
-  trace-to-interview), NOT for writing the eval set or autonomy ladder in the first place (use
-  eval-first-spec — this re-runs what that created).
+  Use when asked "what happens after launch", "set up the loop", "a new model dropped, should
+  we upgrade", "can we raise the autonomy or drop the sign-off yet". Returns a flywheel
+  cadence doc: ship behind sign-off, track customer edits, re-run the whole eval set on each
+  model release, raise autonomy only on scores. Not for choosing metrics (metrics-that-matter)
+  or writing the eval set (eval-first-spec).
 metadata:
   supersedes: none
   type: generator
@@ -182,7 +178,7 @@ version, and treat an unpinned dependency as an `[Assumption]` about someone els
 
 ## Examples
 
-`examples/sample.md` — the post-launch flywheel for Foundry Signal's shift-handover machine-risk digest, picking up exactly where `eval-first-spec` shipped it at L1: tweak-time instrumented on the digests (clean-accept climbing 41% → 78%), a model-release re-run that regresses the Miss rate and correctly holds autonomy despite a higher aggregate score, and an L1→L2 promotion granted only after the re-scored eval clears the derived gate — with cost-per-outcome falling $3.55 → $2.90/shift as the compounding proof.
+`examples/sample.md` — the post-launch flywheel for Foundry Signal's shift-handover machine-risk digest, picking up exactly where `eval-first-spec` shipped it at L1: tweak-time instrumented on the digests (clean-accept climbing 41% → 78%), a model-release re-run that regresses the Miss rate and correctly holds autonomy despite a higher aggregate score, and an L1→L2 promotion granted only after the re-scored eval clears the derived gate — with cost-per-outcome falling USD 3.55 → USD 2.90/shift as the compounding proof.
 
 ## Related skills
 

@@ -1,18 +1,11 @@
 ---
 name: agent-surface-design
 description: >-
-  Returns a three-surface distribution plan — (a) an MCP server, (b) a shipped
-  portable Agent Skill, (c) an AGENTS.md fragment for their repo — each
-  surface carrying ONE job, with one named to ship first and the other two refused, plus an adoption metric per surface scored on the evidence ladder (launch
-  post or directory listing 0.1; installed-but-uncalled 0.3; tool calls from a
-  customer's own agent 0.7; money attached to those calls 1.0). Fires on "should we
-  build an MCP server", "how do people find this", "our customers' agents should be
-  able to use this", "distribution for an AI product", "should we ship a skill". NOT
-  for whether the wedge itself forces adoption (use wedge-five-questions), NOT for
-  designing the blast radius or human sign-off (use guardrail-design), NOT for
-  claiming the tool-call telemetry contractually (use data-rights-clause), NOT for
-  whether being the default tool is durable (use moat-design-canvas), NOT for
-  designing your own internal agent (use agent-design).
+  Use when asked "should we build an MCP server", "how do people find this", "should we ship a
+  skill", or customers' agents need to use the product. Returns a three-surface distribution
+  plan (MCP server, Agent Skill, AGENTS.md fragment), one to ship first, with an adoption
+  metric per surface on the evidence ladder. Not for wedge adoption (wedge-five-questions),
+  sign-off (guardrail-design) or internal agents (agent-design).
 metadata:
   type: generator
   supersedes: none

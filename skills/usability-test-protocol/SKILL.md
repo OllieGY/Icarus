@@ -1,15 +1,11 @@
 ---
 name: usability-test-protocol
 description: >-
-  Run a moderated usability session on a working prototype and return findings tied to the screen,
-  not the user. Fires on "run a usability test", "watch a user try it", "usability protocol", "can
-  a first-time user complete X", "see where they get stuck". The task is framed as a goal not an
-  instruction, the user is kept in user mode (no leading, no explaining, no "do you like it"), and
-  every finding is scored on observed task success (behaviour 0.7), never stated preference (0.1).
-  Output is a findings sheet: each defect tied to a step, counted across users, severity by
-  frequency × blocking. NOT for building the prototype (use `first-mocks`), NOT for capturing an
-  expert's judgment (use `tacit-knowledge-interview`), NOT for testing demand (use
-  `wizard-of-oz-probe`).
+  Use when asked to "run a usability test", "watch a user try it", "can a first-time user
+  complete X", "see where they get stuck". Runs a moderated session on a working prototype and
+  returns findings tied to the screen, scored on observed task success and counted across
+  users. Not for building the prototype (first-mocks), expert judgment
+  (tacit-knowledge-interview) or demand (wizard-of-oz-probe).
 metadata:
   supersedes: none
   type: interactive

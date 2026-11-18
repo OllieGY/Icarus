@@ -1,14 +1,11 @@
 ---
 name: start-here-router
 description: >-
-  Routes you through this kit by situation type instead of tearing down one idea. Fires on
-  "where do I start", "which stages apply to me", "which stages should I skip", "I already
-  have traction — what's my path", "I have a mature product, where do I begin". Classifies
-  the build as Type A (blank page), B (traction, no moat) or C (mature product) on the
-  evidence ladder, then returns a keep / trim / subtract / leap stage ledger and a
-  think:build:test ratio tied to that type's dominant risk. Do NOT fire to tear down or
-  grade one idea (use `concept-council` or `so-what-stress-test`), or to draw the
-  build-vs-buy line for a platform primitive (use `build-vs-buy-boundary`).
+  Use when asked "where do I start", "which stages apply to me", "which stages should I skip",
+  "I already have traction, what's my path". Classifies the build as Type A, B or C on the
+  evidence ladder and returns a keep, trim, subtract, leap stage ledger with a
+  think:build:test ratio. Not for tearing down one idea (concept-council, so-what-stress-test)
+  or build-vs-buy (build-vs-buy-boundary).
 metadata:
   supersedes: none
   type: interactive
